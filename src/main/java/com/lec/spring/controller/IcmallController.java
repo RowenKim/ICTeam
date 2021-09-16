@@ -34,6 +34,13 @@ public class IcmallController {
 		return "icmall/stockReview";
 	}
 	
+	
+	@RequestMapping("/joinCheck.do")
+	public String joinCheck(Model model) {
+		
+		return "icmall/joinCheck";
+	}
+	
 
 }
 

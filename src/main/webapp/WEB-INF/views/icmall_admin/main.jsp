@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div style="width:100%; height:30px;">
-<h1>footer 입니다</h1>
-</div>
+
 </body>
 </html>
