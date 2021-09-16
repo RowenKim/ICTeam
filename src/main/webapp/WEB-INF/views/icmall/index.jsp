@@ -8,9 +8,7 @@
 </head>
 <body>
 <jsp:include page="header.jsp"/>
-<jsp:include page="nav.jsp"/>
 <jsp:include page="footer.jsp"/>
-<h1>안녕하세요</h1>
 
 
 </body>
