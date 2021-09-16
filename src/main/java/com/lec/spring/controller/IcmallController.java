@@ -21,8 +21,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 @RequestMapping("/icmall")
 public class IcmallController {
-
-	@RequestMapping("/index.do")
+	
+	@RequestMapping("/index")
 	public String list(Model model) {
 		
 		return "icmall/index";
@@ -35,7 +35,7 @@ public class IcmallController {
 	}
 	
 	
-	@RequestMapping("/joinCheck.do")
+	@RequestMapping("/joinCheck")
 	public String joinCheck(Model model) {
 		
 		return "icmall/joinCheck";
