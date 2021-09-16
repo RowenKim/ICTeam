@@ -52,7 +52,7 @@
 	  <td>
 	  <label class= "lab" for="agree_all">
 	  <input type="checkbox" name="agree_all" id="agree_all">
-	  <span id = "f1">전체 동의합니다</span>
+	  <span id = "f1">전체 동의합니다 ㅇ</span>
 	  </label>
 	  </td>
 	</tr>
