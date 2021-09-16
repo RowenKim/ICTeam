@@ -28,6 +28,12 @@ public class IcmallController {
 		return "icmall/index";
 	}
 	
+	@RequestMapping("/stockReview")
+	public String stockReview() {
+		
+		return "icmall/stockReview";
+	}
+	
 
 }
 
