@@ -4,12 +4,9 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>I.C Mall</title>
+<title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="header.jsp"/>
-<jsp:include page="footer.jsp"/>
-
 
 </body>
 </html>
