@@ -12,8 +12,7 @@
     <title>nav</title>
     <!-- Stylesheets & Fonts -->
     <link href="${pageContext.request.contextPath }/CSS/plugins.css" type="text/css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath }CSS/style.css" type="text/css" rel="stylesheet">
-  
+    <link href="${pageContext.request.contextPath }/CSS/style.css" type="text/css" rel="stylesheet">
 </head>
 <body>
  <!-- Body Inner -->
@@ -24,7 +23,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <ul class="top-menu">
-                            <li><a href="#" id="test">About</a></li>
+                            <li><a href="#">About</a></li>
                             <li><a href="#">Features</a></li>
                             <li><a href="#">Pricing</a></li>
                             <li><a href="#">Terms</a></li>
@@ -48,7 +47,6 @@
                 </div>
             </div>
         </div>
-        <!-- end: Topbar -->
          </div>
     <!-- end: Body Inner -->
     <!-- Scroll top -->

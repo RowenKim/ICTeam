@@ -28,6 +28,12 @@ public class IcmallController {
 		return "icmall/index";
 	}
 	
+	@RequestMapping("/joinCheck.do")
+	public String joinCheck(Model model) {
+		
+		return "icmall/joinCheck";
+	}
+	
 
 }
 
