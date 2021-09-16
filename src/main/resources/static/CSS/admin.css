@@ -10,3 +10,23 @@
 .bottom-border{
 	border-bottom: 2px groove #eee;
 }
+.sidebar-link{
+	transition: all .4s;	
+}
+.sidebar-link:hover{
+	background-color: #444;
+	border-radius: 5px;
+}
+.current{
+	background-color: #5f0080;
+	border-radius: 7px;
+	
+}
+.current:hover{
+	background-color: #f66436;
+	border-radius: 7px;
+	box-shadow: 2px 5px 20px #5f0081;
+	transform: translateY(-1px);
+}
+
+/* end navar */

@@ -1,5 +1,7 @@
-<!doctype html>
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="ko">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -9,7 +11,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 	<meta charset="UTF-8">
 	<link href="${pageContext.request.contextPath }/CSS/admin.css" type="text/css" rel="stylesheet">
-	<script src="${pageContext.request.contextPath }/JS/admin.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+	
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">	
+	<meta charset="UTF-8">
+	<link href="${pageContext.request.contextPath }/CSS/admin.css" type="text/css" rel="stylesheet">
 	
     <title>I.C Mall - admin</title>
   </head>
@@ -24,12 +30,42 @@
     			<div class="row"></div>
     			<!-- sidebar -->
     			<div class="col-lg-3 sidebar fixed-top">
-    				<a href="#" class="navbar-brand text-white text-center d-block mx-auto py-3 mb-4 bottom-border">I.C Mall</a>
+    				<a href="#" class="navbar-brand text-white text-center d-block mx-auto py-3 mb-4 
+    				bottom-border">I.C Mall Admin</a>
+    		
+    				<ul class="navbar-nav flex-column mt-4">
+    					<!-- 주문관리 -->
+    					<li class="nav-item">
+    						<a href="#" class="nav-link text-white p-3 mb-2 current">
+    							<i class="fas fa-shopping-cart text-white fa-lg mr-3"></i> 주문관리
+    						</a>
+    					<!-- 문의/답변관리 -->
+    					<li class="nav-item">
+    						<a href="#" class="nav-link text-white p-3 mb-2 current">
+    							<i class="fas fa-envelope text-white fa-lg mr-3"></i> 문의 / 답변관리
+    						</a>
+    					<!-- 회원관리 -->
+    					<li class="nav-item">
+    						<a href="#" class="nav-link text-white p-3 mb-2 current">
+    							<i class="fas fa-user text-white fa-lg mr-3"></i> 회원관리
+    						</a>
+    				</ul>
     			</div>
     			<!-- end sidebar -->
     			<!-- top navbar -->
-    			<div class="col-lg-9">
-    
+    			<div class="col-lg-9 ml-auto bg-dark fixed-top py-3">
+    				<div class="row">
+    					<div class="col-md-4">
+    						<h4 class="text-light text-uppercase mb-0">주문관리</h4>
+    					</div>
+    					<div class="col-md-5">
+    					
+    					</div>
+    					<div class="col-md-6">
+    					
+    					</div>
+    					
+    				</div>
     			</div>
     			<!-- end top navbar -->
     		</div>
