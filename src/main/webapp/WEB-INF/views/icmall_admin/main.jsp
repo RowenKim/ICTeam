@@ -27,51 +27,52 @@
     	</button>	
     	<div class="collapse navbar-collapse" id="sidebar">
     		<div class="container-fluid">
-    			<div class="row"></div>
+    			<div class="row">
     			<!-- sidebar -->
-    			<div class="col-lg-3 sidebar fixed-top">
-    				<a href="#" class="navbar-brand text-white text-center d-block mx-auto py-3 mb-4 
-    				bottom-border">I.C Mall Admin</a>
+    				<div class="col-lg-3 sidebar fixed-top">
+    					<a href="#" class="navbar-brand text-white text-center d-block mx-auto py-3 mb-4 
+    					bottom-border">I.C Mall Admin</a>
     		
-    				<ul class="navbar-nav flex-column mt-4">
-    					<!-- 주문관리 -->
-    					<li class="nav-item">
-    						<a href="#" class="nav-link text-white p-3 mb-2 current">
-    							<i class="fas fa-shopping-cart text-white fa-lg mr-3"></i> 주문관리
-    						</a>
-    					<!-- 문의/답변관리 -->
-    					<li class="nav-item">
-    						<a href="#" class="nav-link text-white p-3 mb-2 current">
-    							<i class="fas fa-envelope text-white fa-lg mr-3"></i> 문의 / 답변관리
-    						</a>
-    					<!-- 회원관리 -->
-    					<li class="nav-item">
-    						<a href="#" class="nav-link text-white p-3 mb-2 current">
-    							<i class="fas fa-user text-white fa-lg mr-3"></i> 회원관리
-    						</a>
-    				</ul>
-    			</div>
-    			<!-- end sidebar -->
-    			<!-- top navbar -->
-    			<div class="col-lg-9 ml-auto bg-dark fixed-top py-3">
-    				<div class="row">
-    					<div class="col-md-4">
-    						<h4 class="text-light text-uppercase mb-0">주문관리</h4>
-    					</div>
-    					<div class="col-md-5">
-    					
-    					</div>
-    					<div class="col-md-6">
-    					
-    					</div>
-    					
+    					<ul class="navbar-nav flex-column mt-4">
+    						<!-- 주문관리 -->
+    						<li class="nav-item">
+    							<a href="#" class="nav-link text-white p-3 mb-2 current">
+    								<i class="fas fa-shopping-cart text-white fa-lg mr-3"></i> 주문관리
+    							</a>
+    						<!-- 문의/답변관리 -->
+    						<li class="nav-item">
+    							<a href="#" class="nav-link text-white p-3 mb-2 current">
+    								<i class="fas fa-envelope text-white fa-lg mr-3"></i> 문의 / 답변관리
+    							</a>
+    						<!-- 회원관리 -->
+    						<li class="nav-item">
+    							<a href="#" class="nav-link text-white p-3 mb-2 current">
+    								<i class="fas fa-user text-white fa-lg mr-3"></i> 회원관리
+    							</a>
+    					</ul>
     				</div>
-    			</div>
+    				<!-- end sidebar -->
+    				<!-- top navbar -->
+    				<div class="col-lg-9 ml-auto bg-dark fixed-top py-3">
+    					<div class="row">
+    						<div class="col-md-12">
+    							<h4 class="text-light text-uppercase mb-0"> 주문관리</h4>
+    						</div>
+    						<div class="col-md-5">
+    					
+    						</div>
+    						<div class="col-md-3">
+    					
+    						</div>
+    					
+    					</div>
+    				</div>
     			<!-- end top navbar -->
+    			</div>
     		</div>
     	</div>
     </nav>
-
+	<!-- end of navbar -->
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
