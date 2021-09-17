@@ -19,12 +19,12 @@
 	
 		<div class="content col-lg-14">
 		<div id="titleCenter">
-			<h3><b>후기작성</b></h3>
+			<h3><b>후기수정</b></h3>
 		</div>
 		<br><br>
-			<form action="stockReviewOk">
-			<table class="table" id="sr_table">
-				<tbody>
+			<form action="reviewUpdateOk">
+			<table class="table">
+				<tbody id="sr_table">
 					<tr>
 						<th scope="row" class="sr_headTable"><img src="img" alt="이미지"></th>
 						<td>상품이름(SELECT st_name WHERE st_uid=?)</td>
@@ -33,21 +33,21 @@
 						<th scope="row" class="sr_headTable"><b>제목</b></th>
 						<td><input
 							class="form-control required" name="senderName"
-							placeholder="제목을 입력해주세요" id="name" aria-required="true"
+							value="수정할 제목" id="name" aria-required="true"
 							type="text"></td>
 					</tr>
 					<tr>
 						<th scope="row" class="sr_headTable"><b>후기내용</b></th>
 						<td><textarea class="form-control required" name="comment" rows="9"
-							placeholder="자세한 후기는 다른 고객의 구매에 많은 도움이 됩니다" id="comment"
-							aria-required="true"></textarea></td>
+							 id="comment"
+							aria-required="true">수정할 내용</textarea></td>
 					</tr>
 				</tbody>
 			</table>
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="form-group text-center">
-						<button class="btn" type="submit">작성완료</button>
+						<button class="btn" type="submit">수정완료</button>
 					</div>
 				</div>
 			</div>

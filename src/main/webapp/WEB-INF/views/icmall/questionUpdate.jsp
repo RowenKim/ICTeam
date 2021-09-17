@@ -4,7 +4,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>상품후기 작성</title>
+<title>상품문의수정</title>
 <link href="${pageContext.request.contextPath }/CSS/won.css"
 	type="text/css" rel="stylesheet">
 <link href="${pageContext.request.contextPath }/CSS/plugins.css"
@@ -13,41 +13,44 @@
 	type="text/css" rel="stylesheet">
 </head>
 <body>
-	<jsp:include page="header.jsp" />
-	<hr>
-	<section id="page-content">
+<jsp:include page="header.jsp" />
 	
+	<section id="page-content">
 		<div class="content col-lg-14">
-		<div id="titleCenter">
-			<h3><b>후기작성</b></h3>
-		</div>
-		<br><br>
-			<form action="stockReviewOk">
-			<table class="table" id="sr_table">
-				<tbody>
+			<div id="titleCenter">
+			<h3><b>상품수정</b></h3>
+			</div>
+			<br><br>
+			
+			<form action="questionUpdateOk">
+			<table class="table">
+				<tbody id="q_table">
 					<tr>
-						<th scope="row" class="sr_headTable"><img src="img" alt="이미지"></th>
-						<td>상품이름(SELECT st_name WHERE st_uid=?)</td>
-					</tr>
-					<tr>
-						<th scope="row" class="sr_headTable"><b>제목</b></th>
+						<th scope="row" class="content col-lg-2">제목</th>
 						<td><input
 							class="form-control required" name="senderName"
 							placeholder="제목을 입력해주세요" id="name" aria-required="true"
 							type="text"></td>
 					</tr>
 					<tr>
-						<th scope="row" class="sr_headTable"><b>후기내용</b></th>
+						<th scope="row" class="q_headTable">내용</th>
 						<td><textarea class="form-control required" name="comment" rows="9"
-							placeholder="자세한 후기는 다른 고객의 구매에 많은 도움이 됩니다" id="comment"
+							placeholder="내용을 입력해주세요" id="comment"
 							aria-required="true"></textarea></td>
 					</tr>
+					<tr>
+						<th scope="row" class="q_headTable">이미지</th>
+						<td>
+						<input type="file" name="file1"><br>
+						</td>
+					</tr>
+
 				</tbody>
 			</table>
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="form-group text-center">
-						<button class="btn" type="submit">작성완료</button>
+						<button class="btn" type="submit">수정</button>
 					</div>
 				</div>
 			</div>
@@ -55,11 +58,8 @@
 		</div>
 	</section>
 
-
-
-	<br>
-	<br>
 	<jsp:include page="footer.jsp" />
+
 
 </body>
 </html>
