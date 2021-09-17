@@ -8,3 +8,7 @@ const agreeChkAll = document.querySelector('input[name=agree_all]');
       agreeChk[i].checked = e.target.checked;
     }
 });
+
+
+
+

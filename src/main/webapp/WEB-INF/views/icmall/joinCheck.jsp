@@ -6,42 +6,19 @@
  
 <meta charset="UTF-8">
 <link href="${pageContext.request.contextPath }/CSS/jaeuk.css" type="text/css" rel="stylesheet">
-<script src="${pageContext.request.contextPath }/JS/jaeuk.js"></script>
+
 
 <title>약관동의페이지</title>
 </head>
+
 <body>
 
 <jsp:include page="header.jsp"/>
 
 
+<form name="frm">
 <!-- 영역 -->
 <div class="div1">
-	<!-- 선택사항 -->
-	<!-- 
-	<label class= "lab" for="agree_all">
-	  <input type="checkbox" name="agree_all" id="agree_all">
-	  <span>전체 동의합니다</span>
-	  <br>
-	  <span style="font-size: 7px">선택항목에 동의하지 않은 경우도 회원가입 및 일반적인 서비스웹 이용할 수 있습니다.<span>
-	</label>
-	<label class= "lab" for="agree">
-	  <input type="checkbox" name="agree" value="1">
-	  <span>이용약관 동의<strong>(필수)</strong></span>
-	</label>
-	<label class= "lab" for="agree">
-	  <input type="checkbox" name="agree" value="2">
-	  <span>개인정보 수집ㆍ이용 동의<strong>(필수)</strong></span>
-	</label>
-	<label class= "lab" for="agree">
-	  <input type="checkbox" name="agree" value="3">
-	  <span>개인정보 수집ㆍ이용 동의<strong>(선택)</strong></span>
-	  
-	</label>
-	 -->
-	 
-	
-
 	<table>
 	<tr><!-- 첫번째 줄 시작 -->
 	  <td class="t1">
@@ -52,7 +29,7 @@
 	  <td>
 	  <label class= "lab" for="agree_all">
 	  <input type="checkbox" name="agree_all" id="agree_all">
-	  <span id = "f1">전체 동의합니다 ㅇ</span>
+	  <span id = "f1">전체 동의합니다</span>
 	  </label>
 	  </td>
 	</tr>
@@ -109,7 +86,7 @@
 	
 	<br><br><br>
 	<div class="div2">
-	<button type="button" class = "btn">가입하기</button>
+	<button type="button" class = "btn" onclick="loadData()">가입하기</button>
 	</div>
 
 </div>
@@ -117,5 +94,9 @@
 
 
 
+
+<script src="${pageContext.request.contextPath }/JS/jaeuk.js"></script>
+
+</form>
 </body>
 </html>
