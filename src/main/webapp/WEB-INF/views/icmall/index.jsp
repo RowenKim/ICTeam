@@ -9,7 +9,7 @@
 <body>
 <jsp:include page="header.jsp"/>
 <%-- <jsp:include page="footer.jsp"/>
- --%>
+ --%>인덱스 시작
 
 </body>
 </html>
