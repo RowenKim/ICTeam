@@ -51,6 +51,94 @@ p{
 	font-weight: bold;
 }
 
-
+/* 회원가입 */
+#div3 {
+	width:700px;
+	position: relative;
 	
+}
+
+
+.t2 {
+	padding-bottom: 10px;
+}
+.t3 {
+	padding-bottom: 10px;
+	padding-left: 50px;
+	width: 350px;
+	text-align: center;
+}
+#t3{
+	padding-bottom: 10px;
+	padding-left: 50px;
+}
+.t4 {
+	padding-left: 10px;
+	padding-bottom: 10px;
+	width: 200px;
+}
+.idbtn, .upbtn {
+	width: 100px;
+	text-align: center;
+	
+}
+button.idbtn, .idbtn:not(.close):not(.mfp-close), a.idbtn:not([href]):not([tabindex]) { font-family: "Poppins", sans-serif; border-radius: 5px 5px 5px 5px; font-size: 12px; font-weight: 600; letter-spacing: .5px; text-decoration: none; outline: none; padding: 12px 18px; position: relative; text-transform: uppercase; background-color: #ffffff; border-color: #5f0080; border-width: 1px; border-style: solid; color: #5f0080; -webkit-transition: all 0.3s; transition: all 0.3s; margin-bottom: 6px; outline: none; line-height: 14px; cursor: pointer; }
+button#adressbtn, #adressbtn:not(.close):not(.mfp-close), a#adressbtn:not([href]):not([tabindex]) { font-family: "Poppins", sans-serif; border-radius: 5px 5px 5px 5px; font-size: 12px; font-weight: 600; letter-spacing: .5px; text-decoration: none; outline: none; padding: 12px 18px; position: relative; text-transform: uppercase; background-color: #ffffff; border-color: #5f0080; border-width: 1px; border-style: solid; color: #5f0080; -webkit-transition: all 0.3s; transition: all 0.3s; margin-bottom: 6px; outline: none; line-height: 14px; cursor: pointer; }
+button#datebtn, #datebtn:not(.close):not(.mfp-close), a#datebtn:not([href]):not([tabindex]) { font-family: "Poppins", sans-serif; border-radius: 5px 5px 5px 5px; font-size: 12px; font-weight: 600; letter-spacing: .5px; text-decoration: none; outline: none; padding: 12px 18px; position: relative; text-transform: uppercase; background-color: #ffffff; border-color: #5f0080; border-width: 1px; border-style: solid; color: #5f0080; -webkit-transition: all 0.3s; transition: all 0.3s; margin-bottom: 6px; outline: none; line-height: 14px; cursor: pointer; }
+button.upbtn, .upbtn:not(.close):not(.mfp-close), a.upbtn:not([href]):not([tabindex]) { font-family: "Poppins", sans-serif; border-radius: 5px 5px 5px 5px; font-size: 12px; font-weight: 600; letter-spacing: .5px; text-decoration: none; outline: none; padding: 12px 18px; position: relative; text-transform: uppercase; background-color: #5f0080; border-color: #5f0080; border-width: 1px; border-style: solid; color: #ffffff; -webkit-transition: all 0.3s; transition: all 0.3s; margin-bottom: 6px; outline: none; line-height: 14px; cursor: pointer; }
+.inf{
+ width: 300px;
+}
+
+input::placeholder {
+	color:#ccc;
+	font-size: 6px;
+}
+
+#adressbtn {
+ width: 300px;
+}
+
+#datebtn{
+	width: 300px;
+}
+
+
+/* 회원정보수정 */
+.div4 {
+	text-align: center;
+	padding-right: 35px;
+}
+
+@media screen and (max-width:768px){
+	.div3.div.h2{
+		font-size: 10px;
+	}
+	.div{
+	 width: 768px;
+	}
+	.t2{
+	 font-size: 8px;
+	 min-width: 30px;
+	}
+	.t3{
+	 width: 53%;
+	 min-width: 30px;
+	}
+	
+}
+
+
+.product-image{
+	 top : 0;
+	  position : sticky;
+}
+
+
+
+
+
+
+
+
 

@@ -13,6 +13,8 @@
     <!-- Stylesheets & Fonts -->
     <link href="${pageContext.request.contextPath }/CSS/plugins.css" type="text/css" rel="stylesheet">
     <link href="${pageContext.request.contextPath }/CSS/style.css" type="text/css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath }/CSS/seoha.css" type="text/css" rel="stylesheet">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
   
 </head>
 <body>
@@ -103,20 +105,13 @@
                                 </ul>
                                 <!--Right Menu-->
                                 <ul>
-                                    <li class="dropdown"><a href="#">Pages</a>
-                                       
-                                    </li>
-                                    <li class="dropdown"><a href="#"></a>
-                                       
-                                    </li>
-                                    <li class="dropdown"><a href="#"></a>
-                                       
-                                    </li>
-                    			
-                                <form class="form-inline my-2 my-lg-0">
-                                    <input class="form-control mr-sm-2" placeholder="Search" aria-label="Search" type="search">
-                                    <button class="btn btn-outline-primary" type="submit">Search</button>
+                                   <form class="form-inline my-2 my-lg-0 m-t-20 m-r-60 m-d-none" id="mall_serch_form">
+                                    <input class=" form-control mr-sm-2" id="mall_search" placeholder="검색어를 입력해주세요" aria-label="검색어를 입력해주세요" type="search">
+                                   <i class="fab fa-sistrix" id="mall_serch_icon"></i>
+                                    </input>
+                                   <i class="fas fa-shopping-cart m-l-15" id="mall_cart"></i> 
                                 </form>
+                              
                                 </ul>
                             </nav>
                         </div>
@@ -127,6 +122,7 @@
         </header>
         <!-- end: Header -->
     </div>
+   </div>
     <!-- end: Body Inner -->
     <!-- Scroll top -->
     <a id="scrollTop"><i class="icon-chevron-up"></i><i class="icon-chevron-up"></i></a>
