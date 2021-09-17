@@ -14,6 +14,7 @@
     <link href="${pageContext.request.contextPath }/CSS/plugins.css" type="text/css" rel="stylesheet">
     <link href="${pageContext.request.contextPath }/CSS/style.css" type="text/css" rel="stylesheet">
     <link href="${pageContext.request.contextPath }/CSS/seoha.css" type="text/css" rel="stylesheet">
+    
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
 </head>
 <body class="">
@@ -251,6 +252,9 @@
 			</div>
      </section>
          <!--end: Shop products Carousel -->
+         
+         
+         
      
   
      </div>
