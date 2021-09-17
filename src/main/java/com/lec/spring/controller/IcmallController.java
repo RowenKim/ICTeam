@@ -57,6 +57,23 @@ public class IcmallController {
 	public String question() {
 		return "icmall/question";
 	}
+	
+	@RequestMapping("/join")
+	public String join(Model model) {
+		
+		return "icmall/join";
+	}
+	@RequestMapping("/userUpdate")
+	public String userUpdate(Model model) {
+		
+		return "icmall/userUpdate";
+	}
+	
+	@RequestMapping("/snack")
+	public String snack(Model model) {
+		
+		return "icmall/snack";
+	}
 
 	@RequestMapping("/questionUpdate")
 	public String questionUpdate() {
