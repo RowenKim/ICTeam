@@ -1,0 +1,35 @@
+.sidebar{
+	height: 100vh;
+	
+	background-position: center;
+	background-size: cover;
+}
+.sidebar-link{
+	transition: all .4s;
+}
+.sidebar-link:hover{
+	background-color: #444;
+	border-radius: 5px;
+}
+
+.navtopbg{
+	background-color: #5f0080;
+}
+.navtopfont{
+	text-align: center;
+	font-size: 20px;
+	margin:auto;
+	width:50%;
+}
+.navdropdown:hover{
+	background-color: #c0c0c0;
+}
+
+.btncolor{
+	background-color: #5f0080;
+	
+}
+.btncolor:hover{
+	background-color: #5f0010;
+	
+}
