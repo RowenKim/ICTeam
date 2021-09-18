@@ -58,21 +58,39 @@ public class IcmallController {
 		return "icmall/snack";
 	}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//서하 페이지 컨트롤
+	
+	@RequestMapping("/carousel")
+	public String slide(Model model) {
+		
+		return "icmall/carousel";
+	}
+	
+	
+	
+	
+	
+
+	
+// 서하 페이지 컨트롤 끝 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
