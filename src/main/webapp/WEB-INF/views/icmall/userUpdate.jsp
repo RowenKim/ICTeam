@@ -12,11 +12,13 @@
 <jsp:include page="header.jsp"/>
  
 <div class="container center" id ="div3">
-
+	 <br><br><br>
   <div>
     <h2>회원정보수정</h2>
   </div>
-  <br><br>
+  <br>
+  <hr class="two">
+  <br>
  
   <div>
   <form name="login" action="index.html" method="post">
