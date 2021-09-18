@@ -48,9 +48,9 @@
                         </a>
                     </div>
                 </div>
-                </div>
-                <div class="header-inner">
-                <div class="container">
+            </div>
+            <div class="header-inner">
+            <div class="container">
                     <!--Logo-->
                   <!--   <div id="logo">
                         <a href="index.html">
@@ -122,14 +122,12 @@
         </header>
         <!-- end: Header -->
     </div>
-   </div>
+   
     <!-- end: Body Inner -->
     <!-- Scroll top -->
     <a id="scrollTop"><i class="icon-chevron-up"></i><i class="icon-chevron-up"></i></a>
     <!--Plugins-->
-    <script src="${pageContext.request.contextPath }/JS/jquery.js"></script>
-    <script src="${pageContext.request.contextPath }/JS/plugins.js"></script>
-    <script src="${pageContext.request.contextPath }/JS/functions.js"></script>
+   
  
 </body>
 </html>
