@@ -1,10 +1,55 @@
+#titleCenter{
+	text-align:center;
+}
+
+/* stockReview, reviewUpdate */
 #page-content{
 	margin:auto;
 	width:50%;
 }
 
-th{
+.sr_headTable {  
 	width:20%;
 	background-color:#eeeeee;
+}
+
+th {
+	min-width:50px;
+}
+
+/* serviceCenter */
+
+#sr_table, #q_table{
+	border-top:2px solid #C19DCE;
+}
+
+
+#sc_table{
+	border-top:2px solid #5f0080;
+}
+
+#btnStyle{
+	border:0;
+	outline:0;
+	background-color:white;
+}
+
+#btnStyle:hover{
+	background-color:#ECECEC;
+}
+
+#reviewContent{
+	display:none;
+	padding-left:10px;
+}
+
+#footTop {
+	height:230px;
+	background-color: #FEEBFD;
+}
+
+#footBottom{
+	height:70px;
+	border:1px solid red;
 }
 

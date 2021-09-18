@@ -41,6 +41,23 @@ public class IcmallController {
 		return "icmall/joinCheck";
 	}
 	
+	@RequestMapping("/reviewUpdate")
+	public String reviewUpdateOk() {
+		
+		return "icmall/reviewUpdate";
+	}
+	
+	@RequestMapping("/serviceCenter")
+	public String serviceCenter() {
+		
+		return "icmall/serviceCenter";
+	}
+	
+	@RequestMapping("/question")
+	public String question() {
+		return "icmall/question";
+	}
+	
 	@RequestMapping("/join")
 	public String join(Model model) {
 		
@@ -77,6 +94,7 @@ public class IcmallController {
 
 
 
+
 //서하 페이지 컨트롤
 	
 	@RequestMapping("/carousel")
@@ -91,6 +109,111 @@ public class IcmallController {
 	
 
 	
-// 서하 페이지 컨트롤 끝 	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	// 서하 페이지 컨트롤 끝 	
+
+	@RequestMapping("/questionUpdate")
+	public String questionUpdate() {
+		return "icmall/questionUpdate";
+	}
+	
+	@RequestMapping("/webWrite")
+	public String webWrite() {
+		return "icmall/webWrite";
+	}
+	
+	@RequestMapping("/webUpdate")
+	public String webUpdate() {
+		return "icmall/webUpdate";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@RequestMapping("/fruit")
+	public String fruit(Model model) {
+		return "icmall/fruit";
+	}
+	
+	@RequestMapping("/meat")
+	public String meat(Model model) {
+		return "icmall/meat";
+	}
+	@RequestMapping("/vegetable")
+	public String vegetable(Model model) {
+		return "icmall/vegetable";
+	}
+	@RequestMapping("/health")
+	public String health(Model model) {
+		return "icmall/health";
+	}
+	
+	
+	
+	
+	
+	
+>>>>>>> branch 'master' of https://github.com/RowenKim/ICTeam
 }
 
