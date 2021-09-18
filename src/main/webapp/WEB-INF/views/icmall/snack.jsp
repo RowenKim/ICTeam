@@ -12,6 +12,7 @@
     <!-- Stylesheets & Fonts -->
     <link href="${pageContext.request.contextPath }/CSS/plugins.css" type="text/css" rel="stylesheet">
     <link href="${pageContext.request.contextPath }/CSS/style.css" type="text/css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath }/CSS/jaeuk.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>
@@ -20,7 +21,13 @@
                 <!-- Content -->
         <section id="page-content">
             <div class="container">
-         
+            <div class="div4">
+            <h3>간식류</h3>
+         	</div>
+         	<br><br><br><br><br><br>
+         	
+         	
+         	
                 <!-- Blog -->
                 <div id="blog" class="grid-layout post-3-columns m-b-30" data-item="post-item">
                     <!-- Post item-->
@@ -59,6 +66,52 @@
                     <!-- end: Post item-->
                     <!-- Post item-->
                      <div class="post-item border">
+                        <div class="post-item-wrap">
+                            <div class="post-image">
+                                <a href="#">
+                                    <img alt="" src="https://blog.kakaocdn.net/dn/qEwHb/btqCoRsfE2N/iAWkJFh4g1IKZshNnOe860/img.jpg">
+                                </a>
+                            </div>
+                            <div class="post-item-description">
+                                <h2><a href="#">[유기농] 멜론
+                                    </a></h2>
+                                <p>10,000원</p>
+                                <p>유기농 농사로 나온 멜론 </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="post-item border">
+                        <div class="post-item-wrap">
+                            <div class="post-image">
+                                <a href="#">
+                                    <img alt="" src="https://blog.kakaocdn.net/dn/qEwHb/btqCoRsfE2N/iAWkJFh4g1IKZshNnOe860/img.jpg">
+                                </a>
+                            </div>
+                            <div class="post-item-description">
+                                <h2><a href="#">[유기농] 멜론
+                                    </a></h2>
+                                <p>10,000원</p>
+                                <p>유기농 농사로 나온 멜론 </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-item border">
+                        <div class="post-item-wrap">
+                            <div class="post-image">
+                                <a href="#">
+                                    <img alt="" src="https://blog.kakaocdn.net/dn/qEwHb/btqCoRsfE2N/iAWkJFh4g1IKZshNnOe860/img.jpg">
+                                </a>
+                            </div>
+                            <div class="post-item-description">
+                                <h2><a href="#">[유기농] 멜론
+                                    </a></h2>
+                                <p>10,000원</p>
+                                <p>유기농 농사로 나온 멜론 </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-item border">
                         <div class="post-item-wrap">
                             <div class="post-image">
                                 <a href="#">
