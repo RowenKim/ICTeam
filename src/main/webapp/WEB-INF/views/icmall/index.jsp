@@ -9,7 +9,7 @@
     <meta name="author" content="INSPIRO" />
     <meta name="description" content="Themeforest Template Polo">
     <!-- Document title -->
-    <title>I.C Mall</title>
+    <title>I.C Mall </title>
     <!-- Stylesheets & Fonts -->
     <link href="${pageContext.request.contextPath }/CSS/plugins.css" type="text/css" rel="stylesheet">
     <link href="${pageContext.request.contextPath }/CSS/style.css" type="text/css" rel="stylesheet">
