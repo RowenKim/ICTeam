@@ -91,6 +91,55 @@ public class IcmallController {
 	}
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@RequestMapping("/fruit")
+	public String fruit(Model model) {
+		return "icmall/fruit";
+	}
+	
+	@RequestMapping("/meat")
+	public String meat(Model model) {
+		return "icmall/meat";
+	}
+	@RequestMapping("/vegetable")
+	public String vegetable(Model model) {
+		return "icmall/vegetable";
+	}
+	@RequestMapping("/health")
+	public String health(Model model) {
+		return "icmall/health";
+	}
+	
+	
+	
+	
+	
+	
 }
 
 
