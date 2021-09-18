@@ -75,6 +75,79 @@ public class IcmallController {
 		return "icmall/snack";
 	}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//서하 페이지 컨트롤
+	
+	@RequestMapping("/carousel")
+	public String slide(Model model) {
+		
+		return "icmall/carousel";
+	}
+	
+	
+	
+	
+
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	// 서하 페이지 컨트롤 끝 	
+
 	@RequestMapping("/questionUpdate")
 	public String questionUpdate() {
 		return "icmall/questionUpdate";
@@ -124,79 +197,6 @@ public class IcmallController {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	/* 종원 컨트롤 페이지*/
 	
 	@RequestMapping("/stockDetail")
@@ -204,25 +204,227 @@ public class IcmallController {
 		
 		return "icmall/stockDetail";
 	}
+
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/* 재욱님 */
+	
+	@RequestMapping("/fruit")
+	public String fruit(Model model) {
+		return "icmall/fruit";
+	}
+	
+	@RequestMapping("/meat")
+	public String meat(Model model) {
+		return "icmall/meat";
+	}
+	@RequestMapping("/vegetable")
+	public String vegetable(Model model) {
+		return "icmall/vegetable";
+	}
+	@RequestMapping("/health")
+	public String health(Model model) {
+		return "icmall/health";
+	}
+	
+	
+	
+	
+	
 	
 	
 	
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

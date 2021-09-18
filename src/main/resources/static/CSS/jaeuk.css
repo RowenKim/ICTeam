@@ -58,6 +58,17 @@ p{
 	
 }
 
+.two{
+	width:570px;
+	border-bottom: 0px;
+	text-align: left;
+	margin-left: 0px;
+	color: black;
+	background-color: #5f0080;
+	height: 1px;
+	
+}
+
 
 .t2 {
 	padding-bottom: 10px;

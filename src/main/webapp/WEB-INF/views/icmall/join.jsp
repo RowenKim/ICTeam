@@ -16,7 +16,10 @@
   <div>
     <h2>회원가입</h2>
   </div>
-  <br><br>
+  <br>
+  
+  <hr class="two">
+   <br>
  
   <div>
   <form name="login" action="index.html" method="post">

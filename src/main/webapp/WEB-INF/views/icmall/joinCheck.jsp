@@ -19,6 +19,9 @@
 <form name="frm">
 <!-- 영역 -->
 <div class="div1">
+
+  <hr class="two">
+  
 	<table>
 	<tr><!-- 첫번째 줄 시작 -->
 	  <td class="t1">

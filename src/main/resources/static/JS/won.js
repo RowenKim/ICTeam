@@ -19,10 +19,6 @@ $(document).ready(function() {
 
 			num++;
 			
-			if(num <= 0){
-				alert("더 이상 줄일수 없습니다.");
-				num = 1;
-			}
 			
 			jQuery("#productStock").val(num);
 			
