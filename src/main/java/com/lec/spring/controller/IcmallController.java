@@ -41,6 +41,23 @@ public class IcmallController {
 		return "icmall/joinCheck";
 	}
 	
+	@RequestMapping("/reviewUpdate")
+	public String reviewUpdateOk() {
+		
+		return "icmall/reviewUpdate";
+	}
+	
+	@RequestMapping("/serviceCenter")
+	public String serviceCenter() {
+		
+		return "icmall/serviceCenter";
+	}
+	
+	@RequestMapping("/question")
+	public String question() {
+		return "icmall/question";
+	}
+	
 	@RequestMapping("/join")
 	public String join(Model model) {
 		
@@ -58,6 +75,22 @@ public class IcmallController {
 		return "icmall/snack";
 	}
 
+	@RequestMapping("/questionUpdate")
+	public String questionUpdate() {
+		return "icmall/questionUpdate";
+	}
+	
+	@RequestMapping("/webWrite")
+	public String webWrite() {
+		return "icmall/webWrite";
+	}
+	
+	@RequestMapping("/webUpdate")
+	public String webUpdate() {
+		return "icmall/webUpdate";
+	}
+	
+	
 }
 
 
