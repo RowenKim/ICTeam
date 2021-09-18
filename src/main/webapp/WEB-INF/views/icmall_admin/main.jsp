@@ -119,16 +119,25 @@
        <table class="table table-bordered">
 		  <tbody>
 		    <tr>
-		      <th>검색어</th>
-		      <td>주문번호</td>
+		      <th style="padding-top: 20px; ">
+		      주문번호</th>
+		      <td style="vertical-align:middle; ">
+		      <div class="input-group">
+  			  <input type="text" class="form-control" placeholder="주문번호를 정확하게 입력해주세요." aria-label="Recipient's username" aria-describedby="basic-addon2">
+  			  <div class="input-group-append">
+   				 <button class="btn btn-outline-secondary" type="button">검색</button>
+  			  </div>
+			  </div>
+		      </td>
+		      
 		    </tr>
 		    <tr>
-		      <th >기간검색</th>
-		      <td>주문일</td>
+		      <th>기간검색</th>
+		      <td style="vertical-align:middle;"><input type="date" name="date"  id = "datebtn"  value="" placeholder="YYYY / MM / DD"> </td>
 		    </tr>
 		    <tr>
-		      <th >처리상태</th>
-		      <td> 
+		      <th>처리상태</th>
+		      <td style="vertical-align:middle"> 
 		      <input type="checkbox"/><span> 전체</span>
 		      <input type="checkbox"/><span> 입금대기</span>
 		      <input type="checkbox"/><span> 결재완료</span>
@@ -142,14 +151,14 @@
 		    </tr>
 		    <tr>
 		      <th>결재수단</th>
-		      <td>
+		      <td style="vertical-align:middle">
 		      <input type="checkbox"/><span> 계좌이체</span>
 		      <input type="checkbox"/><span> 신용카드</span>
 		      </td>
 		    </tr>
 		    <tr>
 		      <th>송장번호</th>
-		      <td>
+		      <td style="vertical-align:middle">
 		      <input type="checkbox"/><span> 전체</span>
 		      <input type="checkbox"/><span> 송장번호 등록</span>
 		      <input type="checkbox"/><span> 송장번호 미등록</span>

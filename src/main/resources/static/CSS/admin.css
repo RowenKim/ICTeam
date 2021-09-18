@@ -33,3 +33,7 @@
 	background-color: #5f0010;
 	
 }
+.mb-mbwidth{
+	min-width: 61px;
+	min-height: 81px;
+}
