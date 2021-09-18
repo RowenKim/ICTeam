@@ -8,7 +8,7 @@
     <meta name="author" content="INSPIRO" />
     <meta name="description" content="Themeforest Template Polo">
     <!-- Document title -->
-    <title>간식</title>
+    <title>건강기능</title>
     <!-- Stylesheets & Fonts -->
     <link href="${pageContext.request.contextPath }/CSS/plugins.css" type="text/css" rel="stylesheet">
     <link href="${pageContext.request.contextPath }/CSS/style.css" type="text/css" rel="stylesheet">
@@ -22,7 +22,7 @@
         <section id="page-content">
             <div class="container">
             <div class="div4">
-            <h3>간식류</h3>
+            <h3>건강기능</h3>
          	</div>
          	<br><br><br><br><br><br>
          	
