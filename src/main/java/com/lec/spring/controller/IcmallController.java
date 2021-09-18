@@ -106,7 +106,6 @@ public class IcmallController {
 	
 	
 	
-	
 
 	
 
@@ -189,8 +188,7 @@ public class IcmallController {
 		return "icmall/health";
 	}
 	
-	
-	
+
 	
 	
 	
@@ -203,7 +201,6 @@ public class IcmallController {
 
 	
 	
-
 }
 
 
