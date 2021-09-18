@@ -106,7 +106,6 @@ public class IcmallController {
 	
 	
 	
-	
 
 	
 
@@ -210,10 +209,5 @@ public class IcmallController {
 	}
 	
 	
-	
-	
-	
-	
->>>>>>> branch 'master' of https://github.com/RowenKim/ICTeam
 }
 
