@@ -3,7 +3,7 @@
  */
 // 고객 리스트 제목 클릭시 내용 보이게 하기
 $(document).ready(function() {
-	//alert("JS 연결 성공")
+	alert("JS 연결 성공")
 		$("#sub").click(function(){
 			
 			if($("#reviewContent").css("display") == "none"){ 
@@ -38,4 +38,25 @@ $(document).ready(function() {
 			jQuery("#productStock").val(num);
 			
 		})
+		
+		$(window).scroll(function() {
+		    if ($(window).scrollTop() > 905)
+		     {
+		       $('#info-nav').css({
+                position: 'fixed',
+				top:81
+            });
+			}  else {
+		      $('#info-nav').css({
+                position: 'relative',
+				top:0
+            });
+	     }
+ });
+		
+		
+		
+
+
+
 });
