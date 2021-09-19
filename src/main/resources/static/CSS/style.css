@@ -70,7 +70,7 @@ section { padding: 80px 0; position: relative; width: 100%; overflow: hidden; z-
 
 .page-content-shadow { -webkit-box-shadow: 0 82px 53px 10px rgba(0, 0, 0, 0.3); box-shadow: 0 82px 53px 10px rgba(0, 0, 0, 0.3); }
 
-.content { padding-right: 25px; margin-bottom: 26px; }
+.content { margin-bottom: 26px; }
 
 .sidebar { padding-left: 25px; }
 .sidebar .content { padding-right: 25px; padding-left: 15px; }

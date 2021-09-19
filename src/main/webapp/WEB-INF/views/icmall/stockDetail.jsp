@@ -69,15 +69,30 @@
                                 </div>
                             </div>
                         </div>
+                    </div><br><br>
+	 <!-- Product additional tabs -->
+	 				<div class="col-lg-10" id="sd_info">
+                        <ul class="nav nav-tabs nav-fill">
+                            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Messages</a></li>
+                        </ul>
                     </div>
-				</div>
-		</section>	
-			
-
+                    <div id="proInfoImg">
+                    	<img src="#" alt="이미지">
+                    </div>
+                    
+                        <br>
+			</div>
+	</section>	
 
 <br>
 <br>
-<jsp:include page="footer.jsp" />
-<script src="${pageContext.request.contextPath }/JS/won.js"></script>
+<jsp:include page="footer.jsp" />s
+ <!--Plugins-->
+	<script src="${pageContext.request.contextPath }/JS/won.js"></script>
+    <script src="${pageContext.request.contextPath }/JS/jquery.js"></script>
+    <script src="${pageContext.request.contextPath }/JS/plugins.js"></script>
+    <script src="${pageContext.request.contextPath }/JS/functions.js"></script>
 </body>
 </html>

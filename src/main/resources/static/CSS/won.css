@@ -85,3 +85,19 @@ th {
 	font-size:1.5em;
 	color:white;
 }
+
+#sd_info {
+	margin:auto;
+}
+
+.sd_info_btn {
+	border:0.5px solid red;
+	border-collapse:collapse;
+	padding:20px;
+	display:inline-block;
+	font-size:2.5em;
+}
+
+
+
+

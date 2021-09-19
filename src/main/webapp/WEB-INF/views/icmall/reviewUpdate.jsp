@@ -17,7 +17,7 @@
 	<hr>
 	<section id="page-content">
 	
-		<div class="content col-lg-14">
+		<div class="content col-lg-14 p-r-0">
 		<div id="titleCenter">
 			<h3><b>후기수정</b></h3>
 		</div>
