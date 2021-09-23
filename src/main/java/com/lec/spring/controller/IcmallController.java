@@ -204,7 +204,13 @@ public class IcmallController {
 		
 		return "icmall/stockDetail";
 	}
-
+	
+	
+	@RequestMapping("/basket")
+	public String basket() {
+		
+		return "icmall/basket";
+	}
 	
 
 	
