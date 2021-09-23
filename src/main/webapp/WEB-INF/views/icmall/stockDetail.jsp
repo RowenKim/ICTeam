@@ -24,8 +24,7 @@
 					<div class="col-lg-5">
 						<div class="product-image" id="product-image-test">
 							<!-- 이미지파일 -->
-							<a href="#"><img alt="Shop product image!"
-								src="https://img-cf.kurly.com/shop/data/goods/160923079018l0.jpg"></a>
+						<img src="https://img-cf.kurly.com/shop/data/goods/160923079018l0.jpg" id="main_img_mellon">
 						</div>
 					</div>
 					<div class="col-lg-6">
@@ -93,19 +92,23 @@
 			<br>
 			<!-- Product additional tabs -->
 			<div id="info-nav-3items" class="row m-b-40">
-				<div class="col-lg-11" id="info-nav">
-					<ul class="nav nav-tabs nav-fill" id="sd_info">
-						<li class="nav-item"><a class="nav-link" href="#">상품설명</a></li>
-						<li class="nav-item"><a class="nav-link" href="#">상품후기</a></li>
-						<li class="nav-item"><a class="nav-link" href="#">상품Q&A</a></li>
-					</ul>
+				<div id="info-nav">
+						<div>
+						<a class="nav-info-mellon" href="#" id="info-explain">상품설명</a>
+						</div>
+						<div>
+						<a class="nav-info-mellon" href="#" id="review-product">상품후기</a>
+						</div>
+						<div>
+						<a class="nav-info-mellon" href="#" id="question-product">상품Q&A</a>
+						</div>
 				</div>
+
 			</div>
 			<br>
 			<br>
 			<div id="proInfoImg">
 				<div class="product-image">
-					<!-- 이미지 파일 -->
 					<!-- 이미지파일 -->
 					<img
 						src="https://img-cf.kurly.com/shop/data/goodsview/20201229/gv20000147716_1.jpg">
@@ -159,26 +162,28 @@
 						</h3>
 						<h4>
 							<ul>
-								<li>상품에 대한 문의를 남기는 공간입니다. 해당 게시판의 성격과 다른 글은 사전동의 없이 담당 게시판으로 이동될 수 있습니다.</li>
+								<li>상품에 대한 후기를 남기는 공간입니다. 해당 게시판의 성격과 다른 글은 사전동의 없이 담당 게시판으로 이동될 수 있습니다.</li>
 							</ul>
 						</h4>
 						<table class="table">
 							<tbody id="sc_table">
 								<tr>
-									<th scope="col" class="content col-lg-1">번호</th>
-									<th scope="col" class="content col-lg-2">작성자</th>
-									<th scope="col" class="content col-lg-7">제목</th>
-									<th scope="col" class="content col-lg-2">작성날짜</th>
+									<th class="sep-10">번호</th>
+									<th class="sep-15">작성자</th>
+									<th class="sep-55">제목</th>
+									<th class="sep-15">작성날짜</th>
+									<th class="sep-15">조회</th>
 								</tr>
 							</tbody>
 						</table>
 						<table class="table">
 							<tbody>
 								<tr>
-									<th scope="col" class="content col-lg-1">uid-1</th>
-									<td scope="col" class="content col-lg-2">name</td>
-									<td scope="col" class="content col-lg-7"><div id="sub">subtitle</div></td>
-									<td scope="col" class="content col-lg-2">regdate</td>
+									<th class="sep-10">uid-1</th>
+									<td class="sep-15">name</td>
+									<td class="sep-55"><div id="sub">subtitle</div></td>
+									<td class="sep-15">regdate</td>
+									<td class="sep-15">0</td>
 								</tr>
 							</tbody>
 						</table>
@@ -192,10 +197,11 @@
 						<table class="table">
 							<tbody>
 								<tr>
-									<th scope="col" class="content col-lg-1">uid-2</th>
-									<td scope="col" class="content col-lg-2">name</td>
-									<td scope="col" class="content col-lg-7">subtitle</td>
-									<td scope="col" class="content col-lg-2">regdate</td>
+									<th class="sep-10">uid-1</th>
+									<td class="sep-15">name</td>
+									<td class="sep-55"><div id="sub">subtitle</div></td>
+									<td class="sep-15">regdate</td>
+									<td class="sep-15">0</td>
 								</tr>
 							</tbody>
 						</table>
@@ -203,19 +209,137 @@
 						<table class="table">
 							<tbody>
 								<tr>
-									<th scope="col" class="content col-lg-1">uid-3</th>
-									<td scope="col" class="content col-lg-2">name</td>
-									<td scope="col" class="content col-lg-7">subtitle</td>
-									<td scope="col" class="content col-lg-2">regdate</td>
+									<th class="sep-10">uid-1</th>
+									<td class="sep-15">name</td>
+									<td class="sep-55"><div id="sub">subtitle</div></td>
+									<td class="sep-15">regdate</td>
+									<td class="sep-15">0</td>
+								</tr>
+							</tbody>
+						</table>
+						<div id="reviewContent">상품후기 내용입니다!!!!!!!!</div>
+						<table class="table">
+							<tbody>
+								<tr>
+									<th class="sep-10">uid-1</th>
+									<td class="sep-15">name</td>
+									<td class="sep-55"><div id="sub">subtitle</div></td>
+									<td class="sep-15">regdate</td>
+									<td class="sep-15">0</td>
+								</tr>
+							</tbody>
+						</table>
+						<div id="reviewContent">상품후기 내용입니다!!!!!!!!</div>
+						<table class="table">
+							<tbody>
+								<tr>
+									<th class="sep-10">uid-1</th>
+									<td class="sep-15">name</td>
+									<td class="sep-55"><div id="sub">subtitle</div></td>
+									<td class="sep-15">regdate</td>
+									<td class="sep-15">0</td>
 								</tr>
 							</tbody>
 						</table>
 						<div id="reviewContent">상품후기 내용입니다!!!!!!!!</div>
 					</div>
 				</div>
-				<div class="question">
-					<!-- 상품문의 -->
-					문의
+					
+					<br><br><br>
+					
+				<!-- 상품문의 -->
+				<div id="question">
+					<div class="content col-lg-14">
+						<h3>
+							<b>PRODUCT Q&A</b>
+						</h3>
+						<h4>
+							<ul>
+								<li>상품에 대한 문의를 남기는 공간입니다. 해당 게시판의 성격과 다른 글은 사전동의 없이 담당 게시판으로 이동될 수 있습니다</li>
+							</ul>
+						</h4>
+						<table class="table">
+							<tbody id="sc_table">
+								<tr>
+									<th class="sep-55">제목</th>
+									<th class="sep-15">작성자</th>
+									<th class="sep-15">작성일</th>
+									<th class="sep-15">답변상태</th>
+								</tr>
+							</tbody>
+						</table>
+						<table class="table">
+							<tbody>
+								<tr>
+									<th class="sep-55"><div id="ques-sub">제목입니다</div></th>
+									<td class="sep-15">name</td>
+									<td class="sep-15">regdate</td>
+									<td class="sep-15">답변완료</td>
+								</tr>
+							</tbody>
+						</table>
+						<div id="questionContent">
+							<div>
+								<b>- 질문내용 - </b>
+							</div>
+							상품 답변 내용!!!!!!!! 
+						</div>
+						<table class="table">
+							<tbody>
+								<tr>
+									<th class="sep-55">제목입니다</div></th>
+									<td class="sep-15">name</td>
+									<td class="sep-15">regdate</td>
+									<td class="sep-15">답변완료</td>
+								</tr>
+							</tbody>
+						</table>
+						<div id="reviewContent">상품후기 내용입니다!!!!!!!!</div>
+						<table class="table">
+							<tbody>
+								<tr>
+									<th class="sep-55">제목입니다</div></th>
+									<td class="sep-15">name</td>
+									<td class="sep-15">regdate</td>
+									<td class="sep-15">답변완료</td>
+								</tr>
+							</tbody>
+						</table>
+						<div id="reviewContent">상품후기 내용입니다!!!!!!!!</div>
+						<table class="table">
+							<tbody>
+								<tr>
+									<th class="sep-55">제목입니다</div></th>
+									<td class="sep-15">name</td>
+									<td class="sep-15">regdate</td>
+									<td class="sep-15">답변완료</td>
+								</tr>
+							</tbody>
+						</table>
+						<div id="reviewContent">상품후기 내용입니다!!!!!!!!</div>
+						<table class="table">
+							<tbody>
+								<tr>
+									<th class="sep-55">제목입니다</div></th>
+									<td class="sep-15">name</td>
+									<td class="sep-15">regdate</td>
+									<td class="sep-15">답변완료</td>
+								</tr>
+							</tbody>
+						</table>
+						<div id="reviewContent">상품후기 내용입니다!!!!!!!!</div>
+						<table class="table">
+							<tbody>
+								<tr>
+									<th class="sep-55">제목입니다</div></th>
+									<td class="sep-15">name</td>
+									<td class="sep-15">regdate</td>
+									<td class="sep-15">답변완료</td>
+								</tr>
+							</tbody>
+						</table>
+						<div id="reviewContent">상품후기 내용입니다!!!!!!!!</div>
+					</div>
 				</div>
 			</div>
 		</div>

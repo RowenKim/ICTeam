@@ -4,14 +4,27 @@
 // 고객 리스트 제목 클릭시 내용 보이게 하기
 $(document).ready(function() {
 	alert("JS 연결 성공")
+	
 		$("#sub").click(function(){
-			
+			//alert("열람완료");
 			if($("#reviewContent").css("display") == "none"){ 
 				$("#reviewContent").show();
 			} else {
 				$("#reviewContent").hide();
 			}
 		})
+		
+		$("#ques-sub").click(function(){
+			//alert("열람완료");
+			if($("#questionContent").css("display") == "none"){ 
+				$("#questionContent").show();
+			} else {
+				$("#questionContent").hide();
+			}
+		})
+		
+		
+		
 		
 		$("#increasQuantity").click(function(){
 			
@@ -40,7 +53,7 @@ $(document).ready(function() {
 		})
 		
 		$(window).scroll(function() {
-		    if ($(window).scrollTop() > 905)
+		    if ($(window).scrollTop() > 905 && $(window).width() >950 )
 		     {
 		       $('#info-nav').css({
                 position: 'fixed',
@@ -52,9 +65,27 @@ $(document).ready(function() {
 				top:0
             });
 	     }
+
  });
 		
+		$("#info-explain").click(function(){
+			//alert("클릭 성공")
+			 var offset = $("#proInfoImg").offset();
+		        $('html, body').animate({scrollTop : offset.top}, 500);
+		})
 		
+		
+		$("#review-product").click(function(){
+			//alert("클릭 성공")
+			 var offset = $(".review").offset();
+		        $('html, body').animate({scrollTop : offset.top}, 500);
+		})
+		
+		$("#question-product").click(function(){
+			//alert("클릭 성공")
+			 var offset = $("#question").offset();
+		        $('html, body').animate({scrollTop : offset.top}, 500);
+		})
 		
 
 
