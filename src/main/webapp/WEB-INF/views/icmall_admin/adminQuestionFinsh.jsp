@@ -115,82 +115,148 @@
           <!-- Breadcrumbs-->
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <a href="#">회원 등급 관리</a>
+              <a href="#">상품문의 게시글관리</a>
             </li>
             <li class="breadcrumb-item active">I.C Mall</li>
           </ol>
 		
 		<br>
-	   <div class="container">
-  		<h3>게시글 보기</h3>
        <table class="table table-bordered" >
-		  <tbody style="vertical-align:middle;">
+		  <tbody>
 		    <tr>
-		      <th>게시판</th>
-		      <td>
-				  <div class="dropdown position-static actions d-inline-block">
-				     <button class="btn btn btn-outline px-1 py-0 mt-1 dropdown-toggle actions-btn" type="button"
+		      <th style="vertical-align:middle;">게시판</th>		      
+		      <td style="vertical-align:middle;">
+		      	<div class="dropdown position-static actions d-inline-block">
+				     <button class="btn btn-outline px-1 py-0 mt-1 dropdown-toggle actions-btn" type="button"
 				          id="table-action" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				          <i class="mdi mdi-dots-horizontal"></i>
-				          전체</button>
+				          상품문의</button>
 				      <div class="dropdown-menu" aria-labelledby="table-action">
-				          <a class="dropdown-item" href="postStuck">상품문의</a>
-				          <a class="dropdown-item" href="postShopping">쇼핑몰관련문의</a>
-				          <a class="dropdown-item" href="postAnyquestion">기타문의</a>
+				          <a class="dropdown-item" href="adminReview">상품후기</a>
 				      </div>
 				</div>
            	  </td>
 		    </tr>
 		    <tr>
-		    	<th>제목</th>
-		    	<td>상품/쇼핑몰/기타 문의합니다</td>
+		      <th>등록일</th>
+		      <td style="vertical-align:middle;"><input type="date" name="date"  id = "datebtn"  value="" placeholder="YYYY / MM / DD"> </td>
 		    </tr>
-		    <tr>
-		    	<th>작성자</th>
-		    	<td>누구게?</td>
-		    </tr>
-		    <tr>
-		    	<th>작성날짜</th>
-		    	<td>2021-00-00</td>
-		    </tr>
-		    <tr>
-		    	<th>내용</th>
-		    	<td>홍홍홍</td>
-		    </tr>
-		  </tbody>
-		</table>
-		</div>
-		<br>
-		<div class="container">
-  		<h3>게시글 답변</h3>
-       <table class="table table-bordered" >
-		  <tbody style="vertical-align:middle;">
 		    <tr>
 		      <th>답변상태</th>
-		      <td>
-				  <div class="dropdown position-static actions d-inline-block">
-				     <button class="btn btn btn-outline px-1 py-0 mt-1 dropdown-toggle actions-btn" type="button"
+		      <td style="vertical-align:middle;">
+		      	<div class="dropdown position-static actions d-inline-block">
+				     <button class="btn btn-light px-1 py-0 mt-1 dropdown-toggle actions-btn" type="button"
 				          id="table-action" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				          <i class="mdi mdi-dots-horizontal"></i>
-				          답변대기</button>
+				          답변완료</button>
 				      <div class="dropdown-menu" aria-labelledby="table-action">
-				          <a class="dropdown-item" href="#">답변완료</a>
+				          <a class="dropdown-item" href="adminQuestionReady">답변대기</a>
+				          <a class="dropdown-item" href="adminQuestion">전체</a>
 				      </div>
 				</div>
            	  </td>
 		    </tr>
 		    <tr>
-		    	<th>답변제목</th>
-		    	<td>문의답변</td>
+		      <th style="vertical-align:middle;">검색어</th>
+		      <td style="vertical-align:middle; ">
+		      <div class="input-group">
+  			  <input type="text" class="form-control" placeholder="입력해주세요." aria-label="Recipient's username" aria-describedby="basic-addon2">
+  			  <div class="input-group-append">
+  			  </div>
+			  </div>
+		      </td>
 		    </tr>
-		    <tr>
-		    	<th>답변내용</th>
-		    	<td>네!</td>
-		    </tr>
+		   
 		  </tbody>
 		</table>
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="form-group text-center">
+					<button class="btn btncolor text-white" type="submit">검색</button>
+				</div>
+			</div>
 		</div>
-		
+		<!-- DataTables Example -->
+		<div class="card mb-3">
+		<div class="card-body">
+		<div class="table-responsive">
+                <table class="table-hover table text-center table-bordered" id="myTable"  width="100%" cellspacing="0">
+                  <thead>
+                    <tr class="text-muted textsize-table">
+                      <th>선택</th>
+                      <th>번호</th>
+                      <th>상품<br>
+                      이미지</th>
+                      <th>제목</th>
+                      <th>작성자</th>
+                      <th>작성일</th>
+                      <th>조회</th>
+                      <th>답변상태</th>
+                      <th>답변일</th>
+                      <th>수정/답변</th>
+          			 
+                    </tr>
+                  </thead>
+                    <tr>
+                      <td style="vertical-align:middle"><input type="checkbox"/></td>
+                      <td>123456789</td>
+                      <td>img</td>
+                      <td>고기</td>
+                      <td>누구게?</td>
+                      <td>2021-00-00</td>
+                      <td>조회수</td>
+                      <td><span class="badge badge-danger w-75 py-2">답변대기</span></td>     
+                      <td>2021-00-00</td>
+                      <td>
+                      <a class="btn btn-primary btncolor-sm btn-sm" href="post" role="button">수정</a> 
+                      <a class="btn btn-primary btncolor-sm btn-sm" href="post" role="button">답변</a> 
+                      </td>  
+                    </tr>
+                    <tr>
+                      <td style="vertical-align:middle"><input type="checkbox"/></td>
+                      <td>123456789</td>
+                      <td>img</td>
+                      <td>고기</td>
+                      <td>누구게?</td>
+                      <td>2021-00-00</td>
+                      <td>조회수</td>
+                      <td><span class="badge badge-success w-75 py-2">답변완료</span></td>   
+                      <td>2021-00-00</td>
+                      <td>
+                      <a class="btn btn-primary btncolor-sm btn-sm" href="post" role="button">수정</a> 
+                      <a class="btn btn-primary btncolor-sm btn-sm" href="post" role="button">답변</a> 
+                      </td>  
+                    </tr>
+                  </tbody>
+                </table>
+                <!-- Button trigger modal -->
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+				  삭제
+				</button>
+				
+				<!-- Modal -->
+				<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title" id="exampleModalLabel">게시물 삭제</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div class="modal-body">
+				        게시물을 정말 삭제하시겠습니까?
+				      </div>
+				      <div class="modal-footer">
+				      	<button type="button" class="btn btn-primary">삭제하기</button>
+				       	<button type="button" class="btn btn-secondary" data-dismiss="modal">취소하기</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+              </div>
+             </div>
+           </div>
           
         
        
