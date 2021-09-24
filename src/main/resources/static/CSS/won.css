@@ -38,7 +38,7 @@ th {
 	background-color:#ECECEC;
 }
 
-#reviewContent{
+#reviewContent, #questionContent {
 	display:none;
 	padding-left:10px;
 }
@@ -91,6 +91,7 @@ th {
 .info-mellon {
 	float:left;
 	font-size: 1.5em;
+	width:95%;
 }
 
 .sd_hr_check{
@@ -120,16 +121,168 @@ th {
 
 #info-nav {
 	position:relative;
-	width:70%;
+	width:1045px;
+	color:black;
 	
 }
 
+
+img { /* ICMall CheckPoint, 상품상세설명 멜론 이미지 */
+	width: 90%;
+	}
+
+	
+	/* 반응형 웹 수동작업*/
+@media screen and (max-width:960px){ 
+	
+	#info-nav{ /* 상품상세설명 nav static */
+	position:static;
+	font-size:0.8em;
+	}
+	
+	#info-nav-3items {
+	text-align:center;
+	}
+	
+	.nav-info-mellon {
+	color: black;
+	font-weight: bold; 
+	font-size:0.7em;
+	padding:2px 0px;
+	width:100%;
+	background-color: #FAFAFA;
+}
+	
+	.ICMallCheck{
+		display: flex;
+	    flex-basis: 100%;
+	    align-items: center;
+	    color: rgba(0, 0, 0, 0.55);
+	    font-size: 30px;
+	    margin: 8px 0px;
+	    min-width:100px;
+	}
+	
+	img { /* ICMall CheckPoint, 상품상세설명 멜론 이미지 */
+	width: 100%;
+	}
+	
+	
+}
+/* 상품설명 상품후기 상품Q&A nav*/
+
 #sd_info {
 	position:relative;
-	boder-right:1px solid black;
 	background-color: #FAFAFA;
 	padding:10px 20px;
  	font-size:2em;
+ 	border:1px solid black;
 }
 
+#info-nav-3items {
+	text-align:center;	
+	margin:auto;
+}
+
+.nav-item-mellon {
+	margin:auto;
+	padding:12px 0px;
+}
+
+.nav-info-mellon {
+	color: black;
+	font-weight: bold; 
+	font-size:2em;
+	float:left;
+	padding:30px 125px;
+	background-color: #FAFAFA;
+}
+
+
+
+.nav-info-mellon:hover {
+	color: #5f0080 !important;
+}
+
+.nav-info-mellon:focus {
+	color: #5f0080 !important;
+}
+
+
+
+/* 리뷰 Q&A */
+
+.review, #question {
+	width:90%;
+}
+
+/* 구간 나누기*/
+.sep-10{
+	width:10%;
+	margin:auto;
+	display:inline-block;
+}
+.sep-15{
+	width:15%;
+	margin:auto;
+	display:inline-block;
+}
+.sep-45{
+	width:55%;
+	margin:auto;
+	display:inline-block;
+}
+
+.sep-70{
+	width:70%;
+	margin:auto;
+	display:inline-block;
+}
+
+.sep-30{
+	width:30%;
+	margin:auto;
+	display:inline-block;
+}
+
+
+/* 장바구니 */
+.basketTest{
+	display:inline-block;
+}
+
+#sectionTest{
+	margin:auto;
+}
+
+.basketImg{
+	width:50px;
+	height:70px;
+}
+
+.basketT{
+	padding:30px 45px;
+	font-weight:bold;
+}
+
+.basketT2{
+	padding:2px 20px;
+	font-weight:bold;
+	min-width:120px;
+}
+
+.basketSubName { color:black;}
+.basketSubName:hover { color:black;}
+
+#basketDiv{
+	text-align:center;
+}
+
+#adressDiv {
+	position:absolute;
+	top:100px;
+	text-align:left;
+	padding-right:-100px;
+	margin:0;
+}
 
