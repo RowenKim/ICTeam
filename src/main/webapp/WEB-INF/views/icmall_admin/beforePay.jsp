@@ -115,82 +115,123 @@
           <!-- Breadcrumbs-->
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <a href="#">회원 등급 관리</a>
+              <a href="#">입금대기 리스트</a>
             </li>
             <li class="breadcrumb-item active">I.C Mall</li>
           </ol>
 		
 		<br>
-	   <div class="container">
-  		<h3>게시글 보기</h3>
-       <table class="table table-bordered" >
-		  <tbody style="vertical-align:middle;">
+       <table class="table table-bordered">
+		  <tbody>
 		    <tr>
-		      <th>게시판</th>
-		      <td>
-				  <div class="dropdown position-static actions d-inline-block">
-				     <button class="btn btn btn-outline px-1 py-0 mt-1 dropdown-toggle actions-btn" type="button"
-				          id="table-action" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				          <i class="mdi mdi-dots-horizontal"></i>
-				          전체</button>
-				      <div class="dropdown-menu" aria-labelledby="table-action">
-				          <a class="dropdown-item" href="postStuck">상품문의</a>
-				          <a class="dropdown-item" href="postShopping">쇼핑몰관련문의</a>
-				          <a class="dropdown-item" href="postAnyquestion">기타문의</a>
-				      </div>
-				</div>
-           	  </td>
+		      <th style="vertical-align:middle;">
+		      주문번호</th>
+		      <td style="vertical-align:middle; ">
+		      <div class="input-group">
+  			  <input type="text" class="form-control" placeholder="주문번호를 정확하게 입력해주세요." aria-label="Recipient's username" aria-describedby="basic-addon2">
+  			  <div class="input-group-append">
+   				 <button class="btn btn-outline-secondary" type="button">검색</button>
+  			  </div>
+			  </div>
+		      </td>
+		      
 		    </tr>
 		    <tr>
-		    	<th>제목</th>
-		    	<td>상품/쇼핑몰/기타 문의합니다</td>
+		      <th>기간검색</th>
+		      <td style="vertical-align:middle;"><input type="date" name="date"  id = "datebtn"  value="" placeholder="YYYY / MM / DD"> </td>
 		    </tr>
 		    <tr>
-		    	<th>작성자</th>
-		    	<td>누구게?</td>
+		      <th>처리상태</th>
+		      <td style="vertical-align:middle"> 
+		      <input type="checkbox"/><span> 전체</span>
+		      <input type="checkbox"/><span> 입금대기</span>
+		      <input type="checkbox"/><span> 결재완료</span>
+		      <input type="checkbox"/><span> 상품준비중</span>
+		      <input type="checkbox"/><span> 배송중</span>
+		      <input type="checkbox"/><span> 배송완료</span>
+		      <input type="checkbox"/><span> 구매확정</span>
+		      <input type="checkbox"/><span> 환불접수</span>
+		      <input type="checkbox"/><span> 교환접수</span>
+		      </td>
 		    </tr>
 		    <tr>
-		    	<th>작성날짜</th>
-		    	<td>2021-00-00</td>
+		      <th>결재수단</th>
+		      <td style="vertical-align:middle">
+		      <input type="checkbox"/><span> 계좌이체</span>
+		      <input type="checkbox"/><span> 신용카드</span>
+		      </td>
 		    </tr>
 		    <tr>
-		    	<th>내용</th>
-		    	<td>홍홍홍</td>
-		    </tr>
-		  </tbody>
-		</table>
-		</div>
-		<br>
-		<div class="container">
-  		<h3>게시글 답변</h3>
-       <table class="table table-bordered" >
-		  <tbody style="vertical-align:middle;">
-		    <tr>
-		      <th>답변상태</th>
-		      <td>
-				  <div class="dropdown position-static actions d-inline-block">
-				     <button class="btn btn btn-outline px-1 py-0 mt-1 dropdown-toggle actions-btn" type="button"
-				          id="table-action" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				          <i class="mdi mdi-dots-horizontal"></i>
-				          답변대기</button>
-				      <div class="dropdown-menu" aria-labelledby="table-action">
-				          <a class="dropdown-item" href="#">답변완료</a>
-				      </div>
-				</div>
-           	  </td>
-		    </tr>
-		    <tr>
-		    	<th>답변제목</th>
-		    	<td>문의답변</td>
-		    </tr>
-		    <tr>
-		    	<th>답변내용</th>
-		    	<td>네!</td>
+		      <th>송장번호</th>
+		      <td style="vertical-align:middle">
+		      <input type="checkbox"/><span> 전체</span>
+		      <input type="checkbox"/><span> 송장번호 등록</span>
+		      <input type="checkbox"/><span> 송장번호 미등록</span>
+		      </td>
 		    </tr>
 		  </tbody>
 		</table>
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="form-group text-center">
+					<button class="btn btncolor text-white" type="submit">조회</button>
+				</div>
+			</div>
 		</div>
 		
+		<!-- DataTables Example -->
+		<div class="card mb-3">
+		<div class="card-body">
+		<div class="table-responsive">
+                <table  class="table-hover table text-center table-bordered" id="myTable"  width="100%" cellspacing="0">
+                  <thead>
+                    <tr class="text-muted">
+                      <th>선택</th>
+                      <th>주문번호</th>
+                      <th>주문자</th>
+                      <th>주문상품</th>
+                      <th>처리상태</th>
+                      <th>수량</th>
+                      <th>상품금액</th>
+                      <th>결제방법</th>
+                      <th>송장번호</th>
+                      <th>주문일시</th>
+                    </tr>
+                  </thead>
+                    <tr>
+                      <td style="vertical-align:middle"><input type="checkbox"/></td>
+                      <td>123456789</td>
+                      <td>누굴까요?</td>
+                      <td>고기</td>
+                      <td><span class="badge badge-danger w-75 py-2">입금대기</span></td>
+                      <td>400g</td>
+                      <td>46,000</td>
+                      <td>카드</td>
+                      <td>1234567890</td>
+                      <td>2021-00-00 <br>
+                          00:00:00
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="vertical-align:middle"><input type="checkbox"/></td>
+                      <td>122456789</td>
+                      <td>누구까요?</td>
+                      <td>고기</td>
+                      <td><span class="badge badge-success w-75 py-2">입금확인</span></td>
+                      <td>500g</td>
+                      <td>43,000</td>
+                      <td>카드</td>
+                      <td>1234567891</td>
+                      <td>2021-00-00 <br>
+                          00:00:00
+                      </td>
+                    </tr>
+                  </tbody>
+                 
+                </table>
+              </div>
+             </div>
+           </div>
           
         
        

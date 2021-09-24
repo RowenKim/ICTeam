@@ -122,75 +122,100 @@
 		
 		<br>
 	   <div class="container">
-  		<h3>게시글 보기</h3>
+ 
+  		<h3>회원등급 노출이름 변경</h3>
        <table class="table table-bordered" >
-		  <tbody style="vertical-align:middle;">
+		  <tbody>
+		 
+		   <tr>
 		    <tr>
-		      <th>게시판</th>
-		      <td>
+		      <th style="vertical-align:middle;">쇼핑페이지 노출이름</th>
+		      <td style="vertical-align:middle;">
 				  <div class="dropdown position-static actions d-inline-block">
 				     <button class="btn btn btn-outline px-1 py-0 mt-1 dropdown-toggle actions-btn" type="button"
 				          id="table-action" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				          <i class="mdi mdi-dots-horizontal"></i>
-				          전체</button>
+				          회원</button>
 				      <div class="dropdown-menu" aria-labelledby="table-action">
-				          <a class="dropdown-item" href="postStuck">상품문의</a>
-				          <a class="dropdown-item" href="postShopping">쇼핑몰관련문의</a>
-				          <a class="dropdown-item" href="postAnyquestion">기타문의</a>
+				          <a class="dropdown-item" href="userLevelAdmin">관리자</a>
+				          <a class="dropdown-item" href="userLevel">전체등급</a>
 				      </div>
 				</div>
            	  </td>
 		    </tr>
-		    <tr>
-		    	<th>제목</th>
-		    	<td>상품/쇼핑몰/기타 문의합니다</td>
-		    </tr>
-		    <tr>
-		    	<th>작성자</th>
-		    	<td>누구게?</td>
-		    </tr>
-		    <tr>
-		    	<th>작성날짜</th>
-		    	<td>2021-00-00</td>
-		    </tr>
-		    <tr>
-		    	<th>내용</th>
-		    	<td>홍홍홍</td>
-		    </tr>
-		  </tbody>
-		</table>
-		</div>
-		<br>
-		<div class="container">
-  		<h3>게시글 답변</h3>
-       <table class="table table-bordered" >
-		  <tbody style="vertical-align:middle;">
-		    <tr>
-		      <th>답변상태</th>
-		      <td>
-				  <div class="dropdown position-static actions d-inline-block">
-				     <button class="btn btn btn-outline px-1 py-0 mt-1 dropdown-toggle actions-btn" type="button"
-				          id="table-action" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				          <i class="mdi mdi-dots-horizontal"></i>
-				          답변대기</button>
-				      <div class="dropdown-menu" aria-labelledby="table-action">
-				          <a class="dropdown-item" href="#">답변완료</a>
-				      </div>
-				</div>
-           	  </td>
-		    </tr>
-		    <tr>
-		    	<th>답변제목</th>
-		    	<td>문의답변</td>
-		    </tr>
-		    <tr>
-		    	<th>답변내용</th>
-		    	<td>네!</td>
-		    </tr>
+		   <tr>
 		  </tbody>
 		</table>
 		</div>
 		
+		<!-- DataTables Example -->
+		<div class="card mb-3">
+		<div class="card-body">
+		<div class="table-responsive">
+                <table class="table-hover table text-center table-bordered" id="myTable"  width="100%" cellspacing="0">
+                  <thead>
+                    <tr class="text-muted textsize-table">
+                      <th>선택</th>
+                      <th>등급순서</th>
+                      <th>회원등급명</th>
+                      <th>회원수</th>
+                      <th>등록일</th>
+                      <th>작성일</th>
+                      <th>정보수정</th>
+                    </tr>
+                  </thead>
+                    <tr>
+                      <td style="vertical-align:middle"><input type="checkbox"/></td>
+                      <td>1</td>
+                      <td><span class="badge badge-success w-75 py-2">관리자</span></td>
+                      <td>4</td>
+                      <td>2021-00-00</td>
+                      <td>2021-00-00</td>                  
+                      <td>
+                      <a class="btn btn-primary btncolor-sm btn-sm" href="#" role="button">수정</a>
+                      </td>  
+                    </tr>
+                   <tr>
+                      <td style="vertical-align:middle"><input type="checkbox"/></td>
+                      <td>2</td>
+                      <td><span class="badge badge-danger w-75 py-2">회원</span></td>
+                      <td>10</td>
+                      <td>2021-00-00</td>
+                      <td>2021-00-00</td>                  
+                      <td>
+                      <a class="btn btn-primary btncolor-sm btn-sm" href="#" role="button">수정</a>
+                      </td>  
+                    </tr>
+                  </tbody>
+                </table>
+                <!-- Button trigger modal -->
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+				  탈퇴처리
+				</button>
+				
+				<!-- Modal -->
+				<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title" id="exampleModalLabel">회원 삭제</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div class="modal-body">
+				        이 회원을 정말 삭제하시겠습니까?
+				      </div>
+				      <div class="modal-footer">
+				      	<button type="button" class="btn btn-primary">삭제하기</button>
+				       	<button type="button" class="btn btn-secondary" data-dismiss="modal">취소하기</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+              </div>
+             </div>
+           </div>
           
         
        

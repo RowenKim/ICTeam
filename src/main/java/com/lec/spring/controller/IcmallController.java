@@ -76,31 +76,24 @@ public class IcmallController {
 	}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//서하 페이지 컨트롤
+//서하 페이지 컨트롤 ~200 줄 까지 
 	
 	@RequestMapping("/carousel")
 	public String slide(Model model) {
 		
 		return "icmall/carousel";
+	}
+	
+	@RequestMapping("/myPage")
+	public String myPage(Model model) {
+		
+		return "icmall/myPage";
+	}
+	
+	@RequestMapping("/orderList")
+	public String orderList(Model model) {
+		
+		return "icmall/orderList";
 	}
 	
 	
@@ -109,6 +102,19 @@ public class IcmallController {
 
 	
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -197,7 +203,7 @@ public class IcmallController {
 	
 	
 	
-	/* 종원 컨트롤 페이지*/
+	/* 종원 컨트롤 페이지 200줄 ~ 400줄 */
 	
 	@RequestMapping("/stockDetail")
 	public String stockDetail() {
@@ -403,7 +409,7 @@ public class IcmallController {
 	
 	
 	
-	/* 재욱님 */
+	/* 재욱님 400줄 부터~  */
 	
 	@RequestMapping("/fruit")
 	public String fruit(Model model) {
