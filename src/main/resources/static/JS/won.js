@@ -66,7 +66,7 @@ $(document).ready(function() {
             });
 	     }
 
- });
+ 		});
 		
 		$("#info-explain").click(function(){
 			//alert("클릭 성공")
@@ -88,6 +88,40 @@ $(document).ready(function() {
 		})
 		
 
+		$('input[type="checkBox"][class="basketChk"]').on('click', function(){
+			//alert("버튼체크 활성화1")
+		  var chkValue = $('input[type="checkbox"][class="basketChk"]:checked').val();
+			//alert("버튼체크 활성화2" + chkValue)
+		  if(chkValue){
+			//alert("버튼체크 활성화3")
+		             $('#orderBtn1').css('display','none');
+		             $('#orderBtn2').css('display','block');
 
+		  }else{
+			//alert("버튼체크 활성화4")
+		             $('#orderBtn1').css('display','block');
+		             $('#orderBtn2').css('display','none');
+		  }
+		 
+		});
+		
+		$('input[type="checkBox"][id="agree_all"]').on('click', function(){
+			//alert("버튼체크 활성화1-1")
+		  var chkValue2 = $('input[type="checkbox"][id="agree_all"]:checked').val();
+
+			//alert("버튼체크 활성화2-2" + chkValue2)
+		  if(chkValue2){
+			//alert("버튼체크 활성화3-3")
+		             $('#orderBtn1').css('display','none');
+		             $('#orderBtn2').css('display','block');
+		  }else{
+			//alert("버튼체크 활성화4-4")
+		             $('#orderBtn1').css('display','block');
+		             $('#orderBtn2').css('display','none');
+		  }
+		 
+		});
+		
+		
 
 });
