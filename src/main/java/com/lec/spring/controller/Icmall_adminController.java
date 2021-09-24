@@ -99,7 +99,7 @@ public class Icmall_adminController {
 		
 		return "icmall_admin/post";
 	}
-	@RequestMapping("/userListw")
+	@RequestMapping("/userList")
 	public String userList(Model model) {
 		
 		return "icmall_admin/userList";
@@ -108,6 +108,61 @@ public class Icmall_adminController {
 	public String userLevel(Model model) {
 		
 		return "icmall_admin/userLevel";
+	}
+	@RequestMapping("/adminQuestionReady")
+	public String adminQuestionReady(Model model) {
+		
+		return "icmall_admin/adminQuestionReady";
+	}
+	@RequestMapping("/adminQuestionFinsh")
+	public String adminQuestionFinsh(Model model) {
+		
+		return "icmall_admin/adminQuestionFinsh";
+	}
+	@RequestMapping("/adminReviewTitle")
+	public String adminReviewTitle(Model model) {
+		
+		return "icmall_admin/adminReviewTitle";
+	}
+	@RequestMapping("/adminReviewWriter")
+	public String adminReviewWriter(Model model) {
+		
+		return "icmall_admin/adminReviewWriter";
+	}
+	@RequestMapping("/userListAdmin")
+	public String userListAdmin(Model model) {
+		
+		return "icmall_admin/userListAdmin";
+	}
+	@RequestMapping("/userListMember")
+	public String userListMember(Model model) {
+		
+		return "icmall_admin/userListMember";
+	}
+	@RequestMapping("/userLevelAdmin")
+	public String userLevelAdmin(Model model) {
+		
+		return "icmall_admin/userLevelAdmin";
+	}
+	@RequestMapping("/userLevelMember")
+	public String userLevelMember(Model model) {
+		
+		return "icmall_admin/userLevelMember";
+	}
+	@RequestMapping("/postAnyquestion")
+	public String postAnyquestion(Model model) {
+		
+		return "icmall_admin/postAnyquestion";
+	}
+	@RequestMapping("/postShopping")
+	public String postShopping(Model model) {
+		
+		return "icmall_admin/postShopping";
+	}
+	@RequestMapping("/postStuck")
+	public String postStuck(Model model) {
+		
+		return "icmall_admin/postStuck";
 	}
 	
 }

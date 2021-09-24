@@ -115,82 +115,152 @@
           <!-- Breadcrumbs-->
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <a href="#">회원 등급 관리</a>
+              <a href="#">회원 검색</a>
             </li>
             <li class="breadcrumb-item active">I.C Mall</li>
           </ol>
 		
 		<br>
-	   <div class="container">
-  		<h3>게시글 보기</h3>
        <table class="table table-bordered" >
-		  <tbody style="vertical-align:middle;">
+		  <tbody>
 		    <tr>
-		      <th>게시판</th>
-		      <td>
-				  <div class="dropdown position-static actions d-inline-block">
-				     <button class="btn btn btn-outline px-1 py-0 mt-1 dropdown-toggle actions-btn" type="button"
-				          id="table-action" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				          <i class="mdi mdi-dots-horizontal"></i>
-				          전체</button>
-				      <div class="dropdown-menu" aria-labelledby="table-action">
-				          <a class="dropdown-item" href="postStuck">상품문의</a>
-				          <a class="dropdown-item" href="postShopping">쇼핑몰관련문의</a>
-				          <a class="dropdown-item" href="postAnyquestion">기타문의</a>
-				      </div>
+		      <th style="vertical-align:middle;">검색어</th>
+		      <td style="vertical-align:middle;">
+		       <div class="input-group mb-3" >
+				  <div class="input-group-prepend" >
+				    <button class="btn btn-outline dropdown-toggle action-btn" type="button" id="table-action" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">전체</button>
+				    <div class="dropdown-menu" aria-labelledby="table-action" >
+				      <a class="dropdown-item" href="#">아이디</a>
+				      <a class="dropdown-item" href="#">이름</a>
+				    </div>
+				  </div>
+				  <input type="text" class="form-control" aria-label="Text input with dropdown button">
 				</div>
            	  </td>
 		    </tr>
 		    <tr>
-		    	<th>제목</th>
-		    	<td>상품/쇼핑몰/기타 문의합니다</td>
-		    </tr>
-		    <tr>
-		    	<th>작성자</th>
-		    	<td>누구게?</td>
-		    </tr>
-		    <tr>
-		    	<th>작성날짜</th>
-		    	<td>2021-00-00</td>
-		    </tr>
-		    <tr>
-		    	<th>내용</th>
-		    	<td>홍홍홍</td>
-		    </tr>
-		  </tbody>
-		</table>
-		</div>
-		<br>
-		<div class="container">
-  		<h3>게시글 답변</h3>
-       <table class="table table-bordered" >
-		  <tbody style="vertical-align:middle;">
-		    <tr>
-		      <th>답변상태</th>
-		      <td>
+		      <th style="vertical-align:middle;">회원구분</th>
+		      <td style="vertical-align:middle;">
 				  <div class="dropdown position-static actions d-inline-block">
 				     <button class="btn btn btn-outline px-1 py-0 mt-1 dropdown-toggle actions-btn" type="button"
 				          id="table-action" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				          <i class="mdi mdi-dots-horizontal"></i>
-				          답변대기</button>
+				          관리자</button>
 				      <div class="dropdown-menu" aria-labelledby="table-action">
-				          <a class="dropdown-item" href="#">답변완료</a>
+				          <a class="dropdown-item" href="userListMember">회원</a>
+				          <a class="dropdown-item" href="userList">전체</a>
 				      </div>
 				</div>
            	  </td>
 		    </tr>
-		    <tr>
-		    	<th>답변제목</th>
-		    	<td>문의답변</td>
-		    </tr>
-		    <tr>
-		    	<th>답변내용</th>
-		    	<td>네!</td>
+		   <tr>
+		      <th>회원가입일</th>
+		      <td style="vertical-align:middle;"><input type="date" name="date"  id = "datebtn"  value="" placeholder="YYYY / MM / DD"> </td>
 		    </tr>
 		  </tbody>
 		</table>
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="form-group text-center">
+					<button class="btn btncolor text-white" type="submit">검색</button>
+				</div>
+			</div>
 		</div>
-		
+		<!-- DataTables Example -->
+		<div class="card mb-3">
+		<div class="card-body">
+		<div class="table-responsive">
+                <table class="table-hover table text-center table-bordered" id="myTable"  width="100%" cellspacing="0">
+                  <thead>
+                    <tr class="text-muted textsize-table">
+                      <th>선택</th>
+                      <th>번호</th>
+                      <th>상품구분</th>
+                      <th>아이디</th>
+                      <th>이름</th>
+                      <th>등급</th>
+                      <th>주문금액</th>
+                      <th>회원가입일</th>
+                    </tr>
+                  </thead>
+                    <tr>
+                      <td style="vertical-align:middle"><input type="checkbox"/></td>
+                      <td>123456789</td>
+                      <td style="vertical-align:middle;">
+						  <div class="dropdown position-static actions d-inline-block">
+						     <button class="btn btn btn-outline px-1 py-0 mt-1 dropdown-toggle actions-btn" type="button"
+						          id="table-action" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						          <i class="mdi mdi-dots-horizontal"></i>
+						          전체</button>
+						      <div class="dropdown-menu" aria-labelledby="table-action">
+						          <a class="dropdown-item" href="#">간식</a>
+						          <a class="dropdown-item" href="#">과일</a>
+						          <a class="dropdown-item" href="#">정육</a>
+						          <a class="dropdown-item" href="#">채소</a>
+						          <a class="dropdown-item" href="#">건강식품</a>
+						      </div>
+						</div>
+		           	  </td>
+                      <td>ID</td>
+                      <td>누구게?</td>
+                      <td><span class="badge badge-success w-75 py-2">관리자</span></td>
+                      <td>19,000</td>                  
+                      <td>2021-00-00</td>
+                    </tr>
+                    <tr>
+                      <td style="vertical-align:middle"><input type="checkbox"/></td>
+                      <td>123456789</td>
+                      <td style="vertical-align:middle;">
+						  <div class="dropdown position-static actions d-inline-block">
+						     <button class="btn btn btn-outline px-1 py-0 mt-1 dropdown-toggle actions-btn" type="button"
+						          id="table-action" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						          <i class="mdi mdi-dots-horizontal"></i>
+						          전체</button>
+						      <div class="dropdown-menu" aria-labelledby="table-action">
+						          <a class="dropdown-item" href="#">간식</a>
+						          <a class="dropdown-item" href="#">과일</a>
+						          <a class="dropdown-item" href="#">정육</a>
+						          <a class="dropdown-item" href="#">채소</a>
+						          <a class="dropdown-item" href="#">건강식품</a>
+						      </div>
+						</div>
+		           	  </td>
+                      <td>ID</td>
+                      <td>누구게?</td>
+                      <td><span class="badge badge-danger w-75 py-2">회원</span></td>
+                      <td>19,000</td>                  
+                      <td>2021-00-00</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <!-- Button trigger modal -->
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+				  탈퇴처리
+				</button>
+				
+				<!-- Modal -->
+				<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title" id="exampleModalLabel">회원 삭제</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div class="modal-body">
+				        이 회원을 정말 삭제하시겠습니까?
+				      </div>
+				      <div class="modal-footer">
+				      	<button type="button" class="btn btn-primary">삭제하기</button>
+				       	<button type="button" class="btn btn-secondary" data-dismiss="modal">취소하기</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+              </div>
+             </div>
+           </div>
           
         
        

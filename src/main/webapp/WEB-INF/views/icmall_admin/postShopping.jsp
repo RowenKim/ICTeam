@@ -132,11 +132,11 @@
 				     <button class="btn btn btn-outline px-1 py-0 mt-1 dropdown-toggle actions-btn" type="button"
 				          id="table-action" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				          <i class="mdi mdi-dots-horizontal"></i>
-				          전체</button>
+				          쇼핑몰관련문의</button>
 				      <div class="dropdown-menu" aria-labelledby="table-action">
 				          <a class="dropdown-item" href="postStuck">상품문의</a>
-				          <a class="dropdown-item" href="postShopping">쇼핑몰관련문의</a>
 				          <a class="dropdown-item" href="postAnyquestion">기타문의</a>
+				          <a class="dropdown-item" href="post">전체</a>
 				      </div>
 				</div>
            	  </td>

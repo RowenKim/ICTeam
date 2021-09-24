@@ -17,6 +17,11 @@
     <link href="${pageContext.request.contextPath }/admin/vendor/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 	
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/CSS/admin.css">
+	
     <!-- Custom fonts for this template-->
     <link href="${pageContext.request.contextPath }/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
      <link href="${pageContext.request.contextPath }/CSS/admin.css" type="text/css" rel="stylesheet">
@@ -58,7 +63,7 @@
     
 	<div id="wrapper">
       <!-- Sidebar -->
-      <ul class="sidebar navbar-nav">
+      <ul class="sidebar navbar-nav sidebarHB">
       <!-- 주문관리 -->       
         <li class="nav-item dropdown">
           <a class="nav-link sidebar-link text-white dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -114,7 +119,7 @@
             </li>
             <li class="breadcrumb-item active">I.C Mall</li>
           </ol>
-		</div>
+		
 		<br>
        <table class="table table-bordered">
 		  <tbody>
@@ -167,12 +172,70 @@
 		  </tbody>
 		</table>
 		<div class="row">
-				<div class="col-lg-12">
-					<div class="form-group text-center">
-						<button class="btn btncolor text-white" type="submit">조회</button>
-					</div>
+			<div class="col-lg-12">
+				<div class="form-group text-center">
+					<button class="btn btncolor text-white" type="submit">조회</button>
 				</div>
 			</div>
+		</div>
+		
+		<!-- DataTables Example -->
+		<div class="card mb-3">
+		<div class="card-body">
+		<div class="table-responsive">
+                <table  class="table-hover table text-center table-bordered" id="myTable"  width="100%" cellspacing="0">
+                  <thead>
+                    <tr class="text-muted">
+                      <th>선택</th>
+                      <th>주문번호</th>
+                      <th>주문자</th>
+                      <th>주문상품</th>
+                      <th>처리상태</th>
+                      <th>수량</th>
+                      <th>상품금액</th>
+                      <th>결제방법</th>
+                      <th>송장번호</th>
+                      <th>주문일시</th>
+                    </tr>
+                  </thead>
+                    <tr>
+                      <td style="vertical-align:middle"><input type="checkbox"/></td>
+                      <td>123456789</td>
+                      <td>누굴까요?</td>
+                      <td>고기</td>
+                      <td><span class="badge badge-danger w-75 py-2">입금대기</span></td>
+                      <td>400g</td>
+                      <td>46,000</td>
+                      <td>카드</td>
+                      <td>1234567890</td>
+                      <td>2021-00-00 <br>
+                          00:00:00
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="vertical-align:middle"><input type="checkbox"/></td>
+                      <td>122456789</td>
+                      <td>누구까요?</td>
+                      <td>고기</td>
+                      <td><span class="badge badge-success w-75 py-2">입금확인</span></td>
+                      <td>500g</td>
+                      <td>43,000</td>
+                      <td>카드</td>
+                      <td>1234567891</td>
+                      <td>2021-00-00 <br>
+                          00:00:00
+                      </td>
+                    </tr>
+                  </tbody>
+                 
+                </table>
+              </div>
+             </div>
+           </div>
+          
+        
+       
+        
          
           
 
@@ -188,6 +251,7 @@
       </div>
       <!-- /.content-wrapper -->
 
+    </div>
     </div>
     <!-- /#wrapper -->
 
@@ -235,7 +299,9 @@
     <!-- Demo scripts for this page-->
     <script src="${pageContext.request.contextPath }/admin/js/demo/datatables-demo.js"></script>
     <script src="${pageContext.request.contextPath }/admin/js/demo/chart-area-demo.js"></script>
-
+	
+	<script src="${pageContext.request.contextPath }/JS/admin.js"></script>
+	
   </body>
 
 </html>
