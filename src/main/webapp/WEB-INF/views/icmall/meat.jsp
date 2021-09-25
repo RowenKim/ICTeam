@@ -24,13 +24,7 @@
             <div class="div5">
             <h3>육류</h3>
          	</div>
-         	<br><br><br><br><br><br>
-         	
-         	<div>
-         	
-         	
-         	</div>
-         	
+         	<div class="space"></div>
                 <!-- Blog -->
                 <div id="blog" class="grid-layout post-3-columns m-b-30" data-item="post-item">
                     <!-- Post item-->
