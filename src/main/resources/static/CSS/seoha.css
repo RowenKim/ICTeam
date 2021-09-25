@@ -40,6 +40,10 @@
 	color:#5f0080;
 	cursor:pointer;
 }
+
+/* 주문내역 상세 */
+.basketChk:hover {cursor:pointer;}
+
 /* ------------------ 모바일 -------------------------------------*/
 @media (max-width: 992px){
 	.m-d-none {

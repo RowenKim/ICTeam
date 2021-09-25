@@ -96,6 +96,12 @@ public class IcmallController {
 		return "icmall/orderList";
 	}
 	
+	@RequestMapping("/orderDetail")
+	public String orderDetail(Model model) {
+		
+		return "icmall/orderDetail";
+	}
+	
 	
 	
 	
@@ -192,17 +198,6 @@ public class IcmallController {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	/* 종원 컨트롤 페이지 200줄 ~ 400줄 */
 	
 	@RequestMapping("/stockDetail")
@@ -219,13 +214,6 @@ public class IcmallController {
 	}
 	
 
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
