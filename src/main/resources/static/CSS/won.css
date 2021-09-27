@@ -4,9 +4,10 @@
 
 /* stockReview, reviewUpdate */
 #page-content{
-	margin:auto;
-	width:50%;
+   margin:auto;
+   max-width:1000px;
 }
+
 
 .sr_headTable {  
 	width:20%;
@@ -123,6 +124,7 @@ th {
 	position:relative;
 	width:1045px;
 	color:black;
+	
 	
 }
 
@@ -257,10 +259,24 @@ img { /* ICMall CheckPoint, 상품상세설명 멜론 이미지 */
 }
 
 .basketT{
-	padding:30px 45px;
+	
 	font-weight:bold;
 }
+.w-50{
+	width:50%;
+}
+.w-100{
+	width:100%;
+}
+.w-m-t-50
+	{margin-top:50px;}
+/* ------------------ 모바일 -------------------------------------*/
+@media (max-width: 992px){
+	.w-m-t-50 {
+		margin-top:0px;}
+}
 
+	
 .basketT2{
 	padding:2px 20px;
 	font-weight:bold;
@@ -268,7 +284,13 @@ img { /* ICMall CheckPoint, 상품상세설명 멜론 이미지 */
 }
 
 .basketSubName { color:black;}
-.basketSubName:hover { color:black;}
+/* ------------------ 모바일 -------------------------------------*/
+@media (max-width: 992px){
+	.basketSubName {
+		font-size:11px;}
+}
+
+.basketSubName:hover { color: #5f0080 !important;}
 
 #basketDiv{
 	text-align:center;

@@ -24,9 +24,9 @@
             <div class="div5">
             <h3>과일류</h3>
          	</div>
-         	<br><br><br><br><br><br>
          	
-         	<div>
+         	
+         	<div class="space">
          	
          	
          	</div>

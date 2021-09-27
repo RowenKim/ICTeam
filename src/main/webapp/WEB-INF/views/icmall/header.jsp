@@ -44,7 +44,7 @@
                     <div id="logo">
                         <a href="index.html">
                             <span class="logo-default">IC MALL</span>
-                            <span class="logo-dark">IC MALL</span>
+                          
                         </a>
                     </div>
                 </div>
