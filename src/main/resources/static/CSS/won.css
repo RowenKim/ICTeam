@@ -3,6 +3,10 @@
 }
 
 /* stockReview, reviewUpdate */
+#page-content{
+   margin:auto;
+   max-width:1000px;
+}
 
 
 .sr_headTable {  
@@ -120,6 +124,7 @@ th {
 	position:relative;
 	width:1045px;
 	color:black;
+	
 	
 }
 
