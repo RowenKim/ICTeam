@@ -334,3 +334,107 @@ img { /* ICMall CheckPoint, 상품상세설명 멜론 이미지 */
 	display:none;
 }
 
+
+/* 관리자 메인 페이지*/
+
+/* 주문관리 */
+.ai_sec{ /* 주문관리 카운트하는 숫자*/
+   padding-left:100px;
+   padding-bottom:20px;
+   font-size:1.2em;
+   font-weight:bold;
+}
+
+.ai_tab, .ai_tab1, .ai_tab2{/* 주문관리 */
+   border:1px solid #9C9C9C;
+   border-collapse:collpase;
+}
+
+
+.ai_tab{ /* 주문관리 */
+   max-width:600px;
+   min-width:50px;
+}
+
+.ai_tab1, .ai_tab2 { /* 주문관리 */
+   padding-top:10px;
+}
+
+.ai_tab1{ /* 주문관리 */
+   padding-top:10px;
+   border-top:3px solid #9C9C9C;
+}
+
+.ai_title{ /* 주문관리 주문현황 타이틀 */
+   color:black;
+   padding-left:8px;
+   font-weight:bold;
+   font-size:1.5em;
+   color:#C7C7C7;
+}
+
+/* 문의/답변 관리 */
+.ai_title2{ /* 문의/답변관리 상품후기 문의하기 */
+   color:black;
+   font-size:1em;
+   font-weight:bold;
+}
+
+.ai_secTab1{ /*  문의/답변관리 상품후기 문의하기 */
+   border-top:2px solid gray;
+}
+
+.ai_secTab2, .ai_secTab1{ /*  문의/답변관리 상품후기 문의하기 */
+   padding-top:3px;
+}
+
+.ai_cnt{ /* 문의 카운트 */
+   color:#FD6A66;
+}
+
+#ai_secTab1-1{ /* 상품후기 패딩값 주기*/
+   padding-top:10px;
+   padding-right:120px;
+}
+
+
+/* 회원현황 */
+#memberTable{ /* 현황 테이블 */
+   border: 1px solid #BCBCBC;
+   margin-left:18px;
+}
+
+#orderTitel_admin{
+   font-size:1.8em;
+}
+
+#qutTitle_admin{
+   font-size:1.8em;
+   font-weight:bold;
+   padding-right:150px;
+}
+
+.qutTitle2_admin{
+   font-size:1.8em;
+   font-weight:bold;
+   margin-left:18px;
+   padding-top:20px;
+   padding-bottom:20px;
+   min-width:100px;
+   
+}
+.ai_tapHead{
+   background-color:#BCBCBC;
+   color:white;
+   font-size:1.3em;
+   font-weight:bold;
+   text-align:center;
+}
+
+.ai_tapHead2{
+   text-align:center;
+}
+
+.ai_tapD2{
+   text-align:right;
+}
