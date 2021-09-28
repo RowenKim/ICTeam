@@ -122,7 +122,8 @@ th {
 
 #info-nav {
 	position:relative;
-	width:1045px;
+	width:100%;
+	max-width:1140px !important;
 	color:black;
 	
 	
@@ -196,7 +197,8 @@ img { /* ICMall CheckPoint, 상품상세설명 멜론 이미지 */
 	font-weight: bold; 
 	font-size:2em;
 	float:left;
-	padding:30px 125px;
+	width:33.33%;
+	padding:20px 0px;
 	background-color: #FAFAFA;
 }
 
