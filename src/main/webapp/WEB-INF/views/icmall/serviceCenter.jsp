@@ -25,20 +25,20 @@
 		<table class="table">
 				<tbody id="sc_table">
 					<tr>
-						<th scope="col" class="content col-lg-1">번호</th>
-						<th scope="col" class="content col-lg-2">작성자</th>
-						<th scope="col" class="content col-lg-7">제목</th>
-						<th scope="col" class="content col-lg-2">작성날짜</th>
+						<th scope="col" class="">번호</th>
+						<th scope="col" class="">작성자</th>
+						<th scope="col" class="">제목</th>
+						<th scope="col" class="">작성날짜</th>
 					</tr>
 				</tbody>
 		</table>
 		<table class="table">
 			<tbody>
 				<tr>
-					<th scope="col" class="content col-lg-1">uid-1</th>
-					<td scope="col" class="content col-lg-2">name</td>
-					<td scope="col" class="content col-lg-7"><div id="sub">subtitle</div></td>
-					<td scope="col" class="content col-lg-2">regdate</td>
+					<th scope="col" class="">uid-1</th>
+					<td scope="col" class="">name</td>
+					<td scope="col" class=""><div id="sub">subtitle</div></td>
+					<td scope="col" class="">regdate</td>
 				</tr>
 			</tbody>
 		</table>
@@ -49,10 +49,10 @@
 		<table class="table">
 			<tbody>
 				<tr>
-					<th scope="col" class="content col-lg-1">uid-2</th>
-					<td scope="col" class="content col-lg-2">name</td>
-					<td scope="col" class="content col-lg-7">subtitle</td>
-					<td scope="col" class="content col-lg-2">regdate</td>
+					<th scope="col" class="">uid-2</th>
+					<td scope="col" class="">name</td>
+					<td scope="col" class="">subtitle</td>
+					<td scope="col" class="">regdate</td>
 				</tr>
 			</tbody>			
 		</table>
@@ -60,10 +60,10 @@
 		<table class="table">
 			<tbody>
 				<tr>
-					<th scope="col" class="content col-lg-1">uid-3</th>
-					<td scope="col" class="content col-lg-2">name</td>
-					<td scope="col" class="content col-lg-7">subtitle</td>
-					<td scope="col" class="content col-lg-2">regdate</td>
+					<th scope="col" class="">uid-3</th>
+					<td scope="col" class="">name</td>
+					<td scope="col" class="">subtitle</td>
+					<td scope="col" class="">regdate</td>
 				</tr>
 			</tbody>
 		</table>

@@ -1,21 +1,29 @@
 @charset "UTF-8";
 
-
-
 /* 약관동의 영역*/
-.div1 { 
-  	position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);	
+.div1 {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.joinCheck {
+	max-width:500px;
+	margin:0 auto;
+}
+@media screen and (max-width:940px) {
+	.joinCheck {
+	max-width:400px;
+	margin:0 auto;
+}
 }
 /* 선택사항*/
 .lab {
-	display:block;
+	display: block;
 	justify-content: center;
 }
 /* 약관동의 폰트*/
-p{
+p {
 	font-size: 5px;
 }
 
@@ -23,29 +31,29 @@ p{
 	color: purple;
 	font-size: 3px;
 }
+
 #f1 {
 	font-weight: bold;
 }
 
-
-
 /* 버튼*/
-.div2 { 
+.div2 {
 	width: 100%;
 	text-align: center;
-	
 }
 
-.btn { 
+.btn {
 	background-color: rgb();
 }
 /* 테이블*/
-.t1 { 
+.t1 {
 	padding-right: 30px;
 }
-#f2 { 
+
+#f2 {
 	color: red;
 }
+
 .f2 {
 	font-size: 8px;
 	font-weight: bold;
@@ -53,73 +61,163 @@ p{
 
 /* 회원가입 */
 #div3 {
-	max-width:700px;
+	max-width: 700px;
 	position: relative;
-	
 }
 
-.two{
-	
+.two {
 	border-bottom: 0px;
 	text-align: left;
 	margin-left: 0px;
 	color: black;
 	background-color: #5f0080;
 	height: 1px;
-	
 }
-
 
 .t2 {
 	padding-bottom: 10px;
+	width:20%;
 }
+
 .t3 {
 	padding-bottom: 10px;
 	/* padding-left: 50px; */
-	width: 10%;
+	width: 50%;
 	text-align: center;
 }
-#t3{
+
+#t3 {
 	padding-bottom: 10px;
-	padding-left: 50px;
+	
 }
+
 .t4 {
 	padding-left: 10px;
 	padding-bottom: 10px;
-	width: 200px;
+	width: 20%;
 }
+
 .idbtn, .upbtn {
 	width: 100px;
 	text-align: center;
-	
-}
-button.idbtn, .idbtn:not(.close):not(.mfp-close), a.idbtn:not([href]):not([tabindex]) { font-family: "Poppins", sans-serif; border-radius: 5px 5px 5px 5px; font-size: 12px; font-weight: 600; letter-spacing: .5px; text-decoration: none; outline: none; padding: 12px 18px; position: relative; text-transform: uppercase; background-color: #ffffff; border-color: #5f0080; border-width: 1px; border-style: solid; color: #5f0080; -webkit-transition: all 0.3s; transition: all 0.3s; margin-bottom: 6px; outline: none; line-height: 14px; cursor: pointer; }
-button#adressbtn, #adressbtn:not(.close):not(.mfp-close), a#adressbtn:not([href]):not([tabindex]) { font-family: "Poppins", sans-serif; border-radius: 5px 5px 5px 5px; font-size: 12px; font-weight: 600; letter-spacing: .5px; text-decoration: none; outline: none; padding: 12px 18px; position: relative; text-transform: uppercase; background-color: #ffffff; border-color: #5f0080; border-width: 1px; border-style: solid; color: #5f0080; -webkit-transition: all 0.3s; transition: all 0.3s; margin-bottom: 6px; outline: none; line-height: 14px; cursor: pointer; }
-button#datebtn, #datebtn:not(.close):not(.mfp-close), a#datebtn:not([href]):not([tabindex]) { font-family: "Poppins", sans-serif; border-radius: 5px 5px 5px 5px; font-size: 12px; font-weight: 600; letter-spacing: .5px; text-decoration: none; outline: none; padding: 12px 18px; position: relative; text-transform: uppercase; background-color: #ffffff; border-color: #5f0080; border-width: 1px; border-style: solid; color: #5f0080; -webkit-transition: all 0.3s; transition: all 0.3s; margin-bottom: 6px; outline: none; line-height: 14px; cursor: pointer; }
-button.upbtn, .upbtn:not(.close):not(.mfp-close), a.upbtn:not([href]):not([tabindex]) { font-family: "Poppins", sans-serif; border-radius: 5px 5px 5px 5px; font-size: 12px; font-weight: 600; letter-spacing: .5px; text-decoration: none; outline: none; padding: 12px 18px; position: relative; text-transform: uppercase; background-color: #5f0080; border-color: #5f0080; border-width: 1px; border-style: solid; color: #ffffff; -webkit-transition: all 0.3s; transition: all 0.3s; margin-bottom: 6px; outline: none; line-height: 14px; cursor: pointer; }
-.inf{
- width: 300px;
 }
 
-@media screen and (max-width:940px){
-	.inf {
-		width:50px;
-	}
-	
+button.idbtn, .idbtn:not(.close):not(.mfp-close), a.idbtn:not([href]):not([tabindex])
+	{
+	font-family: "Poppins", sans-serif;
+	border-radius: 5px 5px 5px 5px;
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: .5px;
+	text-decoration: none;
+	outline: none;
+	padding: 12px 18px;
+	position: relative;
+	text-transform: uppercase;
+	background-color: #ffffff;
+	border-color: #5f0080;
+	border-width: 1px;
+	border-style: solid;
+	color: #5f0080;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+	margin-bottom: 6px;
+	outline: none;
+	line-height: 14px;
+	cursor: pointer;
+}
+
+button#adressbtn, #adressbtn:not(.close):not(.mfp-close), a#adressbtn:not([href]):not([tabindex])
+	{
+	font-family: "Poppins", sans-serif;
+	border-radius: 5px 5px 5px 5px;
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: .5px;
+	text-decoration: none;
+	outline: none;
+	padding: 12px 18px;
+	position: relative;
+	text-transform: uppercase;
+	background-color: #ffffff;
+	border-color: #5f0080;
+	border-width: 1px;
+	border-style: solid;
+	color: #5f0080;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+	margin-bottom: 6px;
+	outline: none;
+	line-height: 14px;
+	cursor: pointer;
+}
+
+button#datebtn, #datebtn:not(.close):not(.mfp-close), a#datebtn:not([href]):not([tabindex])
+	{
+	font-family: "Poppins", sans-serif;
+	border-radius: 5px 5px 5px 5px;
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: .5px;
+	text-decoration: none;
+	outline: none;
+	padding: 12px 18px;
+	position: relative;
+	text-transform: uppercase;
+	background-color: #ffffff;
+	border-color: #5f0080;
+	border-width: 1px;
+	border-style: solid;
+	color: #5f0080;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+	margin-bottom: 6px;
+	outline: none;
+	line-height: 14px;
+	cursor: pointer;
+}
+
+button.upbtn, .upbtn:not(.close):not(.mfp-close), a.upbtn:not([href]):not([tabindex])
+	{
+	font-family: "Poppins", sans-serif;
+	border-radius: 5px 5px 5px 5px;
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: .5px;
+	text-decoration: none;
+	outline: none;
+	padding: 12px 18px;
+	position: relative;
+	text-transform: uppercase;
+	background-color: #5f0080;
+	border-color: #5f0080;
+	border-width: 1px;
+	border-style: solid;
+	color: #ffffff;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+	margin-bottom: 6px;
+	outline: none;
+	line-height: 14px;
+	cursor: pointer;
+}
+
+.inf {
+	width:100%;
 }
 
 
 input::placeholder {
-	color:#ccc;
+	color: #ccc;
 	font-size: 6px;
 }
 
 #adressbtn {
- width: 300px;
+	width:100%;
 }
 
-#datebtn{
-	width: 300px;
+#datebtn {
+	width:100%;
 }
 
 
@@ -129,36 +227,26 @@ input::placeholder {
 	padding-right: 35px;
 }
 
-@media screen and (max-width:940px){
-	.div3.div.h2{
-		font-size: 10px;
+@media screen and (max-width:940px) {
+	.div3.div.h2 {
+		font-size: 12px;
 	}
-	.div{
-	 width: 768px;
+	.div {
+		width: 768px;
 	}
-	.t2{
-	 font-size: 8px;
-	min-width: 50px; 
+	.t2 {
+		font-size: 12px;
+		min-width: 50px;
 	}
-	.t3{
-	 width: 10%;
-	 min-width: 30px;
+	.t3 {
+		
+		min-width: 30px;
 	}
 	#div3 {
-	 
+		
 	}
-	
 }
-.div5{
+
+.div5 {
 	text-align: center;
 }
-
-
-
-
-
-
-
-
-
-

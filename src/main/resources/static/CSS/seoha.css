@@ -1,5 +1,11 @@
 @charset "UTF-8";
 
+.main-color {
+	color:#5f0080 !important;
+}
+.btn:hover {
+	color:#fff !important;
+}
 /* header ----------------------------------------------------*/
 #mall_serch_form {
 	position:relative;

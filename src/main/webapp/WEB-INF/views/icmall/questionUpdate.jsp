@@ -26,7 +26,7 @@
 			<table class="table">
 				<tbody id="q_table">
 					<tr>
-						<th scope="row" class="content col-lg-2">제목</th>
+						<th scope="row">제목</th>
 						<td><input
 							class="form-control required" name="senderName"
 							placeholder="제목을 입력해주세요" id="name" aria-required="true"

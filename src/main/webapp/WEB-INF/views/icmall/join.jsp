@@ -36,7 +36,7 @@
 			</div>
 		</section>
 		<!-- end: Page title -->
-		<div class="container center m-t-30 m-b-30" id="div3">
+		<div class="container center m-t-30 m-b-30" id="div3" style="overflow:hidden;">
 
 			<div>
 				<h2>회원가입</h2>
@@ -121,8 +121,8 @@
 						<tr>
 							<!-- 여덜번째 줄 시작 -->
 							<td class="t2"><span>성별</span></td>
-							<td id="t3"><input type="radio" name="gender" value="m" class="inf"
-								id="man"> <label for="man">남자</label> <input
+							<td id="t3"><input type="radio" name="gender" value="m"
+								id="man"> <label for="man">남자</label> <input class="m-l-10"
 								type="radio" name="gender" value="m" id="woman"> <label
 								for="woman">여자</label></td>
 							<td class="t4"></td>

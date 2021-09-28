@@ -115,7 +115,7 @@
 						<div class="col-lg-12">
 							<div class="form-group text-center">
 								<button class="btn" type="submit">선택상품주문취소</button>
-								<button class="btn" type="submit">전체상품주문취소</button>
+								<input class="btn" type="submit" name="agree_all" value="전체상품주문취소"></input>
 							</div>
 						</div>
 					</div>
@@ -138,6 +138,7 @@
 	<script src="${pageContext.request.contextPath }/JS/jquery.js"></script>
 	<script src="${pageContext.request.contextPath }/JS/plugins.js"></script>
 	<script src="${pageContext.request.contextPath }/JS/functions.js"></script>
+	<script src="${pageContext.request.contextPath }/JS/jaeuk.js"></script>
 
 </body>
 </html>
