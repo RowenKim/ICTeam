@@ -13,8 +13,46 @@ DROP TABLE IF EXISTS member;
 DROP TABLE IF EXISTS product;
 DROP TABLE IF EXISTS basket;
 
+SELECT * FROM orderCancel;
+SELECT * FROM shipping;
+SELECT * FROM payment;
+SELECT * FROM ic_order;
+SELECT * FROM productQuestion;
+SELECT * FROM question;
+SELECT * FROM review;
+SELECT * FROM MEMBER;
+SELECT * FROM product;
+SELECT * FROM basket;
 
 
+SELECT name, cnt FROM basket;
+
+
+/* 필요한 uid
+ * 
+ * -----------------------------------------
+ * 오전 
+ * ERD DDL 마무리 
+ * 오후
+ * (13:00-14:00) : 분배완료
+ * (14:00-이번주 일요일까지) : 싹 다 완료 ( 에러 셋팅 )
+ * 
+ * 다음주 -> 디버깅 시작 (완벽하게)
+ * -----------------------------------------
+ * 
+ * 	  테이블           필요한 uid    (FK)
+ * orderCancel -> ic_order uid 
+ * payment -> ic_order uid
+ * review -> member uid/ product uid
+ * ic_oreder -> member uid/ basket uid /(payment uid 보류)
+ * product -> basket ( 1 : N ) --> 어려워,................................
+ * question -> member uid (1 : N)
+ * productQuestion -> member uid/product uid  
+ * shipping -> payment uid (1 : 1) 
+ * 
+ * 
+ * 
+ * */
 
 /* Create Tables */
 
@@ -26,24 +64,45 @@ CREATE TABLE basket
 	PRIMARY KEY (b_uid)
 );
 
+INSERT INTO basket(b_productName)
+values("hello");
+
+
+
 SHOW tables;
 
-SELECT * FROM bsaket;
+SELECT * FROM basket;
+
+-- INSERT INTO ic_order/payment(주소, 이름, 휴대폰번호, 결제방법)
+-- VALUES (주소 이름 휴대폰번호 결제방법)
+-- 
+-- /*주문할 경우*/
+-- INSERT INTO payment(결제방법) name = 현금
+-- VALUES (결제방법)
+-- 
+-- INSERT INTO ic_order(주소, 이름, 휴대폰번호) addt = 쥬소 ..........
+-- VALUES (주소 이름 휴대폰번호)
+
+
+
+
 
 
 CREATE TABLE ic_order
 (
-	o_uid int NOT NULL AUTO_INCREMENT,
+	o_uid int NOT NULL AUTO_INCREMENT COMMENT "",
 	o_qty int NOT NULL DEFAULT 1,
 	o_addr varchar(200) NOT NULL,
 	o_phone varchar(30) NOT NULL,
 	o_date datetime DEFAULT CURRENT_TIMESTAMP,
 	o_message varchar(200),
-	o_status varchar(30) NOT NULL DEFAULT exorder,
-	m_uid int NOT NULL,
 	PRIMARY KEY (o_uid)
 );
 
+INSERT INTO ic_order (o_addr, o_phone, o_message)
+VALUES ("dsd", "asdsda", "sadasd");
+
+SELECT * FROM ic_order;
 
 CREATE TABLE member
 (
@@ -74,25 +133,35 @@ SELECT * FROM MEMBER;
 
 CREATE TABLE orderCancel
 (
-	oc_status varchar(30) NOT NULL DEFAULT N,
-	oc_date datetime NOT NULL DEFAULT now(),
+	oc_status varchar(30) NOT NULL DEFAULT "N",
+	oc_date datetime DEFAULT CURRENT_TIMESTAMP,
 	oc_refundBank varchar(100) NOT NULL,
 	oc_account varchar(100) NOT NULL,
-	oc_refundName varchar(50) NOT NULL,
-	o_uid int NOT NULL
+	oc_refundName varchar(50) NOT NULL
 );
+
+INSERT INTO orderCancel (oc_refundBank, oc_account, oc_refundName)
+VALUES ("신한", "00000", "홍ㄱ길동");
+
+SELECT * FROM orderCancel;
+
 
 
 CREATE TABLE payment
 (
 	pay_uid int NOT NULL AUTO_INCREMENT,
 	pay_amount int NOT NULL DEFAULT 0,
-	pay_status varchar(20) NOT NULL DEFAULT notpay,
+	pay_status varchar(20) NOT NULL DEFAULT "notpay",
 	pay_way varchar(30) NOT NULL,
 	pay_date datetime NOT NULL DEFAULT now(),
-	o_uid int NOT NULL,
 	PRIMARY KEY (pay_uid)
 );
+
+INSERT INTO payment(pay_amount, pay_way)
+VALUES (3222, "현금");
+
+
+SELECT * FROM payment;
 
 
 CREATE TABLE product
@@ -103,11 +172,14 @@ CREATE TABLE product
 	pro_price int NOT NULL DEFAULT 0,
 	pro_img varchar(100),
 	pro_content varchar(3000),
-	pro_shippigCharge varchar(30) NOT NULL DEFAULT free,
-	b_uid int NOT NULL,
+	pro_shippigCharge varchar(30) NOT NULL DEFAULT "free",
 	PRIMARY KEY (pro_uid)
 );
 
+INSERT INTO product(pro_name, pro_kind, pro_img, pro_content)
+values("멜론", "과일", "멜론이미지", "달다");
+
+SELECT * FROM product;
 
 CREATE TABLE productQuestion
 (
@@ -115,15 +187,18 @@ CREATE TABLE productQuestion
 	proq_answerDate datetime NOT NULL DEFAULT now(),
 	proq_questionDate datetime NOT NULL DEFAULT now(),
 	proq_viewCnt int NOT NULL DEFAULT 0,
-	proq_status varchar(30) DEFAULT N,
+	proq_status varchar(30) DEFAULT "N",
 	proq_img varchar(100),
 	proq_answerContent varchar(200),
 	proq_questionContent varchar(300),
 	proq_title varchar(50) NOT NULL,
-	m_uid int NOT NULL,
-	pro_uid int NOT NULL,
 	PRIMARY KEY (proq_uid)
 );
+
+INSERT INTO productQuestion(proq_img, proq_answerContent, proq_questionContent, proq_title)
+VALUES ("이미지", "아", "이", "오");
+
+SELECT * FROM productQuestion;
 
 
 CREATE TABLE question
@@ -133,15 +208,20 @@ CREATE TABLE question
 	q_content varchar(500),
 	q_answer varchar(500) NOT NULL,
 	q_img varchar(100),
-	q_status varchar(30) NOT NULL DEFAULT N,
+	q_status varchar(30) NOT NULL DEFAULT "N",
 	q_viewCnt int NOT NULL DEFAULT 0,
 	q_questionDate datetime NOT NULL DEFAULT now(),
 	q_answerDate datetime NOT NULL DEFAULT now(),
-	m_uid int NOT NULL,
 	PRIMARY KEY (q_uid)
 );
 
+INSERT INTO question(q_title, q_content, q_answer, q_img)
+VALUES ("이미지", "아", "이", "오");
 
+SELECT * FROM question;
+
+
+ /* * review -> member uid/ product uid */
 CREATE TABLE review
 (
 	r_uid int NOT NULL AUTO_INCREMENT,
@@ -149,119 +229,36 @@ CREATE TABLE review
 	r_img varchar(200),
 	r_date datetime NOT NULL DEFAULT now(),
 	r_title varchar(50) NOT NULL,
+	PRIMARY KEY (r_uid),
 	m_uid int NOT NULL,
 	pro_uid int NOT NULL,
-	PRIMARY KEY (r_uid)
+	FOREIGN KEY (m_uid) REFERENCES member(m_uid)  ON DELETE CASCADE,
+	FOREIGN KEY (pro_uid) REFERENCES product(pro_uid)  ON DELETE CASCADE
 );
+
+INSERT INTO review(r_content, r_img, r_title, m_uid, pro_uid)
+VALUES ("이미지", "아", "이", 1, 1);
+
+SELECT * FROM review;
+
 
 
 CREATE TABLE shipping
 (
 	s_uid int NOT NULL AUTO_INCREMENT,
-	s_status varchar(30) NOT NULL DEFAULT exship,
+	s_status varchar(30) NOT NULL DEFAULT "exship",
 	s_shippingNum varchar(50) NOT NULL,
-	pay_uid int NOT NULL,
 	PRIMARY KEY (s_uid)
 );
 
 
+INSERT INTO shipping(s_shippingNum)
+VALUES ("이미지");
 
-/* Create Foreign Keys */
-
-ALTER TABLE ic_order
-	ADD FOREIGN KEY (o_uid)
-	REFERENCES bsaket (b_uid)
-	ON UPDATE RESTRICT
-	ON DELETE RESTRICT
-;
+SELECT * FROM shipping;
 
 
-ALTER TABLE member
-	ADD FOREIGN KEY (m_uid)
-	REFERENCES bsaket (b_uid)
-	ON UPDATE RESTRICT
-	ON DELETE RESTRICT
-;
 
-
-ALTER TABLE product
-	ADD FOREIGN KEY (b_uid)
-	REFERENCES bsaket (b_uid)
-	ON UPDATE RESTRICT
-	ON DELETE RESTRICT
-;
-
-
-ALTER TABLE orderCancel
-	ADD FOREIGN KEY (o_uid)
-	REFERENCES ic_order (o_uid)
-	ON UPDATE RESTRICT
-	ON DELETE RESTRICT
-;
-
-
-ALTER TABLE payment
-	ADD FOREIGN KEY (o_uid)
-	REFERENCES ic_order (o_uid)
-	ON UPDATE RESTRICT
-	ON DELETE RESTRICT
-;
-
-
-ALTER TABLE ic_order
-	ADD FOREIGN KEY (m_uid)
-	REFERENCES member (m_uid)
-	ON UPDATE RESTRICT
-	ON DELETE RESTRICT
-;
-
-
-ALTER TABLE productQuestion
-	ADD FOREIGN KEY (m_uid)
-	REFERENCES member (m_uid)
-	ON UPDATE RESTRICT
-	ON DELETE RESTRICT
-;
-
-
-ALTER TABLE question
-	ADD FOREIGN KEY (m_uid)
-	REFERENCES member (m_uid)
-	ON UPDATE RESTRICT
-	ON DELETE RESTRICT
-;
-
-
-ALTER TABLE review
-	ADD FOREIGN KEY (m_uid)
-	REFERENCES member (m_uid)
-	ON UPDATE RESTRICT
-	ON DELETE RESTRICT
-;
-
-
-ALTER TABLE shipping
-	ADD FOREIGN KEY (pay_uid)
-	REFERENCES payment (pay_uid)
-	ON UPDATE RESTRICT
-	ON DELETE RESTRICT
-;
-
-
-ALTER TABLE productQuestion
-	ADD FOREIGN KEY (pro_uid)
-	REFERENCES product (pro_uid)
-	ON UPDATE RESTRICT
-	ON DELETE RESTRICT
-;
-
-
-ALTER TABLE review
-	ADD FOREIGN KEY (pro_uid)
-	REFERENCES product (pro_uid)
-	ON UPDATE RESTRICT
-	ON DELETE RESTRICT
-;
 
 
 
