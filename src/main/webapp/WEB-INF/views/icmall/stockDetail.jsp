@@ -14,7 +14,7 @@
 </head>
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
 <body>
-	<jsp:include page="header.jsp"/>
+	<jsp:include page="header.jsp" />
 	<hr>
 
 	<section id="product-page" class="product-page p-b-0">
@@ -24,16 +24,17 @@
 					<div class="col-lg-5">
 						<div class="product-image" id="product-image-test">
 							<!-- 이미지파일 -->
-						<img src="https://img-cf.kurly.com/shop/data/goods/160923079018l0.jpg" id="main_img_mellon">
+							<img
+								src="https://img-cf.kurly.com/shop/data/goods/160923079018l0.jpg"
+								id="main_img_mellon">
 						</div>
 					</div>
-					<div class="col-lg-6">
+					<div class="col-lg-7">
 						<div class="product-description">
-							<div class="product-title">
+							<div class="product-title text-left">
 								<h3>머스크 멜론 1.2kg(상품 uid 해당하는 st_name 가져오기)</h3>
 							</div>
-							<br>
-							<br>
+							<br> <br>
 							<div>
 								<h3>6,990원(st_price)</h3>
 							</div>
@@ -75,9 +76,7 @@
 							<h3 id="sd_h3">5,900원</h3>
 						</div>
 						<!-- st_price와 productStock 곱하기 -->
-						<br>
-						<br>
-						<br>
+						<br> <br> <br>
 						<div class="col-lg-12">
 							<button type="submit" id="sd_btn">
 								<span id="sd_basket_letter"><b>장바구니 담기</b></span>
@@ -86,27 +85,23 @@
 					</div>
 				</div>
 			</div>
-			<br>
-			<br>
-			<br>
-			<br>
+			<br> <br> <br> <br>
 			<!-- Product additional tabs -->
 			<div id="info-nav-3items" class="row m-b-40">
 				<div id="info-nav">
-						<div>
+					<div>
 						<a class="nav-info-mellon" href="#" id="info-explain">상품설명</a>
-						</div>
-						<div>
+					</div>
+					<div>
 						<a class="nav-info-mellon" href="#" id="review-product">상품후기</a>
-						</div>
-						<div>
+					</div>
+					<div>
 						<a class="nav-info-mellon" href="#" id="question-product">상품Q&A</a>
-						</div>
+					</div>
 				</div>
 
 			</div>
-			<br>
-			<br>
+			<br> <br>
 			<div id="proInfoImg">
 				<div class="product-image">
 					<!-- 이미지파일 -->
@@ -130,30 +125,24 @@
 							근사한 안주로 즐겨도 좋을 거예요</p>
 					</div>
 				</div>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
+				<br> <br> <br> <br> <br> <br> <br>
+				<br> <br> <br>
 				<div class="ICMallCheck">
 					<!-- 체크포인트 -->
 					IC Mall's Check Point
 				</div>
-				<br>
-				<br>
-				<br>
-				<br>
+				<br> <br> <br> <br>
 				<div>
 					<!-- 체크포인트 이미지 -->
 					<img
 						src="https://img-cf.kurly.com/shop/data/goodsview/20201229/gv40000147717_1.jpg">
 				</div>
-				<br><br><br><br><br><br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
 				<div class="review">
 					<!-- 후기 -->
 					<div class="content col-lg-14">
@@ -162,7 +151,8 @@
 						</h3>
 						<h4>
 							<ul>
-								<li>상품에 대한 후기를 남기는 공간입니다. 해당 게시판의 성격과 다른 글은 사전동의 없이 담당 게시판으로 이동될 수 있습니다.</li>
+								<li>상품에 대한 후기를 남기는 공간입니다. 해당 게시판의 성격과 다른 글은 사전동의 없이 담당
+									게시판으로 이동될 수 있습니다.</li>
 							</ul>
 						</h4>
 						<table class="table">
@@ -244,9 +234,11 @@
 						<div id="reviewContent">상품후기 내용입니다!!!!!!!!</div>
 					</div>
 				</div>
-					
-					<br><br><br>
-					
+
+				<br>
+				<br>
+				<br>
+
 				<!-- 상품문의 -->
 				<div id="question">
 					<div class="content col-lg-14">
@@ -255,7 +247,8 @@
 						</h3>
 						<h4>
 							<ul>
-								<li>상품에 대한 문의를 남기는 공간입니다. 해당 게시판의 성격과 다른 글은 사전동의 없이 담당 게시판으로 이동될 수 있습니다</li>
+								<li>상품에 대한 문의를 남기는 공간입니다. 해당 게시판의 성격과 다른 글은 사전동의 없이 담당
+									게시판으로 이동될 수 있습니다</li>
 							</ul>
 						</h4>
 						<table class="table">
@@ -282,12 +275,14 @@
 							<div>
 								<b>- 질문내용 - </b>
 							</div>
-							상품 답변 내용!!!!!!!! 
+							상품 답변 내용!!!!!!!!
 						</div>
 						<table class="table">
 							<tbody>
 								<tr>
-									<th class="sep-55">제목입니다</div></th>
+									<th class="sep-55">제목입니다
+										</div>
+									</th>
 									<td class="sep-15">name</td>
 									<td class="sep-15">regdate</td>
 									<td class="sep-15">답변완료</td>
@@ -298,7 +293,9 @@
 						<table class="table">
 							<tbody>
 								<tr>
-									<th class="sep-55">제목입니다</div></th>
+									<th class="sep-55">제목입니다
+										</div>
+									</th>
 									<td class="sep-15">name</td>
 									<td class="sep-15">regdate</td>
 									<td class="sep-15">답변완료</td>
@@ -309,7 +306,9 @@
 						<table class="table">
 							<tbody>
 								<tr>
-									<th class="sep-55">제목입니다</div></th>
+									<th class="sep-55">제목입니다
+										</div>
+									</th>
 									<td class="sep-15">name</td>
 									<td class="sep-15">regdate</td>
 									<td class="sep-15">답변완료</td>
@@ -320,7 +319,9 @@
 						<table class="table">
 							<tbody>
 								<tr>
-									<th class="sep-55">제목입니다</div></th>
+									<th class="sep-55">제목입니다
+										</div>
+									</th>
 									<td class="sep-15">name</td>
 									<td class="sep-15">regdate</td>
 									<td class="sep-15">답변완료</td>
@@ -331,7 +332,9 @@
 						<table class="table">
 							<tbody>
 								<tr>
-									<th class="sep-55">제목입니다</div></th>
+									<th class="sep-55">제목입니다
+										</div>
+									</th>
 									<td class="sep-15">name</td>
 									<td class="sep-15">regdate</td>
 									<td class="sep-15">답변완료</td>

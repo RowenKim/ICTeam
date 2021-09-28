@@ -57,7 +57,7 @@ $(document).ready(function() {
 		     {
 		       $('#info-nav').css({
                 position: 'fixed',
-				top:81
+				top:80
             });
 			}  else {
 		      $('#info-nav').css({
