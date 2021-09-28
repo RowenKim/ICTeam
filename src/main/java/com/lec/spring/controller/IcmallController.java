@@ -26,6 +26,7 @@ public class IcmallController {
 	public String list(Model model) {
 		
 		return "icmall/index";
+		
 	}
 	
 	@RequestMapping("/stockReview")
