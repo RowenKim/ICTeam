@@ -24,6 +24,8 @@ SELECT * FROM ic_MEMBER;
 SELECT * FROM ic_product;
 SELECT * FROM ic_basket;
 
+DELETE FROM ic_product ;
+
 SHOW tables;
 
 /* 필요한 uid
@@ -217,8 +219,11 @@ SHOW tables;
 INSERT INTO ic_member (m_id, m_password, m_name, m_mail, m_phone, m_addr, m_gender, m_birth )
 VALUES ("d", "아", "아", "아", "아", "아", "아", "1999-09-09");
 
-INSERT INTO ic_product(pro_name, pro_kind, pro_img, pro_content)
-values("멜론", "과일", "멜론이미지", "달다");
+INSERT INTO ic_product(pro_name, pro_kind, pro_img)
+values("멜론", "과일", "멜론이미지");
+
+UPDATE ic_product SET pro_content = "무맛" WHERE pro_uid = 634;
+SELECT * FROM ic_product;
 
 INSERT INTO ic_basket(b_productName, m_uid, pro_uid)
 values("멜론", 1, 1);

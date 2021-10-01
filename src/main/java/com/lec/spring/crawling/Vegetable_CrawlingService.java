@@ -52,7 +52,7 @@ public class Vegetable_CrawlingService {
 						.pro_price(content.select(".price_detail strong").text())
 						.build();
 				
-				System.out.println(vegetablesDTO.toString());
+//				System.out.println(vegetablesDTO.toString());
 //				 System.out.println("---------------------");
 //		         System.out.println("상품이름: " + pro_name.get(i));
 //		         System.out.println("상품이미지: " + pro_img.get(i));
