@@ -53,9 +53,9 @@ public class Jin_CrawlingService {
 		
 		System.out.println("=======CHECK=========");
 		
-//		for(int j = 20; j < 58; j++) {
-//			meatProductList.remove(j);
-//		}
+		for(int j = 20; j < 58; j++) {
+			meatProductList.remove(j);
+		}
 		
 			
 		
