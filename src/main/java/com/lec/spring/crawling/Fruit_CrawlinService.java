@@ -31,7 +31,7 @@ public class Fruit_CrawlinService {
 		Document doc = Jsoup.connect(Fruit_URL).get();
 
 		Elements e1 = doc.getElementsByAttributeValue("class", "box_pd");
-		Elements pro_title = doc.select(".pname p");
+		Elements pro_name = doc.select(".pname p");
 		Elements pro_img = doc.select(".box_pd img");
 		Elements pro_price = doc.select(".price_detail strong");
 		
@@ -40,12 +40,12 @@ public class Fruit_CrawlinService {
 		
 		try {
 			for(Element content : e1) {
-				System.out.println(pro_title.get(i));
+				System.out.println(pro_name.get(i));
 				System.out.println(pro_img.get(i));
 				System.out.println(pro_price.get(i));
 				
 				Product_Fruit product_Fruit = Product_Fruit.builder()
-						.pro_title(content.select(".pname p").text())
+						.pro_name(content.select(".pname p").text())
 						.pro_img(content.select(".box_pd img").outerHtml())
 						.pro_price(content.select(".price_detail strong").text())
 						.build();

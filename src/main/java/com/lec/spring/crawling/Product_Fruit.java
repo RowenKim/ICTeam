@@ -11,7 +11,7 @@ import lombok.ToString;
 @Getter
 public class Product_Fruit {
 	
-	private String pro_title;
+	private String pro_name;
 	private String pro_img;
 	private String pro_price;
 
