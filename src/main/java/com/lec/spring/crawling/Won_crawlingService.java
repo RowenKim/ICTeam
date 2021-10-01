@@ -62,15 +62,20 @@ public class Won_crawlingService {
 //				System.out.println(e1.get(i).attr("href"));
 
 				String plus = "/view-desc";
-				testURL = e2.get(i).attr("href") + plus;  // + plus; // href 
+				testURL = e2.get(i).getElementsByAttribute("href").attr("href") + plus;  // + plus; // href 
 //				String testURL2 =testURL.replace("http", "");
 //				testURL.replace("", 0)
-				System.out.println("----" + testURL);
+//				System.out.println("----" + testURL);
 				
+				String proURL = testURL.replace("/SellerProductDetail.tmall?method=getSellerProductDetail&prdNo=", "s/");
+//				System.out.println("----" + proURL);
 				
 				
 //				https://www.11st.co.kr/products/2205395439
 				Document docTest = Jsoup.connect(testURL).get();
+				
+//				System.out.println(docTest.attr("Request URL"));
+				
 				
 //				String test = docTest.html();
 				
@@ -85,11 +90,10 @@ public class Won_crawlingService {
 	                    .pro_name(content.select(".pname p").text())
 	                    .pro_img(content.select(".box_pd img").outerHtml())
 	                    .pro_price(content.select(".price_detail strong").text().trim().replace(",", ""))
-	                    .pro_content(testURL)
+	                    .pro_content(proURL)
 	                    .build();
 				
 				dao.insertSnack(wonCrawlingDTO);
-				
 				
 				
 		
