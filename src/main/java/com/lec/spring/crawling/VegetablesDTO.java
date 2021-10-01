@@ -7,10 +7,10 @@ import lombok.ToString;
 @ToString
 @Builder
 @Getter
-public class seoha_vegetables {
+public class VegetablesDTO {
 	
 	private String pro_name;
 	private String pro_img;
-	private int pro_price;
+	private String pro_price;
 
 }
