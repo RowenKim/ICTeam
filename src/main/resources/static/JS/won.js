@@ -3,7 +3,7 @@
  */
 // 고객 리스트 제목 클릭시 내용 보이게 하기
 $(document).ready(function() {
-	//alert("JS 연결 성공")
+	alert("JS 연결 성공")
 	
 		$("#sub").click(function(){
 			//alert("열람완료");
@@ -121,6 +121,7 @@ $(document).ready(function() {
 		  }
 		 
 		});
+		
 		
 		
 
