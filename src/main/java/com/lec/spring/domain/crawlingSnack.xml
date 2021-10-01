@@ -3,13 +3,13 @@
 
 <mapper namespace="com.lec.spring.crawling.Won_CrawlingDAO">
 
-	<insert id="insert" flushCache="true" 
+	<insert id="insertSnack" flushCache="true" 
 		parameterType="com.lec.spring.crawling.Won_CrawlingDTO"
 		keyProperty="pro_uid" useGeneratedKeys="true" keyColumn="pro_uid">
 		INSERT INTO ic_product
-		(pro_name, pro_price, pro_img, pro_kind)
+		(pro_name, pro_price, pro_img, pro_content,pro_kind)
 		VALUES
-		(#{pro_name}, #{pro_price}, #{pro_img}, "과자")
+		(#{pro_name}, #{pro_price}, #{pro_img}, #{pro_content},"과자")
 	</insert>
 
 </mapper>

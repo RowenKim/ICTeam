@@ -80,10 +80,10 @@ CREATE TABLE ic_product
 	pro_uid int NOT NULL AUTO_INCREMENT,
 	pro_name varchar(100) NOT NULL,
 	pro_kind varchar(30) NOT NULL,
-	pro_price int NOT NULL DEFAULT 0,
+	pro_price varchar(100) NOT NULL DEFAULT 0,
 	pro_img varchar(10000),
-	pro_content varchar(3000),
-	pro_shippigCharge varchar(30) NOT NULL DEFAULT "free",
+	pro_content TEXT (30000),
+	pro_shippingCharge varchar(30) NOT NULL DEFAULT "free",
 	PRIMARY KEY (pro_uid)
 );
 

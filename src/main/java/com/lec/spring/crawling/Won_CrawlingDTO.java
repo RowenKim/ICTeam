@@ -8,8 +8,9 @@ import lombok.ToString;
 @Builder
 @Getter
 public class Won_CrawlingDTO {
-//	private int pro_uid;
+	private int pro_uid;
 	private String pro_name;
+	private String pro_content;
 	private String pro_img;
 	private String pro_price;
 }
