@@ -9,7 +9,7 @@
 		INSERT INTO ic_product
 		(pro_name, pro_price, pro_img, pro_kind)
 		VALUES
-		(#{pro_name}, #{pro_price}, #{pro_img}, 3)
+		(#{pro_name}, #{pro_price}, #{pro_img}, "과자")
 	</insert>
 
 </mapper>

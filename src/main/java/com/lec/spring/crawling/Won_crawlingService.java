@@ -29,7 +29,7 @@ public class Won_crawlingService {
 	 * 
 	 * 
 	 */
-	@PostConstruct
+	@PostConstruct // 크롤링 후 DB 저장 
 	public List<Won_CrawlingDTO> getSnack() throws IOException {
 		
 		List<Won_CrawlingDTO> snackProductList = new ArrayList<>();
@@ -61,7 +61,7 @@ public class Won_crawlingService {
 	                    .pro_price(content.select(".price_detail strong").text().trim().replace(",", ""))
 	                    .build();
 				
-				dao.insert(wonCrawlingDTO);
+//				dao.insert(wonCrawlingDTO);
 				
 //				System.out.println(wonCrawlingDTO.toString());
 				snackProductList.add(wonCrawlingDTO);
@@ -74,9 +74,9 @@ public class Won_crawlingService {
 		
 		System.out.println("=======CHECK=========");
 		
-		for(int j = 20; j < 58; j++) {
-			snackProductList.remove(j);
-		}
+//		for(int j = 20; j < 58; j++) {
+//			snackProductList.remove(j);
+//		}
 		
 			
 //			 System.out.println(snackPro.toString());
