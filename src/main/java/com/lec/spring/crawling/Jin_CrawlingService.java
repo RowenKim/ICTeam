@@ -60,10 +60,10 @@ public class Jin_CrawlingService {
 			
 		
 		int cnt = 0;
-		for(int z = 1; z < meatProductList.size() ; z++) { // List 체크
-			System.out.println(meatProductList.get(z) + "\n");
-			cnt++;
-		}
+//		for(int z = 1; z < meatProductList.size() ; z++) { // List 체크
+//			System.out.println(meatProductList.get(z) + "\n");
+//			cnt++;
+//		}
 		
 		System.out.println("상품 갯수 : " + cnt);
 		
