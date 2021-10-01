@@ -24,6 +24,7 @@ SELECT * FROM ic_MEMBER;
 SELECT * FROM ic_product;
 SELECT * FROM ic_basket;
 
+SHOW tables;
 
 /* 필요한 uid
  * 
@@ -80,7 +81,7 @@ CREATE TABLE ic_product
 	pro_name varchar(100) NOT NULL,
 	pro_kind varchar(30) NOT NULL,
 	pro_price int NOT NULL DEFAULT 0,
-	pro_img varchar(100),
+	pro_img varchar(10000),
 	pro_content varchar(3000),
 	pro_shippigCharge varchar(30) NOT NULL DEFAULT "free",
 	PRIMARY KEY (pro_uid)
@@ -88,6 +89,7 @@ CREATE TABLE ic_product
 
 
 
+-- pro_img varchat 짧음 
 CREATE TABLE ic_basket
 (
 	b_uid int NOT NULL AUTO_INCREMENT,
@@ -242,8 +244,5 @@ VALUES ("이미지", "아", "이", "네에", 1);
 
 INSERT INTO ic_review(r_content, r_img, r_title, m_uid, pro_uid)
 VALUES ("네번쨰", "아", "이", 1, 1);
-
-
-
 
 

@@ -68,7 +68,6 @@
 			</div>
 	</section>
 
-
 	<script src="${pageContext.request.contextPath }/JS/jquery.js"></script>
 	<script src="${pageContext.request.contextPath }/JS/plugins.js"></script>
 	<script src="${pageContext.request.contextPath }/JS/functions.js"></script>

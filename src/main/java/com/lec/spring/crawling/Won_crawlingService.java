@@ -10,12 +10,16 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.lec.spring.beans.WonCrawlingDTO;
 
 @Service
 public class Won_crawlingService {
+	
+	@Autowired
+	Won_CrawlingDAO dao;
+
+	
 //	http://www.11st.co.kr/html/category/1119850.html
 //	https://www.11st.co.kr/mart/category?categories=1120848
 	private static String Snack_URL = "http://www.11st.co.kr/html/category/1001340.html";
@@ -26,9 +30,9 @@ public class Won_crawlingService {
 	 * 
 	 */
 	@PostConstruct
-	public List<WonCrawlingDTO> getSnack() throws IOException {
+	public List<Won_CrawlingDTO> getSnack() throws IOException {
 		
-		List<WonCrawlingDTO> snackProductList = new ArrayList<>();
+		List<Won_CrawlingDTO> snackProductList = new ArrayList<>();
 		
 		Document doc = Jsoup.connect(Snack_URL).get();
 		Elements e1 = doc.getElementsByAttributeValue("class", "box_pd");
@@ -51,11 +55,13 @@ public class Won_crawlingService {
 //				System.out.println("상품가격: " + pro_price.get(i));
 //				System.out.println("---------------------");
 				
-				WonCrawlingDTO wonCrawlingDTO = WonCrawlingDTO.builder()
+				Won_CrawlingDTO wonCrawlingDTO = Won_CrawlingDTO.builder()
 	                    .pro_name(content.select(".pname p").text())
 	                    .pro_img(content.select(".box_pd img").outerHtml())
-	                    .pro_price(content.select(".price_detail strong").text())
+	                    .pro_price(content.select(".price_detail strong").text().trim().replace(",", ""))
 	                    .build();
+				
+				dao.insert(wonCrawlingDTO);
 				
 //				System.out.println(wonCrawlingDTO.toString());
 				snackProductList.add(wonCrawlingDTO);
@@ -87,7 +93,7 @@ public class Won_crawlingService {
 		
 		int cnt = 0;
 		for(int z = 1; z < snackProductList.size() ; z++) { // List 체크
-			System.out.println(snackProductList.get(z) + "\n");
+//			System.out.println(snackProductList.get(z) + "\n");
 			cnt++;
 		}
 		
@@ -98,4 +104,7 @@ public class Won_crawlingService {
 		
 		return snackProductList;
 	  }
+	
+	
+	
 }
