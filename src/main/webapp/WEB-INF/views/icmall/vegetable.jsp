@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,119 +35,46 @@
 			<div class="space"></div>
 
 			<!-- Blog -->
-			<div id="blog" class="grid-layout post-3-columns m-b-30"
+			<div id="blog" class="grid-layout post-4-columns m-b-30"
 				data-item="post-item">
 				<!-- Post item-->
-				<div class="post-item border">
-					<div class="post-item-wrap">
-						<div class="post-image">
-							<a href="#"> <img alt=""
-								src="https://blog.kakaocdn.net/dn/qEwHb/btqCoRsfE2N/iAWkJFh4g1IKZshNnOe860/img.jpg">
-							</a>
-						</div>
-						<div class="post-item-description">
-							<h2>
-								<a href="#">${e4 } </a>
-							</h2>
-							<p>10,000원</p>
-							<p>유기농 농사로 나온 멜론</p>
+				<c:forEach var="i" begin="3" end="14" step="1">
+					<div class="post-item border" style="height:440px !important;">
+						<div class="post-item-wrap">
+							<div class="post-image">
+								<a href="#">${vegetable[i].pro_img } </a>
+							</div>
+							<div class="post-item-description" style="height:170px;">
+								<h2>
+									<a href="#">${vegetable[i].pro_name }</a>
+								</h2>
+								<p>${vegetable[i].pro_price }원</p>
+							</div>
 						</div>
 					</div>
-				</div>
+				</c:forEach>
 				<!-- end: Post item-->
-				<!-- Post item-->
-				<div class="post-item border">
-					<div class="post-item-wrap">
-						<div class="post-image">
-							<a href="#"> <img alt=""
-								src="https://blog.kakaocdn.net/dn/qEwHb/btqCoRsfE2N/iAWkJFh4g1IKZshNnOe860/img.jpg">
-							</a>
-						</div>
-						<div class="post-item-description">
-							<h2>
-								<a href="#">[유기농] 멜론 </a>
-							</h2>
-							<p>10,000원</p>
-							<p>유기농 농사로 나온 멜론</p>
-						</div>
-					</div>
-				</div>
-				<!-- end: Post item-->
-				<!-- Post item-->
-				<div class="post-item border">
-					<div class="post-item-wrap">
-						<div class="post-image">
-							<a href="#"> <img alt=""
-								src="https://blog.kakaocdn.net/dn/qEwHb/btqCoRsfE2N/iAWkJFh4g1IKZshNnOe860/img.jpg">
-							</a>
-						</div>
-						<div class="post-item-description">
-							<h2>
-								<a href="#">[유기농] 멜론 </a>
-							</h2>
-							<p>10,000원</p>
-							<p>유기농 농사로 나온 멜론</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="post-item border">
-					<div class="post-item-wrap">
-						<div class="post-image">
-							<a href="#"> <img alt=""
-								src="https://blog.kakaocdn.net/dn/qEwHb/btqCoRsfE2N/iAWkJFh4g1IKZshNnOe860/img.jpg">
-							</a>
-						</div>
-						<div class="post-item-description">
-							<h2>
-								<a href="#">[유기농] 멜론 </a>
-							</h2>
-							<p>10,000원</p>
-							<p>유기농 농사로 나온 멜론</p>
-						</div>
-					</div>
-				</div>
-				<div class="post-item border">
-					<div class="post-item-wrap">
-						<div class="post-image">
-							<a href="#"> <img alt=""
-								src="https://blog.kakaocdn.net/dn/qEwHb/btqCoRsfE2N/iAWkJFh4g1IKZshNnOe860/img.jpg">
-							</a>
-						</div>
-						<div class="post-item-description">
-							<h2>
-								<a href="#">[유기농] 멜론 </a>
-							</h2>
-							<p>10,000원</p>
-							<p>유기농 농사로 나온 멜론</p>
-						</div>
-					</div>
-				</div>
-				<div class="post-item border">
-					<div class="post-item-wrap">
-						<div class="post-image">
-							<a href="#"> <img alt=""
-								src="https://blog.kakaocdn.net/dn/qEwHb/btqCoRsfE2N/iAWkJFh4g1IKZshNnOe860/img.jpg">
-							</a>
-						</div>
-						<div class="post-item-description">
-							<h2>
-								<a href="#">[유기농] 멜론 </a>
-							</h2>
-							<p>10,000원</p>
-							<p>유기농 농사로 나온 멜론</p>
-						</div>
-					</div>
-				</div>
-
 			</div>
+			<!-- Pagination -->
+			<div>
+				<ul class="pagination" style="width:205px; margin:0 auto;">
+					<li class="page-item"><a class="page-link" href="#"><i
+							class="fa fa-angle-left"></i></a></li>
+					<li class="page-item active"><a class="page-link" href="#">1</a></li>
+					<li class="page-item"><a class="page-link" href="#">2</a></li>
+					<li class="page-item"><a class="page-link" href="#">3</a></li>
+					<li class="page-item"><a class="page-link" href="#">4</a></li>
+					<li class="page-item"><a class="page-link" href="#">5</a></li>
+					<li class="page-item"><a class="page-link" href="#"><i
+							class="fa fa-angle-right"></i></a></li>
+				</ul>
+				<!-- end: Pagination -->
+			</div>
+
 		</div>
 
 	</section>
-
-	<button id="btn_load" type="button" class="btn">채소 가져오기</button>
-	
-	<table id="demoXML"></table>
+	<jsp:include page="footer.jsp" />
 
 
 	<script src="${pageContext.request.contextPath }/JS/jquery.js"></script>
@@ -160,28 +90,34 @@
 
 		var api_key = "57cb459748a33d851cf52795d4f76bd2";
 
-		$(document).ready(function() {
-			$("#btn_load").click(function() {
-				alert("js 연결 성공")
-				/* var date = document
-						.getElementById("date").value
-						.trim(); */
+		$(document)
+				.ready(
+						function() {
+							$("#btn_load")
+									.click(
+											function() {
+												alert("js 연결 성공")
+												/* var date = document
+														.getElementById("date").value
+														.trim(); */
 
-				// XML
-				var url = "https://openapi.11st.co.kr/openapi/OpenApiService.tmall?key=57cb459748a33d851cf52795d4f76bd2&apiCode=ProductSearch&keyword=%EC%95%BC%EC%B1%84&option=Categories"
+												// XML
+												var url = "https://openapi.11st.co.kr/openapi/OpenApiService.tmall?key=57cb459748a33d851cf52795d4f76bd2&apiCode=ProductSearch&keyword=%EC%95%BC%EC%B1%84&option=Categories"
 
-				$.get(url, function(data,status) {
-					alert("불러오기")
-					if (status == "success") parseXML(data);
-				});
-				// 이미 data 에 XML DOM object로 넘어온다
-				// application/xml;charset=UTF-8
-				//var parser = new DOMParser();
-				//data <- parser.paseFromString(responseTxt, "text/xml");
-			});
+												$.get(url, function(data,
+														status) {
+													alert("불러오기")
+													if (status == "success")
+														parseXML(data);
+												});
+												// 이미 data 에 XML DOM object로 넘어온다
+												// application/xml;charset=UTF-8
+												//var parser = new DOMParser();
+												//data <- parser.paseFromString(responseTxt, "text/xml");
+											});
 
 							// 지우기
-		});
+						});
 
 		// XML 파싱의 경우 jQuery 에서 제공해주는 
 		// DOM 관련 함수들을 사용하면 간결해진다.
@@ -205,7 +141,7 @@
 			// select된 element 각각에 적용하는 함수
 
 			$(xmlDOM).find("row").each(
-					
+
 					function() {
 						table += "<tr>";
 						table += "<td>" + $(this).find("ProductName").text()
@@ -219,8 +155,6 @@
 			$("#demoXML").html(table);
 
 		}
-
-		
 	</script>
 
 </body>

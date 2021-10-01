@@ -5,7 +5,7 @@ import java.io.IOException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
-public class seoha_crawling {
+public class Seoha_crawling {
 	
 	 public static void main(String[] args) throws IOException {
 	        String URL = "url";
