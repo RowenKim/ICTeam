@@ -192,7 +192,6 @@ CREATE TABLE ic_orderCancel
 	oc_refundName varchar(50) NOT NULL,
 	o_uid int NOT NULL,
 	FOREIGN KEY (o_uid) REFERENCES ic_order(o_uid)  ON DELETE CASCADE
-	
 );
 
 

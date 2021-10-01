@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="org.jsoup.Jsoup" %>
+<%@ page import="org.jsoup.nodes.Document" %>
+<%@ page import="org.jsoup.nodes.Element" %>
+<%@ page import="org.jsoup.select.Elements" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +19,20 @@
     <link href="${pageContext.request.contextPath }/CSS/jaeuk.css" type="text/css" rel="stylesheet">
 </head>
 
+
 <body>
+<%
+String URL = "https://search.shopping.naver.com/search/category?catId=50000960&origQuery&pagingIndex=1&pagingSize=40&productSet=total&query&sort=rel&timestamp=&viewType=thumb";
+Document doc = Jsoup.connect(URL).get();
+
+Elements el = doc.getElementsByAttributeValue("class", "imgList_link__XUg6J");
+
+
+System.out.println(el.text());
+
+%>
+
+
 	<jsp:include page="header.jsp"/>
     <!-- Body Inner -->
                 <!-- Content -->
@@ -28,7 +45,7 @@
          	
          	<div class="space">
          	
-         	
+       
          	</div>
          	
                 <!-- Blog -->
