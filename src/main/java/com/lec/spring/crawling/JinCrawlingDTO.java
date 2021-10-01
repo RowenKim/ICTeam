@@ -1,4 +1,4 @@
-package com.lec.spring.beans;
+package com.lec.spring.crawling;
 
 import lombok.Builder;
 import lombok.Getter;

@@ -12,7 +12,10 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.stereotype.Service;
 
-import com.lec.spring.beans.JinCrawlingDTO;
+
+
+ 
+
 
 @Service
 public class Jin_CrawlingService {
@@ -50,9 +53,9 @@ public class Jin_CrawlingService {
 		
 		System.out.println("=======CHECK=========");
 		
-		for(int j = 20; j < 58; j++) {
-			meatProductList.remove(j);
-		}
+//		for(int j = 20; j < 58; j++) {
+//			meatProductList.remove(j);
+//		}
 		
 			
 		
@@ -70,3 +73,4 @@ public class Jin_CrawlingService {
 		return meatProductList;
 	  }
 }
+

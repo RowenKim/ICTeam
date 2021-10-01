@@ -1,4 +1,4 @@
-package com.lec.spring.controller;
+package com.lec.spring.crawling;
 
 import java.io.IOException;
 import java.util.List;
@@ -6,9 +6,6 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import com.lec.spring.beans.JinCrawlingDTO;
-import com.lec.spring.crawling.Jin_CrawlingService;
 
 
 @Controller
