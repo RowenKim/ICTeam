@@ -6,12 +6,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.lec.spring.service.WonService;
 
 
 @Controller
 public class Won_CrawlingController {
-	private WonService wonService;
 	
 //	private Won_crawlingService won_crawlingService = new Won_crawlingService();
 	Won_CrawlingDAO dao;
@@ -20,7 +18,7 @@ public class Won_CrawlingController {
     public String snack(Model model) throws IOException {
     	System.out.println("컨트롤러창 뜸");
 
-    	model.addAttribute("list", wonService.snackList());
+//    	model.addAttribute("list", wonService.snackList());
     	
     	System.out.println("컨트롤러창 뜸2");
     	

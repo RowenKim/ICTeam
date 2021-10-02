@@ -29,10 +29,5 @@ public class Won_CrawlingDAOImpl implements Won_CrawlingDAO {
 		return mapper.insertHealth(dto);
 	}
 
-	@Override
-	public List<WonSnackDTO> selectSnack() {
-		// TODO Auto-generated method stub
-		return mapper.selectSnack();
-	}
 
 }
