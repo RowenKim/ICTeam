@@ -24,10 +24,6 @@ public class Jin_CrawlingDAOImpl implements Jin_CrawlingDAO {
 		return mapper.insertMeat(dto);
 	}
 
-	@Override
-	public List<JinMeatDTO> selectMeat() {
-		// TODO Auto-generated method stub
-		return mapper.selectMeat();
-	}
+	
 
 }

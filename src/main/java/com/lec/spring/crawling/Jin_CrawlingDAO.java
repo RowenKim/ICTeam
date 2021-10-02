@@ -10,6 +10,6 @@ public interface Jin_CrawlingDAO {
 	public abstract int insertMeat(Jin_CrawlingDTO dto);
 	
 	
-	public abstract List<JinMeatDTO> selectMeat();
+	
 }
 

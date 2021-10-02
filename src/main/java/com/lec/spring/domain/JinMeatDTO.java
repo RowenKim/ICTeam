@@ -1,7 +1,5 @@
 package com.lec.spring.domain;
 
-import com.lec.spring.crawling.Jin_CrawlingDTO;
-
 import lombok.Builder;
 import lombok.ToString;
 
@@ -16,8 +14,9 @@ public class JinMeatDTO {
 	
 	public JinMeatDTO() {
 		super();
-	}
 
+	}
+ 
 
 	public JinMeatDTO(int uid, String name, String img, String price) {
 		super();
