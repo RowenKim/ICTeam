@@ -21,10 +21,9 @@ public class Fruit_CrawlinService {
 	}
 
 //	@Autowired
-	
 	FruitCrawlingDAO dao;
 	private static String Fruit_URL = "http://www.11st.co.kr/html/category/1129478.html";
-	private static String Fruit_URL1 = "http://www.11st.co.kr/html/category/1129478.html";
+	private static String testURL;
 	
 	
 	
@@ -36,11 +35,13 @@ public class Fruit_CrawlinService {
 //		
 //	}
 	@PostConstruct
-	public List<FruitDTO> getFruit() throws IOException {
+	public void getFruit() throws IOException {
 		List<FruitDTO> product_fruitList = new ArrayList<>();
 		
 		Document doc = Jsoup.connect(Fruit_URL).get();
 
+		
+		
 		Elements e1 = doc.getElementsByAttributeValue("class", "box_pd");
 		Elements e2 = doc.select(".box_pd a");
 		
@@ -49,13 +50,21 @@ public class Fruit_CrawlinService {
 		Elements pro_price = doc.select(".price_detail strong");
 		
 					
-		Document doc1 = Jsoup.connect(Fruit_URL).get();
+		
 		
 		
 		int i = 0;
 		
 		try {
 			for(Element content : e1) {
+				
+				
+				String plus = "/view-desc";
+				testURL = e2.get(i).getElementsByAttribute("href").attr("href") + plus;
+				
+				
+				String proURL = testURL.replace("/SellerProductDetail.tmall?method=getSellerProductDetail&prdNo=", "s/");
+				
 				System.out.println(pro_name.get(i));
 				System.out.println(pro_img.get(i));
 				System.out.println(pro_price.get(i));
@@ -64,7 +73,7 @@ public class Fruit_CrawlinService {
 						.pro_name(content.select(".pname p").text())
 						.pro_img(content.select(".box_pd img").outerHtml())
 						.pro_price(content.select(".price_detail strong").text().trim().replace(",", ""))
-						.pro_content(content.getElementsByAttribute("href").attr("href"))
+						.pro_content(proURL)
 						.build();
 				
 			//	dao.insert(product_Fruit);
@@ -74,7 +83,7 @@ public class Fruit_CrawlinService {
 				product_fruitList.add(product_Fruit);
 			
 				i++;
-				
+				System.out.println(proURL);
 			}
 		} catch(IndexOutOfBoundsException e) {
 		
@@ -82,7 +91,7 @@ public class Fruit_CrawlinService {
 		}
 			System.out.println(product_fruitList.toString());
 			
-			return product_fruitList;
+			
 			
 			
 			

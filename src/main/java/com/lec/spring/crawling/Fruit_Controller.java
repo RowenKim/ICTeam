@@ -18,12 +18,11 @@ public class Fruit_Controller {
 	
 	@GetMapping("/icmall/fruit")
 	public String fruit(Model model) throws IOException{
+		
+		
 		System.out.println("컨트롤러창 뜸");
 		
-		List<FruitDTO> product_fruit = fruit_crawlinService.getFruit();
-		model.addAttribute("product_fruit",product_fruit); 	
-		
-		
+
 		
 		return "icmall/fruit";
 	}
