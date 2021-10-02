@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lec.spring.crawling.FruitCrawlingDAO">
+
+	<insert id="insert" flushCache="true" 
+		parameterType="com.lec.spring.crawling.FruitDTO"
+		keyProperty="pro_uid" useGeneratedKeys="true" keyColumn="pro_uid">
+		INSERT INTO ic_product
+		(pro_name, pro_price, pro_img, pro_kind, pro_content)
+		VALUES
+		(#{pro_name}, #{pro_price}, #{pro_img}, "과일", #{pro_content})
+	</insert>
+	
+	<select id="select" resultType="com.lec.spring.crawling.FruitDTO">
+		SELECT 
+			pro_uid, 
+			pro_name, 
+			pro_price, 
+			pro_img, 
+			pro_kind, 
+		FROM 
+			ic_product
+		ORDER BY 
+			pro_uid DESC		
+	</select>
+	
+	
+
+	
+	
+
+</mapper>
+
+	

@@ -53,19 +53,19 @@ System.out.println(el.text());
                 <!-- Blog -->
                 <div id="blog" class="grid-layout post-4-columns m-b-30" data-item="post-item">
                     <!-- Post item-->
-                    <c:forEach var="i" begin="3" end="14">
+                    <c:forEach var="dto" begin="3" end="14">
                     <div class="post-item border" style="height: 440px;">
                         <div class="post-item-wrap">
                             <div class="post-image">
                                 <a href="#">
-                                    ${product_fruit[i].pro_img}
+                                    ${dto.pro_img}
                                 </a>
                             </div>
                            	<div class="post-item-description">
 								<h2>
-									<a href="#">${product_fruit[i].pro_name }</a>
+									<a href="#">${dto.pro_name}</a>
 								</h2>
-								<p>${product_fruit[i].pro_price }</p>
+								<p>${dto.pro_price}</p>
 							</div>
 						</div>    
 						</div>             

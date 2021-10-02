@@ -16,6 +16,22 @@ public class FruitDTO {
 	private String pro_img;
 	private String pro_price;
 	private String pro_content;
-
+	public FruitDTO() {
+		super();
+	}
+	public FruitDTO(int pro_uid, String pro_name, String pro_img, String pro_price, String pro_content) {
+		super();
+		this.pro_uid = pro_uid;
+		this.pro_name = pro_name;
+		this.pro_img = pro_img;
+		this.pro_price = pro_price;
+		this.pro_content = pro_content;
+	}
+	
+	
+	
+	
+	
+	
 	
 }
