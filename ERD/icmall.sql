@@ -24,6 +24,16 @@ SELECT * FROM ic_MEMBER;
 SELECT * FROM ic_product;
 SELECT * FROM ic_basket;
 
+SELECT 
+			pro_uid "uid", 
+			pro_name "name", 
+			pro_price "price", 
+			pro_img "img"
+		FROM 
+			ic_product 
+		ORDER BY 
+			pro_uid DESC;
+			
 DELETE FROM ic_product ;
 
 SHOW tables;

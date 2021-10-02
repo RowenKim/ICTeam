@@ -16,8 +16,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class Won_crawlingService {
 	
-	//@Autowired
-	//Won_CrawlingDAO dao;
+	@Autowired
+	Won_CrawlingDAO dao;
 
 	
 //	http://www.11st.co.kr/html/category/1119850.html
@@ -102,7 +102,7 @@ public class Won_crawlingService {
 	                    .pro_content(proURL)
 	                    .build();
 				
-				dao.insertSnack(wonCrawlingDTO);
+				//dao.insertSnack(wonCrawlingDTO);
 
 				
 				

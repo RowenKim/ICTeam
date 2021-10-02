@@ -409,10 +409,10 @@ public class IcmallController {
 	public String meat(Model model) {
 		return "icmall/meat";
 	}
-	@RequestMapping("/vegetable")
-	public String vegetable(Model model) {
-		return "icmall/vegetable";
-	}
+//	@RequestMapping("/vegetable")
+//	public String vegetable(Model model) {
+//		return "icmall/vegetable";
+//	}
 	@RequestMapping("/health")
 	public String health(Model model) {
 		return "icmall/health";
