@@ -47,22 +47,21 @@
 					data-item="post-item">
 					<!-- Post item-->
 				<c:forEach var="i" begin="3" end="14">
-					<div class="post-item border" style="height:440px;">
-						<div class="post-item-wrap">
-							<div class="post-image">
-								<a href="#">
-								${snackProduct[i].pro_img}
-								</a>
-							</div>
-							<div class="post-item-description">
-								<h2>
-									<a href="#">${snackProduct[i].pro_name }</a>
-								</h2>
-								<p>${snackProduct[i].pro_price }</p>
+						<div class="post-item border" style="height:440px;">
+							<div class="post-item-wrap">
+								<div class="post-image">
+									<a href="#">
+									</a>
+								</div>
+								<div class="post-item-description">
+									<h2>
+									</h2>
+								</div>
 							</div>
 						</div>
-					</div>
 				</c:forEach>					
+
+
 
 				</div>
 			</div>

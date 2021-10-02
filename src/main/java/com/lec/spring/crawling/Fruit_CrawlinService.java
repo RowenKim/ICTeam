@@ -20,7 +20,7 @@ public class Fruit_CrawlinService {
 		System.out.println("기본생성");
 	}
 
-	@Autowired
+//	@Autowired
 	FruitCrawlingDAO dao;
 	
 	private static String Fruit_URL = "http://www.11st.co.kr/html/category/1129478.html";
@@ -35,7 +35,7 @@ public class Fruit_CrawlinService {
 //		System.out.println(doc); 
 //		
 //	}
-	@PostConstruct
+//	@PostConstruct
 	public List<FruitDTO> getFruit() throws IOException {
 		List<FruitDTO> product_fruitList = new ArrayList<>();
 		

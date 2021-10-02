@@ -70,11 +70,11 @@ public class IcmallController {
 		return "icmall/userUpdate";
 	}
 	
-	@RequestMapping("/snack")
-	public String snack(Model model) {
-		
-		return "icmall/snack";
-	}
+//	@RequestMapping("/snack")
+//	public String snack(Model model) {
+//		
+//		return "icmall/snack";
+//	}
 
 
 //서하 페이지 컨트롤 ~200 줄 까지 
