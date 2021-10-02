@@ -9,9 +9,9 @@ DROP TABLE IF EXISTS ic_order;
 DROP TABLE IF EXISTS ic_productQuestion;
 DROP TABLE IF EXISTS ic_question;
 DROP TABLE IF EXISTS ic_review;
-DROP TABLE IF EXISTS ic_member;
 DROP TABLE IF EXISTS ic_product;
 DROP TABLE IF EXISTS ic_basket;
+DROP TABLE IF EXISTS ic_member;
 
 SELECT * FROM ic_orderCancel;
 SELECT * FROM ic_shipping;

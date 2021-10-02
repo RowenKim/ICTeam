@@ -38,17 +38,17 @@
 			<div id="blog" class="grid-layout post-4-columns m-b-30"
 				data-item="post-item">
 				<!-- Post item-->
-				<c:forEach var="i" begin="3" end="14" step="1">
+				<c:forEach var="list" items="${list }">
 					<div class="post-item border" style="height:440px !important;">
 						<div class="post-item-wrap">
 							<div class="post-image">
-								<a href="#">${vegetable[i].pro_img } </a>
+								<a href="">${list.pro_img } </a>
 							</div>
 							<div class="post-item-description" style="height:170px;">
 								<h2>
-									<a href="#">${vegetable[i].pro_name }</a>
+									<a href="">${list.pro_name }</a>
 								</h2>
-								<p>${vegetable[i].pro_price }원</p>
+								<p>${list.pro_price }원</p>
 							</div>
 						</div>
 					</div>

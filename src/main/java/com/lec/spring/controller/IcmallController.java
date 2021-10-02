@@ -70,11 +70,11 @@ public class IcmallController {
 		return "icmall/userUpdate";
 	}
 	
-	@RequestMapping("/snack")
-	public String snack(Model model) {
-		
-		return "icmall/snack";
-	}
+//	@RequestMapping("/snack")
+//	public String snack(Model model) {
+//		
+//		return "icmall/snack";
+//	}
 
 
 //서하 페이지 컨트롤 ~200 줄 까지 
@@ -409,10 +409,10 @@ public class IcmallController {
 	public String meat(Model model) {
 		return "icmall/meat";
 	}
-	@RequestMapping("/vegetable")
-	public String vegetable(Model model) {
-		return "icmall/vegetable";
-	}
+//	@RequestMapping("/vegetable")
+//	public String vegetable(Model model) {
+//		return "icmall/vegetable";
+//	}
 	@RequestMapping("/health")
 	public String health(Model model) {
 		return "icmall/health";

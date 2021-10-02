@@ -1,23 +1,29 @@
 package com.lec.spring.crawling;
 
 import java.io.IOException;
-import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.lec.spring.service.WonService;
+
 
 @Controller
 public class Won_CrawlingController {
-	private Won_crawlingService won_crawlingService = new Won_crawlingService();
+	private WonService wonService;
+	
+//	private Won_crawlingService won_crawlingService = new Won_crawlingService();
 	Won_CrawlingDAO dao;
 	
     @GetMapping("/icmall/snack")
-    public String vegetable(Model model) throws IOException {
+    public String snack(Model model) throws IOException {
     	System.out.println("컨트롤러창 뜸");
 
+    	model.addAttribute("list", wonService.snackList());
+    	
+    	System.out.println("컨트롤러창 뜸2");
+    	
 //    	  List<Won_CrawlingDTO> snackProductList = won_crawlingService.getSnack();
 
 //          model.addAttribute("snackProduct", snackProductList);
