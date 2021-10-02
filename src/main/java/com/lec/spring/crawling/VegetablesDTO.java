@@ -9,8 +9,10 @@ import lombok.ToString;
 @Getter
 public class VegetablesDTO {
 	
+	private int pro_uid;
 	private String pro_name;
 	private String pro_img;
 	private String pro_price;
+	private String pro_url;
 
 }

@@ -10,12 +10,18 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class Vegetable_CrawlingService {
-
-	private static String Vagetables_URL = "http://www.11st.co.kr/html/category/1129477.html";
+	@Autowired
+	Seoha_DAO dao;
+	
+	private static String Vagetables_URL = "http://www.11st.co.kr/html/category/1129478.html";
+	
+	//Elements detail_img = doc.getElementsByAttributeValue("class", "ifrm_prdc_detail");
+	//private static String Vagetables_URL = "https://www.11st.co.kr/products/1418504992/view-desc";
 
 //	@PostConstruct
 //	public void getVagetables() throws IOException {
@@ -39,26 +45,38 @@ public class Vegetable_CrawlingService {
 		
 		// 가격
 	//	Elements pro_price = doc.select(".price_detail strong");
-		
 		int i = 0;
+		
+		Elements pro_detail = doc.select(".box_pd a");
+		String testURL = pro_detail.get(i).attr("href");
+		String c = "/view-desc";
+		String b = testURL + c;
+		
+		System.out.println(testURL);
+		System.out.println(b);
+		
+	
 	
 		try {
 		
 			for(Element content : e1) {
+				
 		
 				VegetablesDTO vegetablesDTO = VegetablesDTO.builder()
 						.pro_name(content.select(".pname p").text())
 						.pro_img(content.select(".box_pd img").outerHtml())
-						.pro_price(content.select(".price_detail strong").text())
 						.build();
 				
-				System.out.println(vegetablesDTO.toString());
+				//dao.insert(vegetablesDTO);
+				//System.out.println(e1);
+				//System.out.println(vegetablesDTO.toString());
 //				 System.out.println("---------------------");
 //		         System.out.println("상품이름: " + pro_name.get(i));
 //		         System.out.println("상품이미지: " + pro_img.get(i));
 //		         System.out.println("상품가격: " + pro_price.get(i));
 //		         System.out.println("---------------------");	
 				vegetableList.add(vegetablesDTO);
+				
 				
 		        i++;
 			}

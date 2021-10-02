@@ -16,8 +16,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class Won_crawlingService {
 	
-	@Autowired
-	Won_CrawlingDAO dao;
+	//@Autowired
+	//Won_CrawlingDAO dao;
 
 	
 //	http://www.11st.co.kr/html/category/1119850.html
@@ -55,16 +55,16 @@ public class Won_crawlingService {
 //				System.out.println("상품가격: " + pro_price.get(i));
 //				System.out.println("---------------------");
 				
-				Won_CrawlingDTO wonCrawlingDTO = Won_CrawlingDTO.builder()
-	                    .pro_name(content.select(".pname p").text())
-	                    .pro_img(content.select(".box_pd img").outerHtml())
-	                    .pro_price(content.select(".price_detail strong").text().trim().replace(",", ""))
-	                    .build();
-				
+//				Won_CrawlingDTO wonCrawlingDTO = Won_CrawlingDTO.builder()
+//	                    .pro_name(content.select(".pname p").text())
+//	                    .pro_img(content.select(".box_pd img").outerHtml())
+//	                    .pro_price(content.select(".price_detail strong").text().trim()))
+//	                    .build();
+//				
 //				dao.insert(wonCrawlingDTO);
 				
 //				System.out.println(wonCrawlingDTO.toString());
-				snackProductList.add(wonCrawlingDTO);
+			//	snackProductList.add(wonCrawlingDTO);
 				
 				i++;
 			}
