@@ -66,10 +66,13 @@ public class Vegetable_CrawlingService {
 						.pro_name(content.select(".pname p").text())
 						.pro_img(content.select(".box_pd img").outerHtml())
 						.build();
-				
+
 				//dao.insert(vegetablesDTO);
 				//System.out.println(e1);
 				//System.out.println(vegetablesDTO.toString());
+
+//				System.out.println(vegetablesDTO.toString());
+
 //				 System.out.println("---------------------");
 //		         System.out.println("상품이름: " + pro_name.get(i));
 //		         System.out.println("상품이미지: " + pro_img.get(i));

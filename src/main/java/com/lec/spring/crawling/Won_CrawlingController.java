@@ -18,9 +18,9 @@ public class Won_CrawlingController {
     public String vegetable(Model model) throws IOException {
     	System.out.println("컨트롤러창 뜸");
 
-    	  List<Won_CrawlingDTO> snackProductList = won_crawlingService.getSnack();
+//    	  List<Won_CrawlingDTO> snackProductList = won_crawlingService.getSnack();
 
-          model.addAttribute("snackProduct", snackProductList);
+//          model.addAttribute("snackProduct", snackProductList);
 
         return "icmall/snack";
 

@@ -9,7 +9,6 @@ DROP TABLE IF EXISTS ic_order;
 DROP TABLE IF EXISTS ic_productQuestion;
 DROP TABLE IF EXISTS ic_question;
 DROP TABLE IF EXISTS ic_review;
-DROP TABLE IF EXISTS ic_basket;
 DROP TABLE IF EXISTS ic_product;
 DROP TABLE IF EXISTS ic_basket;
 DROP TABLE IF EXISTS ic_member;
@@ -24,6 +23,8 @@ SELECT * FROM ic_review;
 SELECT * FROM ic_MEMBER;
 SELECT * FROM ic_product;
 SELECT * FROM ic_basket;
+
+DELETE FROM ic_product ;
 
 SHOW tables;
 
@@ -81,10 +82,9 @@ CREATE TABLE ic_product
 	pro_uid int NOT NULL AUTO_INCREMENT,
 	pro_name varchar(100) NOT NULL,
 	pro_kind varchar(30) NOT NULL,
-	pro_price varchar(100) NOT NULL DEFAULT "0",
+	pro_price varchar(100) NOT NULL DEFAULT 0,
 	pro_img varchar(10000),
-	pro_content text(10000),
-	pro_detailurl text(10000),
+	pro_content TEXT (30000),
 	pro_shippingCharge varchar(30) NOT NULL DEFAULT "free",
 	PRIMARY KEY (pro_uid)
 );
@@ -219,8 +219,11 @@ SHOW tables;
 INSERT INTO ic_member (m_id, m_password, m_name, m_mail, m_phone, m_addr, m_gender, m_birth )
 VALUES ("d", "아", "아", "아", "아", "아", "아", "1999-09-09");
 
-INSERT INTO ic_product(pro_name, pro_kind, pro_img, pro_content)
-values("멜론", "과일", "멜론이미지", "달다");
+INSERT INTO ic_product(pro_name, pro_kind, pro_img)
+values("멜론", "과일", "멜론이미지");
+
+UPDATE ic_product SET pro_content = "무맛" WHERE pro_uid = 634;
+SELECT * FROM ic_product;
 
 INSERT INTO ic_basket(b_productName, m_uid, pro_uid)
 values("멜론", 1, 1);

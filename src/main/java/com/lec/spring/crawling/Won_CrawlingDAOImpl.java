@@ -16,8 +16,8 @@ public class Won_CrawlingDAOImpl implements Won_CrawlingDAO {
 //	}
 //	
 	@Override
-	public int insert(Won_CrawlingDTO dto) {
-		return mapper.insert(dto);
+	public int insertSnack(Won_CrawlingDTO dto) {
+		return mapper.insertSnack(dto);
 	}
 
 }
