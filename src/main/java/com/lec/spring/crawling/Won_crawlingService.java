@@ -23,8 +23,8 @@ public class Won_crawlingService {
 //	http://www.11st.co.kr/html/category/1119850.html
 //	https://www.11st.co.kr/mart/category?categories=1120848
 	private static String Snack_URL = "http://www.11st.co.kr/html/category/1001340.html";
-	private static String health_URL = "http://www.11st.co.kr/html/category/1001342.html";
 	private static String testURL;
+	private static String health_URL = "http://www.11st.co.kr/html/category/1001342.html";
 	private static String testURLHealth;
 	
 	/*
@@ -102,7 +102,6 @@ public class Won_crawlingService {
 	                    .pro_content(proURL)
 	                    .build();
 				
-<<<<<<< HEAD
 				dao.insertSnack(wonCrawlingDTO);
 				
 //				System.out.println(e3.get(i).select(".pname p").text());
@@ -115,9 +114,6 @@ public class Won_crawlingService {
 						.build();
 				
 				dao.insertHealth(wonCrawlingDTOHelath);
-=======
-				//dao.insertSnack(wonCrawlingDTO);
->>>>>>> branch 'master' of https://github.com/RowenKim/ICTeam.git
 
 				
 				
