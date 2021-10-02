@@ -12,11 +12,12 @@ public class FruitCrawlingDAOImpl implements FruitCrawlingDAO {
 	private FruitCrawlingDAO mapper;
 	
 	
-//	@Autowired
-//	public FruitCrawlingDAOImpl(SqlSession sqlSession) {
-//		System.out.println("FruitCrawlingDAOImpl 생성");
-//		mapper = sqlSession.getMapper(FruitCrawlingDAO.class);
-//	}
+	
+	@Autowired
+	public FruitCrawlingDAOImpl(SqlSession sqlSession) {
+		System.out.println("FruitCrawlingDAOImpl 생성");
+		mapper = sqlSession.getMapper(FruitCrawlingDAO.class);
+	}
 	
 	@Override
 	public int insert(FruitDTO dto) {

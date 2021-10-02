@@ -17,13 +17,13 @@ import org.springframework.stereotype.Service;
 public class Vegetable_CrawlingService {
 
 	
-//	@Autowired
-//	Seoha_DAO dao;
-//
-//	public List<VegetablesDTO> list() {
-//
-//		return dao.select();
-//	}
+	@Autowired
+	Seoha_DAO dao;
+
+	public List<VegetablesDTO> list() {
+
+		return dao.select();
+	}
 
 	private static String Vagetables_URL = "http://www.11st.co.kr/html/category/1129478.html";
 	private static String testURL;

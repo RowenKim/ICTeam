@@ -20,7 +20,7 @@ public class Fruit_CrawlinService {
 		System.out.println("기본생성");
 	}
 
-//	@Autowired
+	@Autowired
 	FruitCrawlingDAO dao;
 	private static String Fruit_URL = "http://www.11st.co.kr/html/category/1129478.html";
 	private static String testURL;
@@ -76,7 +76,7 @@ public class Fruit_CrawlinService {
 						.pro_content(proURL)
 						.build();
 				
-			//	dao.insert(product_Fruit);
+				dao.insert(product_Fruit);
 				
 //				System.out.println(jaeuk_Fruit.toString());
 				
