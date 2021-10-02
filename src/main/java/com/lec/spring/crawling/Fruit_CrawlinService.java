@@ -21,7 +21,11 @@ public class Fruit_CrawlinService {
 	}
 
 //	@Autowired
+<<<<<<< HEAD
 	FruitCrawlingDAO dao;
+=======
+//	FruitCrawlingDAO dao;
+>>>>>>> branch 'master' of https://github.com/RowenKim/ICTeam.git
 	
 	private static String Fruit_URL = "http://www.11st.co.kr/html/category/1129478.html";
 	private static String Fruit_URL1 = "http://www.11st.co.kr/html/category/1129478.html";
@@ -67,7 +71,7 @@ public class Fruit_CrawlinService {
 						.pro_content(content.getElementsByAttribute("href").attr("href"))
 						.build();
 				
-				dao.insert(product_Fruit);
+			//	dao.insert(product_Fruit);
 				
 //				System.out.println(jaeuk_Fruit.toString());
 				

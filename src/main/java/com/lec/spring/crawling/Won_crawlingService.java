@@ -102,6 +102,7 @@ public class Won_crawlingService {
 	                    .pro_content(proURL)
 	                    .build();
 				
+<<<<<<< HEAD
 				dao.insertSnack(wonCrawlingDTO);
 				
 //				System.out.println(e3.get(i).select(".pname p").text());
@@ -114,6 +115,9 @@ public class Won_crawlingService {
 						.build();
 				
 				dao.insertHealth(wonCrawlingDTOHelath);
+=======
+				//dao.insertSnack(wonCrawlingDTO);
+>>>>>>> branch 'master' of https://github.com/RowenKim/ICTeam.git
 
 				
 				
