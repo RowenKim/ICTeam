@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class VegetableService {
 
+	
 	Seoha_DAO dao;
 
 	@Autowired

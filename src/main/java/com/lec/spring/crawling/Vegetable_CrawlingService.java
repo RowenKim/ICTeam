@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class Vegetable_CrawlingService {
 
+	
 //	@Autowired
 //	Seoha_DAO dao;
 //

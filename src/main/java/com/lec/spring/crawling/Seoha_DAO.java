@@ -2,6 +2,8 @@ package com.lec.spring.crawling;
 
 import java.util.List;
 
+
+
 public interface Seoha_DAO {
 	
 	// 전체 SELECT
