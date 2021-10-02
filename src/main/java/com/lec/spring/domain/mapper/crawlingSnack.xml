@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lec.spring.crawling.Won_CrawlingDAO">
+	<? 크롤링한 스낵 DB 저장?>
+	<insert id="insertSnack" flushCache="true" 
+		parameterType="com.lec.spring.crawling.Won_CrawlingDTO"
+		keyProperty="pro_uid" useGeneratedKeys="true" keyColumn="pro_uid">
+		INSERT INTO ic_product
+		(pro_name, pro_price, pro_img, pro_content,pro_kind)
+		VALUES
+		(#{pro_name}, #{pro_price}, #{pro_img}, #{pro_content},"과자")
+	</insert>
+	
+	<? 크롤링한 건강식품 DB 저장?>
+	<insert id="insertHealth" flushCache="true" 
+		parameterType="com.lec.spring.crawling.Won_CrawlingDTO"
+		keyProperty="pro_uid" useGeneratedKeys="true" keyColumn="pro_uid">
+		INSERT INTO ic_product
+		(pro_name, pro_price, pro_img, pro_content,pro_kind)
+		VALUES
+		(#{pro_name}, #{pro_price}, #{pro_img}, #{pro_content},"건강기능")
+	</insert>
+
+	<select id="selectSnack" resultType="com.lec.spring.domain.WonSnackDTO">
+		SELECT 
+			pro_uid "uid", 
+			pro_name name, 
+			pro_img img, 
+			pro_price price 
+		FROM 
+			ic_product 
+		WHERE
+			pro_kind = "과자"
+		ORDER BY 
+			pro_uid ASC	
+	</select>
+
+
+</mapper>
+
+	
