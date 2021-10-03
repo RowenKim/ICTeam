@@ -78,8 +78,8 @@
 						<!-- st_price와 productStock 곱하기 -->
 						<br> <br> <br>
 						<div class="col-lg-12">
-							<button type="submit" id="sd_btn">
-								<span id="sd_basket_letter"><b>장바구니 담기</b></span>
+							<button type="submit" style="width:100%;" class="btn">
+								<span id=""><b>장바구니 담기</b></span>
 							</button>
 						</div>
 					</div>
@@ -145,7 +145,7 @@
 				<br>
 				<div class="review">
 					<!-- 후기 -->
-					<div class="content col-lg-14">
+					<div class="content">
 						<h3>
 							<b>PRODUCT REVIEW</b>
 						</h3>
@@ -156,7 +156,7 @@
 						</h4>
 						<table class="table">
 							<tbody id="sc_table">
-								<tr>
+								<tr class="text-center">
 									<th class="sep-10">번호</th>
 									<th class="sep-15">작성자</th>
 									<th class="sep-55">제목</th>
@@ -167,10 +167,10 @@
 						</table>
 						<table class="table">
 							<tbody>
-								<tr>
+								<tr style="text-align:center;">
 									<th class="sep-10">uid-1</th>
 									<td class="sep-15">name</td>
-									<td class="sep-55"><div id="sub">subtitle</div></td>
+									<td class="sep-55"><div id="sub" class="text-left">subtitle</div></td>
 									<td class="sep-15">regdate</td>
 									<td class="sep-15">0</td>
 								</tr>
@@ -185,52 +185,95 @@
 						</div>
 						<table class="table">
 							<tbody>
-								<tr>
+								<tr style="text-align:center;">
 									<th class="sep-10">uid-1</th>
 									<td class="sep-15">name</td>
-									<td class="sep-55"><div id="sub">subtitle</div></td>
+									<td class="sep-55"><div id="sub" class="text-left">subtitle</div></td>
 									<td class="sep-15">regdate</td>
 									<td class="sep-15">0</td>
 								</tr>
 							</tbody>
 						</table>
-						<div id="reviewContent">상품후기 내용입니다!!!!!!!!</div>
+						<div id="reviewContent">
+							<div>
+								<b>-상품이름-</b>
+							</div>
+							상품후기 내용입니다!!!!!!!! subtitle[i]에 담아서..? 클릭시 순서에 맞게 뽑아주기..? uid
+							값..?
+						</div>
 						<table class="table">
 							<tbody>
-								<tr>
+								<tr style="text-align:center;">
 									<th class="sep-10">uid-1</th>
 									<td class="sep-15">name</td>
-									<td class="sep-55"><div id="sub">subtitle</div></td>
+									<td class="sep-55"><div id="sub" class="text-left">subtitle</div></td>
 									<td class="sep-15">regdate</td>
 									<td class="sep-15">0</td>
 								</tr>
 							</tbody>
 						</table>
-						<div id="reviewContent">상품후기 내용입니다!!!!!!!!</div>
+						<div id="reviewContent">
+							<div>
+								<b>-상품이름-</b>
+							</div>
+							상품후기 내용입니다!!!!!!!! subtitle[i]에 담아서..? 클릭시 순서에 맞게 뽑아주기..? uid
+							값..?
+						</div>
 						<table class="table">
 							<tbody>
-								<tr>
+								<tr style="text-align:center;">
 									<th class="sep-10">uid-1</th>
 									<td class="sep-15">name</td>
-									<td class="sep-55"><div id="sub">subtitle</div></td>
+									<td class="sep-55"><div id="sub" class="text-left">subtitle</div></td>
 									<td class="sep-15">regdate</td>
 									<td class="sep-15">0</td>
 								</tr>
 							</tbody>
 						</table>
-						<div id="reviewContent">상품후기 내용입니다!!!!!!!!</div>
+						<div id="reviewContent">
+							<div>
+								<b>-상품이름-</b>
+							</div>
+							상품후기 내용입니다!!!!!!!! subtitle[i]에 담아서..? 클릭시 순서에 맞게 뽑아주기..? uid
+							값..?
+						</div>
 						<table class="table">
 							<tbody>
-								<tr>
+								<tr style="text-align:center;">
 									<th class="sep-10">uid-1</th>
 									<td class="sep-15">name</td>
-									<td class="sep-55"><div id="sub">subtitle</div></td>
+									<td class="sep-55"><div id="sub" class="text-left">subtitle</div></td>
 									<td class="sep-15">regdate</td>
 									<td class="sep-15">0</td>
 								</tr>
 							</tbody>
 						</table>
-						<div id="reviewContent">상품후기 내용입니다!!!!!!!!</div>
+						<div id="reviewContent">
+							<div>
+								<b>-상품이름-</b>
+							</div>
+							상품후기 내용입니다!!!!!!!! subtitle[i]에 담아서..? 클릭시 순서에 맞게 뽑아주기..? uid
+							값..?
+						</div>
+						<table class="table">
+							<tbody>
+								<tr style="text-align:center;">
+									<th class="sep-10">uid-1</th>
+									<td class="sep-15">name</td>
+									<td class="sep-55"><div id="sub" class="text-left">subtitle</div></td>
+									<td class="sep-15">regdate</td>
+									<td class="sep-15">0</td>
+								</tr>
+							</tbody>
+						</table>
+						<div id="reviewContent">
+							<div>
+								<b>-상품이름-</b>
+							</div>
+							상품후기 내용입니다!!!!!!!! subtitle[i]에 담아서..? 클릭시 순서에 맞게 뽑아주기..? uid
+							값..?
+						</div>
+						
 					</div>
 				</div>
 
@@ -240,7 +283,7 @@
 
 				<!-- 상품문의 -->
 				<div id="question">
-					<div class="content col-lg-14">
+					<div class="content">
 						<h3>
 							<b>PRODUCT Q&A</b>
 						</h3>
@@ -250,7 +293,7 @@
 						</h4>
 						<table class="table">
 							<tbody id="sc_table">
-								<tr>
+								<tr class="text-center">
 									<th class="sep-55">제목</th>
 									<th class="sep-15">작성자</th>
 									<th class="sep-15">작성일</th>
@@ -260,8 +303,8 @@
 						</table>
 						<table class="table">
 							<tbody>
-								<tr>
-									<th class="sep-55"><div id="ques-sub">제목입니다</div></th>
+								<tr style="text-align:center;">
+									<th class="sep-55"><div id="ques-sub" class="text-left">제목입니다</div></th>
 									<td class="sep-15">name</td>
 									<td class="sep-15">regdate</td>
 									<td class="sep-15">답변완료</td>
@@ -276,69 +319,85 @@
 						</div>
 						<table class="table">
 							<tbody>
-								<tr>
-									<th class="sep-55">제목입니다
-										</div>
-									</th>
+								<tr style="text-align:center;">
+									<th class="sep-55"><div id="ques-sub" class="text-left">제목입니다</div></th>
 									<td class="sep-15">name</td>
 									<td class="sep-15">regdate</td>
 									<td class="sep-15">답변완료</td>
 								</tr>
 							</tbody>
 						</table>
-						<div id="reviewContent">상품후기 내용입니다!!!!!!!!</div>
+						<div id="questionContent">
+							<div>
+								<b>- 질문내용 - </b>
+							</div>
+							상품 답변 내용!!!!!!!!
+						</div>
 						<table class="table">
 							<tbody>
-								<tr>
-									<th class="sep-55">제목입니다
-										</div>
-									</th>
+								<tr style="text-align:center;">
+									<th class="sep-55"><div id="ques-sub" class="text-left">제목입니다</div></th>
 									<td class="sep-15">name</td>
 									<td class="sep-15">regdate</td>
 									<td class="sep-15">답변완료</td>
 								</tr>
 							</tbody>
 						</table>
-						<div id="reviewContent">상품후기 내용입니다!!!!!!!!</div>
+						<div id="questionContent">
+							<div>
+								<b>- 질문내용 - </b>
+							</div>
+							상품 답변 내용!!!!!!!!
+						</div>
 						<table class="table">
 							<tbody>
-								<tr>
-									<th class="sep-55">제목입니다
-										</div>
-									</th>
+								<tr style="text-align:center;">
+									<th class="sep-55"><div id="ques-sub" class="text-left">제목입니다</div></th>
 									<td class="sep-15">name</td>
 									<td class="sep-15">regdate</td>
 									<td class="sep-15">답변완료</td>
 								</tr>
 							</tbody>
 						</table>
-						<div id="reviewContent">상품후기 내용입니다!!!!!!!!</div>
+						<div id="questionContent">
+							<div>
+								<b>- 질문내용 - </b>
+							</div>
+							상품 답변 내용!!!!!!!!
+						</div>
 						<table class="table">
 							<tbody>
-								<tr>
-									<th class="sep-55">제목입니다
-										</div>
-									</th>
+								<tr style="text-align:center;">
+									<th class="sep-55"><div id="ques-sub" class="text-left">제목입니다</div></th>
 									<td class="sep-15">name</td>
 									<td class="sep-15">regdate</td>
 									<td class="sep-15">답변완료</td>
 								</tr>
 							</tbody>
 						</table>
-						<div id="reviewContent">상품후기 내용입니다!!!!!!!!</div>
+						<div id="questionContent">
+							<div>
+								<b>- 질문내용 - </b>
+							</div>
+							상품 답변 내용!!!!!!!!
+						</div>
 						<table class="table">
 							<tbody>
-								<tr>
-									<th class="sep-55">제목입니다
-										</div>
-									</th>
+								<tr style="text-align:center;">
+									<th class="sep-55"><div id="ques-sub" class="text-left">제목입니다</div></th>
 									<td class="sep-15">name</td>
 									<td class="sep-15">regdate</td>
 									<td class="sep-15">답변완료</td>
 								</tr>
 							</tbody>
 						</table>
-						<div id="reviewContent">상품후기 내용입니다!!!!!!!!</div>
+						<div id="questionContent">
+							<div>
+								<b>- 질문내용 - </b>
+							</div>
+							상품 답변 내용!!!!!!!!
+						</div>
+						
 					</div>
 				</div>
 			</div>

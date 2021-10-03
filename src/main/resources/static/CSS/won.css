@@ -217,7 +217,7 @@ img { /* ICMall CheckPoint, 상품상세설명 멜론 이미지 */
 /* 리뷰 Q&A */
 
 .review, #question {
-	width:90%;
+	width:100%;
 }
 
 /* 구간 나누기*/
