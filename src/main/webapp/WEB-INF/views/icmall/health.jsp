@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    	<%-- Core --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,107 +29,26 @@
          	<div class="space"></div>
          	
                 <!-- Blog -->
-                <div id="blog" class="grid-layout post-3-columns m-b-30" data-item="post-item">
+                <div id="blog" class="grid-layout post-4-columns m-b-30" data-item="post-item">
                     <!-- Post item-->
-                    <div class="post-item border">
-                        <div class="post-item-wrap">
-                            <div class="post-image">
-                                <a href="#">
-                                    <img alt="" src="https://blog.kakaocdn.net/dn/qEwHb/btqCoRsfE2N/iAWkJFh4g1IKZshNnOe860/img.jpg">
-                                </a>
-                            </div>
-                            <div class="post-item-description">
-                                <h2><a href="#">[유기농] 멜론
-                                    </a></h2>
-                                <p>10,000원</p>
-                                <p>유기농 농사로 나온 멜론 </p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end: Post item-->
-                    <!-- Post item-->
-                     <div class="post-item border">
-                        <div class="post-item-wrap">
-                            <div class="post-image">
-                                <a href="#">
-                                    <img alt="" src="https://blog.kakaocdn.net/dn/qEwHb/btqCoRsfE2N/iAWkJFh4g1IKZshNnOe860/img.jpg">
-                                </a>
-                            </div>
-                            <div class="post-item-description">
-                                <h2><a href="#">[유기농] 멜론
-                                    </a></h2>
-                                <p>10,000원</p>
-                                <p>유기농 농사로 나온 멜론 </p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end: Post item-->
-                    <!-- Post item-->
-                     <div class="post-item border">
-                        <div class="post-item-wrap">
-                            <div class="post-image">
-                                <a href="#">
-                                    <img alt="" src="https://blog.kakaocdn.net/dn/qEwHb/btqCoRsfE2N/iAWkJFh4g1IKZshNnOe860/img.jpg">
-                                </a>
-                            </div>
-                            <div class="post-item-description">
-                                <h2><a href="#">[유기농] 멜론
-                                    </a></h2>
-                                <p>10,000원</p>
-                                <p>유기농 농사로 나온 멜론 </p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="post-item border">
-                        <div class="post-item-wrap">
-                            <div class="post-image">
-                                <a href="#">
-                                    <img alt="" src="https://blog.kakaocdn.net/dn/qEwHb/btqCoRsfE2N/iAWkJFh4g1IKZshNnOe860/img.jpg">
-                                </a>
-                            </div>
-                            <div class="post-item-description">
-                                <h2><a href="#">[유기농] 멜론
-                                    </a></h2>
-                                <p>10,000원</p>
-                                <p>유기농 농사로 나온 멜론 </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="post-item border">
-                        <div class="post-item-wrap">
-                            <div class="post-image">
-                                <a href="#">
-                                    <img alt="" src="https://blog.kakaocdn.net/dn/qEwHb/btqCoRsfE2N/iAWkJFh4g1IKZshNnOe860/img.jpg">
-                                </a>
-                            </div>
-                            <div class="post-item-description">
-                                <h2><a href="#">[유기농] 멜론
-                                    </a></h2>
-                                <p>10,000원</p>
-                                <p>유기농 농사로 나온 멜론 </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="post-item border">
-                        <div class="post-item-wrap">
-                            <div class="post-image">
-                                <a href="#">
-                                    <img alt="" src="https://blog.kakaocdn.net/dn/qEwHb/btqCoRsfE2N/iAWkJFh4g1IKZshNnOe860/img.jpg">
-                                </a>
-                            </div>
-                            <div class="post-item-description">
-                                <h2><a href="#">[유기농] 멜론
-                                    </a></h2>
-                                <p>10,000원</p>
-                                <p>유기농 농사로 나온 멜론 </p>
-                            </div>
-                        </div>
-                    </div>
-                  
-                  </div>
-                </div>
-              
+		                   <c:forEach var="dto" items="${list }" begin="1" end="25">
+								<div class="post-item border" style="height:440px;">
+								<h1>${dto.pro_uid }</h1>
+									<div class="post-image">
+		                                <a href="stockDetail?uid=${dto.pro_uid }">
+		                                    ${dto.pro_img}
+		                                </a>
+		                            </div>
+		                           	<div class="post-item-description">
+										<h2>
+											<a href="stockDetail?uid=${dto.pro_uid }">${dto.pro_name}</a>
+										</h2>
+										<h3>${dto.pro_price} 원</h3>
+									</div>
+								</div>
+						</c:forEach>
+					</div>				
+              	</div>
          </section>
                   
                    

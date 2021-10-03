@@ -32,5 +32,15 @@ public class Won_CrawlingDAOImpl implements Won_CrawlingDAO {
 		return mapper.selectSnack();
 	}
 
+	@Override
+	public List<Won_CrawlingDTO> selectHealth() {
+		return mapper.selectHealth();
+	}
+
+	@Override
+	public List<Won_CrawlingDTO> selectProInfo(int uid) {
+		return mapper.selectProInfo(uid);
+	}
+
 
 }

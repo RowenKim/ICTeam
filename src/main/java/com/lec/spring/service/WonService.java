@@ -1,4 +1,4 @@
-package com.lec.spring;
+package com.lec.spring.service;
 
 import java.util.List;
 
@@ -25,10 +25,22 @@ public class WonService {
 		System.out.println("WonService() 생성!");
 	}
 	
-	
+	// snack 리스트 뽑기
 	public List<Won_CrawlingDTO> list(){
 		
 		return dao.selectSnack();
+	}
+	
+	// health 리스트 뽑기
+	public List<Won_CrawlingDTO> Healthlist(){
+		
+		return dao.selectHealth();
+	}
+	
+	// 상품 해당 uid 상세정보 불러오기
+	public List<Won_CrawlingDTO> selectProInfo(int pro_uid){
+		
+		return dao.selectProInfo(pro_uid);
 	}
 	
 	

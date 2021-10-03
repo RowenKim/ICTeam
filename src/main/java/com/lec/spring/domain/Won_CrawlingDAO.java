@@ -13,4 +13,10 @@ public interface Won_CrawlingDAO {
 	// DB에서 스낵 정보만 뺴오기 
 	public abstract List<Won_CrawlingDTO> selectSnack();
 	
+	// DB에서 건강기능 정보만 뺴오기 
+	public abstract List<Won_CrawlingDTO> selectHealth();
+	
+	// DB 해당 uid 상품 정보 들고오기
+	public abstract List<Won_CrawlingDTO> selectProInfo(int uid);
+	
 }

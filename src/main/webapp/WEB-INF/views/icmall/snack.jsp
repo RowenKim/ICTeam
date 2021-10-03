@@ -50,15 +50,15 @@
 						<div class="post-item border" style="height:440px;">
 						<h1>${dto.pro_uid }</h1>
 							<div class="post-image">
-                                <a href="#">
+                                <a href="stockDetail?uid=${dto.pro_uid }">
                                     ${dto.pro_img}
                                 </a>
                             </div>
                            	<div class="post-item-description">
 								<h2>
-									<a href="#">${dto.pro_name}</a>
+									<a href="stockDetail?uid=${dto.pro_uid }">${dto.pro_name}</a>
 								</h2>
-								<p>${dto.pro_price}</p>
+								<h3>${dto.pro_price} 원</h3>
 							</div>
 						</div>
 				</c:forEach>					

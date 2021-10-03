@@ -101,7 +101,7 @@ public class Won_crawlingService {
 				Won_CrawlingDTO wonCrawlingDTO = Won_CrawlingDTO.builder()
 	                    .pro_name(content.select(".pname p").text())
 	                    .pro_img(content.select(".box_pd img").outerHtml())
-	                    .pro_price(content.select(".price_detail strong").text().trim().replace(",", ""))
+	                    .pro_price(content.select(".price_detail strong").text().trim())
 	                    .pro_content(proURL)
 	                    .build();
 				
@@ -112,7 +112,7 @@ public class Won_crawlingService {
 				Won_CrawlingDTO wonCrawlingDTOHelath = Won_CrawlingDTO.builder()
 						.pro_name(e3.get(i).select(".pname p").text())
 						.pro_img(e3.get(i).select(".box_pd img").outerHtml())
-						.pro_price(e3.get(i).select(".price_detail strong").text().trim().replace(",", ""))
+						.pro_price(e3.get(i).select(".price_detail strong").text().trim())
 						.pro_content(proURLHealth)
 						.build();
 				

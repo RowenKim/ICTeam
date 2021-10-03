@@ -34,6 +34,35 @@
 		ORDER BY 
 			pro_uid ASC		
 	</select>
+	
+	<select id="selectHealth" resultType="com.lec.spring.domain.Won_CrawlingDTO">
+		SELECT 
+			pro_uid, 
+			pro_name, 
+			pro_content, 
+			pro_img, 
+			pro_price
+		FROM 
+			ic_product
+		WHERE
+			pro_kind = "건강기능" 
+		ORDER BY 
+			pro_uid ASC		
+	</select>
+	
+	<select id="selectProInfo" resultType="com.lec.spring.domain.Won_CrawlingDTO">
+		SELECT
+			pro_uid, 
+			pro_name, 
+			pro_content, 
+			pro_img, 
+			pro_price
+		FROM 
+			ic_product
+		WHERE
+			pro_uid = #{pro_uid}
+	</select>
+	
 
 
 </mapper>
