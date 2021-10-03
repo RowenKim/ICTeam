@@ -1,10 +1,14 @@
-package com.lec.spring.crawling;
+package com.lec.spring.service;
 
 
 import org.apache.ibatis.session.SqlSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import com.lec.spring.crawling.Seoha_DAO;
+import com.lec.spring.crawling.VegetablesDTO;
+
 import java.util.List;
 
 

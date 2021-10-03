@@ -25,5 +25,6 @@ public class Soeha_BoardService {
 	public int write(VegetablesDTO dto) {
 		return dao.insert(dto);
 	}
+	// 서하 추가한 서비스 
 	
 }

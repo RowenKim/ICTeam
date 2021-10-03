@@ -11,8 +11,21 @@
 		INSERT INTO ic_product
 		(pro_name, pro_price, pro_img, pro_kind, pro_content)
 		VALUES
-		("가", "나", "다", "채소", #{pro_url})
+		(#{pro_name}, #{pro_price}, #{pro_img}, "채소", #{pro_content})
 	</insert>
+	
+	<select id="select" resultType="com.lec.spring.crawling.VegetablesDTO">
+		SELECT 
+			pro_uid, 
+			pro_name, 
+			pro_price, 
+			pro_img, 
+			pro_content
+		FROM 
+			ic_product
+		WHERE
+			pro_kind = "채소" 		
+	</select>
 
 </mapper>
 
