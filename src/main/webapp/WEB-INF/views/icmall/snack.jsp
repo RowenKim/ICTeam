@@ -46,17 +46,19 @@
 				<div id="blog" class="grid-layout post-4-columns m-b-30"
 					data-item="post-item">
 					<!-- Post item-->
-				<c:forEach var="i" begin="3" end="14">
+				<c:forEach var="dto" items="${list }" begin="3" end="25">
 						<div class="post-item border" style="height:440px;">
-							<div class="post-item-wrap">
-								<div class="post-image">
-									<a href="#">
-									</a>
-								</div>
-								<div class="post-item-description">
-									<h2>
-									</h2>
-								</div>
+						<h1>${dto.pro_uid }</h1>
+							<div class="post-image">
+                                <a href="#">
+                                    ${dto.pro_img}
+                                </a>
+                            </div>
+                           	<div class="post-item-description">
+								<h2>
+									<a href="#">${dto.pro_name}</a>
+								</h2>
+								<p>${dto.pro_price}</p>
 							</div>
 						</div>
 				</c:forEach>					

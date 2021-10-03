@@ -13,6 +13,9 @@ import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.lec.spring.domain.Won_CrawlingDAO;
+import com.lec.spring.domain.Won_CrawlingDTO;
+
 @Service
 public class Won_crawlingService {
 	

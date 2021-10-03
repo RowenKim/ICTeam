@@ -1,7 +1,5 @@
 package com.lec.spring.domain;
 
-import com.lec.spring.crawling.Won_CrawlingDTO;
-
 import lombok.Builder;
 import lombok.ToString;
 

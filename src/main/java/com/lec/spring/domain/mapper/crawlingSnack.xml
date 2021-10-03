@@ -1,25 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.lec.spring.crawling.Won_CrawlingDAO">
+<mapper namespace="com.lec.spring.domain.Won_CrawlingDAO">
 	<insert id="insertSnack" flushCache="true" 
-		parameterType="com.lec.spring.crawling.Won_CrawlingDTO"
+		parameterType="com.lec.spring.domain.Won_CrawlingDTO"
 		keyProperty="pro_uid" useGeneratedKeys="true" keyColumn="pro_uid">
 		INSERT INTO ic_product
-		(pro_name, pro_price, pro_img, pro_content,pro_kind)
+		(pro_name, pro_price, pro_img, pro_content, pro_kind)
 		VALUES
 		(#{pro_name}, #{pro_price}, #{pro_img}, #{pro_content},"과자")
 	</insert>
 	
 	<insert id="insertHealth" flushCache="true" 
-		parameterType="com.lec.spring.crawling.Won_CrawlingDTO"
+		parameterType="com.lec.spring.domain.Won_CrawlingDTO"
 		keyProperty="pro_uid" useGeneratedKeys="true" keyColumn="pro_uid">
 		INSERT INTO ic_product
-		(pro_name, pro_price, pro_img, pro_content,pro_kind)
+		(pro_name, pro_price, pro_img, pro_content, pro_kind)
 		VALUES
 		(#{pro_name}, #{pro_price}, #{pro_img}, #{pro_content},"건강기능")
 	</insert>
 
+	<select id="selectSnack" resultType="com.lec.spring.domain.Won_CrawlingDTO">
+		SELECT 
+			pro_uid, 
+			pro_name, 
+			pro_content, 
+			pro_img, 
+			pro_price
+		FROM 
+			ic_product
+		WHERE
+			pro_kind = "과자" 
+		ORDER BY 
+			pro_uid ASC		
+	</select>
 
 
 </mapper>

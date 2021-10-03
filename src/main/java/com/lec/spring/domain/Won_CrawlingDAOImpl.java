@@ -1,12 +1,10 @@
-package com.lec.spring.crawling;
+package com.lec.spring.domain;
 
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
-import com.lec.spring.domain.WonSnackDTO;
 
 @Repository
 public class Won_CrawlingDAOImpl implements Won_CrawlingDAO {
@@ -27,6 +25,11 @@ public class Won_CrawlingDAOImpl implements Won_CrawlingDAO {
 	@Override
 	public int insertHealth(Won_CrawlingDTO dto) {
 		return mapper.insertHealth(dto);
+	}
+
+	@Override
+	public List<Won_CrawlingDTO> selectSnack() {
+		return mapper.selectSnack();
 	}
 
 
