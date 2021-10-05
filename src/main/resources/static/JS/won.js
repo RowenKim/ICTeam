@@ -5,23 +5,19 @@
 $(document).ready(function() {
 //	alert("JS 연결 성공")
 	
-		$("#sub").click(function(){
+	
+		$(".change1").click(function(){
+			
 			//alert("열람완료");
-			if($("#reviewContent").css("display") == "none"){ 
-				$("#reviewContent").show();
+			if($(this).children(".reviewContent").css("display") == "none"){
+				// alert("들어옴1")
+				$(this).children(".reviewContent").show();
 			} else {
-				$("#reviewContent").hide();
+				// alert("들어옴")
+				$(this).children(".reviewContent").hide();
 			}
 		})
 		
-		$("#ques-sub").click(function(){
-			//alert("열람완료");
-			if($("#questionContent").css("display") == "none"){ 
-				$("#questionContent").show();
-			} else {
-				$("#questionContent").hide();
-			}
-		})
 		
 		
 		
@@ -29,7 +25,7 @@ $(document).ready(function() {
 		$("#increasQuantity").click(function(){
 			
 			var num = jQuery("#productStock").val();
-
+			
 			num++;
 			
 			
@@ -124,5 +120,6 @@ $(document).ready(function() {
 		
 		
 		
+		  
 
 });
