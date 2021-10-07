@@ -103,6 +103,13 @@ public class IcmallController {
 		return "icmall/orderDetail";
 	}
 	
+	@RequestMapping("/checkOut")
+	public String checkOut(Model model) {
+		
+		return "icmall/checkOut";
+	}
+	
+	
 	
 	
 	
@@ -208,12 +215,12 @@ public class IcmallController {
 	}
 	
 	
-	@RequestMapping("/basket")
-	public String basket() {
-		
-		return "icmall/basket";
-	}
-	
+//	@RequestMapping("/basket")
+//	public String basket() {
+//		
+//		return "icmall/basket";
+//	}
+//	
 
 	
 	

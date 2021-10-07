@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.lec.spring.crawling.Seoha_DAO;
 import com.lec.spring.crawling.VegetablesDTO;
+import com.lec.spring.domain.BasketListDTO;
 
 import java.util.List;
 
@@ -34,6 +35,11 @@ public class Seoha_DAOImpl implements Seoha_DAO {
 	@Override
 	public List<VegetablesDTO> select() {
 		return mapper.select();
+	}
+	
+	@Override
+	public List<BasketListDTO> select1() {
+		return mapper.select1();
 	}
 
 
