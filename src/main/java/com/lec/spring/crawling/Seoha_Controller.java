@@ -2,13 +2,16 @@ package com.lec.spring.crawling;
 
 
 import java.io.IOException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.lec.spring.domain.OrderDTO;
 import com.lec.spring.service.Seoha_BoardService;
 
 
@@ -63,11 +66,38 @@ public class Seoha_Controller {
 	@RequestMapping("/icmall/basket")
 	public String basket(Model model) {
 	//	System.out.println("찍혀라");
+		
 	//	System.out.println(seoha_BoardService.list().get(0));
 		model.addAttribute("list", seoha_BoardService.list());
-		
+		//System.out.println("찍혀라2");
 		return "icmall/basket";
 	}
+	
+	// 장바구니 삭제 
+	@GetMapping("/icmall/deleteOk")
+	public String deleteOk(int uid, Model model) {
+		System.out.println("삭제실행");
+		model.addAttribute("result", seoha_BoardService.deleteByUid(uid));
+		
+		return "/icmall/deleteOk";		
+	}
+	
+	// 주문내역 추가
+	@GetMapping("/icmall/insertOrderOk")
+		public String order(OrderDTO dto, Model model) {
+		
+		System.out.println("값받아오기");
+		System.out.println(dto.toString());
+		
+		model.addAttribute("result", seoha_BoardService.insertOrder(dto));
+		model.addAttribute("dto", dto);   // auto-generated key
+		
+		
+		return "icmall/insertOrderOk";
+			
+			
+		}
+		
 	
 }
 

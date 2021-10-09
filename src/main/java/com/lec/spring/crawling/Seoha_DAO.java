@@ -3,6 +3,7 @@ package com.lec.spring.crawling;
 import java.util.List;
 
 import com.lec.spring.domain.BasketListDTO;
+import com.lec.spring.domain.OrderDTO;
 
 
 
@@ -16,6 +17,12 @@ public interface Seoha_DAO {
 	
 	//장바구니 리스트 SELECT
 	public abstract List<BasketListDTO> select1();
+
+	//장바구니 리스트 삭제
+	public abstract int deleteByUid(int uid);
+
+	public abstract int insertOrder(OrderDTO dto);
+	
 }
 
 

@@ -18,6 +18,16 @@
 	crossorigin="anonymous"></script>
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>function chkDelete(uid){
+	// 삭제 여부, 다시 확인 하고 진행하기
+	var r = confirm("삭제하시겠습니까?");
+	
+	if(r){
+		location.href = 'deleteOk?uid=' + uid;
+	}
+} // chkDelete
+</script>
+
 <body>
 	<jsp:include page="header.jsp" />
 	<!-- 장바구니 목록 -->
@@ -53,6 +63,7 @@
 								<c:forEach var="list" items="${list }">
 								<% i++; %>
 								<tr>
+								<form action="insertOrderOk" method="get">
 									<th style="width:5%; text-align:center">
 										<input onclick="" type="checkbox" name="agree" class="basketChk" /></th>
 									<td style="width:10%;"><img
@@ -64,7 +75,7 @@
 											<div class="quantity m-l-5 updown">
 												<input type="button" name="minus" class="minus decreaseQuantity" value="-">
 												<input type="text"
-													class="qty productStock" name="qty" style="min-width:50px !important;" value="${list.b_qty }"> 
+													class="qty productStock" name="o_qty" style="min-width:50px !important;" value="${list.b_qty }"> 
 												<input
 													type="button" name="plus" class="plus increasQuantity" value="+">
 											</div>
@@ -72,11 +83,17 @@
 										</div>
 									</td>
 									<td style="width:20%; min-width:60px;" class="basketT">${list.b_price } 원</td>
-									<td><input type="text" style="display:none;" name="price" value="${list.b_price }">
-									
+								
+									<td>
+									<input type="hidden" style="display:none;" name="o_price" value="${list.b_price }">
+									<input type="hidden" style="display:none;" name="o_name" value="${list.b_proName }">
+									<input type="hidden" style="display:none;" name="m_uid" value="${list.m_uid }">
+									<input type="hidden" style="display:none;" name="b_uid" value="${list.b_uid }">
+									<input style="display:none;" class="btn w-100" type="submit" id="insertOrder"/>
+										<div id="deleteOk" onclick="chkDelete(${list.b_uid })"></div>
 									</td>
+									</form>
 								</tr>
-								<c:set var="sum" value="${sum + (list.b_qty * list.b_price)}"/> 
 								</c:forEach>
 							</table>
 							<hr>
@@ -134,7 +151,7 @@
 						<p>상품을 선택해주세요</p>
 					</div>
 					<div>
-						<input class="btn w-100"type="button" value="주문하기" id="orderBtn2" />
+						<input class="btn w-100"type="submit" value="주문하기" id="orderBtn2" />
 					</div>
 					</div>
 				</div>
