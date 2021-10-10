@@ -14,13 +14,16 @@
 	
 	<select id="select" resultType="com.lec.spring.crawling.FruitDTO">
 		SELECT 
-			pro_uid, 
+			pro_uid,
 			pro_name, 
 			pro_price, 
-			pro_img, 
-			pro_kind, 
+			pro_img,
+			pro_content  
 		FROM 
 			ic_product
+			
+		WHERE
+			pro_kind = "과일"
 		ORDER BY 
 			pro_uid DESC		
 	</select>
