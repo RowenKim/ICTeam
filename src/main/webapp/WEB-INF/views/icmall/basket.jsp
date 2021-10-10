@@ -18,7 +18,9 @@
 	crossorigin="anonymous"></script>
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script>function chkDelete(uid){
+<script>
+
+function chkDelete(uid){
 	// 삭제 여부, 다시 확인 하고 진행하기
 	var r = confirm("삭제하시겠습니까?");
 	
@@ -26,6 +28,15 @@
 		location.href = 'deleteOk?uid=' + uid;
 	}
 } // chkDelete
+
+ function chkOrder(){
+	// 삭제 여부, 다시 확인 하고 진행하기
+	var r = confirm("주문하시겠습니까?");
+	
+	if(r){
+		location.href = 'insertOrderOk';
+	}
+}  // chkDelete
 </script>
 
 <body>
@@ -86,10 +97,11 @@
 								
 									<td>
 									<input type="hidden" style="display:none;" name="o_price" value="${list.b_price }">
+									<input type="hidden" style="display:none;" name="o_img" value="${list.b_img }">
 									<input type="hidden" style="display:none;" name="o_name" value="${list.b_proName }">
 									<input type="hidden" style="display:none;" name="m_uid" value="${list.m_uid }">
 									<input type="hidden" style="display:none;" name="b_uid" value="${list.b_uid }">
-									<input style="display:none;" class="btn w-100" type="submit" id="insertOrder"/>
+									<input style="display:none;" class="btn w-100" type="submit" id="insertOrder" onclick="chkOrder()" />
 										<div id="deleteOk" onclick="chkDelete(${list.b_uid })"></div>
 									</td>
 									</form>

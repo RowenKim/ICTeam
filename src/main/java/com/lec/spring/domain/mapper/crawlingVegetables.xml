@@ -49,9 +49,9 @@
 		parameterType="com.lec.spring.domain.OrderDTO"
 		keyProperty="o_uid" useGeneratedKeys="true" keyColumn="o_uid">	
 		INSERT INTO ic_order
-			(o_qty, o_name, o_price, m_uid, b_uid)
+			(o_qty, o_name, o_img, o_price, m_uid, b_uid)
 		VALUES
-			(#{o_qty}, #{o_name}, #{o_price}, #{m_uid}, #{b_uid})
+			(#{o_qty}, #{o_name}, #{o_img}, #{o_price}, #{m_uid}, #{b_uid})
 	</insert>
 	
 
