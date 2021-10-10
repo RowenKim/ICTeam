@@ -3,9 +3,13 @@
  */
 // 고객 리스트 제목 클릭시 내용 보이게 하기
 $(document).ready(function() {
-	//	alert("JS 연결 성공")
-
-
+		//alert("JS 연결 성공")
+	var b_price = $(".price").text();
+	var b_priceChange = b_price.replace("," , "");
+	$("input[name=b_price]:hidden").val(b_priceChange); // 가격에 있는 , 지우는 작업
+	//alert(b_priceChange);
+	
+	
 	$(".change1").click(function() {
 
 		//alert("열람완료");
@@ -17,7 +21,53 @@ $(document).ready(function() {
 			$(this).children(".reviewContent").hide();
 		}
 	})
+	
+	$("#proincreasQuantity").click(function(){
+			
+			var num = jQuery("#productStock").val();
+			
+			num++;
+			
+			
+			jQuery("#productStock").val(num);
+			
+		})
+		
+		$("#prodecreaseQuantity").click(function(){
+			
+			var num = jQuery("#productStock").val();
 
+			num--;
+			
+			if(num <= 0){
+				alert("더 이상 줄일수 없습니다.");
+				num = 1;
+			}
+			
+			jQuery("#productStock").val(num);
+			
+		})
+
+	$(".minus").mouseup(function(){
+         //alert($(".qty").val() - 1)
+         var num = $(".qty").val() - 1;
+         var price = $(".price").text();
+         var total = parseInt(price.replace("," , "")) * num + "";
+         //alert("minus num : " + num)
+//         alert($("#totalAccount").text(num));
+//         alert(parseInt(price.replace("," , "")) * num);
+//         alert(total.toString());
+         $("#totalAccount").text(total);
+      });
+	      
+      $(".plus").mouseup(function(){
+         var num = parseInt($(".qty").val()) + 1;
+         var price = $(".price").text();
+         var total = parseInt(price.replace("," , "")) * num + "";
+         //alert("plus num :" + num)
+         
+         $("#totalAccount").text(total);
+      });		
 
 
 

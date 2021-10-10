@@ -47,5 +47,94 @@ public class Won_CrawlingDAOImpl implements Won_CrawlingDAO {
 		return mapper.selectProQues(uid);
 	}
 
+	@Override
+	public List<WonMemberDTO> selectMemInfo(int uid) {
+		return mapper.selectMemInfo(uid);
+	}
+
+	@Override
+	public List<WonProQuestionDTO> selectProQuesInfo(int uid) {
+		return mapper.selectProQuesInfo(uid);
+	}
+
+	@Override
+	public List<WonProReviewDTO> selectProReview(int uid) {
+		return mapper.selectProReview(uid);
+	}
+
+	@Override
+	public List<WonMemberDTO> selectMemInfoAll() {
+		return mapper.selectMemInfoAll();
+	}
+
+	@Override
+	public int ProQuesincViewCnt(int uid) {
+		return mapper.ProQuesincViewCnt(uid);
+	}
+
+	@Override
+	public int insertProReview(WonProReviewDTO dto) {
+		return mapper.insertProReview(dto);
+	}
+
+	@Override
+	public int insertProQues(WonProQuestionDTO dto) {
+		System.out.println("DAO DTO" + dto);
+		return mapper.insertProQues(dto);
+	}
+
+	@Override
+	public List<WonProReviewDTO> selectProReviewInfo(int uid) {
+		return mapper.selectProReviewInfo(uid);
+	}
+
+	@Override
+	public int updateProReview(WonProReviewDTO dto) {
+		return mapper.updateProReview(dto);
+	}
+
+	@Override
+	public int deleteProReview(int uid) {
+		return mapper.deleteProReview(uid);
+	}
+
+	@Override
+	public int updateProQues(WonProQuestionDTO dto) {
+		return mapper.updateProQues(dto);
+	}
+
+	@Override
+	public int deleteProQues(int uid) {
+		return mapper.deleteProQues(uid);
+	}
+
+	@Override
+	public int insertBasket(WonBasketDTO dto) {
+		return mapper.insertBasket(dto);
+	}
+
+	@Override
+	public int insertProQuesFile(List<WonQuesFileDTO> quesFile) {
+		return mapper.insertProQuesFile(quesFile);
+	}
+
+	@Override
+	public List<WonQuesFileDTO> selectProQuesFiles(int uid) {
+		return mapper.selectProQuesFiles(uid);
+	}
+
+	@Override
+	public int undeleteProQuesFile(List<Integer> uid) {
+		return mapper.undeleteProQuesFile(uid);
+	}
+
+	@Override
+	public int deleteProQuesFile(int uid) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+
 
 }
