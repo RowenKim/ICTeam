@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.lec.spring.crawling.Seoha_DAO;
 import com.lec.spring.crawling.VegetablesDTO;
 import com.lec.spring.domain.BasketListDTO;
+import com.lec.spring.domain.MemberSDTO;
 import com.lec.spring.domain.OrderDTO;
 
 import java.util.List;
@@ -53,6 +54,12 @@ public class Seoha_DAOImpl implements Seoha_DAO {
 	@Override
 	public int insertOrder(OrderDTO dto) {
 		return mapper.insertOrder(dto);
+	}
+
+	//주문하기 페이지 회원정보 불러오기
+	@Override
+	public List<MemberSDTO> selectMember(int uid) {
+		return mapper.selectMember(uid);
 	}
 
 

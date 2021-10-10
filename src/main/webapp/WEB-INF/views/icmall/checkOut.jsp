@@ -50,19 +50,19 @@
 									<h5>보내는 분</h5>
 								</div>
 								<div class="col-lg-9 form-group">
-									<h5>김종원</h5>
+									<h5>${list[0].m_name }</h5>
 								</div>
 								<div class="col-lg-3 form-group">
 									<h5>휴대폰</h5>
 								</div>
 								<div class="col-lg-9 form-group">
-									<h5>010-1234-3234</h5>
+									<h5>${list[0].phone }</h5>
 								</div>
 								<div class="col-lg-3 form-group">
 									<h5>이메일</h5>
 								</div>
 								<div class="col-lg-9 form-group">
-									<h5>bha@naver.com</h5>
+									<h5>${list[0].mail }</h5>
 								</div>
 								<div class="col-lg-12 form-group">
 									<h6>이메일을 통해 주문처리과정을 보내드립니다. 정보 변경은 마이페이지 > 개인정보 수정메뉴에서

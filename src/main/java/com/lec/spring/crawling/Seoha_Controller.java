@@ -116,6 +116,22 @@ public class Seoha_Controller {
 //
 //
 //    }
+	
+	// 주문하기 회원정보 리스트
+		@RequestMapping("/icmall/checkOut")
+		public String checkOut(int uid, Model model) {
+		//	System.out.println("찍혀라");
+			
+		//	System.out.println(seoha_BoardService.list().get(0));
+			model.addAttribute("list", seoha_BoardService.listM(uid));
+			//System.out.println("찍혀라2");
+			return "icmall/checkOut";
+		}
+	
+	
+	
+	
+	
 }
 
 

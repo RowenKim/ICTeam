@@ -54,6 +54,15 @@
 			(#{o_qty}, #{o_name}, #{o_img}, #{o_price}, #{m_uid}, #{b_uid})
 	</insert>
 	
+	<!-- 주문하기 개인정보 불러오기 -->
+	<select id="selectMember" resultType="com.lec.spring.domain.MemberSDTO">
+	SELECT m_uid,
+		m_name,
+		m_phone,
+		m_mail
+	 FROM ic_member
+	 WHERE m_uid=#{m_uid}
+	</select>
 
 </mapper>
 

@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.lec.spring.crawling.Seoha_DAO;
 import com.lec.spring.crawling.VegetablesDTO;
 import com.lec.spring.domain.BasketListDTO;
+import com.lec.spring.domain.MemberSDTO;
 import com.lec.spring.domain.OrderDTO;
 
 @Service
@@ -34,7 +35,7 @@ public class Seoha_BoardService {
 		
 		return dao.select1();
 	}
-
+	//장바구니에 담긴 테이블 삭제
 	public Object deleteByUid(int uid) {
 		
 		return dao.deleteByUid(uid);
@@ -45,5 +46,11 @@ public class Seoha_BoardService {
 		return dao.insertOrder(dto);
 	}
 
+	//주문하기 회원 정보 불러오기 부분
+		public List<MemberSDTO> listM(int m_uid) {
+			
+			
+			return dao.selectMember(m_uid);
+		}
 	
 }
