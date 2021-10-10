@@ -48,11 +48,7 @@ public class IcmallController {
 		return "icmall/reviewUpdate";
 	}
 	
-	@RequestMapping("/serviceCenter")
-	public String serviceCenter() {
-		
-		return "icmall/serviceCenter";
-	}
+	
 	
 	@RequestMapping("/question")
 	public String question() {
