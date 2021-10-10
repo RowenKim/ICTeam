@@ -29,11 +29,11 @@ public class IcmallController {
 //		
 //	}
 	
-	@RequestMapping("/stockReview")
-	public String stockReview() {
-		
-		return "icmall/stockReview";
-	}
+//	@RequestMapping("/stockReview")
+//	public String stockReview() {
+//		
+//		return "icmall/stockReview";
+//	}
 	
 	
 	@RequestMapping("/joinCheck")
@@ -42,18 +42,18 @@ public class IcmallController {
 		return "icmall/joinCheck";
 	}
 	
-	@RequestMapping("/reviewUpdate")
-	public String reviewUpdateOk() {
-		
-		return "icmall/reviewUpdate";
-	}
+//	@RequestMapping("/reviewUpdate")
+//	public String reviewUpdateOk() {
+//		
+//		return "icmall/reviewUpdate";
+//	}
 	
 	
 	
-	@RequestMapping("/question")
-	public String question() {
-		return "icmall/question";
-	}
+//	@RequestMapping("/question")
+//	public String question() {
+//		return "icmall/question";
+//	}
 	
 	@RequestMapping("/join")
 	public String join(Model model) {
@@ -164,10 +164,10 @@ public class IcmallController {
 	
 	// 서하 페이지 컨트롤 끝 	
 
-	@RequestMapping("/questionUpdate")
-	public String questionUpdate() {
-		return "icmall/questionUpdate";
-	}
+//	@RequestMapping("/questionUpdate")
+//	public String questionUpdate() {
+//		return "icmall/questionUpdate";
+//	}
 	
 	@RequestMapping("/webWrite")
 	public String webWrite() {
@@ -204,11 +204,11 @@ public class IcmallController {
 	
 	/* 종원 컨트롤 페이지 200줄 ~ 400줄 */
 	
-	@RequestMapping("/stockDetail")
-	public String stockDetail() {
-		
-		return "icmall/stockDetail";
-	}
+//	@RequestMapping("/stockDetail")
+//	public String stockDetail() {
+//		
+//		return "icmall/stockDetail";
+//	}
 	
 	
 //	@RequestMapping("/basket")
