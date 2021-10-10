@@ -1,4 +1,4 @@
-package com.lec.spring.crawling;
+	package com.lec.spring.crawling;
 
 import org.jsoup.select.Elements;
 
@@ -25,6 +25,21 @@ public class FruitDTO {
 		this.pro_name = pro_name;
 		this.pro_img = pro_img;
 		this.pro_price = pro_price;
+		this.pro_content = pro_content;
+	}
+	public void setPro_uid(int pro_uid) {
+		this.pro_uid = pro_uid;
+	}
+	public void setPro_name(String pro_name) {
+		this.pro_name = pro_name;
+	}
+	public void setPro_img(String pro_img) {
+		this.pro_img = pro_img;
+	}
+	public void setPro_price(String pro_price) {
+		this.pro_price = pro_price;
+	}
+	public void setPro_content(String pro_content) {
 		this.pro_content = pro_content;
 	}
 	

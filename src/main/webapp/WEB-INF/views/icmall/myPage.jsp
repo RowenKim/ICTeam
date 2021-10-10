@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page session="true" %>   
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -35,9 +36,9 @@
   
       <div class="container text-center p-t-50">
         <div class="page-title">
-          <h3>배서하</h3>
-          <span>seoha.bae07@gmail.com</span><br>
-          <button type="button" class="btn btn-light btn-shadow btn-rounded m-t-20">내정보<i class="icon-user"></i></button>
+          <h3>${dto.m_name }</h3>
+          <span>${dto.m_mail }</span><br>
+          <button type="button" class="btn btn-light btn-shadow btn-rounded m-t-20" onclick="location.href= 'userUpdate'">내정보<i class="icon-user"></i></button>
                           
         </div>
        <!--  <div class="breadcrumb">
@@ -122,7 +123,7 @@
         <div class="row m-t-60">
 				<div class="col-lg-12">
 					<div class="form-group text-center">
-						<button class="btn" type="submit">로그아웃</button>
+						<button class="btn" type="button" onClick="location.href='/logout'">로그아웃</button>
 					</div>
 				</div>
 			</div>

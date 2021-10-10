@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lec.spring.domain.UserDAO">
+
+<insert id="addUser" parameterType="com.lec.spring.domain.UserDTO">
+		INSERT INTO ic_member(m_id, m_password, m_name, m_mail, m_phone, m_addr, m_gender, m_birth)
+		VALUES(#{m_id}, #{m_password}, #{m_name}, #{m_mail}, #{m_phone}, #{m_addr}, #{m_gender}, #{m_birth})
+	</insert>
+	
+	<insert id="addAuth">
+		INSERT INTO ic_authority
+		VALUES(#{param1}, #{param2})
+	</insert>
+
+	<delete id="deleteUser" parameterType="com.lec.spring.domain.UserDTO">
+		DELETE FROM ic_member
+		WHERE m_id = #{m_id}
+	</delete>	
+	
+	<delete id="deleteAuth">
+		DELETE FROM ic_authority
+		WHERE m_id = #{param1} AND m_auth = #{param2}
+	</delete>
+
+	<delete id="deleteAuths">
+		DELETE FROM ic_authority
+		WHERE m_id = #{param1}
+	</delete>
+
+	<select id="findById" resultType="com.lec.spring.domain.UserDTO">
+		SELECT
+			m_uid m_uid,
+			m_id m_id,
+			m_password m_password,
+			m_name m_name,
+			m_mail m_mail,
+			m_phone m_phone,
+			m_addr m_addr,
+			m_gender m_gender,
+			m_birth m_birth,
+			m_joindate m_joindate,
+			enabled enabled 
+		FROM ic_member
+		WHERE m_id = #{m_id}	
+	</select>
+
+	<select id="selectAuthoritiesById" resultType="String">
+		SELECT m_auth
+		FROM ic_authority
+		WHERE m_id = #{m_id}
+	</select>
+	
+	
+	<select id = "idChk" resultType="int">
+		SELECT COUNT(*) FROM ic_member
+		WHERE m_id = #{user}
+	</select>
+	
+	
+	<select id = "mailChk" resultType="int">
+		SELECT COUNT(*) FROM ic_member
+		WHERE m_mail = #{mail}
+	</select>
+	
+	<select id = "login" resultType="com.lec.spring.domain.UserDTO">
+		select *
+		from ic_member
+		where m_id = #{m_id}
+	</select>
+	
+	<update id = "userUpdate" parameterType="com.lec.spring.domain.UserDTO">
+		UPDATE ic_member SET 
+		m_password = #{m_password},
+		m_mail = #{m_mail},
+		m_phone = #{m_phone},
+		m_gender = #{m_gender},
+		m_birth = #{m_birth}
+		WHERE m_id = #{m_id}
+	</update>
+	
+	
+	<update id ="userEnable" parameterType="com.lec.spring.domain.UserDTO">
+		UPDATE ic_member SET 	
+			m_id = "",
+			m_password = "",
+			m_name = "",
+			m_mail = "",
+			m_phone = "",
+			m_addr = "",
+			m_gender = "",
+			m_birth = #{m_birth},
+			enabled = 0
+		WHERE m_id = #{m_id}
+	</update>
+	
+	
+	<select id = "UserList" resultType="com.lec.spring.domain.UserDTO">
+		select *
+		from ic_member
+		where m_id = #{m_id}
+	</select>
+	
+	
+ 	
+	
+	
+	
+	
+	
+	
+
+	
+	
+
+</mapper>
+
+	

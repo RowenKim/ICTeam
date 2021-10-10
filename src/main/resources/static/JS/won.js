@@ -25,18 +25,19 @@ $(document).ready(function() {
 	$(".increasQuantity").click(function() {
 
 		var num = $(this).parent().children(".qty").val();
-		//alert(num)
-
-		//var num = jQuery(".productStock").val();
 
 		num++;
 
 		$(this).parent().children(".productStock").val(num);
-		//	jQuery(".productStock").val(num);
-
+		
+		$("input[name='agree']:checked").each(function() {
+				let count = $(this).parent().parent().find("input[name='o_qty']").val();
+				let price = $(this).parent().parent().find("input[name='o_price']").val();
+				let sum = count * price;
+				total += sum;
+			});
 	})
-
-
+	
 	$(".decreaseQuantity").click(function() {
 
 		var num = $(this).parent().children(".qty").val();
@@ -50,7 +51,14 @@ $(document).ready(function() {
 			num = 1;
 		}
 		$(this).parent().children(".productStock").val(num);
-		//jQuery(".productStock").val(num);
+		
+		$("input[name='agree']:checked").each(function() {
+
+				let count = $(this).parent().parent().find("input[name='o_qty']").val();
+				let price = $(this).parent().parent().find("input[name='o_price']").val();
+				let sum = count * price;
+				total += sum;
+			});
 
 	})
 
@@ -133,8 +141,8 @@ $(document).ready(function() {
 
 		$("input[name='agree']:checked").each(function() {
 			//var count = $(this).siblings().parent().parent().find("input[name='qty']").val();	
-			let count = $(this).parent().parent().find("input[name='qty']").val();
-			let price = $(this).parent().parent().find("input[name='price']").val();
+			let count = $(this).parent().parent().find("input[name='o_qty']").val();
+			let price = $(this).parent().parent().find("input[name='o_price']").val();
 			let sum = count * price;
 			total += sum;
 		});
@@ -160,8 +168,8 @@ $(document).ready(function() {
 			$("input[name='agree']:checked").each(function() {
 
 				//.prop("checked", false)
-				let count = $(this).parent().parent().find("input[name='qty']").val();
-				let price = $(this).parent().parent().find("input[name='price']").val();
+				let count = $(this).parent().parent().find("input[name='o_qty']").val();
+				let price = $(this).parent().parent().find("input[name='o_price']").val();
 				let sum = count * price;
 				total += sum;
 			});
@@ -177,17 +185,27 @@ $(document).ready(function() {
 		let total = 0;
 
 		$("input[name='agree']:checked").each(function() {
-			let tr = $(this).parent().parent();
-
-			tr.remove();
+			//let tr = $(this).parent().parent();
+			//tr.remove();
+			$(this).parent().parent().find("#deleteOk").trigger("click");
 		});
 		//alert(total)
 
 		$("input[name='total']").val(total);
 
-
+		
 
 	});      
+	
+	$('#orderBtn2').click(function(){
+		$("input[name='agree']:checked").each(function() {
+			//let tr = $(this).parent().parent();
+			//tr.remove();
+			alert("주문하기 클릭 스크립트");
+			$(this).parent().parent().find("#insertOrder").trigger("click");
+		});
+	})
+	
 
 
 

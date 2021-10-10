@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.jaxb.SpringDataJaxb.OrderDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -98,7 +99,23 @@ public class Seoha_Controller {
 			
 		}
 		
-	
+//	@GetMapping("/icmall/insertOrderOk")
+//    public String order(OrderDto[] dto, Model model) {
+//
+//    for(int i = 0; i < dto.length; i++) {
+//       System.out.println(i + "번째 dto:" + dto[i].toString()); 
+//    }
+//    System.out.println("값받아오기");
+//    System.out.println(dto.toString());
+
+//    model.addAttribute("result", seoha_BoardService.insertOrder(dto));
+//    model.addAttribute("dto", dto);   // auto-generated key
+
+
+//    return "icmall/insertOrderOk";
+//
+//
+//    }
 }
 
 

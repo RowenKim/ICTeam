@@ -185,7 +185,7 @@
                   </thead>
                     <tr>
                       <td style="vertical-align:middle"><input type="checkbox"/></td>
-                      <td>123456789</td>
+                      <td>${dto.m_uid }</td>
                       <td style="vertical-align:middle;">
 						  <div class="dropdown position-static actions d-inline-block">
 						     <button class="btn btn btn-outline px-1 py-0 mt-1 dropdown-toggle actions-btn" type="button"
@@ -201,11 +201,11 @@
 						      </div>
 						</div>
 		           	  </td>
-                      <td>ID</td>
-                      <td>누구게?</td>
+                      <td>${dto.m_id }</td>
+                      <td>${dto.m_name }</td>
                       <td><span class="badge badge-success w-75 py-2">관리자</span></td>
                       <td>19,000</td>                  
-                      <td>2021-00-00</td>
+                      <td>123</td>
                     </tr>
                     <tr>
                       <td style="vertical-align:middle"><input type="checkbox"/></td>

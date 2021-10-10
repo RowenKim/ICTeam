@@ -76,7 +76,7 @@ public class Fruit_CrawlinService {
 						.pro_content(proURL)
 						.build();
 				
-				dao.insert(product_Fruit);
+				//dao.insert(product_Fruit);
 				
 //				System.out.println(jaeuk_Fruit.toString());
 				
