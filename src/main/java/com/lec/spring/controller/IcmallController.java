@@ -22,12 +22,12 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequestMapping("/icmall")
 public class IcmallController {
 	
-	@RequestMapping("/index")
-	public String list(Model model) {
-		
-		return "icmall/index";
-		
-	}
+//	@RequestMapping("/index")
+//	public String list(Model model) {
+//		
+//		return "icmall/index";
+//		
+//	}
 	
 	@RequestMapping("/stockReview")
 	public String stockReview() {
@@ -64,11 +64,11 @@ public class IcmallController {
 		
 		return "icmall/join";
 	}
-	@RequestMapping("/userUpdate")
-	public String userUpdate(Model model) {
-		
-		return "icmall/userUpdate";
-	}
+//	@RequestMapping("/userUpdate")
+//	public String userUpdate(Model model) {
+//		
+//		return "icmall/userUpdate";
+//	}
 	
 //	@RequestMapping("/snack")
 //	public String snack(Model model) {
@@ -85,11 +85,11 @@ public class IcmallController {
 		return "icmall/carousel";
 	}
 	
-	@RequestMapping("/myPage")
-	public String myPage(Model model) {
-		
-		return "icmall/myPage";
-	}
+//	@RequestMapping("/myPage")
+//	public String myPage(Model model) {
+//		
+//		return "icmall/myPage";
+//	}
 	
 	@RequestMapping("/orderList")
 	public String orderList(Model model) {
@@ -400,10 +400,10 @@ public class IcmallController {
 	
 	/* 재욱님 400줄 부터~  */
 	
-	@RequestMapping("/fruit")
-	public String fruit(Model model) {
-		return "icmall/fruit";
-	}
+//	@RequestMapping("/fruit")
+//	public String fruit(Model model) {
+//		return "icmall/fruit";
+//	}
 	
 	@RequestMapping("/meat")
 	public String meat(Model model) {

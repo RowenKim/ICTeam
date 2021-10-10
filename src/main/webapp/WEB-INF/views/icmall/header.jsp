@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -25,11 +26,21 @@
             <div class="container">
                 <div class="row" >
                     <div class="col-md-12" style="">
-                        <ul class="top-menu" style="float:right">
-                            <li><a href="#">회원가입</a></li>
-                            <li><a href="#">로그인</a></li>
-                            <li><a href="#">고객센터</a></li>
-                        </ul>
+                     <c:choose>
+                       <c:when test="${user == null }">
+                           <ul class="top-menu" style="float:right">
+                               <li><a href="#">회원가입</a></li>
+                               <li><a href="#">로그인</a></li>
+                               <li><a href="#">고객센터</a></li>
+                           </ul>
+                       </c:when>
+                       <c:otherwise>
+                           <ul class="top-menu" style="float:right">
+                               <li><a href="/icmall/myPage">마이페이지</a></li>
+                               <li><a href="serviceCenter">고객센터</a></li>
+                           </ul>
+                       </c:otherwise>
+                      </c:choose>
                     </div>
                 </div>
             </div>

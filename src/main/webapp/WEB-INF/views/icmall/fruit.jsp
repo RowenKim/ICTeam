@@ -23,6 +23,7 @@
 
 
 <body>
+
 <%
 String URL = "https://search.shopping.naver.com/search/category?catId=50000960&origQuery&pagingIndex=1&pagingSize=40&productSet=total&query&sort=rel&timestamp=&viewType=thumb";
 Document doc = Jsoup.connect(URL).get();
@@ -33,6 +34,7 @@ Elements el = doc.getElementsByAttributeValue("class", "imgList_link__XUg6J");
 System.out.println(el.text());
 
 %>
+
 
 
 	<jsp:include page="header.jsp"/>
@@ -53,32 +55,51 @@ System.out.println(el.text());
                 <!-- Blog -->
                 <div id="blog" class="grid-layout post-4-columns m-b-30" data-item="post-item">
                     <!-- Post item-->
-                    <c:forEach var="dto" begin="3" end="14">
-                    <div class="post-item border" style="height: 440px;">
+                   <c:forEach var="dto" items="${list }">
+                    <div class="post-item border" style="height: 440px !important;">
                         <div class="post-item-wrap">
                             <div class="post-image">
-                                <a href="#">
-                                    ${dto.pro_img}
+                                <a href="">
+                              		 ${dto.pro_img }
                                 </a>
                             </div>
-                           	<div class="post-item-description">
+                           	<div class="post-item-description" style="height:170px;">
 								<h2>
-									<a href="#">${dto.pro_name}</a>
+									<a href="">${dto.pro_name }</a>
 								</h2>
-								<p>${dto.pro_price}</p>
+								<p>${dto.pro_price }원</p>
 							</div>
 						</div>    
 						</div>             
                   	</c:forEach>	
                   </div>
-                </div>
+                  <!-- Pagination -->
+				<div>
+				<ul class="pagination" style="width:205px; margin:0 auto;">
+					<li class="page-item"><a class="page-link" href="#"><i
+							class="fa fa-angle-left"></i></a></li>
+					<li class="page-item active"><a class="page-link" href="#">1</a></li>
+					<li class="page-item"><a class="page-link" href="#">2</a></li>
+					<li class="page-item"><a class="page-link" href="#">3</a></li>
+					<li class="page-item"><a class="page-link" href="#">4</a></li>
+					<li class="page-item"><a class="page-link" href="#">5</a></li>
+					<li class="page-item"><a class="page-link" href="#"><i
+							class="fa fa-angle-right"></i></a></li>
+				</ul>
+				<!-- end: Pagination -->
+			</div>
+
+		</div>
               
-         </section>
+     </section>
+     <jsp:include page="footer.jsp" />
                   
-                   
+              
      <script src="${pageContext.request.contextPath }/JS/jquery.js"></script>
     <script src="${pageContext.request.contextPath }/JS/plugins.js"></script>
     <script src="${pageContext.request.contextPath }/JS/functions.js"></script>
+ 
+ 
  
 </body>
 
