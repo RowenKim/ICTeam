@@ -59,13 +59,13 @@ System.out.println(el.text());
                     <div class="post-item border" style="height: 440px !important;">
                         <div class="post-item-wrap">
                             <div class="post-image">
-                                <a href="">
+                                <a href="stockDetail?uid=${dto.pro_uid }">
                               		 ${dto.pro_img }
                                 </a>
                             </div>
                            	<div class="post-item-description" style="height:170px;">
 								<h2>
-									<a href="">${dto.pro_name }</a>
+									<a href="stockDetail?uid=${dto.pro_uid }">${dto.pro_name }</a>
 								</h2>
 								<p>${dto.pro_price }원</p>
 							</div>
