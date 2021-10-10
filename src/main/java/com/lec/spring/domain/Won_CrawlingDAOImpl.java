@@ -42,5 +42,10 @@ public class Won_CrawlingDAOImpl implements Won_CrawlingDAO {
 		return mapper.selectProInfo(uid);
 	}
 
+	@Override
+	public List<WonProQuestionDTO> selectProQues(int uid) {
+		return mapper.selectProQues(uid);
+	}
+
 
 }

@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 
 import com.lec.spring.crawling.Seoha_DAO;
 import com.lec.spring.crawling.VegetablesDTO;
+import com.lec.spring.domain.BasketListDTO;
+import com.lec.spring.domain.OrderDTO;
 
 import java.util.List;
 
@@ -34,6 +36,23 @@ public class Seoha_DAOImpl implements Seoha_DAO {
 	@Override
 	public List<VegetablesDTO> select() {
 		return mapper.select();
+	}
+	
+	@Override
+	public List<BasketListDTO> select1() {
+		return mapper.select1();
+	}
+
+
+	@Override
+	public int deleteByUid(int uid) {
+		return mapper.deleteByUid(uid);
+	}
+
+
+	@Override
+	public int insertOrder(OrderDTO dto) {
+		return mapper.insertOrder(dto);
 	}
 
 

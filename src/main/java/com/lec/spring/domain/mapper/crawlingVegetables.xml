@@ -26,6 +26,34 @@
 		WHERE
 			pro_kind = "채소" 		
 	</select>
+	
+	<!-- 장바구니에 넣기 -->
+	<select id="select1" resultType="com.lec.spring.domain.BasketListDTO">
+	SELECT b_uid,
+		b_proName,
+		b_img,
+		b_price,
+		b_qty,
+		m_uid,
+		pro_uid
+	 FROM ic_basket
+	</select>
+	
+	<!-- 장바구니에서 삭제 -->
+	<delete id="deleteByUid" flushCache="true">
+		DELETE FROM ic_basket WHERE b_uid = #{uid}
+	</delete>
+	
+	<!-- 주문하기 추가 -->
+	<insert id="insertOrder" flushCache="true"
+		parameterType="com.lec.spring.domain.OrderDTO"
+		keyProperty="o_uid" useGeneratedKeys="true" keyColumn="o_uid">	
+		INSERT INTO ic_order
+			(o_qty, o_name, o_img, o_price, m_uid, b_uid)
+		VALUES
+			(#{o_qty}, #{o_name}, #{o_img}, #{o_price}, #{m_uid}, #{b_uid})
+	</insert>
+	
 
 </mapper>
 

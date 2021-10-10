@@ -50,6 +50,8 @@
 /* 주문내역 상세 */
 .basketChk:hover {cursor:pointer;}
 
+#selectDelete:hover {cursor:pointer;}
+
 /* ------------------ 모바일 -------------------------------------*/
 @media (max-width: 992px){
 	.m-d-none {

@@ -19,4 +19,7 @@ public interface Won_CrawlingDAO {
 	// DB 해당 uid 상품 정보 들고오기
 	public abstract List<Won_CrawlingDTO> selectProInfo(int uid);
 	
+	// DB 상품 정보에 있는 QUESTION 전부 SELECT
+	public abstract List<WonProQuestionDTO> selectProQues(int uid);
+	
 }

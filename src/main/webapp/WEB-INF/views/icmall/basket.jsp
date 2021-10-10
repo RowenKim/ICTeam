@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -15,6 +17,28 @@
 <script src="https://kit.fontawesome.com/ccbdf9af0c.js"
 	crossorigin="anonymous"></script>
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+
+function chkDelete(uid){
+	// 삭제 여부, 다시 확인 하고 진행하기
+	var r = confirm("삭제하시겠습니까?");
+	
+	if(r){
+		location.href = 'deleteOk?uid=' + uid;
+	}
+} // chkDelete
+
+ function chkOrder(){
+	// 삭제 여부, 다시 확인 하고 진행하기
+	var r = confirm("주문하시겠습니까?");
+	
+	if(r){
+		location.href = 'insertOrderOk';
+	}
+}  // chkDelete
+</script>
+
 <body>
 	<jsp:include page="header.jsp" />
 	<!-- 장바구니 목록 -->
@@ -45,64 +69,44 @@
 					<div class="col-lg-9 w-m-t-50">
 						<div class="shopping-cart">
 						<hr>
+						<% int i = 0; %>
 							<table class="" style="width:100%; text-align:center;">
+								<c:forEach var="list" items="${list }">
+								<% i++; %>
 								<tr>
-									<th style="width:5%; text-align:center"><input type="checkbox" name="agree" class="basketChk" /></th>
+								<form action="insertOrderOk" method="get">
+									<th style="width:5%; text-align:center">
+										<input onclick="" type="checkbox" name="agree" class="basketChk" /></th>
 									<td style="width:10%;"><img
-										src="https://img-cf.kurly.com/shop/data/goods/1613956699720i0.jpg"
+										src="${list.b_img }"
 										class="basketImg"></td>
-									<td style="width:40%; min-width:100px;" class="basketT"><a class="basketSubName" href="#">상품이름(SELECT
-											st_name WHERE st_uid)</a></td>
-									<td style="width:20%; min-width:130px;">
+									<td style="width:30%; min-width:100px;" class="basketT"><a class="basketSubName" href="#">${list.b_proName }</a></td>
+									<td style="width:30%; min-width:130px;">
 										<div class="cart-product-quantity">
-											<div class="quantity m-l-5">
-												<input type="button" class="minus" value="-"
-													id="decreaseQuantity"> <input type="text"
-													class="qty" value="1" id="productStock"> <input
-													type="button" class="plus" value="+" id="increasQuantity">
+											<div class="quantity m-l-5 updown">
+												<input type="button" name="minus" class="minus decreaseQuantity" value="-">
+												<input type="text"
+													class="qty productStock" name="o_qty" style="min-width:50px !important;" value="${list.b_qty }"> 
+												<input
+													type="button" name="plus" class="plus increasQuantity" value="+">
 											</div>
+											
 										</div>
 									</td>
-									<td style="width:20%; min-width:60px;" class="basketT">가격</td>
-								</tr>
-								<tr>
-									<th><input type="checkbox" name="agree" class="basketChk" /></th>
-									<td class=""><img
-										src="https://img-cf.kurly.com/shop/data/goods/1613956699720i0.jpg"
-										class="basketImg"></td>
-									<td class="basketT"><a class="basketSubName" href="#">상품이름(SELECT
-											st_name WHERE st_uid)</a></td>
-									<td class="">
-										<div class="cart-product-quantity">
-											<div class="quantity m-l-5">
-												<input type="button" class="minus" value="-"
-													id="decreaseQuantity"> <input type="text"
-													class="qty" value="1" id="productStock"> <input
-													type="button" class="plus" value="+" id="increasQuantity">
-											</div>
-										</div>
+									<td style="width:20%; min-width:60px;" class="basketT">${list.b_price } 원</td>
+								
+									<td>
+									<input type="hidden" style="display:none;" name="o_price" value="${list.b_price }">
+									<input type="hidden" style="display:none;" name="o_img" value="${list.b_img }">
+									<input type="hidden" style="display:none;" name="o_name" value="${list.b_proName }">
+									<input type="hidden" style="display:none;" name="m_uid" value="${list.m_uid }">
+									<input type="hidden" style="display:none;" name="b_uid" value="${list.b_uid }">
+									<input style="display:none;" class="btn w-100" type="submit" id="insertOrder" onclick="chkOrder()" />
+										<div id="deleteOk" onclick="chkDelete(${list.b_uid })"></div>
 									</td>
-									<td class="basketT">가격</td>
+									</form>
 								</tr>
-								<tr>
-									<th><input type="checkbox" name="agree" class="basketChk" /></th>
-									<td class=""><img
-										src="https://img-cf.kurly.com/shop/data/goods/1613956699720i0.jpg"
-										class="basketImg"></td>
-									<td class="basketT"><a class="basketSubName" href="#">상품이름(SELECT
-											st_name WHERE st_uid)</a></td>
-									<td class="">
-										<div class="cart-product-quantity">
-											<div class="quantity m-l-5">
-												<input type="button" class="minus" value="-"
-													id="decreaseQuantity"> <input type="text"
-													class="qty" value="1" id="productStock"> <input
-													type="button" class="plus" value="+" id="increasQuantity">
-											</div>
-										</div>
-									</td>
-									<td class="basketT">가격</td>
-								</tr>
+								</c:forEach>
 							</table>
 							<hr>
 							<br>
@@ -112,37 +116,45 @@
 										class="basketChk" /></th>
 									<td class="basketT2">전체선택(3/3)</td>
 									<td>|</td>
-									<td class="basketT2"><div id="selectDelete">선택삭제</div></td>
+									<td class="basketT2"><div id="selectDelete" style="">선택삭제</div></td>
 								</tr>
 							</table>
 						</div>
 					</div>
+					
 
 					<!-- 배송지 및 상품금액 -->
 
 					<div class="sidebar col-lg-3 m-t-30">
-						<h3>
+						<!-- <h3>
 							<i class="fas fa-map-marker-alt"></i> 배송지
 						</h3>
 						<h4>서울특별시 강남구 역삼동</h4>
 						<br> <input type="button" class="btn w-100" value="배송지변경" />
-									<hr>
+									<hr> -->
 					<div id="">
 						<table style="width:100%;">
+						
 							<tr>
 								<th class="w-50">상품금액</th>
-								<td class="w-50 text-right">1000 원</td>
+								<td class="w-50 text-right total_sum"><input name="total" value="0" style="border:none; text-align:right; width:60px; padding:0;"> 원</td>
 							</tr>
 							<tr>
 								<th class="w-50">배송비</th>
-								<td class="w-50 text-right">3000 원</td>
+								<td class="w-50 text-right">0 원</td>
 							</tr>
 						</table>
 						<hr>
 						<table style="width:100%;">
+						
 							<tr>
 								<th class="w-50">결제예정금액</th>
-								<td class="w-50 text-right">4000 원</td>
+								<td class="w-50 text-right">
+								<input name="total" value="0" style="border:none; text-align:right; width:60px; padding:0;">
+								
+								원
+								
+								</td>
 							</tr>
 						</table>
 					</div>
@@ -151,7 +163,7 @@
 						<p>상품을 선택해주세요</p>
 					</div>
 					<div>
-						<input class="btn w-100"type="button" value="주문하기" id="orderBtn2" />
+						<input class="btn w-100"type="submit" value="주문하기" id="orderBtn2" />
 					</div>
 					</div>
 				</div>
@@ -162,7 +174,7 @@
 	</div>
 	<!--  --------------------------------------------------------------------------- -->
 
-
+	
 	<script src="${pageContext.request.contextPath }/JS/jaeuk.js"></script>
 	<script src="${pageContext.request.contextPath }/JS/won.js"></script>
 	<script src="${pageContext.request.contextPath }/JS/jquery.js"></script>
