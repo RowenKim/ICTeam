@@ -99,21 +99,11 @@ public class Icmall_adminController {
 		
 		return "icmall_admin/post";
 	}
-	@RequestMapping("/userList")
-	public String userList(Model model) {
+//	@RequestMapping("/adminQuestionReady")
+//	public String adminQuestionReady(Model model) {
 		
-		return "icmall_admin/userList";
-	}
-	@RequestMapping("/userLevel")
-	public String userLevel(Model model) {
-		
-		return "icmall_admin/userLevel";
-	}
-	@RequestMapping("/adminQuestionReady")
-	public String adminQuestionReady(Model model) {
-		
-		return "icmall_admin/adminQuestionReady";
-	}
+	//	return "icmall_admin/adminQuestionReady";
+	//}
 	@RequestMapping("/adminQuestionFinsh")
 	public String adminQuestionFinsh(Model model) {
 		
