@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lec.spring.domain.ServiceCenterDAO">
+    
+    
+    <insert id="insertServiceCenter" flushCache="true" 
+      parameterType="com.lec.spring.domain.ServiceCenterDTO"
+      keyProperty="q_uid" useGeneratedKeys="true" keyColumn="q_uid">
+        INSERT INTO ic_question(q_title, q_content, q_img, m_uid)
+        VALUES (#{q_title }, #{q_content }, #{q_img } , #{m_uid });
+    </insert>
+    
+ 
+   
+     
+</mapper>
