@@ -42,11 +42,11 @@
 					<div class="post-item border" style="height:440px !important;">
 						<div class="post-item-wrap">
 							<div class="post-image">
-								<a href="">${list.pro_img } </a>
+								<a href="stockDetail?uid=${list.pro_uid }">${list.pro_img } </a>
 							</div>
 							<div class="post-item-description" style="height:170px;">
 								<h2>
-									<a href="">${list.pro_name }</a>
+									<a href="stockDetail?uid=${list.pro_uid }">${list.pro_name }</a>
 								</h2>
 								<p>${list.pro_price }원</p>
 							</div>
