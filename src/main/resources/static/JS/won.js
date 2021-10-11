@@ -4,11 +4,6 @@
 // 고객 리스트 제목 클릭시 내용 보이게 하기
 $(document).ready(function() {
 		//alert("JS 연결 성공")
-	var b_price = $(".price").text();
-	var b_priceChange = b_price.replace("," , "");
-	$("input[name=b_price]:hidden").val(b_priceChange); // 가격에 있는 , 지우는 작업
-	//alert(b_priceChange);
-	
 	
 	$(".change1").click(function() {
 

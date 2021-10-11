@@ -18,6 +18,7 @@ import com.lec.spring.domain.WonProReviewDTO;
 import com.lec.spring.domain.WonQuesFileDTO;
 import com.lec.spring.domain.Won_CrawlingDAO;
 import com.lec.spring.service.WonService;
+import com.lec.spring.service.adminCheckService;
 
 
 
@@ -25,10 +26,16 @@ import com.lec.spring.service.WonService;
 public class Won_CrawlingController {
 	
 	private WonService wonService;
+	private adminCheckService adminService;
 	
 	@Autowired
 	public void setWonService(WonService wonService) {
 		this.wonService = wonService;
+	}
+	
+	@Autowired
+	public void setAdminCheckService(adminCheckService adminService) {
+		this.adminService = adminService;
 	}
 	
 	
@@ -218,6 +225,63 @@ public class Won_CrawlingController {
 		return "icmall/putBasket";
 	}
 	
+	// 관리자 컨트롤러 ----------------------------
 	
+	@RequestMapping("icmall_admin/adminIndex")
+	public String adminIndex(Model model) {
+		
+		System.out.println("매핑성공");
+//		System.out.println("값 체크 : " + adminService.countReadyPro());
+//		System.out.println("값 체크 : " + adminService.countNotpay());
+		System.out.println("값 체크 : " + adminService.countRefundPro());
+		
+		// 상품 주문 및 배송상태
+		model.addAttribute("countReadyPro", adminService.countReadyPro());
+		model.addAttribute("countShippingPro", adminService.countShippingPro());
+		model.addAttribute("countShippingOkPro", adminService.countShippingOkPro());
+		model.addAttribute("countBuyOkPro", adminService.countBuyOkPro());
+		model.addAttribute("countExchangePro", adminService.countExchangePro());
+		model.addAttribute("countRefundPro", adminService.countRefundPro());
+		model.addAttribute("countPayOk", adminService.countPayOk());
+		model.addAttribute("countNotpay", adminService.countNotpay());
+		model.addAttribute("countReview", adminService.countReview());
+		model.addAttribute("countProQA", adminService.countProQA());
+		
+		// 신규회원 7일간 정보
+		model.addAttribute("countNewMemOnedayAgo", adminService.countNewMemOnedayAgo());
+		model.addAttribute("countNewMemTwodayAgo", adminService.countNewMemTwodayAgo());
+		model.addAttribute("countNewMemThreedayAgo", adminService.countNewMemThreedayAgo());
+		model.addAttribute("countNewMemFourdayAgo", adminService.countNewMemFourdayAgo());
+		model.addAttribute("countNewMemfivedayAgo", adminService.countNewMemfivedayAgo());
+		model.addAttribute("countNewMemSixdayAgo", adminService.countNewMemSixdayAgo());
+		model.addAttribute("countNewMemSevendayAgo", adminService.countNewMemSevendayAgo());
+		
+		// 전체회원 7일간 정보
+		model.addAttribute("countAllMemOnedayAgo", adminService.countAllMemOnedayAgo());
+		model.addAttribute("countAllMemTwodayAgo", adminService.countAllMemTwodayAgo());
+		model.addAttribute("countAllMemThreedayAgo", adminService.countAllMemThreedayAgo());
+		model.addAttribute("countAllMemFourdayAgo", adminService.countAllMemFourdayAgo());
+		model.addAttribute("countAllMemFivedayAgo", adminService.countAllMemFivedayAgo());
+		model.addAttribute("countAllMemSixdayAgo", adminService.countAllMemSixdayAgo());
+		model.addAttribute("countAllMemSevendayAgo", adminService.countAllMemSevendayAgo());
+		
+		
+		// 탈퇴회원 7일간 정보
+		model.addAttribute("countDelMemOnedayAgo", adminService.countDelMemOnedayAgo());
+		model.addAttribute("countDelMemTwodayAgo", adminService.countDelMemTwodayAgo());
+		model.addAttribute("countDelMemThreedayAgo", adminService.countDelMemThreedayAgo());
+		model.addAttribute("countDelMemFourdayAgo", adminService.countDelMemFourdayAgo());
+		model.addAttribute("countDelMemFivedayAgo", adminService.countDelMemFivedayAgo());
+		model.addAttribute("countDelMemSixdayAgo", adminService.countDelMemSixdayAgo());
+		model.addAttribute("countDelMemSevendayAgo", adminService.countDelMemSevendayAgo());
+		
+		// 1~7일간 회원(신규/탈퇴) 합계
+		model.addAttribute("countAllMemSevenBetOneDay", adminService.countAllMemSevenBetOneDay());
+		model.addAttribute("countDelMemSevenBetOneDay", adminService.countDelMemSevenBetOneDay());
+		
+		
+		
+		return "icmall_admin/adminIndex";
+	}
 	
 }

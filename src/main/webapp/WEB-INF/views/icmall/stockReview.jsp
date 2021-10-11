@@ -47,7 +47,7 @@ function chkSubmit(){
 		<br><br>
 			<form name="frm" action="stockReviewOk"" method="post" onsubmit="return chkSubmit()">
 			<input type="hidden" name="pro_uid" value="${list[0].pro_uid }"/>
-			<input type="hidden" name="m_uid" value="${memList[proqReviweList[0].m_uid - 1].m_uid }"/>
+			<input type="hidden" name="m_uid" value="1"/>
 			<input type="hidden" name="r_img" value="이미지테스트"/>
 			<input type="hidden" name="r_date" value="now()"/>
 			<table class="table" id="sr_table">

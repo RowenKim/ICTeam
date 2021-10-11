@@ -1,8 +1,40 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.*"%>
+<%@ page import="java.text.SimpleDateFormat"%>
+    	<%-- Core --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
-
+<%
+    Calendar onedayago = Calendar.getInstance();
+onedayago.add(Calendar.DATE , -1);
+	String beforeDate = new java.text.SimpleDateFormat("MM-dd").format(onedayago.getTime());%>
+<%  
+    Calendar twodayago = Calendar.getInstance();
+twodayago.add(Calendar.DATE , -2);
+	String twoDate = new java.text.SimpleDateFormat("MM-dd").format(twodayago.getTime());%>
+<%  
+    Calendar threedayago = Calendar.getInstance();
+threedayago.add(Calendar.DATE , -3);
+	String threeDate = new java.text.SimpleDateFormat("MM-dd").format(threedayago.getTime());%>
+<%  
+    Calendar fourdayago = Calendar.getInstance();
+fourdayago.add(Calendar.DATE , -4);
+	String fourDate = new java.text.SimpleDateFormat("MM-dd").format(fourdayago.getTime());%>
+<%  
+    Calendar fivedayago = Calendar.getInstance();
+fivedayago.add(Calendar.DATE , -5);
+	String fiveDate = new java.text.SimpleDateFormat("MM-dd").format(fivedayago.getTime());%>
+<%  
+    Calendar sixdayago = Calendar.getInstance();
+sixdayago.add(Calendar.DATE , -6);
+	String sixDate = new java.text.SimpleDateFormat("MM-dd").format(sixdayago.getTime());%>
+<%  
+    Calendar sevendayago = Calendar.getInstance();
+sevendayago.add(Calendar.DATE , -7);
+	String sevenDate = new java.text.SimpleDateFormat("MM-dd").format(sevendayago.getTime());%>
+	
   <head>
 
     <meta charset="utf-8">
@@ -107,23 +139,23 @@
 	                            <table class="ai_tab" id="ai_tab">
 							    	<tr>
 							    		<td class="ai_tab1"><a href="beforePay" class="ai_title">입금대기</a> <br>
-							    		<div class="ai_sec">0</div></td>
+							    		<div class="ai_sec">${countNotpay }</div></td>
 							    		<td class="ai_tab1"><a href="finishPay" class="ai_title">결제완료</a> <br>
-							    		<div class="ai_sec">1</div></td>
+							    		<div class="ai_sec">${countPayOk }</div></td>
 							    		<td class="ai_tab1"><a href="readyStuck" class="ai_title">상품준비중</a><br>
-							    		<div class="ai_sec">2</div></td>
+							    		<div class="ai_sec">${countReadyPro }</div></td>
 							    		<td class="ai_tab1"><a href="shopping" class="ai_title">배송중</a><br>
-							    		<div class="ai_sec">3</div></td>
+							    		<div class="ai_sec">${countShippingPro }</div></td>
 							    	</tr>
 							    	<tr>
 							    		<td class="ai_tab2"><a href="shoppingFinish" class="ai_title">배송완료</a><br>
-							    		<div class="ai_sec">11</div></td>
+							    		<div class="ai_sec">${countShippingOkPro }</div></td>
 							    		<td class="ai_tab2"><a href="buyFinish" class="ai_title">구매확정</a><br>
-							    		<div class="ai_sec">21</div></td>
+							    		<div class="ai_sec">${countBuyOkPro }</div></td>
 							    		<td class="ai_tab2"><a href="refund" class="ai_title">환불접수</a><br>
-							    		<div class="ai_sec">111</div></td>
+							    		<div class="ai_sec">${countRefundPro }</div></td>
 							    		<td class="ai_tab2"><a href="exchange" class="ai_title">교환접수</a><br>
-							    		<div class="ai_sec">3333</div></td>
+							    		<div class="ai_sec">${countExchangePro }</div></td>
 							    	</tr>
 							    </table>
 	                        </div>
@@ -134,11 +166,11 @@
 						    		<table class="ai_secTab">
 						    			<tr>
 						    				<td class="ai_secTab1" id="ai_secTab1-1"><a href="adminReview" class="ai_title2">상품후기</a></td>
-						    				<td class="ai_secTab1"><span class="ai_cnt">count</span> 건</td>
+						    				<td class="ai_secTab1"><span class="ai_cnt">${countReview }</span> 건</td>
 						    			</tr>
 						    			<tr>
 						    				<td class="ai_secTab2"><a href="adminQuestion" class="ai_title2">문의하기</a></td>
-						    				<td class="ai_secTab2"><span class="ai_cnt">count</span> 건</td>
+						    				<td class="ai_secTab2"><span class="ai_cnt">${countProQA }</span> 건</td>
 						    			</tr>
 						    		</table>
 					    		</div>
@@ -163,61 +195,55 @@
 	                    </thead>
 	                    <tbody>
 	                        <tr>
-	                            <th class="text-nowrap ai_tapHead2" scope="row">09/02</th>
-	                            <td class="ai_tapD2">0</td>
-	                            <td class="ai_tapD2">0</td>
-	                            <td class="ai_tapD2">0</td>
+	                            <th class="text-nowrap ai_tapHead2" scope="row" id="7daysAgo">
+	                            <%= sevenDate %>
+	                            </th>
+	                            <td class="ai_tapD2">${countAllMemSevendayAgo }</td> <!-- 전체회원 7일전-->
+	                            <td class="ai_tapD2">${countNewMemSevendayAgo }</td> <!-- 신규회원 -->
+	                            <td class="ai_tapD2">${countDelMemSevendayAgo }</td> <!-- 탈퇴회원 -->
 	                        </tr>
 	                        <tr>
-	                            <th class="text-nowrap ai_tapHead2" scope="row">09/03</th>
-	                            <td class="ai_tapD2">0</td>
-	                            <td class="ai_tapD2">0</td>
-	                            <td class="ai_tapD2">0</td>
+	                            <th class="text-nowrap ai_tapHead2" scope="row"><%= sixDate %></th>
+	                            <td class="ai_tapD2">${countAllMemSixdayAgo }</td> <!-- 전체회원 6일전-->
+	                            <td class="ai_tapD2">${countNewMemSixdayAgo }</td> <!-- 신규회원 -->
+	                            <td class="ai_tapD2">${countDelMemSixdayAgo }</td> <!-- 탈퇴회원 -->
 	                        </tr>
 	                        <tr>
-	                            <th class="text-nowrap ai_tapHead2" scope="row">09/04</th>
-	                            <td class="ai_tapD2">0</td>
-	                            <td class="ai_tapD2">0</td>
-	                            <td class="ai_tapD2">0</td>
+	                            <th class="text-nowrap ai_tapHead2" scope="row"><%= fiveDate %></th>
+	                           <td class="ai_tapD2">${countAllMemFivedayAgo }</td> <!-- 전체회원 5일전-->
+	                            <td class="ai_tapD2">${countNewMemfivedayAgo }</td> <!-- 신규회원 -->
+	                            <td class="ai_tapD2">${countDelMemFivedayAgo }</td> <!-- 탈퇴회원 -->
 	                        </tr>
 	                        <tr>
-	                            <th class="text-nowrap ai_tapHead2" scope="row">09/05</th>
-	                            <td class="ai_tapD2">0</td>
-	                            <td class="ai_tapD2">0</td>
-	                            <td class="ai_tapD2">0</td>
+	                            <th class="text-nowrap ai_tapHead2" scope="row"><%= fourDate %></th>
+	                           <td class="ai_tapD2">${countAllMemFourdayAgo }</td> <!-- 전체회원 4일전-->
+	                            <td class="ai_tapD2">${countNewMemFourdayAgo }</td> <!-- 신규회원 -->
+	                            <td class="ai_tapD2">${countDelMemFourdayAgo }</td> <!-- 탈퇴회원 -->
 	                        </tr>
 	                        <tr>
-	                            <th class="text-nowrap ai_tapHead2" scope="row">09/06</th>
-	                           <td class="ai_tapD2">0</td>
-	                            <td class="ai_tapD2">0</td>
-	                            <td class="ai_tapD2">0</td>
+	                            <th class="text-nowrap ai_tapHead2" scope="row"><%= threeDate %></th>
+	                          <td class="ai_tapD2">${countAllMemThreedayAgo }</td> <!-- 전체회원 3일전-->
+	                            <td class="ai_tapD2">${countNewMemThreedayAgo }</td> <!-- 신규회원 -->
+	                            <td class="ai_tapD2">${countDelMemThreedayAgo }</td> <!-- 탈퇴회원 -->
 	                        </tr>
 	                        <tr>
-	                            <th class="text-nowrap ai_tapHead2" scope="row">09/07</th>
-	                            <td class="ai_tapD2">0</td>
-	                            <td class="ai_tapD2">0</td>
-	                            <td class="ai_tapD2">0</td>
+	                            <th class="text-nowrap ai_tapHead2" scope="row"><%= twoDate %></th>
+	                           <td class="ai_tapD2">${countAllMemTwodayAgo }</td> <!-- 전체회원 2일전-->
+	                            <td class="ai_tapD2">${countNewMemTwodayAgo }</td> <!-- 신규회원 -->
+	                            <td class="ai_tapD2">${countDelMemTwodayAgo }</td> <!-- 탈퇴회원 -->
 	                        </tr>
 	                        <tr>
-	                            <th class="text-nowrap ai_tapHead2" scope="row">09/08</th>
-	                           <td class="ai_tapD2">0</td>
-	                            <td class="ai_tapD2">0</td>
-	                            <td class="ai_tapD2">0</td>
+	                            <th class="text-nowrap ai_tapHead2" scope="row"><%= beforeDate %></th>
+	                          <td class="ai_tapD2">${countAllMemOnedayAgo }</td> <!-- 전체회원 1일전-->
+	                            <td class="ai_tapD2">${countNewMemOnedayAgo }</td> <!-- 신규회원 -->
+	                            <td class="ai_tapD2">${countDelMemOnedayAgo }</td> <!-- 탈퇴회원 -->
 	                        </tr>
 	                        <tr>
 	                           <th class="text-nowrap ai_tapHead2" scope="row" colspan="2">7일 합계</th>
-	                            <td class="ai_tapD2">0</td>
-	                            <td class="ai_tapD2">0</td>
-	                        </tr>
-	                        <tr>
-	                           <th class="text-nowrap ai_tapHead2" scope="row" colspan="2">15일 합계</th>
-	                            <td class="ai_tapD2">0</td>
-	                            <td class="ai_tapD2">0</td>
-	                        </tr>
-	                        <tr>
-	                           <th class="text-nowrap ai_tapHead2" scope="row" colspan="2">30일 합계</th>
-	                           <td class="ai_tapD2">0</td>
-	                            <td class="ai_tapD2">0</td>
+	                            <td class="ai_tapD2">${countAllMemSevenBetOneDay }</td>
+	                            <td class="ai_tapD2">
+	                            ${countDelMemSevenBetOneDay }
+	                            </td>
 	                        </tr>
 	                    </tbody>
 	                </table>
