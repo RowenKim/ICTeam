@@ -21,32 +21,43 @@
 			<h3><b>쇼핑몰문의</b></h3>
 		</div>
 		<br><br>
-			<form action="webWriteOk">
+			<form name = "frm" action="webWriteOk" method="post" onsubmit="return chkSubmit()" enctype="multipart/form-data">
+			<input type="hidden" name="m_uid" value="${memList[0].m_uid }"/>
 			<table class="table">
 				<tbody id="q_table">
 					<tr>
-						<th scope="row" class="content col-lg-2" >제목</th>
+						<th scope="row" class="">제목</th>
 						<td><input
-							class="form-control required" name="senderName"
+							class="form-control required" name="q_title"
 							placeholder="제목을 입력해주세요" id="name" aria-required="true"
 							type="text"></td>
 					</tr>
 					<tr>
 						<th scope="row" class="q_headTable">내용</th>
-						<td><textarea class="form-control required" name="comment" rows="9"
+						<td><textarea class="form-control required" name="q_content" rows="9"
 							placeholder="내용을 입력해주세요" id="comment"
 							aria-required="true"></textarea></td>
 					</tr>
-					<tr>
-						<th scope="row" class="q_headTable">이미지</th>
-						<td>
-						파일1:<input type="file" name="file1"><br>
-						</td>
-					</tr>
-
 				</tbody>
 			</table>
-			<div class="row">
+			<!-- 새로운 버튼 도전 -->
+			<div data-name="fileDiv" class="form-group filebox bs3-primary">
+				<label for="file_0" class="col-sm-2 control-label">파일1</label>
+				<div class="col-sm-10">
+					<input type="text" class="upload-name" value="파일 찾기" readonly />
+					<label for="file_0" class="control-label">찾아보기</label>
+					<input type="file" name="files" id="file_0" class="upload-hidden" onchange="changeFilename(this)" />
+				
+					<button type="button" onclick="addFile()" class="btn btn-bordered btn-xs visible-xs-inline visible-sm-inline visible-md-inline visible-lg-inline">
+						<i class="fa fa-plus" aria-hidden="true"></i>
+					</button>
+					<button type="button" onclick="removeFile(this)" class="btn btn-bordered btn-xs visible-xs-inline visible-sm-inline visible-md-inline visible-lg-inline">
+						<i class="fa fa-minus" aria-hidden="true"></i>
+					</button>
+				</div>
+			</div>
+			
+			<div id="btnDiv" class="row">
 				<div class="col-lg-12">
 					<div class="form-group text-center">
 						<button class="btn" type="submit">등록</button>
@@ -56,9 +67,8 @@
 			</form>
 		</div>
 	</section>
-
+	<script src="${pageContext.request.contextPath }/JS/file.js"></script>
 	<jsp:include page="footer.jsp" />
-
 
 </body>
 </html>

@@ -169,15 +169,15 @@ public class IcmallController {
 //		return "icmall/questionUpdate";
 //	}
 	
-	@RequestMapping("/webWrite")
-	public String webWrite() {
-		return "icmall/webWrite";
-	}
+//	@RequestMapping("/webWrite")
+//	public String webWrite() {
+//		return "icmall/webWrite";
+//	}
 	
-	@RequestMapping("/webUpdate")
-	public String webUpdate() {
-		return "icmall/webUpdate";
-	}
+//	@RequestMapping("/webUpdate")
+//	public String webUpdate() {
+//		return "icmall/webUpdate";
+//	}
 	
 	
 	

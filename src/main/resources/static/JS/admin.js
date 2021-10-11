@@ -44,3 +44,4 @@ var table = $('#myTable').DataTable({
             });
         })
     });
+

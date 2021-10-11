@@ -1,6 +1,5 @@
 package com.lec.spring.domain;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -19,40 +18,44 @@ public class ServiceCenterDAOImpl implements ServiceCenterDAO {
 	}
 
 	@Override
-	public int insertServiceCenter(ServiceCenterDTO ServiceCenter) {
-//		System.out.println("DAO dto : " + ServiceCenter.toString());
-		return mapper.insertServiceCenter(ServiceCenter);
-	}
-
-	@Override
-	public int updateServiceCenter(ServiceCenterDTO ServiceCenter) {
-	
-		return mapper.updateServiceCenter(ServiceCenter);
-	}
-
-	@Override
-	public int deleteServiceCenter(int num) {
-		
-		return mapper.deleteServiceCenter(num);
-	}
-
-	@Override
-	public ServiceCenterDTO selectOneServiceCenter(int num) {
-		
-		return mapper.selectOneServiceCenter(num);
-	}
-
-	@Override
-	public List<ServiceCenterDTO> selectSearchServiceCenter(HashMap<String, Object> params) {
-		return mapper.selectSearchServiceCenter(params);
-	}
-
-	@Override
-	public List<ServiceCenterDTO> selectAllServiceCenter() {
-		return mapper.selectAllServiceCenter();
+	public List<ServiceCenterDTO> selectServiceCenter(int uid) {
+		return mapper.selectServiceCenter(uid);
 	}
 	
+	@Override
+	public List<UserDTO> selectMemInfo(int uid) {
+		return mapper.selectMemInfo(uid);
+	}
+
+	@Override
+	public List<ServiceCenterDTO> selectServiceCenterInfo(int uid) {
+		return mapper.selectServiceCenterInfo(uid);
+	}
 	
+	@Override
+	public List<UserDTO> selectMemInfoAll() {
+		return mapper.selectMemInfoAll();
+	}
+
+	@Override
+	public int ServiceCenterViewCnt(int uid) {
+		return mapper.ServiceCenterViewCnt(uid);
+	}
 	
+	@Override
+	public int insertServiceCenter(ServiceCenterDTO dto) {
+		System.out.println("DAO DTO" + dto);
+		return mapper.insertServiceCenter(dto);
+	}
+	
+	@Override
+	public int updateServiceCenter(ServiceCenterDTO dto) {
+		return mapper.updateServiceCenter(dto);
+	}
+
+	@Override
+	public int deleteServiceCenter(int uid) {
+		return mapper.deleteServiceCenter(uid);
+	}
 
 }

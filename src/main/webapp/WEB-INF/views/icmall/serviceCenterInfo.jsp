@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%-- Core --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -36,15 +38,15 @@
                <tbody id="q_table">
                   <tr>
                      <th scope="row">제목</th>
-                     <td> ${qList[0].q_title }</td>
+                     <td> ${list[0].q_title }</td>
                   </tr>
                   <tr>
                      <th scope="row" id="q_handler" class="q_headTable">내용</th>
-                     <td><p>${qList[0].q_questionContent }</p></td>
+                     <td><p>${list[0].q_content }</p></td>
                   </tr>
                   <tr>
                      <th>이미지</th>
-                     <td>${qList[0].q_img }</td>
+                     <td>${list[0].q_img }</td>
                   </tr>
                </tbody>
             </table>
@@ -54,14 +56,14 @@
          <h4>
             답변내용
          </h4>
-         <h6 style="padding-bottom:150px;">→ ${qList[0].q_answerContent }</h6>
+         <h6 style="padding-bottom:150px;">→ ${list[0].q_content }</h6>
          </div>
          <div class="row">
             <div class="col-lg-12">
                <div class="form-group text-center">
-                  <button class="btn" type="submit" onClick="location.href='serviceCenter'">뒤로가기</button>
-                  <button class="btn" type="submit" onClick="location.href='webUpdate?uid=${qList[0].q_uid }'">수정하기</button>
-                  <button class="btn" type="submit" onClick="chkSubmit(${qList[0].q_uid })">삭제하기</button>
+                  <button class="btn" type="submit" onClick="location.href='serviceCenter?uid=${list[0].m_uid }'">뒤로가기</button>
+                  <button class="btn" type="submit" onClick="location.href='webUpdate?uid=${list[0].q_uid }'">수정하기</button>
+                  <button class="btn" type="submit" onClick="chkSubmit(${list[0].q_uid })">삭제하기</button>
                </div>
             </div>
          </div>

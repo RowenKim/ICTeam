@@ -244,9 +244,15 @@ function joinform_check() {
 							<!-- 일곱번째 줄 시작 -->
 							<td class="t2"><span>주소</span> <span class="f4" id="f2">*</span>
 							</td>
-							<td class="t3"><input type="text" name="m_addr" class="inf" 
-								id="adressbtn" value="주소검색" ></td>
+							<td class="t3"><input type="text" name="m_addr" readonly class="inf" 
+								id="address" value="주소검색" ></td>
 							<td class="t4"></td>
+						</tr>
+						<tr>
+							<td class="t2"> </td>
+							<td class="t3"><input type="text" name="m_addr" value="" class="inf" id="address_detail"
+							 placeholder="상세주소 입력해주세요"></td>
+							 <td class="t4"></td>
 						</tr>
 						<!-- 일곱번째 줄 끝 -->
 
@@ -286,5 +292,19 @@ function joinform_check() {
 	
 	<jsp:include page="footer.jsp" />
 </body>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+window.onload = function(){
+    document.getElementById("address").addEventListener("click", function(){ //주소입력칸을 클릭하면
+        //카카오 지도 발생
+        new daum.Postcode({
+            oncomplete: function(data) { //선택시 입력값 세팅
+                document.getElementById("address").value = data.address; // 주소 넣기
+                document.querySelector("input[id=address_detail]").focus(); //상세입력 포커싱
+            }
+        }).open();
+    });
+}
+</script>
 
 </html>
