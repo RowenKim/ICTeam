@@ -77,7 +77,7 @@ sevendayago.add(Calendar.DATE , -7);
   <body id="page-top">
     <nav class="navbar navbar-expand navbar-dark navtopbg static-top">
 
-      <a class="navbar-brand mr-1" href="main">Admin</a>
+      <a class="navbar-brand mr-1" href="adminIndex">Admin</a>
 
       
       <!-- Nav bar -->
