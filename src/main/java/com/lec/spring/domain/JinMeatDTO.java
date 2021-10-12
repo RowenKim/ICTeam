@@ -11,6 +11,8 @@ public class JinMeatDTO {
 	private String img;
 	private String price;
 	
+	private String keyword; // 검색내용
+	
 	
 	public JinMeatDTO() {
 		super();
@@ -18,7 +20,7 @@ public class JinMeatDTO {
 	}
  
 
-	public JinMeatDTO(int uid, String name, String img, String price) {
+	public JinMeatDTO(int uid, String name, String img, String price, String keyword) {
 		super();
 		this.uid = uid;
 		this.name = name;
