@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lec.spring.domain.ServiceCenterDAO">
+   
+   <insert id="insertServiceCenter" flushCache="true" 
+		parameterType="com.lec.spring.domain.ServiceCenterDTO"
+		keyProperty="q_uid" useGeneratedKeys="true" keyColumn="q_uid">
+		INSERT INTO 
+		ic_question(q_title, q_img, q_content, m_uid )
+		VALUES (#{q_title }, #{q_img }, #{q_content }, #{m_uid });
+	</insert>
+
+    <select id="selectServiceCenter" resultType="com.lec.spring.domain.ServiceCenterDTO">
+	SELECT		
+			q_uid, 
+			q_title , 
+			q_content , 
+			q_answer , 
+			q_img,
+			q_status,
+			q_viewCnt,
+			q_questionDate ,
+			q_answerDate ,
+			m_uid
+		FROM 
+			ic_question
+		WHERE
+			m_uid = #{m_uid}	
+	</select>
+	
+	<select id="selectServiceCenterInfo" resultType="com.lec.spring.domain.ServiceCenterDTO">
+	SELECT		
+			q_uid, 
+			q_title , 
+			q_content , 
+			q_answer , 
+			q_img,
+			q_status,
+			q_viewCnt,
+			q_questionDate ,
+			q_answerDate ,
+			m_uid
+		FROM 
+			ic_question
+		WHERE
+			q_uid = #{q_uid}	
+	</select>
+	
+		<update id="updateServiceCenter" flushCache="true">
+		UPDATE 
+		ic_question
+		SET 
+		q_title = #{q_title },
+		q_content = #{q_content }
+		WHERE 
+		q_uid = #{q_uid}
+	</update>
+	
+	<select id="selectMemInfo" resultType="com.lec.spring.domain.UserDTO">
+	SELECT		
+			m_uid, 
+			m_id , 
+			m_name , 
+			m_mail , 
+			<!--m_class,-->
+			m_phone,
+			m_addr ,
+			m_gender ,
+			m_birth ,
+			m_joindate 
+		FROM 
+			ic_member
+		WHERE
+			m_uid = #{m_uid }
+	</select>
+	
+	<select id="selectMemInfoAll" resultType="com.lec.spring.domain.UserDTO">
+	SELECT		
+			m_uid, 
+			m_id , 
+			m_name , 
+			m_mail , 
+			<!--m_class,-->
+			m_phone,
+			m_addr ,
+			m_gender ,
+			m_birth ,
+			m_joindate 
+		FROM 
+			ic_member
+		
+	</select>
+	
+	<update id="ServiceCenterViewCnt" flushCache="true">
+		UPDATE ic_question
+		SET q_viewCnt = q_viewCnt + 1
+		WHERE q_uid = #{q_uid}
+	</update>
+    
+    <delete id="deleteServiceCenter" flushCache="true">
+		DELETE FROM ic_question
+		WHERE q_uid = #{q_uid}
+	</delete>
+ 
+  
+     
+</mapper>

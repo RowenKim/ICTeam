@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+		<%-- Core --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -13,46 +15,63 @@
 	type="text/css" rel="stylesheet">
 </head>
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+
+	function chkSubmit(r_uid){
+
+		if (confirm("정말 삭제하시겠습니까?") == true){    //확인
+				
+			location.href='reviewDeleteOk?uid=' + r_uid
+	
+		}else{   //취소
+
+		    return;
+
+		}
+		
+	}
+	
+</script>
+<script>
+	
+	function chk(uid){
+		alert("장바구니 담으시겠습니까?")
+		if(uid == undefined){
+			alert("로그인 후 이용해주세요")
+			return false;
+		}	else {
+			return true;
+		}
+	}
+	
+</script>
 <body>
 	<jsp:include page="header.jsp" />
 	<hr>
 
 	<section id="product-page" class="product-page p-b-0">
 		<div class="container">
+		<form action="putBasket" method="get" onsubmit="return chk(${dto.m_uid})">
 			<div class="product">
 				<div class="row m-b-40">
 					<div class="col-lg-5">
 						<div class="product-image" id="product-image-test">
 							<!-- 이미지파일 -->
-							<img
-								src="https://img-cf.kurly.com/shop/data/goods/160923079018l0.jpg"
-								id="main_img_mellon">
+							${list[0].pro_img }
 						</div>
 					</div>
 					<div class="col-lg-7">
 						<div class="product-description">
 							<div class="product-title text-left">
-								<h3>머스크 멜론 1.2kg(상품 uid 해당하는 st_name 가져오기)</h3>
+								<h3>${list[0].pro_name }</h3>
 							</div>
 							<br> <br>
 							<div>
-								<h3>6,990원(st_price)</h3>
+								<h3 class="price">${list[0].pro_price }</h3>
 							</div>
 							<br>
 							<!-- st_price 값을 가져오기 -->
 							<hr>
-							<table>
-								<tr>
-									<th><h4>판매단위:</h4></th>
-									<td class="sd_td">1통 ....(ERD 추가)</td>
-								</tr>
-							</table>
-							<table>
-								<tr>
-									<th><h4>원산지:</h4></th>
-									<td class="sd_td">국산.....(ERD 추가)</td>
-								</tr>
-							</table>
 							<br>
 							<table>
 								<tr>
@@ -60,31 +79,39 @@
 									<td class="sd_td">
 										<div class="cart-product-quantity">
 											<div class="quantity m-l-5">
+											<input type="hidden" name="b_proName" value="${list[0].pro_name }"/>
+											<input type="hidden" name="b_img" value='${list[0].pro_img }'/>
+											<input type="hidden" name="b_price" value="${list[0].pro_price }"/>
+											<input type="hidden" name="m_uid" value="${dto.m_uid }"/>
+											<input type="hidden" name="pro_uid" value="${list[0].pro_uid }" />
 												<input type="button" class="minus" value="-"
-													id="decreaseQuantity"> <input type="text"
-													class="qty" value="1" id="productStock"> <input
-													type="button" class="plus" value="+" id="increasQuantity">
+													id="prodecreaseQuantity" > <input type="text"
+													class="qty" value="1" id="productStock" name="b_qty"> <input
+													type="button" class="plus" value="+" id="proincreasQuantity">
 											</div>
 										</div>
 									</td>
 								</tr>
 							</table>
+							<br>
 							<hr>
 						</div>
 						<div id="sd_secPrice">
 							<span>총 상품금액</span>:
-							<h3 id="sd_h3">5,900원</h3>
+							<div id="totalAccount">${list[0].pro_price }
+							</div>
 						</div>
 						<!-- st_price와 productStock 곱하기 -->
 						<br> <br> <br>
 						<div class="col-lg-12">
-							<button type="submit" style="width:100%;" class="btn">
-								<span id=""><b>장바구니 담기</b></span>
+							<button type="submit" style="width:100%;" class="btn" >
+								<span><b>장바구니 담기</b></span>
 							</button>
 						</div>
 					</div>
 				</div>
 			</div>
+			</form>
 			<br> <br> <br> <br>
 			<!-- Product additional tabs -->
 			<div id="info-nav-3items" class="row m-b-40">
@@ -99,45 +126,12 @@
 						<a class="nav-info-mellon" href="#" id="question-product">상품Q&A</a>
 					</div>
 				</div>
-
 			</div>
 			<br> <br>
 			<div id="proInfoImg">
 				<div class="product-image">
 					<!-- 이미지파일 -->
-					<img
-						src="https://img-cf.kurly.com/shop/data/goodsview/20201229/gv20000147716_1.jpg">
-				</div>
-				<br>
-				<div class="product-info">
-					<!-- 상품설명 -->
-					<div class="product-title">
-						<h2>미니 사이즈로 만나는 연둣빛 과일</h2>
-						<h1>
-							<b>머스크 멜론</b>
-						</h1>
-					</div>
-					<hr>
-					<div>
-						<p class="info-mellon">향긋한 멜론을 실속 있게 만나보세요. 컬리가 신선하게 즐길 수 있는
-							머스크 멜론을 준비했습니다. 촘촘한 그물 무늬 껍질 속 녹진한 과육을 품고 있는데요. 수분이 풍부하고 향이 좋아 식후
-							디저트나 간식으로 제격이랍니다. 살짝 말랑해질 때까지 충분히 후숙했다가 드셔보세요. 하몽, 프로슈토 등을 곁들여
-							근사한 안주로 즐겨도 좋을 거예요</p>
-					</div>
-				</div>
-				<br> <br> <br> <br> <br> <br> <br>
-				<br> <br> <br>
-				<div class="ICMallCheck">
-					<!-- 체크포인트 -->
-					IC Mall's Check Point
-				</div>
-				<br> <br> <br> <br>
-				<div>
-					<!-- 체크포인트 이미지 -->
-					<img
-						src="https://img-cf.kurly.com/shop/data/goodsview/20201229/gv40000147717_1.jpg">
-				</div>
-				<br>
+					<iframe src="${list[0].pro_content }" style="height:1500px;"></iframe>
 				<br>
 				<br>
 				<br>
@@ -152,7 +146,6 @@
 						<h4>
 							상품에 대한 후기를 남기는 공간입니다. 해당 게시판의 성격과 다른 글은 사전동의 없이 담당
 									게시판으로 이동될 수 있습니다.
-							
 						</h4>
 						<table class="table">
 							<tbody id="sc_table">
@@ -161,122 +154,53 @@
 									<th class="sep-15">작성자</th>
 									<th class="sep-55">제목</th>
 									<th class="sep-15">작성날짜</th>
-									<th class="sep-15">조회</th>
 								</tr>
 							</tbody>
 						</table>
-						<table class="table">
-							<tbody>
-								<tr style="text-align:center;">
-									<th class="sep-10">uid-1</th>
-									<td class="sep-15">name</td>
-									<td class="sep-55"><div id="sub" class="text-left">subtitle</div></td>
-									<td class="sep-15">regdate</td>
-									<td class="sep-15">0</td>
-								</tr>
-							</tbody>
-						</table>
-						<div id="reviewContent">
-							<div>
-								<b>-상품이름-</b>
-							</div>
-							상품후기 내용입니다!!!!!!!! subtitle[i]에 담아서..? 클릭시 순서에 맞게 뽑아주기..? uid
-							값..?
+						<c:forEach var="review" items="${proqReviweList }" >	
+						<div class="change1">
+							<table class="table">
+								<tbody>
+									<tr style="text-align:center;">
+										<th class="sep-10">${review.r_uid } </th>
+										<td class="sep-15">${review.m_name } </td>
+										<td class="sep-55"><div class="text-left">${review.r_title } </div></td>
+										<td class="sep-15">${review.r_date } </td>
+									</tr>
+								</tbody>
+							</table>
+								<div class="reviewContent" style="display:none;">
+									<div>
+										<b>${list[0].pro_name }</b>
+									</div>
+									${review.r_content }
+							<c:if test="${dto.m_uid eq review.m_uid }">
+									<div class="form-group text-center">
+					                  <button class="btn" type="submit" onClick="location.href='reviewUpdate?pro_uid=${list[0].pro_uid }&r_uid=${review.r_uid }'">수정하기</button>
+					                  <button class="btn" type="submit" onClick="chkSubmit(${review.r_uid})">삭제하기</button>
+					        		</div>	
+							</c:if>
+								</div>
 						</div>
-						<table class="table">
-							<tbody>
-								<tr style="text-align:center;">
-									<th class="sep-10">uid-1</th>
-									<td class="sep-15">name</td>
-									<td class="sep-55"><div id="sub" class="text-left">subtitle</div></td>
-									<td class="sep-15">regdate</td>
-									<td class="sep-15">0</td>
-								</tr>
-							</tbody>
-						</table>
-						<div id="reviewContent">
-							<div>
-								<b>-상품이름-</b>
-							</div>
-							상품후기 내용입니다!!!!!!!! subtitle[i]에 담아서..? 클릭시 순서에 맞게 뽑아주기..? uid
-							값..?
-						</div>
-						<table class="table">
-							<tbody>
-								<tr style="text-align:center;">
-									<th class="sep-10">uid-1</th>
-									<td class="sep-15">name</td>
-									<td class="sep-55"><div id="sub" class="text-left">subtitle</div></td>
-									<td class="sep-15">regdate</td>
-									<td class="sep-15">0</td>
-								</tr>
-							</tbody>
-						</table>
-						<div id="reviewContent">
-							<div>
-								<b>-상품이름-</b>
-							</div>
-							상품후기 내용입니다!!!!!!!! subtitle[i]에 담아서..? 클릭시 순서에 맞게 뽑아주기..? uid
-							값..?
-						</div>
-						<table class="table">
-							<tbody>
-								<tr style="text-align:center;">
-									<th class="sep-10">uid-1</th>
-									<td class="sep-15">name</td>
-									<td class="sep-55"><div id="sub" class="text-left">subtitle</div></td>
-									<td class="sep-15">regdate</td>
-									<td class="sep-15">0</td>
-								</tr>
-							</tbody>
-						</table>
-						<div id="reviewContent">
-							<div>
-								<b>-상품이름-</b>
-							</div>
-							상품후기 내용입니다!!!!!!!! subtitle[i]에 담아서..? 클릭시 순서에 맞게 뽑아주기..? uid
-							값..?
-						</div>
-						<table class="table">
-							<tbody>
-								<tr style="text-align:center;">
-									<th class="sep-10">uid-1</th>
-									<td class="sep-15">name</td>
-									<td class="sep-55"><div id="sub" class="text-left">subtitle</div></td>
-									<td class="sep-15">regdate</td>
-									<td class="sep-15">0</td>
-								</tr>
-							</tbody>
-						</table>
-						<div id="reviewContent">
-							<div>
-								<b>-상품이름-</b>
-							</div>
-							상품후기 내용입니다!!!!!!!! subtitle[i]에 담아서..? 클릭시 순서에 맞게 뽑아주기..? uid
-							값..?
-						</div>
-						<table class="table">
-							<tbody>
-								<tr style="text-align:center;">
-									<th class="sep-10">uid-1</th>
-									<td class="sep-15">name</td>
-									<td class="sep-55"><div id="sub" class="text-left">subtitle</div></td>
-									<td class="sep-15">regdate</td>
-									<td class="sep-15">0</td>
-								</tr>
-							</tbody>
-						</table>
-						<div id="reviewContent">
-							<div>
-								<b>-상품이름-</b>
-							</div>
-							상품후기 내용입니다!!!!!!!! subtitle[i]에 담아서..? 클릭시 순서에 맞게 뽑아주기..? uid
-							값..?
-						</div>
-						
+						</c:forEach>
+						 <!-- Pagination -->
+		                <ul class="pagination">
+		                    <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-left"></i></a></li>
+		                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+		                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+		                    <li class="page-item active"><a class="page-link" href="#">3</a></li>
+		                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+		                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+		                    <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a></li>
+		                </ul>
+		                <!-- end: Pagination -->
 					</div>
 				</div>
-
+				<c:if test="${dto.m_uid != undefined }">
+					<div class="form-group text-center">
+	                  <button class="btn" type="submit" onClick="location.href='stockReview?uid=${list[0].pro_uid }'">후기작성</button>
+	        		</div>	
+				</c:if>
 				<br>
 				<br>
 				<br>
@@ -291,112 +215,37 @@
 							상품에 대한 문의를 남기는 공간입니다. 해당 게시판의 성격과 다른 글은 사전동의 없이 담당
 									게시판으로 이동될 수 있습니다
 						</h4>
-						<table class="table">
-							<tbody id="sc_table">
-								<tr class="text-center">
-									<th class="sep-55">제목</th>
-									<th class="sep-15">작성자</th>
-									<th class="sep-15">작성일</th>
-									<th class="sep-15">답변상태</th>
-								</tr>
-							</tbody>
-						</table>
-						<table class="table">
-							<tbody>
-								<tr style="text-align:center;">
-									<th class="sep-55"><div id="ques-sub" class="text-left">제목입니다</div></th>
-									<td class="sep-15">name</td>
-									<td class="sep-15">regdate</td>
-									<td class="sep-15">답변완료</td>
-								</tr>
-							</tbody>
-						</table>
-						<div id="questionContent">
-							<div>
-								<b>- 질문내용 - </b>
-							</div>
-							상품 답변 내용!!!!!!!!
-						</div>
-						<table class="table">
-							<tbody>
-								<tr style="text-align:center;">
-									<th class="sep-55"><div id="ques-sub" class="text-left">제목입니다</div></th>
-									<td class="sep-15">name</td>
-									<td class="sep-15">regdate</td>
-									<td class="sep-15">답변완료</td>
-								</tr>
-							</tbody>
-						</table>
-						<div id="questionContent">
-							<div>
-								<b>- 질문내용 - </b>
-							</div>
-							상품 답변 내용!!!!!!!!
-						</div>
-						<table class="table">
-							<tbody>
-								<tr style="text-align:center;">
-									<th class="sep-55"><div id="ques-sub" class="text-left">제목입니다</div></th>
-									<td class="sep-15">name</td>
-									<td class="sep-15">regdate</td>
-									<td class="sep-15">답변완료</td>
-								</tr>
-							</tbody>
-						</table>
-						<div id="questionContent">
-							<div>
-								<b>- 질문내용 - </b>
-							</div>
-							상품 답변 내용!!!!!!!!
-						</div>
-						<table class="table">
-							<tbody>
-								<tr style="text-align:center;">
-									<th class="sep-55"><div id="ques-sub" class="text-left">제목입니다</div></th>
-									<td class="sep-15">name</td>
-									<td class="sep-15">regdate</td>
-									<td class="sep-15">답변완료</td>
-								</tr>
-							</tbody>
-						</table>
-						<div id="questionContent">
-							<div>
-								<b>- 질문내용 - </b>
-							</div>
-							상품 답변 내용!!!!!!!!
-						</div>
-						<table class="table">
-							<tbody>
-								<tr style="text-align:center;">
-									<th class="sep-55"><div id="ques-sub" class="text-left">제목입니다</div></th>
-									<td class="sep-15">name</td>
-									<td class="sep-15">regdate</td>
-									<td class="sep-15">답변완료</td>
-								</tr>
-							</tbody>
-						</table>
-						<div id="questionContent">
-							<div>
-								<b>- 질문내용 - </b>
-							</div>
-							상품 답변 내용!!!!!!!!
-						</div>
-						<table class="table">
-							<tbody>
-								<tr style="text-align:center;">
-									<th class="sep-55"><div id="ques-sub" class="text-left">제목입니다</div></th>
-									<td class="sep-15">name</td>
-									<td class="sep-15">regdate</td>
-									<td class="sep-15">답변완료</td>
-								</tr>
-							</tbody>
-						</table>
-						<div id="questionContent">
-							<div>
-								<b>- 질문내용 - </b>
-							</div>
-							상품 답변 내용!!!!!!!!
-						</div>
+							<table class="table">
+								<tbody id="sc_table">
+									<tr class="text-center">
+										<th class="sep-55">제목</th>
+										<th class="sep-15">작성자</th>
+										<th class="sep-15">작성일</th>
+										<th class="sep-15">답변상태</th>
+										<th class="sep-15">조회</th>
+									</tr>
+								</tbody>
+							</table>
+					<c:forEach var="dto" items="${proqList }" >				
+							<table class="table">
+								<tbody>
+									<tr style="text-align:center;">
+										<th class="sep-55"><div class="text-left"><a href="questionInfo?uid=${dto.proq_uid }">${dto.proq_title }</a></div></th>
+										<td class="sep-15">${dto.m_name } </td>
+										<td class="sep-15">${dto.proq_questionDate }</td>
+										<td class="sep-15">${dto.proq_status }</td>
+										<td class="sep-15">${dto.proq_viewCnt }</td>
+									</tr>
+								</tbody>
+							</table>
+						</c:forEach>
+						<br>
+						<br>
+						<c:if test="${dto.m_uid != undefined }">
+							<div class="form-group text-center">
+			                  <button class="btn" type="submit" onClick="location.href='question?uid=${list[0].pro_uid }'">문의하기</button>
+    	           			</div>
+						</c:if>
 						
 					</div>
 				</div>

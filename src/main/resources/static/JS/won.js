@@ -3,9 +3,8 @@
  */
 // 고객 리스트 제목 클릭시 내용 보이게 하기
 $(document).ready(function() {
-	//	alert("JS 연결 성공")
-
-
+		//alert("JS 연결 성공")
+	
 	$(".change1").click(function() {
 
 		//alert("열람완료");
@@ -17,7 +16,53 @@ $(document).ready(function() {
 			$(this).children(".reviewContent").hide();
 		}
 	})
+	
+	$("#proincreasQuantity").click(function(){
+			
+			var num = jQuery("#productStock").val();
+			
+			num++;
+			
+			
+			jQuery("#productStock").val(num);
+			
+		})
+		
+		$("#prodecreaseQuantity").click(function(){
+			
+			var num = jQuery("#productStock").val();
 
+			num--;
+			
+			if(num <= 0){
+				alert("더 이상 줄일수 없습니다.");
+				num = 1;
+			}
+			
+			jQuery("#productStock").val(num);
+			
+		})
+
+	$(".minus").mouseup(function(){
+         //alert($(".qty").val() - 1)
+         var num = $(".qty").val() - 1;
+         var price = $(".price").text();
+         var total = parseInt(price.replace("," , "")) * num + "";
+         //alert("minus num : " + num)
+//         alert($("#totalAccount").text(num));
+//         alert(parseInt(price.replace("," , "")) * num);
+//         alert(total.toString());
+         $("#totalAccount").text(total);
+      });
+	      
+      $(".plus").mouseup(function(){
+         var num = parseInt($(".qty").val()) + 1;
+         var price = $(".price").text();
+         var total = parseInt(price.replace("," , "")) * num + "";
+         //alert("plus num :" + num)
+         
+         $("#totalAccount").text(total);
+      });		
 
 
 
@@ -138,6 +183,7 @@ $(document).ready(function() {
 		//alert($(this).is(":checked") );
 
 		total = 0;
+		
 
 		$("input[name='agree']:checked").each(function() {
 			//var count = $(this).siblings().parent().parent().find("input[name='qty']").val();	
@@ -198,19 +244,35 @@ $(document).ready(function() {
 	});      
 	
 	$('#orderBtn2').click(function(){
+		$('.sum').trigger("click");
 		$("input[name='agree']:checked").each(function() {
 			//let tr = $(this).parent().parent();
 			//tr.remove();
-			alert("주문하기 클릭 스크립트");
+			//alert("주문하기 클릭 스크립트");
 			$(this).parent().parent().find("#insertOrder").trigger("click");
 		});
 	})
 	
-
-
-
-
-
-
+	
+	$('.sum').click(function(){
+		
+		
+		//let sumname;
+		$("input[name='agree']:checked").each(function() {
+			//let tr = $(this).parent().parent();
+			//tr.remove();
+			//alert("주문하기 클릭 스크립트");
+			let name = $(this).parent().parent().find("input[name='name']").val();
+		
+			//sumname += name;
+			//alert(name);
+			//alert(sumname);
+		
+			$(this).parent().parent().find("input[name='o_name']").val(name);
+		//	$(this).parent().parent().find("#insertOrder").trigger("click");
+		});
+		//alert(sumname);
+		
+	});
 
 });

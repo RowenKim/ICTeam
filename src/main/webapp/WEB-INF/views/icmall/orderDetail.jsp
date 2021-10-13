@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -21,6 +24,21 @@
 	href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
 	integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
 	crossorigin="anonymous">
+<script>
+function chkSubmit(){
+	
+
+	alert("결제 취소하시겠습니까?")
+	/*
+    if (subject == "") {
+        alert("제목은 반드시 작성해야 합니다");
+        frm["subject"].focus();
+        return false;
+    }
+	*/
+    return true;
+} // end chkSubmit()
+</script>
 
 </head>
 <body>
@@ -53,9 +71,11 @@
 		<section>
 			<div class="container">
 				<!--Product list-->
+				
 				<div class="shop">
 					<h2>주문 내역 상세</h2>
-					<h5>주문번호 161329394753</h5>
+					<h5>주문번호 ${listPay[0].p_uid }</h5>
+					<input style="display:none;" name="p_uid" value="${listPay[0].p_uid }"/>
 
 					<!-- table -->
 					<div class="shop-cart">
@@ -65,42 +85,24 @@
 									<tr>
 										<!-- <td class="cart-product-remove"><a href="#"><i
 												class="fa fa-times"></i></a></td> -->
-										<td><input type="checkbox" name="agree" class="basketChk" /></td>
-										<td class="cart-product-thumbnail" style="width: 10%;"><a
-											href="#"> <img
-												src="https://img-cf.kurly.com/shop/data/goods/1497429997949l0.jpg"
-												alt="steak">
+										<!-- <td><input type="checkbox" name="agree" class="basketChk" /></td> -->
+										<td rowspan="3" class="cart-product-thumbnail" style="width: 10%;"><a
+											href="#"> ${listPay[0].p_img }
 										</a></td>
-										<td class="cart-product-description" style="width: 70%;">
-											[KF365] 아보카도 1개<br> 4,000원 | 2개
+										<td class="cart-product-description" style="width: 70%; padding-bottom:0 !important;">
+											${listPay[0].p_name }
 										</td>
-										<td class="cart-product-price text-center" style="min-width:100px;">배송완료</td>
+										<td rowspan="3" class="cart-product-price text-center" style="min-width:100px;"> <input style="border:none;" value=${listPay[0].p_status }></td>
 									</tr>
-
-								</tbody>
-							</table>
-						</div>
-					</div>
-
-					<!-- end: table -->
-					<!-- table -->
-					<div class="shop-cart">
-						<div class="">
-							<table class="table m-b-0" style="border-color: #fff !important;">
-								<tbody>
 									<tr>
-										<!-- <td class="cart-product-remove"><a href="#"><i
-												class="fa fa-times"></i></a></td> -->
-										<td><input type="checkbox" name="agree" class="basketChk" /></td>
-										<td class="cart-product-thumbnail" style="width: 10%;"><a
-											href="#"> <img
-												src="https://img-cf.kurly.com/shop/data/goods/1497429997949l0.jpg"
-												alt="steak">
-										</a></td>
-										<td class="cart-product-description" style="width: 70%;">
-											[KF365] 아보카도 1개<br> 4,000원 | 2개
+									<td class="cart-product-description" style="width: 70%; border-top:none; padding-top:0 !important; padding-bottom:0 !important;">
+											<fmt:formatNumber value="${listPay[0].p_price }" pattern="#,###"/> 원 
 										</td>
-										<td class="cart-product-price text-center" style="min-width:100px;">배송완료</td>
+									</tr>
+									<tr>
+									<td class="cart-product-description" style="width: 70%; border-top:none; padding-top:0 !important">
+											${listPay[0].p_qty } 개
+										</td>
 									</tr>
 
 								</tbody>
@@ -109,18 +111,23 @@
 					</div>
 
 					<!-- end: table -->
+					
 					<hr>
 					<!-- end:icon2 -->
 					<div class="row m-t-60">
 						<div class="col-lg-12">
 							<div class="form-group text-center">
-								<button class="btn" type="submit">선택상품주문취소</button>
-								<input class="btn" type="submit" name="agree_all" value="전체상품주문취소"></input>
-							</div>
+							<button class="btn white"><a style="color:#5f0080;" class="white" href="http://localhost:8080/icmall/orderList">주문내역 리스트</a></button>
+							 <c:if test="${listPay[0].p_status eq '결제완료' }">
+								<button onClick="location.href='updatePay?p_uid=${listPay[0].p_uid }'" type="submit" class="btn">상품주문취소</button>
+							</c:if>	
+							
+						</div>
 						</div>
 					</div>
 				</div>
 				<!--end: container-->
+				</form>
 
 			</div>
 

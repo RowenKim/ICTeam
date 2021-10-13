@@ -354,6 +354,7 @@ img { /* ICMall CheckPoint, 상품상세설명 멜론 이미지 */
 
 
 .ai_tab{ /* 주문관리 */
+   width:90%;
    max-width:600px;
    min-width:50px;
 }
@@ -439,4 +440,16 @@ img { /* ICMall CheckPoint, 상품상세설명 멜론 이미지 */
 
 .ai_tapD2{
    text-align:right;
+}
+
+/* questionInfo css*/
+
+.centerSetting{
+	padding-left:200px;
+	width:55%;
+}
+
+#q_handler{
+	height:200px;
+	vertical-align:middle;
 }

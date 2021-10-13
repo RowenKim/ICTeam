@@ -52,6 +52,19 @@
 
 #selectDelete:hover {cursor:pointer;}
 
+.white:hover {color:white !important;}
+
+.img_height img {width:30%;}
+
+.index_img {height:250px !important;}
+
+.index-button a{color:#5f0080 !important;}
+.index-button:hover a {color:white !important;}
+
+.index-button i{color:#5f0080 !important;}
+.index-button:hover i{color:white !important;}
+
+
 /* ------------------ 모바일 -------------------------------------*/
 @media (max-width: 992px){
 	.m-d-none {

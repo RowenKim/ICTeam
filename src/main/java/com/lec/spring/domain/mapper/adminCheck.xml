@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lec.spring.domain.adminCheckDAO">
+
+	<select id="countReadyPro" resultType="int">
+		SELECT count(*) FROM ic_shipping WHERE s_status = "상품준비중"
+	</select>
+	<select id="countShippingPro" resultType="int">
+		SELECT count(*) FROM ic_shipping WHERE s_status = "배송중"
+	</select>
+	<select id="countShippingOkPro" resultType="int">
+		SELECT count(*) FROM ic_shipping WHERE s_status = "배송완료"
+	</select>
+	<select id="countBuyOkPro" resultType="int">
+		SELECT count(*) FROM ic_shipping WHERE s_status = "구매확정"
+	</select>
+	<select id="countExchangePro" resultType="int">
+		SELECT count(*) FROM ic_shipping WHERE s_status = "교환접수"
+	</select>
+	<select id="countRefundPro" resultType="int">
+		SELECT count(*) FROM ic_shipping WHERE s_status = "환불접수"
+	</select>
+	
+	<select id="countPayOk" resultType="int">
+		SELECT count(*) FROM ic_payment WHERE pay_status = "결제완료"
+	</select>
+	<select id="countNotpay" resultType="int">
+		SELECT count(*) FROM ic_payment WHERE pay_status = "결제대기";
+	</select>
+	
+	<select id="countReview" resultType="int"> 
+		SELECT count(*) FROM ic_review
+	</select>
+	<select id="countProQA" resultType="int">
+		SELECT count(*) FROM ic_productquestion
+	</select>
+	
+	<select id="countNewMemOnedayAgo" resultType="int">
+		SELECT count(*) FROM ic_member <![CDATA[WHERE date_format(m_joindate, '%Y-%m-%d') = CURDATE() - INTERVAL 1 DAY]]>
+	</select>
+	<select id="countNewMemTwodayAgo" resultType="int">
+		SELECT count(*) FROM ic_member <![CDATA[WHERE date_format(m_joindate, '%Y-%m-%d') = CURDATE() - INTERVAL 2 DAY]]>
+	</select>
+	<select id="countNewMemThreedayAgo" resultType="int">
+		SELECT count(*) FROM ic_member <![CDATA[WHERE date_format(m_joindate, '%Y-%m-%d') = CURDATE() - INTERVAL 3 DAY]]>	
+	</select>
+	<select id="countNewMemFourdayAgo" resultType="int">
+		SELECT count(*) FROM ic_member <![CDATA[WHERE date_format(m_joindate, '%Y-%m-%d') = CURDATE() - INTERVAL 4 DAY]]>
+	</select>
+	<select id="countNewMemfivedayAgo" resultType="int">
+		SELECT count(*) FROM ic_member <![CDATA[WHERE date_format(m_joindate, '%Y-%m-%d') = CURDATE() - INTERVAL 5 DAY]]>
+	</select>
+	<select id="countNewMemSixdayAgo" resultType="int">
+		SELECT count(*) FROM ic_member <![CDATA[WHERE date_format(m_joindate, '%Y-%m-%d') = CURDATE() - INTERVAL 6 DAY]]>
+	</select>
+	<select id="countNewMemSevendayAgo" resultType="int">
+		SELECT count(*) FROM ic_member <![CDATA[WHERE date_format(m_joindate, '%Y-%m-%d') = CURDATE() - INTERVAL 7 DAY]]>
+	</select>
+	
+	
+	
+	<select id="countAllMemOnedayAgo" resultType="int">
+		SELECT count(*) FROM ic_member <![CDATA[WHERE date_format(m_joindate, '%Y-%m-%d') <= date_add(now(), INTERVAL -1 DAY)]]>
+	</select>
+	<select id="countAllMemTwodayAgo" resultType="int">
+		SELECT count(*) FROM ic_member <![CDATA[WHERE date_format(m_joindate, '%Y-%m-%d') <= date_add(now(), INTERVAL -2 DAY)]]>
+	</select>
+	<select id="countAllMemThreedayAgo" resultType="int">
+		SELECT count(*) FROM ic_member <![CDATA[WHERE date_format(m_joindate, '%Y-%m-%d') <= date_add(now(), INTERVAL -3 DAY)]]>
+	</select>
+	<select id="countAllMemFourdayAgo" resultType="int">
+		SELECT count(*) FROM ic_member <![CDATA[WHERE date_format(m_joindate, '%Y-%m-%d') <= date_add(now(), INTERVAL -4 DAY)]]>
+	</select>
+	<select id="countAllMemFivedayAgo" resultType="int">
+		SELECT count(*) FROM ic_member <![CDATA[WHERE date_format(m_joindate, '%Y-%m-%d') <= date_add(now(), INTERVAL -5 DAY)]]>
+	</select>
+	<select id="countAllMemSixdayAgo" resultType="int">
+		SELECT count(*) FROM ic_member <![CDATA[WHERE date_format(m_joindate, '%Y-%m-%d') <= date_add(now(), INTERVAL -6 DAY)]]>
+	</select>
+	<select id="countAllMemSevendayAgo" resultType="int">
+		SELECT count(*) FROM ic_member <![CDATA[WHERE date_format(m_joindate, '%Y-%m-%d') <= date_add(now(), INTERVAL -7 DAY)]]>
+	</select>
+	
+	
+	<select id="countDelMemOnedayAgo" resultType="int">
+		SELECT count(*) FROM ic_delete <![CDATA[WHERE date_format(m_deleteDate, '%Y-%m-%d') = CURDATE() - INTERVAL 1 DAY]]>
+	</select>
+	<select id="countDelMemTwodayAgo" resultType="int">
+		SELECT count(*) FROM ic_delete <![CDATA[WHERE date_format(m_deleteDate, '%Y-%m-%d')  = CURDATE() - INTERVAL 2 DAY]]>
+	</select>
+	<select id="countDelMemThreedayAgo" resultType="int">
+		SELECT count(*) FROM ic_delete <![CDATA[WHERE date_format(m_deleteDate, '%Y-%m-%d')  = CURDATE() - INTERVAL 3 DAY]]>
+	</select>
+	<select id="countDelMemFourdayAgo" resultType="int">
+		SELECT count(*) FROM ic_delete <![CDATA[WHERE date_format(m_deleteDate, '%Y-%m-%d')  = CURDATE() - INTERVAL 4 DAY]]>
+	</select>
+	<select id="countDelMemFivedayAgo" resultType="int">
+		SELECT count(*) FROM ic_delete <![CDATA[WHERE date_format(m_deleteDate, '%Y-%m-%d')  = CURDATE() - INTERVAL 5 DAY]]>
+	</select>
+	<select id="countDelMemSixdayAgo" resultType="int">
+		SELECT count(*) FROM ic_delete <![CDATA[WHERE date_format(m_deleteDate, '%Y-%m-%d')  = CURDATE() - INTERVAL 6 DAY]]>
+	</select>
+	<select id="countDelMemSevendayAgo" resultType="int">
+		SELECT count(*) FROM ic_delete <![CDATA[WHERE date_format(m_deleteDate, '%Y-%m-%d')  = CURDATE() - INTERVAL 7 DAY]]>
+	</select>
+	
+	<select id="countAllMemSevenBetOneDay" resultType="int">
+		SELECT count(*) FROM ic_member <![CDATA[WHERE date_format(m_joindate, '%Y-%m-%d') >= date_add(now(), INTERVAL -8 DAY) && date_format(m_joindate, '%Y-%m-%d') <= date_add(now(), INTERVAL -1 DAY);]]>
+	</select>
+	
+	<select id="countDelMemSevenBetOneDay" resultType="int">
+		SELECT count(*) FROM ic_delete <![CDATA[WHERE date_format(m_deleteDate, '%Y-%m-%d') >= date_add(now(), INTERVAL -8 DAY) && date_format(m_deleteDate, '%Y-%m-%d') <= date_add(now(), INTERVAL -1 DAY);]]>
+	</select>
+	
+	<select id ="statusOfshipPayOk" resultType="com.lec.spring.domain.AdminOrderStatusDTO">
+	SELECT 
+	m.m_name m_name,
+	p.p_uid p_uid,
+	p.p_name p_name,
+	p.p_status p_status,
+	p.p_shippingInto p_shippingInto,
+	p.p_qty p_qty,
+	p.p_price p_price,
+	p.p_way p_way,
+	p.p_date p_date
+	<![CDATA[FROM 
+	ic_member m, ic_payment p
+	WHERE m.m_uid = p.m_uid && p.p_status = "결제완료"]]>
+	</select>
+	
+	<select id ="statusOfshipPreparedPro" resultType="com.lec.spring.domain.AdminOrderStatusDTO">
+	SELECT 
+	m.m_name m_name,
+	p.p_name p_name,
+	p.p_status p_status,
+	s.s_status s_status,
+	p.p_qty p_qty,
+	p.p_price p_price,
+	p.p_way p_way,
+	s.s_shippingNum s_shippingNum,
+	p.p_date p_date
+	<![CDATA[FROM 
+	ic_member m, ic_payment p, ic_shipping s 
+	WHERE p.p_uid = s.p_uid && m.m_uid = p.m_uid && s.s_status = "상품준비중";]]>
+	</select>
+	
+	<select id ="statusOfshipping" resultType="com.lec.spring.domain.AdminOrderStatusDTO">
+	SELECT 
+	m.m_name m_name,
+	p.p_name p_name,
+	p.p_status p_status,
+	s.s_status s_status,
+	p.p_qty p_qty,
+	p.p_price p_price,
+	p.p_way p_way,
+	s.s_shippingNum s_shippingNum,
+	p.p_date p_date
+	<![CDATA[FROM 
+	ic_member m, ic_payment p, ic_shipping s 
+	WHERE p.p_uid = s.p_uid && m.m_uid = p.m_uid && s.s_status = "배송중";]]>
+	</select>
+	
+	<select id ="statusOfshipOk" resultType="com.lec.spring.domain.AdminOrderStatusDTO">
+	SELECT 
+	m.m_name m_name,
+	p.p_name p_name,
+	p.p_status p_status,
+	s.s_status s_status,
+	p.p_qty p_qty,
+	p.p_price p_price,
+	p.p_way p_way,
+	s.s_shippingNum s_shippingNum,
+	p.p_date p_date
+	<![CDATA[FROM 
+	ic_member m, ic_payment p, ic_shipping s 
+	WHERE p.p_uid = s.p_uid && m.m_uid = p.m_uid && s.s_status = "배송완료";]]>
+	</select>
+	
+	<select id ="statusOfshipBuyOk" resultType="com.lec.spring.domain.AdminOrderStatusDTO">
+	SELECT 
+	m.m_name m_name,
+	p.p_name p_name,
+	p.p_status p_status,
+	s.s_status s_status,
+	p.p_qty p_qty,
+	p.p_price p_price,
+	p.p_way p_way,
+	s.s_shippingNum s_shippingNum,
+	p.p_date p_date
+	<![CDATA[FROM 
+	ic_member m, ic_payment p, ic_shipping s 
+	WHERE p.p_uid = s.p_uid && m.m_uid = p.m_uid && s.s_status = "구매확정";]]>
+	</select>
+	
+	<select id ="statusOfshipExchange" resultType="com.lec.spring.domain.AdminOrderStatusDTO">
+	SELECT 
+	m.m_name m_name,
+	p.p_name p_name,
+	p.p_status p_status,
+	s.s_status s_status,
+	p.p_qty p_qty,
+	p.p_price p_price,
+	p.p_way p_way,
+	s.s_shippingNum s_shippingNum,
+	p.p_date p_date
+	<![CDATA[FROM 
+	ic_member m, ic_payment p, ic_shipping s 
+	WHERE p.p_uid = s.p_uid && m.m_uid = p.m_uid && s.s_status = "교환접수";]]>
+	</select>
+	
+	<select id ="statusOfshipRefund" resultType="com.lec.spring.domain.AdminOrderStatusDTO">
+	SELECT 
+	m.m_name m_name,
+	p.p_name p_name,
+	p.p_status p_status,
+	s.s_status s_status,
+	p.p_qty p_qty,
+	p.p_price p_price,
+	p.p_way p_way,
+	s.s_shippingNum s_shippingNum,
+	p.p_date p_date
+	<![CDATA[FROM 
+	ic_member m, ic_payment p, ic_shipping s 
+	WHERE p.p_uid = s.p_uid && m.m_uid = p.m_uid && s.s_status = "환불접수";]]>
+	</select>
+	
+	<insert id="insertShip">
+		INSERT INTO ic_shipping(p_uid)
+		VALUES (#{param1});
+	</insert>
+	
+	<update id="updateShipInto">
+		UPDATE ic_payment
+		SET p_shippingInto = "Y"
+		WHERE p_uid = #{param1}
+	</update>
+	
+	<update id="updateShipStatus" flushCache="true">
+		UPDATE ic_shipping
+		SET s_status = #{s_status}
+		WHERE p_uid = #{p_uid}
+	</update>
+	
+
+
+
+
+
+</mapper>

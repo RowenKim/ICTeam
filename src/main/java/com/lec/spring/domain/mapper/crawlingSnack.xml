@@ -63,8 +63,240 @@
 			pro_uid = #{pro_uid}
 	</select>
 	
+	<select id="selectProQues" resultType="com.lec.spring.domain.WonProQuestionDTO">
+	SELECT		
+			p.proq_uid proq_uid, 
+			p.proq_answerDate proq_answerDate, 
+			p.proq_questionDate proq_questionDate, 
+			p.proq_viewCnt proq_viewCnt, 
+			p.proq_status proq_status,
+			p.proq_title proq_title,
+			p.proq_img proq_img,
+			p.proq_answerContent proq_answerContent,
+			p.proq_questionContent proq_questionContent,
+			p.m_uid m_uid,
+			p.pro_uid pro_uid,
+			m.m_name m_name
+		FROM 
+			ic_productquestion p, ic_member m
+		<![CDATA[WHERE 
+			pro_uid = #{pro_uid } && p.m_uid = m.m_uid]]>
+	</select>
+	
+	<select id="selectProQuesInfo" resultType="com.lec.spring.domain.WonProQuestionDTO">
+	SELECT		
+			proq_uid, 
+			proq_answerDate , 
+			proq_questionDate , 
+			proq_viewCnt , 
+			proq_status,
+			proq_title,
+			proq_img,
+			proq_answerContent ,
+			proq_questionContent ,
+			m_uid ,
+			pro_uid
+		FROM 
+			ic_productquestion
+		WHERE
+			proq_uid = #{proq_uid}	
+	</select>
+	
+	<update id="updateProQues" flushCache="true">
+		UPDATE 
+		ic_productquestion
+		SET 
+		proq_title = #{proq_title },
+		proq_questionContent = #{proq_questionContent }
+		WHERE proq_uid = #{proq_uid}
+	</update>
+	
+	<select id="selectMemInfo" resultType="com.lec.spring.domain.WonMemberDTO">
+	SELECT		
+			m_uid, 
+			m_id , 
+			m_name , 
+			m_mail , 
+			m_phone,
+			m_addr ,
+			m_gender ,
+			m_birth ,
+			m_joindate 
+		FROM 
+			ic_member
+		WHERE
+			m_uid = #{m_uid }
+	</select>
+	
+	<select id="selectMemInfoAll" resultType="com.lec.spring.domain.WonMemberDTO">
+	SELECT		
+			m_uid, 
+			m_id , 
+			m_name , 
+			m_mail , 
+			m_phone,
+			m_addr ,
+			m_gender ,
+			m_birth ,
+			m_joindate 
+		FROM 
+			ic_member
+		
+	</select>
+	<select id="selectProReview" resultType="com.lec.spring.domain.WonProReviewDTO">
+	SELECT		
+		r.r_uid r_uid, 
+		r.r_content r_content,
+		r.r_img r_img,
+		r.r_date r_date, 
+		r.r_title r_title,
+		m.m_name m_name,
+		m.m_uid m_uid,
+		r.pro_uid pro_uid
+	FROM 
+		ic_review r, ic_member m 
+	<![CDATA[WHERE
+		pro_uid =  #{pro_uid} && r.m_uid = m.m_uid]]>
+	</select>
+	
+	<select id="selectProReviewInfo" resultType="com.lec.spring.domain.WonProReviewDTO">
+	SELECT		
+			r_uid, 
+			r_date, 
+			r_img,
+			r_content,
+			r_title,
+			m_uid,
+			pro_uid
+		FROM 
+			ic_review
+		WHERE
+			r_uid = #{r_uid}	
+	</select>
+	
+	<update id="ProQuesincViewCnt" flushCache="true">
+		UPDATE ic_productQuestion
+		SET proq_viewCnt = proq_viewCnt + 1
+		WHERE proq_uid = #{proq_uid}
+	</update>
+	
+	<update id="updateProReview" flushCache="true">
+		UPDATE 
+		ic_review
+		SET 
+		r_title = #{r_title },
+		r_content = #{r_content }
+		WHERE r_uid = #{r_uid}
+	</update>
+	
+	<delete id="deleteProReview" flushCache="true">
+		DELETE FROM ic_review 
+		WHERE r_uid = #{r_uid}
+	</delete>
+	
+	<delete id="deleteProQues" flushCache="true">
+		DELETE FROM ic_productQuestion 
+		WHERE proq_uid = #{proq_uid}
+	</delete>
+	
+	<insert id="insertProReview" flushCache="true" 
+		parameterType="com.lec.spring.domain.WonProReviewDTO"
+		keyProperty="r_uid" useGeneratedKeys="true" keyColumn="r_uid">
+		INSERT INTO 
+		ic_review(r_content, r_img, r_title, m_uid, pro_uid )
+		VALUES (#{r_content }, #{r_img }, #{r_title }, #{m_uid }, #{pro_uid });
+	</insert>
+	
+	<insert id="insertProQues" flushCache="true" 
+		parameterType="com.lec.spring.domain.WonProQuestionDTO"
+		keyProperty="proq_uid" useGeneratedKeys="true" keyColumn="proq_uid">
+		INSERT INTO 
+		ic_productQuestion(proq_title, proq_img, proq_questionContent, m_uid, pro_uid )
+		VALUES (#{proq_title }, #{proq_img }, #{proq_questionContent }, #{m_uid }, #{pro_uid });
+	</insert>
+	
+	<insert id="insertBasket" flushCache="true" 
+		parameterType="com.lec.spring.domain.WonBasketDTO"
+		keyProperty="b_uid" useGeneratedKeys="true" keyColumn="b_uid">
+		INSERT INTO 
+		ic_basket(b_proName, b_img, b_qty, b_price, m_uid, pro_uid )
+		VALUES (#{b_proName }, #{b_img }, #{b_qty }, #{b_price }, #{m_uid }, #{pro_uid });
+	</insert>
 
-
+	<insert id="insertProQuesFile" flushCache="true" 
+		parameterType="com.lec.spring.domain.WonQuesFileDTO"
+		keyProperty="pqfUid" useGeneratedKeys="true" keyColumn="pqf_uid">
+		INSERT INTO 
+		ic_productQuesFile(proq_uid, original_name, save_name, size, delete_yn, insert_time, delete_time, ques_path )
+		VALUES 
+		<foreach collection="list" item="item" separator=",">
+		(
+		#{item.proqUid }
+		, #{item.originalName }
+		, #{item.saveName }
+		, #{item.size }
+		, 'N'
+		, NOW()
+		, NULL
+		, #{item.ques_path }
+		)
+		</foreach>
+	</insert>
+	
+	<select id="selectProQuesFiles" resultType="com.lec.spring.domain.WonQuesFileDTO">
+	SELECT		
+			proq_uid AS proqUid
+			,pqf_Uid AS pqfUid
+			,original_name AS originalName
+			,save_name AS saveName
+			,size
+			,ques_path
+			,delete_yn
+			,insert_time
+			,delete_time
+		FROM 
+			ic_productQuesFile
+		WHERE
+			proq_uid = #{proq_uid}	
+	</select>
+	
+	
+	<update id="undeleteProQuesFile" parameterType="list" flushCache="true">
+	UPDATE ic_productQeusFile
+	SET
+		delete_yn = 'N'
+	WHERE
+		pqf_uid IN
+	<foreach collection="list" item="item" separator="," open="(" close=")">
+		#{item}
+	</foreach>
+	</update>
+	
+	<select id="selectMyReview" resultType="com.lec.spring.domain.WonProReviewDTO">
+	SELECT		
+			r_uid, 
+			r_date, 
+			r_img,
+			r_content,
+			r_title,
+			m_uid,
+			pro_uid
+		FROM 
+			ic_review
+		WHERE
+			m_uid = #{m_uid}	
+	</select>
+	
+	<update id="updateMyReview" flushCache="true">
+		UPDATE 
+		ic_review
+		SET 
+		r_title = #{r_title },
+		r_content = #{r_content }
+		WHERE r_uid = #{r_uid}
+	</update>
+	
+	
 </mapper>
 
 	

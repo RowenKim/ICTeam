@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -63,6 +64,7 @@ function chkDelete(uid){
 			</div>
 		</section>
 		<!-- end: Page title -->
+		<form action="insertOrderOk" method="get">
 		<section id="page-content" class="sidebar-right">
 			<div class="container">
 				<div class="row">
@@ -74,12 +76,10 @@ function chkDelete(uid){
 								<c:forEach var="list" items="${list }">
 								<% i++; %>
 								<tr>
-								<form action="insertOrderOk" method="get">
-									<th style="width:5%; text-align:center">
+								
+									<th style="width:5%; text-align:center; height:60px;">
 										<input onclick="" type="checkbox" name="agree" class="basketChk" /></th>
-									<td style="width:10%;"><img
-										src="${list.b_img }"
-										class="basketImg"></td>
+									<td style="width:10%;">${list.b_img }</td>
 									<td style="width:30%; min-width:100px;" class="basketT"><a class="basketSubName" href="#">${list.b_proName }</a></td>
 									<td style="width:30%; min-width:130px;">
 										<div class="cart-product-quantity">
@@ -93,23 +93,28 @@ function chkDelete(uid){
 											
 										</div>
 									</td>
-									<td style="width:20%; min-width:60px;" class="basketT">${list.b_price } 원</td>
+									<td style="width:20%; min-width:60px;" class="basketT"><fmt:formatNumber value="${list.b_price }" pattern="#,###"/> 원</td>
 								
 									<td>
-									<input type="hidden" style="display:none;" name="o_price" value="${list.b_price }">
-									<input type="hidden" style="display:none;" name="o_img" value="${list.b_img }">
-									<input type="hidden" style="display:none;" name="o_name" value="${list.b_proName }">
-									<input type="hidden" style="display:none;" name="m_uid" value="${list.m_uid }">
-									<input type="hidden" style="display:none;" name="b_uid" value="${list.b_uid }">
-									<input style="display:none;" class="btn w-100" type="submit" id="insertOrder" onclick="chkOrder()" />
+									<input type="hidden" style="" name="o_price" value="${list.b_price }">
+									<input type="hidden" style="" name="o_img" value="${list.b_img }">
+									<input type="hidden" style="" name="name" value="${list.b_proName }">
+									<input type="hidden" style="" name="m_uid" value="${list.m_uid }">
+									<input type="hidden" name="o_name" class="sumname" value="">
 										<div id="deleteOk" onclick="chkDelete(${list.b_uid })"></div>
+										
 									</td>
-									</form>
+							
 								</tr>
 								</c:forEach>
 							</table>
+							
 							<hr>
 							<br>
+							<div>
+						
+							<input style="display:none" class="sum btn" value="합산이름 더하기"/>
+							</div>
 							<table>
 								<tr>
 									<th><input type="checkbox" name="agree_all" id="agree_all"
@@ -117,6 +122,8 @@ function chkDelete(uid){
 									<td class="basketT2">전체선택(3/3)</td>
 									<td>|</td>
 									<td class="basketT2"><div id="selectDelete" style="">선택삭제</div></td>
+									<!-- <input style="" value="그르지말고..
+										" class="btn w-100" type="submit" id="insertOrder" onsubmit="chkOrder()" /> -->
 								</tr>
 							</table>
 						</div>
@@ -170,7 +177,7 @@ function chkDelete(uid){
 			</div>
 
 		</section>
-		
+		</form>
 	</div>
 	<!--  --------------------------------------------------------------------------- -->
 
