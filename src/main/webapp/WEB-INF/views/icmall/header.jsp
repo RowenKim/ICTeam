@@ -75,7 +75,7 @@
                 <div class="container">
                     <!--Logo-->
                     <div id="logo">
-                        <a href="index">
+                        <a href="/icmall/all/index">
                             <span class="logo-default">IC MALL</span>
                           
                         </a>
