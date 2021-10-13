@@ -13,7 +13,7 @@
 	<c:otherwise>
 		<script>
 			alert("주문하기 페이지로 이동합니다");
-			location.href = "checkOut";
+			location.href = "/icmall/user/checkOut";
 		</script>	
 	</c:otherwise>
 </c:choose>
