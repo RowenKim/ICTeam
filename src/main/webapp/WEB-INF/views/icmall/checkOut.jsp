@@ -154,11 +154,11 @@
 									<h5>배송지</h5>
 								</div>
 								<div class="col-lg-9 form-group">
-									<a class="btn" data-target="#modal-3" data-toggle="modal"
-										href="#">주소 검색</a> <input type="text" name="p_addr1"
-										class="form-control addr1"> <input type="text"
-										name="p_addr2" class="form-control addr2"
-										placeholder="상세 주소를 입력해주세요" value="">
+								<input type="text" name="p_addr1" readonly class="form-control" 
+								id="address" value="주소검색" >
+								<input type="text" name="p_addr2" value="" class="form-control" id="address_detail"
+							 placeholder="상세주소 입력해주세요">
+							 
 								</div>
 								<div class="col-lg-3 form-group">
 									<h5>휴대폰 번호</h5>
@@ -278,4 +278,19 @@
 	<script src="${pageContext.request.contextPath }/JS/functions.js"></script>
 	<jsp:include page="footer.jsp" />
 </body>
+
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+window.onload = function(){
+    document.getElementById("address").addEventListener("click", function(){ //주소입력칸을 클릭하면
+        //카카오 지도 발생
+        new daum.Postcode({
+            oncomplete: function(data) { //선택시 입력값 세팅
+                document.getElementById("address").value = data.address; // 주소 넣기
+                document.querySelector("input[id=address_detail]").focus(); //상세입력 포커싱
+            }
+        }).open();
+    });
+}
+</script>
 </html>
