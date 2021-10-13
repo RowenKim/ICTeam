@@ -38,7 +38,7 @@
 
   </head>
 
-  <form name="qustionDelete" action="/icmall_admin/admin/qustionDelete" method="Post">
+<form name="qustionDelete" action="/icmall_admin/admin/qustionDelete" method="Post">
   <body id="page-top">
     <nav class="navbar navbar-expand navbar-dark navtopbg static-top">
 
@@ -233,7 +233,7 @@
 				        게시물을 정말 삭제하시겠습니까?
 				      </div>
 				      <div class="modal-footer">
-				      	<button type="button" class="btn btn-primary" onClick="location.href='qustionDelete'">삭제하기</button>
+				      	<button type="submit" class="btn btn-primary" onClick="location.href='/qustionDelete'">삭제하기</button>
 				       	<button type="button" class="btn btn-secondary" data-dismiss="modal">취소하기</button>
 				      </div>
 				    </div>
@@ -242,7 +242,7 @@
               </div>
              </div>
            </div>
-   
+   		 </form>
         
        
         
@@ -314,5 +314,5 @@
 	<script src="${pageContext.request.contextPath }/JS/admin.js"></script>
 	
   </body>
- </form>
+ 
 </html>

@@ -16,7 +16,7 @@ import com.lec.spring.domain.QuestionDTO;
 import com.lec.spring.service.UserService;
 
 @Controller
-@RequestMapping("/icmall_admin/**")
+@RequestMapping("/icmall_admin")
 public class QuestionController {
 	
 	
@@ -41,13 +41,13 @@ public class QuestionController {
 	userService.questionUpdate(dto);
 	
 		
-	return "redirect:icmall_admin/admin/adminQuestion";
+	return "redirect:/icmall_admin/admin/adminQuestion";
 	}
 	
 	
 	   // 관리자 문의 삭제
-	   @RequestMapping(value = "/admin/qustionDelete", method=RequestMethod.GET)
-	   public String qustionDelete(@RequestParam("RowCheck")List<Integer> user, Model model, Principal principal) throws Exception {
+	 @RequestMapping(value = "/admin/qustionDelete", method=RequestMethod.POST)
+	 public String qustionDelete(@RequestParam("RowCheck")List<Integer> user, Model model, Principal principal) throws Exception {
 		   System.out.println("들어옴");
 		   System.out.println("들어옴");
 		   System.out.println("들어옴");
@@ -62,7 +62,7 @@ public class QuestionController {
 	         System.out.println("삭제!!! : " + userService.qustionDelete(a[i])); 
 	      
 	   }
-	    return "icmall_admin/questionDetailList";
+	    return "redirect:/icmall_admin/admin/adminQuestion";
 	   }
 	
 	
