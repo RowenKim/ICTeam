@@ -59,15 +59,15 @@
                      <c:choose>
                        <c:when test="${user == null }">
                            <ul class="top-menu" style="float:right">
-                               <li><a href="join">회원가입</a></li>
-                               <li><a href="loginForm">로그인</a></li>
-                               <li><a href="serviceCenter">고객센터</a></li>
+                               <li><a href="/icmall/all/join">회원가입</a></li>
+                               <li><a href="/icmall/all/loginForm">로그인</a></li>
+                               <li><a href="/icmall/all/serviceCenter">고객센터</a></li>
                            </ul>
                        </c:when>
                        <c:otherwise>
                            <ul class="top-menu" style="float:right">
-                               <li><a href="/icmall/myPage">마이페이지</a></li>
-                               <li><a href="serviceCenter">고객센터</a></li>
+                               <li><a href="/icmall/all/myPage">마이페이지</a></li>
+                               <li><a href="/icmall/all/serviceCenter">고객센터</a></li>
                            </ul>
                        </c:otherwise>
                       </c:choose>
@@ -104,11 +104,11 @@
                             <nav>
                                 <!--Left Menu-->
                                 <ul>
-                                    <li><a href="vegetable">채소</a></li>
-                                    <li class="current"><a href="fruit">과일</a></li>
-                                    <li><a href="meat">정육</a></li>
-                                    <li><a href="snack">간식</a></li>
-                                    <li><a href="health">건강식품</a></li>
+                                    <li><a href="/icmall/all/vegetable">채소</a></li>
+                                    <li class="/icmall/all/current"><a href="fruit">과일</a></li>
+                                    <li><a href="/icmall/all/meat">정육</a></li>
+                                    <li><a href="/icmall/all/snack">간식</a></li>
+                                    <li><a href="/icmall/all/health">건강식품</a></li>
                                 </ul>
                                 <!--Right Menu-->
                                 <ul>
