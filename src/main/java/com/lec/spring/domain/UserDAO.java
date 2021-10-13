@@ -76,5 +76,8 @@ public interface UserDAO {
 		// 관리자 문의 답변
 		public void questionUpdate(QuestionDTO dto);
 		
+		// 관리자 문의 삭제
+		int qustionDelete(int uid);
+		
 		
 }

@@ -33,6 +33,10 @@ public class JinService {
 		return dao.selectMeat();
 	}
 	
+	public List<Jin_CrawlingDTO> seachOk(String search){
+		return dao.searchOk(search);
+	}
+	
 	
 //	// 상품 해당 uid 상세정보 불러오기
 //public List<Jin_CrawlingDTO> selectProInfo(int pro_uid){

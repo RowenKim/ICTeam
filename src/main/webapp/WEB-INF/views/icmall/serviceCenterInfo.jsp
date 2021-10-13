@@ -19,7 +19,7 @@
 
       if (confirm("정말 삭제하시겠습니까?") == true){    //확인
             
-         location.href='webDeleteOk?uid=' + q_uid
+         location.href='/icmall/user/webDeleteOk?uid=' + q_uid
    
       }else{   //취소
 
@@ -61,8 +61,8 @@
          <div class="row">
             <div class="col-lg-12">
                <div class="form-group text-center">
-                  <button class="btn" type="submit" onClick="location.href='serviceCenter?uid=${list[0].m_uid }'">뒤로가기</button>
-                  <button class="btn" type="submit" onClick="location.href='webUpdate?uid=${list[0].q_uid }'">수정하기</button>
+                  <button class="btn" type="submit" onClick="location.href='/icmall/all/serviceCenter'">뒤로가기</button>
+                  <button class="btn" type="submit" onClick="location.href='/icmall/user/webUpdate?uid=${list[0].q_uid }'">수정하기</button>
                   <button class="btn" type="submit" onClick="chkSubmit(${list[0].q_uid })">삭제하기</button>
                </div>
             </div>

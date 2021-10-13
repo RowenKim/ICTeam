@@ -12,7 +12,7 @@
 	<c:otherwise>
 		<script>
 			alert("삭제 성공");
-			location.href = "serviceCenter?uid=" + ${m_uid };
+			location.href = "/icmall/all/serviceCenter";
 		</script>
 	</c:otherwise>
 </c:choose>

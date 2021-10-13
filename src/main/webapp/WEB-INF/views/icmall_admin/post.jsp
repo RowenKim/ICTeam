@@ -155,7 +155,7 @@
 		</table>
 		</div>
 		<input type="hidden" name="q_uid" value="${list.q_uid }"/>
-		<button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onClick="location.href='/questionUpdate'">
+		<button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onClick="location.href='/icmall_admin/admin/adminQuestion'">
 		 답변
 		</button>
         </form> 

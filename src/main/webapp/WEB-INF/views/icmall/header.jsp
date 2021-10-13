@@ -57,6 +57,9 @@
                        </c:when>
                        <c:otherwise>
                            <ul class="top-menu" style="float:right">
+                           <c:if test="${auth.m_auth == 'ROLE_ADMIN' }">
+                           		<li><a href="/icmall_admin/admin/adminIndex">관리자페이지</a></li>
+                           </c:if>
                                <li><a href="/icmall/user/myPage">마이페이지</a></li>
                                <li><a href="/icmall/all/serviceCenter">고객센터</a></li>
                            </ul>

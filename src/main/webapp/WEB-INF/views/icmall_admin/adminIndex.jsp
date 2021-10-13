@@ -107,7 +107,8 @@ sevendayago.add(Calendar.DATE , -7);
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fas fa-angle-up"></i>
     </a>
-
+	<h4 style="margin-top:20px; margin-left:50px;"><a href="/icmall/all/index" style="background-color:#5f0080; color:white; padding:5px 15px; border-radius:10px;">
+	관리자 페이지 나가기</a></h4>
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">

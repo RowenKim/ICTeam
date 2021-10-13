@@ -144,6 +144,12 @@ public class Won_CrawlingDAOImpl implements Won_CrawlingDAO {
 		return mapper.updateMyReview(dto);
 	}
 
+	@Override
+	public AuthDTO selectAuth(AuthDTO dto) {
+		return mapper.selectAuth(dto);
+	}
+
+
 
 
 

@@ -2,7 +2,6 @@ package com.lec.spring.crawling;
 
 
 import java.security.Principal;
-import java.util.List;
 
 import javax.validation.Valid;
 
@@ -13,11 +12,15 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.lec.spring.domain.AuthDTO;
 import com.lec.spring.domain.OrderDTO;
 import com.lec.spring.domain.PayDTO;
 import com.lec.spring.domain.UserDTO;
 import com.lec.spring.service.Seoha_BoardService;
 import com.lec.spring.service.UserService;
+import com.lec.spring.service.WonService;
+
+import ch.qos.logback.core.recovery.ResilientSyslogOutputStream;
 
 
 @Controller
@@ -31,6 +34,9 @@ public class Seoha_Controller {
 	
 	@Autowired
 	private Seoha_BoardService seoha_BoardService;
+	
+	@Autowired
+	private WonService wonService;
 	
 
 	public void setBoardService(VegetableService vegetableService) {
@@ -420,7 +426,9 @@ public class Seoha_Controller {
 		
 		//메인 불러오기
 		@RequestMapping("/all/index")
-	      public String listIndex(Model model, Principal principal) {
+	      public String listIndex(Model model, Principal principal, AuthDTO dto) {
+			
+			
 	         if(principal == null) {
 	         model.addAttribute("listfruit", seoha_BoardService.selectfruit());
 	         model.addAttribute("listvegetable", seoha_BoardService.selectvegetable());
@@ -440,7 +448,22 @@ public class Seoha_Controller {
 	            model.addAttribute("listmeat", seoha_BoardService.selectmeat());
 	            model.addAttribute("listsnack", seoha_BoardService.selectsnack());
 	            model.addAttribute("listhealth", seoha_BoardService.selecthealth());
+	            
+	            
+				AuthDTO authdto = new AuthDTO();  
+				authdto.setM_id(principal.getName());
+				authdto.setM_auth("과연?");
+//				
+				System.out.println(authdto);
+				
+//				System.out.println( "dto------" + authdto.toString());
+//				System.out.println( "dto------" + wonService.selectAuth(principal.getName()));
+//				
+//	            
+	            model.addAttribute("auth", wonService.selectAuth(authdto));
 	         }
+	         
+//	         System.out.println(wonService.selectAuth(principal.getName()));
 	          
 	         System.out.println("list");
 	         return "icmall/index";

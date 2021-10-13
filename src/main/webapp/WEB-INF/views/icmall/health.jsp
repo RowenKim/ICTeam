@@ -56,15 +56,15 @@
                      <c:choose>
                        <c:when test="${user == null }">
                            <ul class="top-menu" style="float:right">
-                               <li><a href="join">회원가입</a></li>
-                               <li><a href="loginForm">로그인</a></li>
-                               <li><a href="serviceCenter">고객센터</a></li>
+                               <li><a href="/icmall/all/join">회원가입</a></li>
+                               <li><a href="/icmall/all/loginForm">로그인</a></li>
+                               <li><a href="/icmall/all/serviceCenter">고객센터</a></li>
                            </ul>
                        </c:when>
                        <c:otherwise>
                            <ul class="top-menu" style="float:right">
-                               <li><a href="/icmall/myPage">마이페이지</a></li>
-                               <li><a href="serviceCenter">고객센터</a></li>
+                               <li><a href="/icmall/user/myPage">마이페이지</a></li>
+                               <li><a href="/icmall/all/serviceCenter">고객센터</a></li>
                            </ul>
                        </c:otherwise>
                       </c:choose>

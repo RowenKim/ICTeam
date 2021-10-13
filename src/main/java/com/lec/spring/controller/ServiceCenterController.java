@@ -1,6 +1,7 @@
 package com.lec.spring.controller;
 
 import java.io.IOException;
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +17,15 @@ import com.lec.spring.domain.ServiceCenterDTO;
 import com.lec.spring.domain.UserDTO;
 import com.lec.spring.domain.ServiceCenterDAO;
 import com.lec.spring.service.ServiceCenterService;
+import com.lec.spring.service.UserService;
 
 
 @Controller
+@RequestMapping("/icmall/**")
 public class ServiceCenterController {
+	
+	@Autowired
+	UserService userService;
 	
 	private ServiceCenterService serviceCenterService;
 	
@@ -29,23 +35,30 @@ public class ServiceCenterController {
 	}
 
 
-
-	@GetMapping("/icmall/serviceCenter")
-	public String serviceCenter(int uid, Model model) throws IOException {
-    	//List<ServiceCenterDTO> dto = serviceCenterService.selectServiceCenter(uid);
+	 //고객센터
+	@RequestMapping("all/serviceCenter")
+	public String serviceCenter(Model model, Principal principal, UserDTO dto) throws Exception {
+		if(principal == null) {
+			 model.addAttribute("message", "Hello Spring Security");
+			 System.out.println("실패");
+		 }
+		 else {
+			 model.addAttribute("user", principal.getName());
+			 System.out.println("user : " + principal.getName());
+			 String id = principal.getName();
+			 dto.setM_id(id);
+			 
+			 userService.login(dto);
+			
+			 model.addAttribute("dto", userService.login(dto));
+			 model.addAttribute("list", serviceCenterService.selectServiceCenter());
+//			 RedirectAttributes redirectAttributes
+//			 redirectAttributes.addAttribute("red", userService.login(dto));
+		 }
 		
-	//	int uid = user.getM_uid();
-		//String pass = user.getM_password();
-		//System.out.println("pass" + pass);
-		System.out.println("들어옴");
-		System.out.println("uid : " + uid);
-    	model.addAttribute("list", serviceCenterService.selectServiceCenter(uid));
-    	model.addAttribute("memList", serviceCenterService.selectMemInfoAll());
-    	
-    	return "/icmall/serviceCenter";
+		return "icmall/serviceCenter";
 	}
-	
-	 @GetMapping("/icmall/serviceCenterInfo")
+	 @GetMapping("/user/serviceCenterInfo")
 	   @Transactional
 	    public String serviceCenterInfo(int uid, Model model) throws IOException {
 	    	
@@ -56,7 +69,7 @@ public class ServiceCenterController {
 	    	return "/icmall/serviceCenterInfo";
 	    }
 	 
-	 @RequestMapping("/icmall/webWrite")
+	 @RequestMapping("/user/webWrite")
 		public String webWrite(int uid, Model model) {
 			
 			model.addAttribute("m_uid", uid);
@@ -65,7 +78,7 @@ public class ServiceCenterController {
 			return "icmall/webWrite";
 		}
 	
-	 @RequestMapping("/icmall/webWriteOk")
+	 @RequestMapping("/user/webWriteOk")
 	    public String webWriteOk(ServiceCenterDTO dto, Model model) {
 	    	model.addAttribute("resultServiceCenter", serviceCenterService.insertServiceCenter(dto));
 	    	model.addAttribute("dto", dto);
@@ -73,7 +86,7 @@ public class ServiceCenterController {
 	    	return "icmall/webWriteOk";
 	    }
 	
-	 @RequestMapping("icmall/webUpdate")
+	 @RequestMapping("/user/webUpdate")
 		public String webUpdate(int uid, Model model) {
 			model.addAttribute("list", serviceCenterService.selectServiceCenterInfo(uid));
 
@@ -81,7 +94,7 @@ public class ServiceCenterController {
 			return "icmall/webUpdate";
 		}
 	 
-	 @RequestMapping("icmall/webUpdateOk")
+	 @RequestMapping("/user/webUpdateOk")
 		public String webUpdate(ServiceCenterDTO dto, Model model) {
 			System.out.println(dto.toString());
 			model.addAttribute("result", serviceCenterService.updateServiceCenter(dto));
@@ -90,17 +103,11 @@ public class ServiceCenterController {
 			return "icmall/webUpdateOk";
 		}
 	 
-	 @RequestMapping("icmall/webDeleteOk")
+	 @RequestMapping("/user/webDeleteOk")
 		public String webDeleteOk(int uid, Model model) {
-			
-			List<ServiceCenterDTO> dto = serviceCenterService.selectServiceCenterInfo(uid);
-			int m_uid = dto.get(0).getM_uid();
-			
 			
 			
 			model.addAttribute("result", serviceCenterService.deleteServiceCenter(uid));
-			model.addAttribute("m_uid", m_uid);
-			
 			return "icmall/webDeleteOk";
 		}
 	

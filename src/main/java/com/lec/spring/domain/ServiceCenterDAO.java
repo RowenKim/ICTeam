@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Mapper;
 public interface ServiceCenterDAO {
 		
 		//문의 조회
-		public abstract List<ServiceCenterDTO> selectServiceCenter(int uid);
+		public abstract List<ServiceCenterDTO> selectServiceCenter();
 		public abstract List<ServiceCenterDTO> selectServiceCenterInfo(int uid);
 		//유저
 		public abstract List<UserDTO> selectMemInfo(int uid);

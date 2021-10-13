@@ -18,8 +18,8 @@ public class ServiceCenterDAOImpl implements ServiceCenterDAO {
 	}
 
 	@Override
-	public List<ServiceCenterDTO> selectServiceCenter(int uid) {
-		return mapper.selectServiceCenter(uid);
+	public List<ServiceCenterDTO> selectServiceCenter() {
+		return mapper.selectServiceCenter();
 	}
 	
 	@Override

@@ -47,14 +47,26 @@ public class Won_CrawlingController {
 	Won_CrawlingDAO dao;
 	
     @GetMapping("/all/snack")
-    public String snack(Model model) throws IOException {
-//    	System.out.println("컨트롤러창 뜸");
+    public String snack(Model model,Principal principal, UserDTO dto) throws Exception {
+    	
+    	if(principal == null) {
+			 model.addAttribute("message", "Hello Spring Security");
+			 System.out.println("실패");
+		 }
+		 else {
+			 model.addAttribute("user", principal.getName());
+			 System.out.println("user : " + principal.getName());
+			 
+			 String id = principal.getName();
+			 dto.setM_id(id);
+			 userService.login(dto);
+			 System.out.println("userService: " + userService.login(dto));
+			 
+			 model.addAttribute("dto", userService.login(dto));
+		 }
     	
     	
     	model.addAttribute("list", wonService.list());
-//    	model.addAttribute("list", wonService.snackList());
-    	
-//    	System.out.println("컨트롤러창 뜸2");
     	
 //    	  List<Won_CrawlingDTO> snackProductList = won_crawlingService.getSnack();
 
@@ -65,7 +77,23 @@ public class Won_CrawlingController {
     }
     
     @GetMapping("/all/health")
-    public String health(Model model) throws IOException {
+    public String health(Model model, Principal principal, UserDTO dto) throws Exception {
+    	
+    	if(principal == null) {
+			 model.addAttribute("message", "Hello Spring Security");
+			 System.out.println("실패");
+		 }
+		 else {
+			 model.addAttribute("user", principal.getName());
+			 System.out.println("user : " + principal.getName());
+			 
+			 String id = principal.getName();
+			 dto.setM_id(id);
+			 userService.login(dto);
+			 System.out.println("userService: " + userService.login(dto));
+			 
+			 model.addAttribute("dto", userService.login(dto));
+		 }
     	model.addAttribute("list", wonService.Healthlist());
     	
     	return "icmall/health";
@@ -221,7 +249,25 @@ public class Won_CrawlingController {
     }
     
 	@RequestMapping("/user/reviewUpdate")
-	public String reviewUpdateOk(int pro_uid, int r_uid, Model model) {
+	public String reviewUpdateOk(int pro_uid, int r_uid, Model model, Principal principal, UserDTO dto) throws Exception {
+		
+		if(principal == null) {
+			 model.addAttribute("message", "Hello Spring Security");
+			 System.out.println("실패");
+		 }
+		 else {
+			 model.addAttribute("user", principal.getName());
+			 System.out.println("user : " + principal.getName());
+			 
+			 String id = principal.getName();
+			 dto.setM_id(id);
+			 userService.login(dto);
+			 System.out.println("userService: " + userService.login(dto));
+			 
+			 model.addAttribute("dto", userService.login(dto));
+	//		System.out.println("uid : " + uid);
+		 }
+		
 //		System.out.println("값은?" + r_uid);
 //		System.out.println("wonService.selectProReviewInfo(r_uid) : " + wonService.selectProReviewInfo(r_uid).toString());
 //		System.out.println("wonService.selectProInfo(pro_uid) : " + wonService.selectProInfo(pro_uid).toString());
@@ -256,7 +302,25 @@ public class Won_CrawlingController {
 	}
     
 	@RequestMapping("/user/questionUpdate")
-	public String questionUpdate(int uid, Model model) {
+	public String questionUpdate(int uid, Model model, Principal principal, UserDTO dto) throws Exception {
+		
+		if(principal == null) {
+			 model.addAttribute("message", "Hello Spring Security");
+			 System.out.println("실패");
+		 }
+		 else {
+			 model.addAttribute("user", principal.getName());
+			 System.out.println("user : " + principal.getName());
+			 
+			 String id = principal.getName();
+			 dto.setM_id(id);
+			 userService.login(dto);
+			 System.out.println("userService: " + userService.login(dto));
+			 
+			 model.addAttribute("dto", userService.login(dto));
+	//		System.out.println("uid : " + uid);
+		 }
+		
 		System.out.println(wonService.selectProQuesFiles(uid).toString());
 		model.addAttribute("proqList", wonService.selectProQuesInfo(uid));
 		model.addAttribute("fileList", wonService.selectProQuesFiles(uid));
@@ -278,10 +342,27 @@ public class Won_CrawlingController {
 	}
 	
 	@RequestMapping("/user/questionDeleteOk")
-	public String questionDeleteOk(int uid, Model model) {
+	public String questionDeleteOk(int uid, Model model, Principal principal, UserDTO dto) throws Exception {
+		if(principal == null) {
+			 model.addAttribute("message", "Hello Spring Security");
+			 System.out.println("실패");
+		 }
+		 else {
+			 model.addAttribute("user", principal.getName());
+			 System.out.println("user : " + principal.getName());
+			 
+			 String id = principal.getName();
+			 dto.setM_id(id);
+			 userService.login(dto);
+			 System.out.println("userService: " + userService.login(dto));
+			 
+			 model.addAttribute("dto", userService.login(dto));
+	//		System.out.println("uid : " + uid);
+		 }
 		
-		List<WonProQuestionDTO> dto = wonService.selectProQuesInfo(uid);
-		int pro_uid = dto.get(0).getPro_uid();
+		
+		List<WonProQuestionDTO> dtou = wonService.selectProQuesInfo(uid);
+		int pro_uid = dtou.get(0).getPro_uid();
 		
 		model.addAttribute("result", wonService.deleteProQues(uid));
 		model.addAttribute("pro_uid", pro_uid);
@@ -290,10 +371,26 @@ public class Won_CrawlingController {
 	}
 	
 	@RequestMapping("/user/putBasket")
-	public String insertBasket(WonBasketDTO dto, Model model) {
+	public String insertBasket(WonBasketDTO dtob, Model model, Principal principal, UserDTO dto) throws Exception {
+		if(principal == null) {
+			 model.addAttribute("message", "Hello Spring Security");
+			 System.out.println("실패");
+		 }
+		 else {
+			 model.addAttribute("user", principal.getName());
+			 System.out.println("user : " + principal.getName());
+			 
+			 String id = principal.getName();
+			 dto.setM_id(id);
+			 userService.login(dto);
+			 System.out.println("userService: " + userService.login(dto));
+			 
+			 model.addAttribute("dto", userService.login(dto));
+	//		System.out.println("uid : " + uid);
+		 }
 		
-		model.addAttribute("result", wonService.insertBasket(dto));
-		model.addAttribute("dto", dto);
+		model.addAttribute("result", wonService.insertBasket(dtob));
+		model.addAttribute("dtob", dtob);
 		return "icmall/putBasket";
 	}
 	
@@ -321,7 +418,22 @@ public class Won_CrawlingController {
 	}
 	
 	@RequestMapping("/user/myReviewUpdate")
-	public String myReviewUpdate(int uid, Model model) {
+	public String myReviewUpdate(int uid, Model model, Principal principal, UserDTO dto) throws Exception {
+		if(principal == null) {
+			 model.addAttribute("message", "Hello Spring Security");
+			 System.out.println("실패");
+		 }
+		 else {
+			 model.addAttribute("user", principal.getName());
+			 System.out.println("user : " + principal.getName());
+			 
+			 String id = principal.getName();
+			 dto.setM_id(id);
+			 userService.login(dto);
+			 System.out.println("userService: " + userService.login(dto));
+			 
+			 model.addAttribute("dto", userService.login(dto));
+		 }
 		int pro_uid = wonService.selectProReviewInfo(uid).get(0).getPro_uid();
 //		System.out.println("uid : " + uid);
 		model.addAttribute("reviewList", wonService.selectProReviewInfo(uid));

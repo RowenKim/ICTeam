@@ -13,7 +13,7 @@
 	<c:otherwise>
 		<script>
 			alert("등록 성공");
-			location.href = "serviceCenter?uid=" + ${dto.m_uid };
+			location.href = "/icmall/all/serviceCenter";
 		</script>
 	</c:otherwise>
 </c:choose>
