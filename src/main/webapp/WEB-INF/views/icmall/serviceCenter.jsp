@@ -38,11 +38,11 @@
 							<table class="table">
 								<tbody>
 									<tr style="text-align:center;">
+										<th class="sep-55"><div class="text-left"><a href="serviceCenterInfo?uid=${dto.q_uid }">${dto.q_uid }</a></div></th>
+										<th class="sep-55"><div class="text-left"><a href="serviceCenterInfo?uid=${dto.q_uid }">${memList[1].m_uid }.m_name }</a></div></th>
 										<th class="sep-55"><div class="text-left"><a href="serviceCenterInfo?uid=${dto.q_uid }">${dto.q_title }</a></div></th>
-										<td class="sep-15">${memList[1].m_uid }.m_name } </td>
-										<td class="sep-15">${dto.q_questionDate }</td>
-										<td class="sep-15">${dto.q_status }</td>
-										<td class="sep-15">${dto.q_viewCnt }</td>
+										<th class="sep-55"><div class="text-left"><a href="serviceCenterInfo?uid=${dto.q_uid }">${dto.q_questionDate }</a></div></th>
+									
 									</tr>
 								</tbody>
 							</table>

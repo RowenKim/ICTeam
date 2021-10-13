@@ -39,9 +39,9 @@
 
 <script type="text/javascript">
  function keyword_check(){
-  if(document.search.keyword.value==''){ //검색어가 없을 경우  
+  if(document.search.search.value==''){ //검색어가 없을 경우  
   alert('검색어를 입력하세요'); //경고창 띄움 
-  document.search.keyword.focus(); //다시 검색창으로 돌아감 
+  document.search.search.focus(); //다시 검색창으로 돌아감 
   return false;
   }
   else return true;
@@ -113,7 +113,7 @@
                                 <ul>
                                
                                    <form action="searchOk" name="search" method="get" onsubmit="return keyword_check()" class="form-inline my-2 my-lg-0 m-t-20 m-r-60 m-d-none" id="mall_serch_form">
-                                   <input name="keyword" value="${keyword }" class="form-control mr-sm-2" id="mall_search" placeholder="검색어를 입력해주세요" aria-label="검색어를 입력해주세요" type="search"> 
+                                   <input name="keyword"  class="form-control mr-sm-2" id="mall_search" placeholder="검색어를 입력해주세요" aria-label="검색어를 입력해주세요" type="search"> 
                                	   <i class="fab fa-sistrix" id="mall_serch_icon" ></i>
                                    <i class="fas fa-shopping-cart m-l-15" id="mall_cart"> </i>
                            		 </form>
