@@ -92,28 +92,28 @@
         <div class="row icon-boxes">
           <div class="col-md-3 col-6 text-center">
             <div class="icon-box effect medium center m-t-50">
-              <div class="icon"> <a href="#"><i class="fa fa-clipboard-list"></i></a> </div>
+              <div class="icon"> <a href="/icmall/user/orderList"><i class="fa fa-clipboard-list"></i></a> </div>
               <h3>주문내역 확인</h3>
               <p></p>
             </div>
           </div>
           <div class="col-md-3 col-6 text-center">
             <div class="icon-box effect medium center m-t-50">
-              <div class="icon"> <a href="#"><i class="fa fa-gift"></i></a> </div>
+              <div class="icon"> <a href="/icamll/user/basket"><i class="fa fa-gift"></i></a> </div>
               <h3>장바구니</h3>
               <p></p>
             </div>
           </div>
           <div class="col-md-3 col-6 text-center">
             <div class="icon-box effect medium center m-t-50">
-              <div class="icon"> <a href="#"><i class="fa fa-edit"></i></a> </div>
+              <div class="icon"> <a href="/icmall/user/myStock?uid=${dto.m_uid }"><i class="fa fa-edit"></i></a> </div>
               <h3>상품후기</h3>
               <p></p>
             </div>
           </div>
           <div class="col-md-3 col-6 text-center">
             <div class="icon-box effect medium center m-t-50">
-              <div class="icon"> <a href="#"><i class="fa fa-location-arrow"></i></a> </div>
+              <div class="icon"> <a href="/icamll/user/webWrite?uid=${dto.m_uid }"><i class="fa fa-location-arrow"></i></a> </div>
               <h3>문의하기</h3>
               <p></p>
             </div>

@@ -12,7 +12,7 @@
 	<c:otherwise>
 	<script>
 		alert("수정 성공");
-		location.href = "questionInfo?uid=${dto.proq_uid}";
+		location.href = "/icmall/user/questionInfo?uid=${dto.proq_uid}";
 	</script>
 	</c:otherwise>
 </c:choose>

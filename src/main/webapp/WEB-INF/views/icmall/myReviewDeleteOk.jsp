@@ -12,7 +12,7 @@
 	<c:otherwise>
 		<script>
 			alert("삭제 성공");
-			location.href = "myStock?uid=19"; // m_uid 값 전달
+			location.href = "/icmall/user/myStock?uid=${dto.m_uid}"; // m_uid 값 전달
 		</script>
 	</c:otherwise>
 </c:choose>

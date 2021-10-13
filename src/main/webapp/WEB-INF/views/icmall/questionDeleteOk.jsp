@@ -12,7 +12,7 @@
 	<c:otherwise>
 		<script>
 			alert("삭제 성공");
-			location.href = "stockDetail?uid=" + ${pro_uid };
+			location.href = "/icmall/all/stockDetail?uid=" + ${pro_uid };
 		</script>
 	</c:otherwise>
 </c:choose>
