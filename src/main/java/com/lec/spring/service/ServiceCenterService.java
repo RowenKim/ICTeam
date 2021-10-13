@@ -27,8 +27,8 @@ public class ServiceCenterService {
 	
 	
 	// 문의 전체 SELECT
-		public List<ServiceCenterDTO> selectServiceCenter(int m_uid){
-			return dao.selectServiceCenter(m_uid);
+		public List<ServiceCenterDTO> selectServiceCenter(){
+			return dao.selectServiceCenter();
 		}
 		
 		// 문의 한개 SELECT

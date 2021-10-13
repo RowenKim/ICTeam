@@ -27,33 +27,33 @@
       <table class="table">
             <tbody id="sc_table">
                <tr>
-                  <th scope="col" class="">번호</th>
-                  <th scope="col" class="">작성자</th>
-                  <th scope="col" class="">제목</th>
-                  <th scope="col" class="">작성날짜</th>
+                  <th scope="col" style="width:10%" class="">번호</th>
+                  <th scope="col" style="width:20%" class="">작성자</th>
+                  <th scope="col" style="width:30%" class="">제목</th>
+                  <th scope="col" style="width:40%" class="">작성날짜</th>
                </tr>
             </tbody>
       </table>
-      <c:forEach var="dto" items="${list }" >				
-							<table class="table">
-								<tbody>
-									<tr style="text-align:center;">
-										<th class="sep-55"><div class="text-left"><a href="serviceCenterInfo?uid=${dto.q_uid }">${dto.q_uid }</a></div></th>
-										<th class="sep-55"><div class="text-left"><a href="serviceCenterInfo?uid=${dto.q_uid }">${memList[1].m_uid }.m_name }</a></div></th>
-										<th class="sep-55"><div class="text-left"><a href="serviceCenterInfo?uid=${dto.q_uid }">${dto.q_title }</a></div></th>
-										<th class="sep-55"><div class="text-left"><a href="serviceCenterInfo?uid=${dto.q_uid }">${dto.q_questionDate }</a></div></th>
-									
-									</tr>
-								</tbody>
-							</table>
+      <c:forEach var="list" items="${list }" >				
+					<table class="table">
+						<tbody>
+							<tr style="text-align:center;">
+							<th style="width:10%" class="sep-55"><div class="text-left"><a href="/icmall/user/serviceCenterInfo?uid=${list.q_uid }">${list.q_uid }</a></div></th>
+							<th style="width:20%" class="sep-55"><div class="text-left"><a href="/icmall/user/serviceCenterInfo?uid=${list.q_uid }">${dto.m_name  }</a></div></th>
+							<th style="width:30%" class="sep-55"><div class="text-left"><a href="/icmall/user/serviceCenterInfo?uid=${list.q_uid }">${list.q_title }</a></div></th>
+							<th style="width:40%" class="sep-55"><div class="text-left"><a href="/icmall/user/serviceCenterInfo?uid=${list.q_uid }">${list.q_questionDate }</a></div></th>
+													
+							</tr>
+							</tbody>
+						</table>
 						</c:forEach>
      					<br>
 						<br>
-						
-						<div class="form-group text-center">
-		                  <button class="btn" type="submit" onClick="location.href='webWrite?uid=${list[0].m_uid }'">문의하기</button>
-               			</div>
-   
+						<c:if test="${dto.m_uid != undefined }">
+							<div class="form-group text-center">
+			                  <button class="btn" type="submit" onClick="location.href='/icmall/user/webWrite?uid=${dto.m_uid }'">문의하기</button>
+	               			</div>
+						</c:if>
    </div>
    </section>
 

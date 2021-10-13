@@ -26,5 +26,17 @@
 			pro_uid ASC		
 	</select>
 	
+	
+	<select id="searchOk" resultType="com.lec.spring.domain.Jin_CrawlingDTO">
+
+		SELECT * FROM ic_product  <![CDATA[ WHERE pro_name LIKE CONCAT(‘%’, #{keyword}, ‘%’)]]>
+		
+
+	</select>
+
+
+
+	
+	
 </mapper>
 
