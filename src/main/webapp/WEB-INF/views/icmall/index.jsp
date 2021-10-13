@@ -91,13 +91,13 @@
 								<!-- porduct start -->
 								<div class="product">
 									<div class="product-image index_img">
-										<a href="#">${list1.pro_img}</a>
+										<a href="stockDetail?uid=${list1.pro_uid }">${list1.pro_img}</a>
 									</div>
 									<div class="product-description">
 
 										<div class="product-title">
 											<h3 style="height: 180px;">
-												<a href="#">${list1.pro_name}</a>
+												<a href="stockDetail?uid=${list1.pro_uid }">${list1.pro_name}</a>
 											</h3>
 										</div>
 										<div class="product-price" style="">
@@ -130,13 +130,13 @@
 								<!-- porduct start -->
 								<div class="product">
 									<div class="product-image index_img">
-										<a href="#">${list.pro_img}</a>
+										<a href="stockDetail?uid=${list.pro_uid }">${list.pro_img}</a>
 									</div>
 									<div class="product-description">
 
 										<div class="product-title">
 											<h3 style="height: 180px;">
-												<a href="#">${list.pro_name}</a>
+												<a href="stockDetail?uid=${list.pro_uid }">${list.pro_name}</a>
 											</h3>
 										</div>
 										<div class="product-price" style="">
@@ -174,13 +174,13 @@
 								<!-- porduct start -->
 								<div class="product">
 									<div class="product-image index_img">
-										<a href="#">${list1.pro_img}</a>
+										<a href="stockDetail?uid=${list1.pro_uid }">${list1.pro_img}</a>
 									</div>
 									<div class="product-description">
 
 										<div class="product-title">
 											<h3 style="height: 180px;">
-												<a href="#">${list1.pro_name}</a>
+												<a href="stockDetail?uid=${list1.pro_uid }">${list1.pro_name}</a>
 											</h3>
 										</div>
 										<div class="product-price" style="">
@@ -215,13 +215,13 @@
 								<!-- porduct start -->
 								<div class="product">
 									<div class="product-image index_img">
-										<a href="#">${list1.pro_img}</a>
+										<a href="stockDetail?uid=${list1.pro_uid }">${list1.pro_img}</a>
 									</div>
 									<div class="product-description">
 
 										<div class="product-title">
 											<h3 style="height: 180px;">
-												<a href="#">${list1.pro_name}</a>
+												<a href="stockDetail?uid=${list1.pro_uid }">${list1.pro_name}</a>
 											</h3>
 										</div>
 										<div class="product-price" style="">
@@ -254,13 +254,13 @@
 								<!-- porduct start -->
 								<div class="product">
 									<div class="product-image index_img">
-										<a href="#">${list1.pro_img}</a>
+										<a href="stockDetail?uid=${list1.pro_uid }">${list1.pro_img}</a>
 									</div>
 									<div class="product-description">
 
 										<div class="product-title">
 											<h3 style="height: 180px;">
-												<a href="#">${list1.pro_name}</a>
+												<a href="stockDetail?uid=${list1.pro_uid }">${list1.pro_name}</a>
 											</h3>
 										</div>
 										<div class="product-price" style="">

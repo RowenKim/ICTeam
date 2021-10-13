@@ -86,9 +86,8 @@ function chkSubmit(){
 										<!-- <td class="cart-product-remove"><a href="#"><i
 												class="fa fa-times"></i></a></td> -->
 										<!-- <td><input type="checkbox" name="agree" class="basketChk" /></td> -->
-										<td rowspan="3" class="cart-product-thumbnail" style="width: 10%;"><a
-											href="#"> ${listPay[0].p_img }
-										</a></td>
+										<td rowspan="3" class="cart-product-thumbnail" style="width: 10%;"> ${listPay[0].p_img }
+										</td>
 										<td class="cart-product-description" style="width: 70%; padding-bottom:0 !important;">
 											${listPay[0].p_name }
 										</td>
@@ -117,7 +116,7 @@ function chkSubmit(){
 					<div class="row m-t-60">
 						<div class="col-lg-12">
 							<div class="form-group text-center">
-							<button class="btn white"><a style="color:#5f0080;" class="white" href="http://localhost:8080/icmall/orderList">주문내역 리스트</a></button>
+							<button class="btn white"><a style="color:#5f0080;" class="white" href="http://localhost:8080/icmall/user/orderList">주문내역 리스트</a></button>
 							 <c:if test="${listPay[0].p_status eq '결제완료' }">
 								<button onClick="location.href='updatePay?p_uid=${listPay[0].p_uid }'" type="submit" class="btn">상품주문취소</button>
 							</c:if>	
