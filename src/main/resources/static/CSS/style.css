@@ -851,7 +851,7 @@ strong { font-weight: 600; }
 
 del { -webkit-text-decoration-line: line-through; text-decoration-line: line-through; }
 
-a:not(.btn):not(.badge):hover, a:not(.btn):not(.badge):focus, a:not(.btn):not(.badge):active { text-decoration: none; outline: none; color: #2250fc; }
+a:not(.btn):not(.badge):hover, a:not(.btn):not(.badge):focus, a:not(.btn):not(.badge):active { text-decoration: none; outline: none; color: #5f0080; }
 a:not(.btn):not(.badge):not(.btn):not([href]):not([tabindex]) { color: #484848; }
 
 .font-pacifico { font-family: 'Dancing Script' !important; }
@@ -1307,10 +1307,10 @@ Portfolio
 
 .shop-cart .cart-product-remove { text-align: center; }
 .shop-cart .cart-product-thumbnail > a { color: #484848; float: left; margin-right: 12px; }
-.shop-cart .cart-product-thumbnail img { max-width: 52px; }
+.shop-cart .cart-product-thumbnail img { max-width: 200px; }
 .shop-cart .cart-product-thumbnail .cart-product-thumbnail-name { padding: 24px; }
 
-.cart-product-description { max-width: 200px; font-size: 12px; }
+.cart-product-description { max-width: 200px; font-size: 14px; }
 .cart-product-description span { display: block; }
 
 .cart-product-quantity .minus, .cart-product-quantity .plus { background-color: #ffffff; border: 1px solid #eee; margin: 0 -4px; padding: 5px 12px; }

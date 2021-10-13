@@ -24,7 +24,7 @@ public class ServiceCenterDTO {
 	private Date q_questionDate; 
 	private Date q_answerDate; 
 	private int m_uid;
-	
+
 	
 		public ServiceCenterDTO(int q_uid, String q_title, String q_content, String q_answer, String q_img, String q_status, int q_viewCnt, Date q_questionDate, Date q_answerDate, int m_uid) {
 			super();

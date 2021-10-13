@@ -12,8 +12,8 @@
 	</c:when>
 	<c:otherwise>
 		<script>
-			alert("등록 성공");
-			location.href = "basket";
+			alert("주문하기 페이지로 이동합니다");
+			location.href = "checkOut";
 		</script>	
 	</c:otherwise>
 </c:choose>
