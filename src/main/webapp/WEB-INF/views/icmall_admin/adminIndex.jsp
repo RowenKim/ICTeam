@@ -124,7 +124,7 @@ sevendayago.add(Calendar.DATE , -7);
           Logout버튼 클릭하면 I.C Mall 메인페이지로 돌아갑니다.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="/icmall/index">Logout</a>
+            <a class="btn btn-primary" href="/icmall/all/index">Logout</a>
           </div>
         </div>
       </div>

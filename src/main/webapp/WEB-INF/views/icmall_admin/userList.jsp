@@ -74,9 +74,8 @@
             <i class="fas fa-shopping-cart text-white fa-lg mr-2"></i>
             <span>주문관리</span>
           </a>
-          <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            <a class="dropdown-item navdropdown" href="beforePay">-입금대기</a>
-            <a class="dropdown-item navdropdown" href="finishPay">-결제완료</a>
+           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+         	<a class="dropdown-item navdropdown" href="payOk">-결제완료</a>
             <a class="dropdown-item navdropdown" href="readyStuck">-상품준비중</a>
             <a class="dropdown-item navdropdown" href="shopping">-배송중</a>
             <a class="dropdown-item navdropdown" href="shoppingFinish">-배송완료</a>
@@ -106,9 +105,6 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
             <a class="dropdown-item navdropdown" href="userList">-회원리스트</a>
-            <a class="dropdown-item navdropdown" href="userLevel">-회원관리</a> 
-            
-          </div>
         </li>
       </ul>
 
@@ -125,38 +121,6 @@
           </ol>
 		
 		<br>
-       <table class="table table-bordered" >
-         
-     
-		  <tbody>
-		   <tr>
-		      <th style="vertical-align:middle;">회원구분</th>
-		      <td style="vertical-align:middle;">
-				  <div class="dropdown position-static actions d-inline-block">
-				     <button class="btn btn btn-outline px-1 py-0 mt-1 dropdown-toggle actions-btn" type="button"
-				          id="table-action" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				          <i class="mdi mdi-dots-horizontal"></i>
-				          전체</button>
-				      <div class="dropdown-menu" aria-labelledby="table-action">
-				          <a class="dropdown-item" href="">관리자</a>
-				          <a class="dropdown-item" href="">회원</a>
-				      </div>
-				</div>
-           	  </td>
-		    </tr>
-		   <tr>
-		      <th>회원가입일</th>
-		      <td style="vertical-align:middle;"><input type="date" name="date"  id = "datebtn"  value="" placeholder="YYYY / MM / DD"> </td>
-		    </tr>
-		  </tbody>
-		</table>
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="form-group text-center">
-					<button class="btn btncolor text-white" type="submit">검색</button>
-				</div>
-			</div>
-		</div>
 		<!-- DataTables Example -->
 		<div class="card mb-3">
 		<div class="card-body">

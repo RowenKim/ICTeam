@@ -46,9 +46,6 @@
 						</tr>
 					</tbody>
 				</table>
-				<h3>이미지</h3>
-					이미지 경로 : 
-					<img src="D:\DevRoot\Dropbox\Git_ICTeam\Git_ICTeam\src\main\webapp\WEB-INF\upload\211010\0b4434c67cd84fd8b0d80963bb9f1565.png" style="border:">
 			</div>
 			<hr style="width:80%">
 			<div>

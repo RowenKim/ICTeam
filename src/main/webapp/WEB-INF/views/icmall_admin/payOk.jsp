@@ -102,8 +102,6 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
             <a class="dropdown-item navdropdown" href="userList">-회원리스트</a>
-            <a class="dropdown-item navdropdown" href="userLevel">-회원관리</a> 
-            
           </div>
         </li>
       </ul>
