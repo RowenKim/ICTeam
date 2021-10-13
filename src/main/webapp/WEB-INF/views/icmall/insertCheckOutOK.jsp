@@ -13,7 +13,7 @@
 	<c:otherwise>
 		<script>
 			alert("결제가 완료되었습니다.");
-			location.href = "orderList";
+			location.href = "icmall/user/orderList";
 		</script>	
 	</c:otherwise>
 </c:choose>

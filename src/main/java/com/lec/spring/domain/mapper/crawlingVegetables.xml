@@ -189,7 +189,7 @@
 		FROM 
 			ic_product
 		WHERE
-			pro_kind = "간식" 		
+			pro_kind = "과자" 		
 	</select>
 	
 	<select id="selecthealth" resultType="com.lec.spring.crawling.VegetablesDTO">
@@ -202,7 +202,7 @@
 		FROM 
 			ic_product
 		WHERE
-			pro_kind = "건강식품" 		
+			pro_kind = "건강기능" 		
 	</select>
 	
 	

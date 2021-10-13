@@ -106,11 +106,11 @@
                             <nav>
                                 <!--Left Menu-->
                                 <ul>
-                                    <li class="current"><a href="vegetable">채소</a></li>
-                                    <li><a href="fruit">과일</a></li>
-                                    <li><a href="meat">정육</a></li>
-                                    <li><a href="snack">간식</a></li>
-                                    <li><a href="health">건강식품</a></li>
+                                    <li class="current"><a href="/icmall/all/vegetable">채소</a></li>
+                                    <li><a href="/icmall/all/fruit">과일</a></li>
+                                    <li><a href="/icmall/all/meat">정육</a></li>
+                                    <li><a href="/icmall/all/snack">간식</a></li>
+                                    <li><a href="/icmall/all/health">건강식품</a></li>
                                 </ul>
                                 <!--Right Menu-->
                                 <ul>
@@ -153,7 +153,7 @@
 			<div id="blog" class="grid-layout post-4-columns m-b-30"
 				data-item="post-item">
 				<!-- Post item-->
-				<c:forEach var="list" items="${list }">
+				<c:forEach var="list" items="${list }" begin="4" end="15">
 					<div class="post-item border" style="height:440px !important;">
 						<div class="post-item-wrap">
 							<div class="post-image">

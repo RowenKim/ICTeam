@@ -47,7 +47,25 @@ public class Seoha_Controller {
 	}
 	
 	@RequestMapping("/all/vegetable")
-	public String list(Model model) {
+	public String list(Model model, Principal principal, UserDTO dto) throws Exception {
+		
+		 if(principal == null) {
+	          model.addAttribute("message", "Hello Spring Security");
+	      //    System.out.println("실패");
+	       }
+	       else {
+	          model.addAttribute("user", principal.getName());
+	          System.out.println("user : " + principal.getName());
+	          
+	          String id = principal.getName();
+	          dto.setM_id(id);
+	          userService.login(dto);
+	          System.out.println("userService: " + userService.login(dto));
+	          
+	          model.addAttribute("dto", userService.login(dto));
+	       }
+		
+		
 		
 		model.addAttribute("list", vegetableService.list());
 		
@@ -73,8 +91,24 @@ public class Seoha_Controller {
 	
 	// 장바구니 리스트
 	@RequestMapping("/user/basket")
-	public String basket(Model model) {
+	public String basket(Model model, Principal principal, UserDTO dto) throws Exception {
 	//	System.out.println("찍혀라");
+		 if(principal == null) {
+	          model.addAttribute("message", "Hello Spring Security");
+	      //    System.out.println("실패");
+	       }
+	       else {
+	          model.addAttribute("user", principal.getName());
+	          System.out.println("user : " + principal.getName());
+	          
+	          String id = principal.getName();
+	          dto.setM_id(id);
+	          userService.login(dto);
+	          System.out.println("userService: " + userService.login(dto));
+	          
+	          model.addAttribute("dto", userService.login(dto));
+	       }
+		
 		
 	//	System.out.println(seoha_BoardService.list().get(0));
 		model.addAttribute("list", seoha_BoardService.list());
@@ -100,6 +134,7 @@ public class Seoha_Controller {
 		int result = 0;
 		
 	
+		System.out.println("인서트");
 		
 		for(int i = 0; i < o_qty.length; i++) {
 			OrderDTO dto = new OrderDTO();
@@ -112,7 +147,7 @@ public class Seoha_Controller {
 			dto.setO_img(o_img[i]);
 			dto.setM_uid(m_uid[i]);
 					
-		System.out.println("인서트 DTO" + dto);
+		System.out.println("인서트 DTO" + o_img[i]);
 			result += seoha_BoardService.insertOrder(dto);	
 			}
 			
@@ -187,7 +222,23 @@ public class Seoha_Controller {
 		@GetMapping("/user/insertCheckOutOK")
 	//	@ResponseBody
 			public String pay(@Valid PayDTO user, int o_uid[], String p_name[], int p_qty[], String p_img[], int m_uid[], int p_price[],
-					String p_addr1, String p_addr2, String p_phone, String p_message, String p_way, BindingResult result2, Model model) {
+					String p_addr1, String p_addr2, String p_phone, String p_message, String p_way, BindingResult result2, Model model,  Principal principal, UserDTO dtoU) throws Exception {
+			
+			 if(principal == null) {
+		          model.addAttribute("message", "Hello Spring Security");
+		      //    System.out.println("실패");
+		       }
+		       else {
+		          model.addAttribute("user", principal.getName());
+		          System.out.println("user : " + principal.getName());
+		          
+		          String id = principal.getName();
+		          dtoU.setM_id(id);
+		          userService.login(dtoU);
+		          System.out.println("userService: " + userService.login(dtoU));
+		          
+		          model.addAttribute("dto", userService.login(dtoU));
+		       }
 			
 			int result = 0;
 			int deleteresult = 0;
@@ -195,7 +246,7 @@ public class Seoha_Controller {
 			if(result2.hasErrors()) {
 //				 
 				System.out.println("떠라");
-				  return "redirect:/icmall/checkOut";
+				  return "redirect:/icmall/user/checkOut";
 				}
 			else {
 			
@@ -234,8 +285,23 @@ public class Seoha_Controller {
 		
 		@GetMapping("/user/deleteOrderOk")
 		//	@ResponseBody
-				public String pay(int o_uid[], Model model) {
+				public String pay(int o_uid[], Model model, Principal principal, UserDTO dto) throws Exception {
 				
+			   if(principal == null) {
+			          model.addAttribute("message", "Hello Spring Security");
+			      //    System.out.println("실패");
+			       }
+			       else {
+			          model.addAttribute("user", principal.getName());
+			          System.out.println("user : " + principal.getName());
+			          
+			          String id = principal.getName();
+			          dto.setM_id(id);
+			          userService.login(dto);
+			          System.out.println("userService: " + userService.login(dto));
+			          
+			          model.addAttribute("dto", userService.login(dto));
+			       }
 				
 				int deleteresult = 0;
 				for(int i = 0; i < o_uid.length; i++) {
@@ -271,8 +337,24 @@ public class Seoha_Controller {
 		
 		// 주문내역 리스트
 		@RequestMapping("/user/orderList")
-		public String listPay(Model model) {
+		public String listPay(Model model, Principal principal, UserDTO dto) throws Exception {
 		//	System.out.println("찍혀라");
+			
+			 if(principal == null) {
+		          model.addAttribute("message", "Hello Spring Security");
+		      //    System.out.println("실패");
+		       }
+		       else {
+		          model.addAttribute("user", principal.getName());
+		          System.out.println("user : " + principal.getName());
+		          
+		          String id = principal.getName();
+		          dto.setM_id(id);
+		          userService.login(dto);
+		          System.out.println("userService: " + userService.login(dto));
+		          
+		          model.addAttribute("dto", userService.login(dto));
+		       }
 			
 		//	System.out.println(seoha_BoardService.list().get(0));
 			model.addAttribute("listPay", seoha_BoardService.listPay());
@@ -283,8 +365,25 @@ public class Seoha_Controller {
 		
 		// 주문내역 상세 페이지
 		@RequestMapping("/user/orderDetail")
-		public String listDetail(int p_uid, Model model) {
+		public String listDetail(int p_uid, Model model, Principal principal, UserDTO dto) throws Exception {
 		//	System.out.println("찍혀라");
+			 if(principal == null) {
+		          model.addAttribute("message", "Hello Spring Security");
+		      //    System.out.println("실패");
+		       }
+		       else {
+		          model.addAttribute("user", principal.getName());
+		          System.out.println("user : " + principal.getName());
+		          
+		          String id = principal.getName();
+		          dto.setM_id(id);
+		          userService.login(dto);
+		          System.out.println("userService: " + userService.login(dto));
+		          
+		          model.addAttribute("dto", userService.login(dto));
+		       }
+			
+			
 			
 		//	System.out.println(seoha_BoardService.list().get(0));
 			model.addAttribute("listPay", seoha_BoardService.viewByUidPay(p_uid));
@@ -294,7 +393,24 @@ public class Seoha_Controller {
 		
 		// 상세내역 결제취소로 업데이트 
 		@GetMapping("/user/updatePay")
-		public String updatePay(int p_uid, Model model) {
+		public String updatePay(int p_uid, Model model, Principal principal, UserDTO dto) throws Exception {
+			
+			 if(principal == null) {
+		          model.addAttribute("message", "Hello Spring Security");
+		      //    System.out.println("실패");
+		       }
+		       else {
+		          model.addAttribute("user", principal.getName());
+		          System.out.println("user : " + principal.getName());
+		          
+		          String id = principal.getName();
+		          dto.setM_id(id);
+		          userService.login(dto);
+		          System.out.println("userService: " + userService.login(dto));
+		          
+		          model.addAttribute("dto", userService.login(dto));
+		       }
+			
 			System.out.println("업데이트 실행");
 			model.addAttribute("updatePay", seoha_BoardService.updatePay(p_uid));
 			model.addAttribute("p_uid", p_uid);
