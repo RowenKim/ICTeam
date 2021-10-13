@@ -72,4 +72,11 @@ public interface Won_CrawlingDAO {
 
 	//상품Q&A에 있는 File 삭제 UPDATE
 	public abstract int deleteProQuesFile(int uid);
+	
+	// 마이페이지 myReview
+	public abstract List<WonProReviewDTO> selectMyReview(int uid);
+	
+	// 마이페이지 myReview
+	public abstract int updateMyReview(WonProReviewDTO dto);
+	
 }

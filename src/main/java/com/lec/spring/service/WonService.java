@@ -154,5 +154,16 @@ public class WonService {
 		return dao.selectProQuesFiles(proq_uid);
 	}
 	
+	// 마이페이지 myReview SELECT
+	public List<WonProReviewDTO> selectMyReview(int m_uid){
+		return dao.selectMyReview(m_uid);
+	}
+	
+	// 마이페이지 myReview Update
+	public int updateMyReview(WonProReviewDTO dto) {
+		return dao.updateMyReview(dto);
+	}
+	
+	
 	
 }

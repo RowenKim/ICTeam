@@ -21,6 +21,7 @@ public class WonProQuestionDTO {
 	private String proq_img;
 	private String proq_answerContent; 
 	private String proq_questionContent;
+	private String m_name;
 	private int m_uid;
 	private int pro_uid;
 	/** 파일 변경 여부 */
@@ -30,9 +31,17 @@ public class WonProQuestionDTO {
 	private List<Integer> fileIdxs;
 
 	
+
+	public WonProQuestionDTO() {
+		super();
+	}
+
+
+
 	public WonProQuestionDTO(int proq_uid, String proq_answerDate, String proq_questionDate, String proq_viewCnt,
 			String proq_status, String proq_title, String proq_img, String proq_answerContent,
-			String proq_questionContent, int m_uid, int pro_uid, String changeYn, List<Integer> fileIdxs) {
+			String proq_questionContent, String m_name, int m_uid, int pro_uid, String changeYn,
+			List<Integer> fileIdxs) {
 		super();
 		this.proq_uid = proq_uid;
 		this.proq_answerDate = proq_answerDate;
@@ -43,14 +52,11 @@ public class WonProQuestionDTO {
 		this.proq_img = proq_img;
 		this.proq_answerContent = proq_answerContent;
 		this.proq_questionContent = proq_questionContent;
+		this.m_name = m_name;
 		this.m_uid = m_uid;
 		this.pro_uid = pro_uid;
 		this.changeYn = changeYn;
 		this.fileIdxs = fileIdxs;
-	}
-
-	public WonProQuestionDTO() {
-		super();
 	}
 	
 	

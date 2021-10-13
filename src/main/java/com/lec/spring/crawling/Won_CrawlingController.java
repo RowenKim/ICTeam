@@ -1,6 +1,7 @@
 package com.lec.spring.crawling;
 
 import java.io.IOException;
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +13,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.lec.spring.domain.AdminOrderStatusDTO;
+import com.lec.spring.domain.UserDTO;
 import com.lec.spring.domain.WonBasketDTO;
 import com.lec.spring.domain.WonProQuestionDTO;
 import com.lec.spring.domain.WonProReviewDTO;
-import com.lec.spring.domain.WonQuesFileDTO;
 import com.lec.spring.domain.Won_CrawlingDAO;
+import com.lec.spring.service.UserService;
 import com.lec.spring.service.WonService;
 import com.lec.spring.service.adminCheckService;
 
@@ -24,6 +27,8 @@ import com.lec.spring.service.adminCheckService;
 
 @Controller
 public class Won_CrawlingController {
+	@Autowired
+	UserService userService;
 	
 	private WonService wonService;
 	private adminCheckService adminService;
@@ -67,8 +72,25 @@ public class Won_CrawlingController {
     }
     
     @GetMapping("/icmall/stockDetail")
-    public String stockDetail(int uid, Model model) throws IOException {
-    	List<WonProQuestionDTO> dto = wonService.selectProQues(uid);
+    public String stockDetail(int uid, Model model,Principal principal, UserDTO dto) throws Exception {
+    	
+    	if(principal == null) {
+			 model.addAttribute("message", "Hello Spring Security");
+			 System.out.println("실패");
+		 }
+		 else {
+			 model.addAttribute("user", principal.getName());
+			 System.out.println("user : " + principal.getName());
+			 
+			 String id = principal.getName();
+			 dto.setM_id(id);
+			 userService.login(dto);
+			 System.out.println("userService: " + userService.login(dto));
+			 
+			 model.addAttribute("dto", userService.login(dto));
+		 }
+    	
+    	
 //    	System.out.println(wonService.selectProReview(uid)); //값이 안 담김
 //    	System.out.println(wonService.selectProQues(uid)); // ok
     	
@@ -86,7 +108,24 @@ public class Won_CrawlingController {
     
     @GetMapping("/icmall/questionInfo")
     @Transactional
-    public String questionInfo(int uid, Model model) throws IOException {
+    public String questionInfo(int uid, Model model,Principal principal, UserDTO dto) throws Exception {
+    	
+    	if(principal == null) {
+			 model.addAttribute("message", "Hello Spring Security");
+			 System.out.println("실패");
+		 }
+		 else {
+			 model.addAttribute("user", principal.getName());
+			 System.out.println("user : " + principal.getName());
+			 
+			 String id = principal.getName();
+			 dto.setM_id(id);
+			 userService.login(dto);
+			 System.out.println("userService: " + userService.login(dto));
+			 
+			 model.addAttribute("dto", userService.login(dto));
+		 }
+    	
     	
     	wonService.ProQuesincViewCnt(uid);
     	model.addAttribute("proqList", wonService.selectProQuesInfo(uid));
@@ -112,17 +151,49 @@ public class Won_CrawlingController {
 	}
     
 	@RequestMapping("/icmall/stockReview")
-	public String stockReview(int uid, Model model) {
+	public String stockReview(int uid, Model model,Principal principal, UserDTO dto) throws Exception {
+		
+		if(principal == null) {
+			 model.addAttribute("message", "Hello Spring Security");
+			 System.out.println("실패");
+		 }
+		 else {
+			 model.addAttribute("user", principal.getName());
+			 System.out.println("user : " + principal.getName());
+			 
+			 String id = principal.getName();
+			 dto.setM_id(id);
+			 userService.login(dto);
+			 System.out.println("userService: " + userService.login(dto));
+			 
+			 model.addAttribute("dto", userService.login(dto));
+		 }
+		
 		
 		model.addAttribute("list", wonService.selectProInfo(uid));
-		model.addAttribute("memList", wonService.selectMemInfoAll());
 		model.addAttribute("proqReviweList", wonService.selectProReview(uid));
 		
 		return "icmall/stockReview";
 	}
 	
 	@RequestMapping("/icmall/question")
-	public String question(int uid, Model model) {
+	public String question(int uid, Model model, Principal principal, UserDTO dto) throws Exception {
+		
+		if(principal == null) {
+			 model.addAttribute("message", "Hello Spring Security");
+			 System.out.println("실패");
+		 }
+		 else {
+			 model.addAttribute("user", principal.getName());
+			 System.out.println("user : " + principal.getName());
+			 
+			 String id = principal.getName();
+			 dto.setM_id(id);
+			 userService.login(dto);
+			 System.out.println("userService: " + userService.login(dto));
+			 
+			 model.addAttribute("dto", userService.login(dto));
+		 }
 		
 		model.addAttribute("pro_uid", uid);
 		model.addAttribute("memList", wonService.selectMemInfoAll());
@@ -196,7 +267,8 @@ public class Won_CrawlingController {
 	@RequestMapping("icmall/questionUpdateOk")
 	public String questionUpdate(WonProQuestionDTO dto, MultipartFile[] files, 
 			Model model) {
-		System.out.println(dto.toString());
+		
+ 		System.out.println(dto.toString());
 		model.addAttribute("result", wonService.updateProQues(dto));
 		model.addAttribute("dto", dto);
 
@@ -230,10 +302,10 @@ public class Won_CrawlingController {
 	@RequestMapping("icmall_admin/adminIndex")
 	public String adminIndex(Model model) {
 		
-		System.out.println("매핑성공");
+//		System.out.println("매핑성공");
 //		System.out.println("값 체크 : " + adminService.countReadyPro());
 //		System.out.println("값 체크 : " + adminService.countNotpay());
-		System.out.println("값 체크 : " + adminService.countRefundPro());
+//		System.out.println("값 체크 : " + adminService.countRefundPro());
 		
 		// 상품 주문 및 배송상태
 		model.addAttribute("countReadyPro", adminService.countReadyPro());
@@ -242,8 +314,6 @@ public class Won_CrawlingController {
 		model.addAttribute("countBuyOkPro", adminService.countBuyOkPro());
 		model.addAttribute("countExchangePro", adminService.countExchangePro());
 		model.addAttribute("countRefundPro", adminService.countRefundPro());
-		model.addAttribute("countPayOk", adminService.countPayOk());
-		model.addAttribute("countNotpay", adminService.countNotpay());
 		model.addAttribute("countReview", adminService.countReview());
 		model.addAttribute("countProQA", adminService.countProQA());
 		
@@ -278,10 +348,159 @@ public class Won_CrawlingController {
 		// 1~7일간 회원(신규/탈퇴) 합계
 		model.addAttribute("countAllMemSevenBetOneDay", adminService.countAllMemSevenBetOneDay());
 		model.addAttribute("countDelMemSevenBetOneDay", adminService.countDelMemSevenBetOneDay());
-		
-		
+
 		
 		return "icmall_admin/adminIndex";
 	}
 	
+	// 결제완료 mapping
+	@RequestMapping("icmall_admin/payOk")
+	public String statusOfshipPayOk(Model model) {
+		
+		
+		model.addAttribute("payOk", adminService.statusOfshipPayOk());
+		
+		return "icmall_admin/payOk";
+	}
+	
+	
+	// 상품준비중 mapping
+	@RequestMapping("icmall_admin/readyStuck")
+	public String statusOfshipPreparedPro(Model model) {
+		
+		
+		model.addAttribute("PreparedPro", adminService.statusOfshipPreparedPro());
+		
+		return "icmall_admin/readyStuck";
+	}
+	
+	// 배송중 mapping
+	@RequestMapping("icmall_admin/shopping")
+	public String statusOfshipping(Model model) {
+		
+		
+		model.addAttribute("shipping", adminService.statusOfshipping());
+		
+		return "icmall_admin/shopping";
+	}
+	
+	
+	// 배송완료 mapping
+	@RequestMapping("icmall_admin/shoppingFinish")
+	public String statusOfshipOk(Model model) {
+		
+		
+		model.addAttribute("shipOk", adminService.statusOfshipOk());
+		
+		return "icmall_admin/shoppingFinish";
+	}
+	
+	// 구매확정 mapping
+	@RequestMapping("icmall_admin/buyFinish")
+	public String statusOfshipBuyOk(Model model) {
+		
+		
+		model.addAttribute("BuyOk", adminService.statusOfshipBuyOk());
+		
+		return "icmall_admin/buyFinish";
+	}
+	
+	// 교환접수 mapping
+	@RequestMapping("icmall_admin/exchange")
+	public String statusOfshipExchange(Model model) {
+		
+		
+		model.addAttribute("Exchange", adminService.statusOfshipExchange());
+		
+		return "icmall_admin/exchange";
+	}
+	
+	// 환불접수 mapping
+	@RequestMapping("icmall_admin/refund")
+	public String statusOfshipRefund(Model model) {
+		
+		
+		model.addAttribute("Refund", adminService.statusOfshipRefund());
+		
+		return "icmall_admin/refund";
+	}
+	
+	@RequestMapping("icmall_admin/insertShipping")
+	public String insertShip(int uid, Model model) {
+		
+//		System.out.println("TEST1");
+		model.addAttribute("insertCnt", adminService.insertShip(uid));
+//		System.out.println("TEST2");
+		model.addAttribute("updateCnt", adminService.updateShipInto(uid));
+//		System.out.println("TEST3");
+		
+		return "icmall_admin/insertShipping";
+	}
+	
+	@PostMapping("icmall_admin/shipStatusChange")
+	public String updateShipStatus(AdminOrderStatusDTO dto, Model model) {
+		
+//		System.out.println("메핑성공");
+//		System.out.println("dto ------" + dto);
+		model.addAttribute("result", adminService.updateShipStatus(dto));
+		
+		return "icmall_admin/shipStatusChange";
+	}
+	
+	
+	@RequestMapping("icmall/myStock")
+	public String myStock(int uid, Model model,Principal principal, UserDTO dto) throws Exception {
+		if(principal == null) {
+			 model.addAttribute("message", "Hello Spring Security");
+			 System.out.println("실패");
+		 }
+		 else {
+			 model.addAttribute("user", principal.getName());
+			 System.out.println("user : " + principal.getName());
+			 
+			 String id = principal.getName();
+			 dto.setM_id(id);
+			 userService.login(dto);
+			 System.out.println("userService: " + userService.login(dto));
+			 
+			 model.addAttribute("dto", userService.login(dto));
+	//		System.out.println("uid : " + uid);
+			 model.addAttribute("reviewList", wonService.selectMyReview(uid));
+				 // model 값으로 m_uid 전달
+		 }
+		return "icmall/myStock";
+	}
+	
+	@RequestMapping("icmall/myReviewUpdate")
+	public String myReviewUpdate(int uid, Model model) {
+		int pro_uid = wonService.selectProReviewInfo(uid).get(0).getPro_uid();
+//		System.out.println("uid : " + uid);
+		model.addAttribute("reviewList", wonService.selectProReviewInfo(uid));
+		model.addAttribute("proList", wonService.selectProInfo(pro_uid));
+		
+		return "icmall/myReviewUpdate";
+	}
+	
+	@RequestMapping("/icmall/myReviewUpdateOk")
+	public String myReviewUpdateOk(WonProReviewDTO dto, Model model) {
+//		System.out.println("값은?" + r_uid);
+//		System.out.println("wonService.selectProReviewInfo(r_uid) : " + wonService.selectProReviewInfo(r_uid).toString());
+//		System.out.println("wonService.selectProInfo(pro_uid) : " + wonService.selectProInfo(pro_uid).toString());
+		
+		model.addAttribute("result", wonService.updateMyReview(dto));
+		// 멤버 uid 전달
+		
+		
+		return "icmall/myReviewUpdateOk";
+	}
+	
+	@RequestMapping("/icmall/myReviewDeleteOk")
+	public String myReviewDeleteOk(int uid, Model model) {
+		
+//		System.out.println(dto.get(0).getPro_uid());
+		model.addAttribute("result", wonService.deleteProReview(uid));
+		// 멤버 uid 전달
+		
+		return "icmall/myReviewDeleteOk";
+	}
 }

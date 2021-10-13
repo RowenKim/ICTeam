@@ -32,13 +32,26 @@
 	}
 	
 </script>
+<script>
+	
+	function chk(uid){
+		alert("장바구니 담으시겠습니까?")
+		if(uid == undefined){
+			alert("로그인 후 이용해주세요")
+			return false;
+		}	else {
+			return true;
+		}
+	}
+	
+</script>
 <body>
 	<jsp:include page="header.jsp" />
 	<hr>
 
 	<section id="product-page" class="product-page p-b-0">
 		<div class="container">
-		<form action="putBasket" method="get" >
+		<form action="putBasket" method="get" onsubmit="return chk(${dto.m_uid})">
 			<div class="product">
 				<div class="row m-b-40">
 					<div class="col-lg-5">
@@ -69,8 +82,8 @@
 											<input type="hidden" name="b_proName" value="${list[0].pro_name }"/>
 											<input type="hidden" name="b_img" value='${list[0].pro_img }'/>
 											<input type="hidden" name="b_price" value="${list[0].pro_price }"/>
-											<input type="hidden" name="m_uid" value="${memList[0].m_uid }"/>
-											<input type="hidden" name="pro_uid" value="${list[0].pro_uid }"/>
+											<input type="hidden" name="m_uid" value="${dto.m_uid }"/>
+											<input type="hidden" name="pro_uid" value="${list[0].pro_uid }" />
 												<input type="button" class="minus" value="-"
 													id="prodecreaseQuantity" > <input type="text"
 													class="qty" value="1" id="productStock" name="b_qty"> <input
@@ -144,15 +157,15 @@
 								</tr>
 							</tbody>
 						</table>
-						<c:forEach var="dto" items="${proqReviweList }" >	
+						<c:forEach var="review" items="${proqReviweList }" >	
 						<div class="change1">
 							<table class="table">
 								<tbody>
 									<tr style="text-align:center;">
-										<th class="sep-10">${dto.r_uid } </th>
-										<td class="sep-15">${memList[dto.m_uid - 1].m_name } </td>
-										<td class="sep-55"><div class="text-left">${dto.r_title } </div></td>
-										<td class="sep-15">${dto.r_date } </td>
+										<th class="sep-10">${review.r_uid } </th>
+										<td class="sep-15">${review.m_name } </td>
+										<td class="sep-55"><div class="text-left">${review.r_title } </div></td>
+										<td class="sep-15">${review.r_date } </td>
 									</tr>
 								</tbody>
 							</table>
@@ -160,11 +173,13 @@
 									<div>
 										<b>${list[0].pro_name }</b>
 									</div>
-									${dto.r_content }
+									${review.r_content }
+							<c:if test="${dto.m_uid eq review.m_uid }">
 									<div class="form-group text-center">
-					                  <button class="btn" type="submit" onClick="location.href='reviewUpdate?pro_uid=${list[0].pro_uid }&r_uid=${dto.r_uid }'">수정하기</button>
-					                  <button class="btn" type="submit" onClick="chkSubmit(${dto.r_uid})">삭제하기</button>
+					                  <button class="btn" type="submit" onClick="location.href='reviewUpdate?pro_uid=${list[0].pro_uid }&r_uid=${review.r_uid }'">수정하기</button>
+					                  <button class="btn" type="submit" onClick="chkSubmit(${review.r_uid})">삭제하기</button>
 					        		</div>	
+							</c:if>
 								</div>
 						</div>
 						</c:forEach>
@@ -181,9 +196,11 @@
 		                <!-- end: Pagination -->
 					</div>
 				</div>
-				<div class="form-group text-center">
-                  <button class="btn" type="submit" onClick="location.href='stockReview?uid=${list[0].pro_uid }'">후기작성</button>
-        		</div>	
+				<c:if test="${dto.m_uid != undefined }">
+					<div class="form-group text-center">
+	                  <button class="btn" type="submit" onClick="location.href='stockReview?uid=${list[0].pro_uid }'">후기작성</button>
+	        		</div>	
+				</c:if>
 				<br>
 				<br>
 				<br>
@@ -214,7 +231,7 @@
 								<tbody>
 									<tr style="text-align:center;">
 										<th class="sep-55"><div class="text-left"><a href="questionInfo?uid=${dto.proq_uid }">${dto.proq_title }</a></div></th>
-										<td class="sep-15">${memList[dto.m_uid - 1].m_name } </td>
+										<td class="sep-15">${dto.m_name } </td>
 										<td class="sep-15">${dto.proq_questionDate }</td>
 										<td class="sep-15">${dto.proq_status }</td>
 										<td class="sep-15">${dto.proq_viewCnt }</td>
@@ -224,10 +241,11 @@
 						</c:forEach>
 						<br>
 						<br>
-						
-						<div class="form-group text-center">
-		                  <button class="btn" type="submit" onClick="location.href='question?uid=${list[0].pro_uid }'">문의하기</button>
-               			</div>
+						<c:if test="${dto.m_uid != undefined }">
+							<div class="form-group text-center">
+			                  <button class="btn" type="submit" onClick="location.href='question?uid=${list[0].pro_uid }'">문의하기</button>
+    	           			</div>
+						</c:if>
 						
 					</div>
 				</div>

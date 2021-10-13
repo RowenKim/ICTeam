@@ -48,10 +48,7 @@
 				</table>
 				<h3>이미지</h3>
 					이미지 경로 : 
-					<img src="WEB-INF\upload\211008\64612dbeedba48d4b2d724a2ef974965.png">
-				<c:forEach var="img" items="${fileList }">
-					<img src="${img.ques_path }" alt="상품문의 이미지"/>
-				</c:forEach>
+					<img src="D:\DevRoot\Dropbox\Git_ICTeam\Git_ICTeam\src\main\webapp\WEB-INF\upload\211010\0b4434c67cd84fd8b0d80963bb9f1565.png" style="border:">
 			</div>
 			<hr style="width:80%">
 			<div>
@@ -62,10 +59,12 @@
 			</div>
 			<div class="row">
             <div class="col-lg-12">
+            <c:if test="${proqList[0].m_uid eq dto.m_uid }">
                <div class="form-group text-center">
                   <button class="btn" type="submit" onClick="location.href='questionUpdate?uid=${proqList[0].proq_uid }'">수정하기</button>
                   <button class="btn" type="submit" onClick="chkSubmit(${proqList[0].proq_uid })">삭제하기</button>
                </div>
+            </c:if>
             </div>
          </div>
 	</section>

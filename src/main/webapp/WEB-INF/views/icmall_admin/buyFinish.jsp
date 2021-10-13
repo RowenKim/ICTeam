@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+            	<%-- Core --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -71,8 +73,7 @@
             <span>주문관리</span>
           </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            <a class="dropdown-item navdropdown" href="beforePay">-입금대기</a>
-            <a class="dropdown-item navdropdown" href="finishPay">-결제완료</a>
+         	<a class="dropdown-item navdropdown" href="payOk">-결제완료</a>
             <a class="dropdown-item navdropdown" href="readyStuck">-상품준비중</a>
             <a class="dropdown-item navdropdown" href="shopping">-배송중</a>
             <a class="dropdown-item navdropdown" href="shoppingFinish">-배송완료</a>
@@ -121,63 +122,6 @@
           </ol>
 		
 		<br>
-       <table class="table table-bordered">
-		  <tbody>
-		    <tr>
-		      <th style="vertical-align:middle;">
-		      주문번호</th>
-		      <td style="vertical-align:middle; ">
-		      <div class="input-group">
-  			  <input type="text" class="form-control" placeholder="주문번호를 정확하게 입력해주세요." aria-label="Recipient's username" aria-describedby="basic-addon2">
-  			  <div class="input-group-append">
-   				 <button class="btn btn-outline-secondary" type="button">검색</button>
-  			  </div>
-			  </div>
-		      </td>
-		      
-		    </tr>
-		    <tr>
-		      <th>기간검색</th>
-		      <td style="vertical-align:middle;"><input type="date" name="date"  id = "datebtn"  value="" placeholder="YYYY / MM / DD"> </td>
-		    </tr>
-		    <tr>
-		      <th>처리상태</th>
-		      <td style="vertical-align:middle"> 
-		      <input type="checkbox"/><span> 전체</span>
-		      <input type="checkbox"/><span> 입금대기</span>
-		      <input type="checkbox"/><span> 결재완료</span>
-		      <input type="checkbox"/><span> 상품준비중</span>
-		      <input type="checkbox"/><span> 배송중</span>
-		      <input type="checkbox"/><span> 배송완료</span>
-		      <input type="checkbox"/><span> 구매확정</span>
-		      <input type="checkbox"/><span> 환불접수</span>
-		      <input type="checkbox"/><span> 교환접수</span>
-		      </td>
-		    </tr>
-		    <tr>
-		      <th>결재수단</th>
-		      <td style="vertical-align:middle">
-		      <input type="checkbox"/><span> 계좌이체</span>
-		      <input type="checkbox"/><span> 신용카드</span>
-		      </td>
-		    </tr>
-		    <tr>
-		      <th>송장번호</th>
-		      <td style="vertical-align:middle">
-		      <input type="checkbox"/><span> 전체</span>
-		      <input type="checkbox"/><span> 송장번호 등록</span>
-		      <input type="checkbox"/><span> 송장번호 미등록</span>
-		      </td>
-		    </tr>
-		  </tbody>
-		</table>
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="form-group text-center">
-					<button class="btn btncolor text-white" type="submit">조회</button>
-				</div>
-			</div>
-		</div>
 		
 		<!-- DataTables Example -->
 		<div class="card mb-3">
@@ -187,7 +131,6 @@
                   <thead>
                     <tr class="text-muted">
                       <th>선택</th>
-                      <th>주문번호</th>
                       <th>주문자</th>
                       <th>주문상품</th>
                       <th>처리상태</th>
@@ -198,34 +141,20 @@
                       <th>주문일시</th>
                     </tr>
                   </thead>
+                   <c:forEach var="dto" items="${BuyOk }" >
                     <tr>
                       <td style="vertical-align:middle"><input type="checkbox"/></td>
-                      <td>123456789</td>
-                      <td>누굴까요?</td>
-                      <td>고기</td>
-                      <td><span class="badge badge-success w-75 py-2">구매확정</span></td>
-                      <td>400g</td>
-                      <td>46,000</td>
-                      <td>카드</td>
-                      <td>1234567890</td>
-                      <td>2021-00-00 <br>
-                          00:00:00
+                      <td>${dto.m_name }</td>
+                      <td>${dto.p_name }</td>
+                      <td><span class="badge badge-danger w-75 py-2">${dto.s_status }</span></td>
+                      <td>${dto.p_qty }</td>
+                      <td>${dto.p_price }</td>
+                      <td>${dto.p_way }</td>
+                      <td>${dto.s_shippingNum }</td>
+                      <td>${dto.p_date }
                       </td>
                     </tr>
-                    <tr>
-                      <td style="vertical-align:middle"><input type="checkbox"/></td>
-                      <td>122456789</td>
-                      <td>누구까요?</td>
-                      <td>고기</td>
-                      <td><span class="badge badge-success w-75 py-2">구매확정</span></td>
-                      <td>500g</td>
-                      <td>43,000</td>
-                      <td>카드</td>
-                      <td>1234567891</td>
-                      <td>2021-00-00 <br>
-                          00:00:00
-                      </td>
-                    </tr>
+                  </c:forEach>
                   </tbody>
                  
                 </table>

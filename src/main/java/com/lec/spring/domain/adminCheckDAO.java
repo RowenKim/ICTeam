@@ -1,5 +1,7 @@
 package com.lec.spring.domain;
 
+import java.util.List;
+
 public interface adminCheckDAO {
 	
 	// 상품준비중 count
@@ -101,4 +103,33 @@ public interface adminCheckDAO {
 	// 탈퇴회원 1~7일 전 합계 count
 	public abstract int countDelMemSevenBetOneDay();
 	
+	// 주문관리 결제완료 테이블 정보 SELECT
+	public abstract List<AdminOrderStatusDTO> statusOfshipPayOk();
+	
+	// 주문관리 상품준비중 테이블정보 SELECT
+	public abstract List<AdminOrderStatusDTO> statusOfshipPreparedPro();
+	
+	// 주문관리 배송중 테이블정보 SELECT
+	public abstract List<AdminOrderStatusDTO> statusOfshipping();
+	
+	// 주문관리 배송완료 테이블정보 SELECT
+	public abstract List<AdminOrderStatusDTO> statusOfshipOk();
+	
+	// 주문관리 구매확정 테이블정보 SELECT
+	public abstract List<AdminOrderStatusDTO> statusOfshipBuyOk();
+	
+	// 주문관리 교환접수 테이블정보 SELECT
+	public abstract List<AdminOrderStatusDTO> statusOfshipExchange();
+	
+	// 주문관리 환불접수 테이블정보 SELECT
+	public abstract List<AdminOrderStatusDTO> statusOfshipRefund();
+	
+	// 주문관리 결제완료된 주문 shipping DB에 INSERT
+	public abstract int insertShip(int uid);
+	
+	// 결제완료 shipping DB에 넣어준 p_uid shipInto UPDATE
+	public abstract int updateShipInto(int uid);
+	
+	// 배송상태 변경 UPDATE
+	public abstract int updateShipStatus(AdminOrderStatusDTO dto);
 }

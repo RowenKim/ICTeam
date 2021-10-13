@@ -100,11 +100,9 @@ function changeFilename(file) {
 			<h3><b>상품문의</b></h3>
 		</div>
 		<br><br>
-		상품 uid : ${pro_uid }<br>
-		회원 임시 uid : ${memList[0].m_uid }
 			<form name = "frm" action="questionOk" method="post" onsubmit="return chkSubmit()" enctype="multipart/form-data">
 			<input type="hidden" name="pro_uid" value="${pro_uid }"/>
-			<input type="hidden" name="m_uid" value="${memList[0].m_uid }"/>
+			<input type="hidden" name="m_uid" value="${dto.m_uid }"/>
 			<table class="table">
 				<tbody id="q_table">
 					<tr>

@@ -31,9 +31,8 @@
                 <!-- Blog -->
                 <div id="blog" class="grid-layout post-4-columns m-b-30" data-item="post-item">
                     <!-- Post item-->
-		                   <c:forEach var="dto" items="${list }" begin="1" end="25">
+		                   <c:forEach var="dto" items="${list }" begin="3" end="18">
 								<div class="post-item border" style="height:440px;">
-								<h1>${dto.pro_uid }</h1>
 									<div class="post-image">
 		                                <a href="stockDetail?uid=${dto.pro_uid }">
 		                                    ${dto.pro_img}

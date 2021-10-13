@@ -38,42 +38,39 @@ function chkSubmit(){
 	<hr>
 	<section id="page-content">
 	
-		<div class="content col-lg-14">
+		<div class="content">
 		<div id="titleCenter">
-			<h3><b>후기작성</b></h3>
+			<h3><b>후기수정</b></h3>
 		</div>
-		<br>
+		${reviewList[0].r_uid }
 		<br><br>
-			<form name="frm" action="stockReviewOk"" method="post" onsubmit="return chkSubmit()">
-			<input type="hidden" name="pro_uid" value="${list[0].pro_uid }"/>
-			<input type="hidden" name="m_uid" value="${dto.m_uid }"/>
-			<input type="hidden" name="r_img" value="이미지테스트"/>
-			<input type="hidden" name="r_date" value="now()"/>
-			<table class="table" id="sr_table">
-				<tbody>
+		<form name="frm" action="myReviewUpdateOk"" method="post" onsubmit="return chkSubmit()">
+		<input type="hidden" name="r_uid" value="${reviewList[0].r_uid }"/>
+			<table class="table">
+				<tbody id="sr_table">
 					<tr>
-						<th scope="row" class="sr_headTable"><div style="padding:12px 8px 12px 18px;">${list[0].pro_img }</div></th>
-						<td style="vertical-align:middle;"><h3>${list[0].pro_name }</h3></td>
+						<th scope="row" class="sr_headTable">${proList[0].pro_img }</th>
+						<td>${proList[0].pro_name }</td>
 					</tr>
 					<tr>
 						<th scope="row" class="sr_headTable"><b>제목</b></th>
 						<td><input
-							class="form-control required" name="r_title"
-							placeholder="제목을 입력해주세요" id="name" aria-required="true"
+							class="form-control required" name=r_title
+							value="${reviewList[0].r_title }" id="name" aria-required="true"
 							type="text"></td>
 					</tr>
 					<tr>
 						<th scope="row" class="sr_headTable"><b>후기내용</b></th>
 						<td><textarea class="form-control required" name="r_content" rows="9"
-							placeholder="자세한 후기는 다른 고객의 구매에 많은 도움이 됩니다" id="comment"
-							aria-required="true"></textarea></td>
+							 id="comment"
+							aria-required="true">${reviewList[0].r_content }</textarea></td>
 					</tr>
 				</tbody>
 			</table>
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="form-group text-center">
-						<button class="btn" type="submit">작성완료</button>
+						<button class="btn" type="submit">수정완료</button>
 					</div>
 				</div>
 			</div>
@@ -85,7 +82,6 @@ function chkSubmit(){
 
 	<br>
 	<br>
-	<script src="${pageContext.request.contextPath }/JS/won.js"></script>
 	<jsp:include page="footer.jsp" />
 
 </body>

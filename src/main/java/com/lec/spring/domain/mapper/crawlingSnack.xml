@@ -65,21 +65,22 @@
 	
 	<select id="selectProQues" resultType="com.lec.spring.domain.WonProQuestionDTO">
 	SELECT		
-			proq_uid, 
-			proq_answerDate , 
-			proq_questionDate , 
-			proq_viewCnt , 
-			proq_status,
-			proq_title,
-			proq_img,
-			proq_answerContent ,
-			proq_questionContent ,
-			m_uid,
-			pro_uid
+			p.proq_uid proq_uid, 
+			p.proq_answerDate proq_answerDate, 
+			p.proq_questionDate proq_questionDate, 
+			p.proq_viewCnt proq_viewCnt, 
+			p.proq_status proq_status,
+			p.proq_title proq_title,
+			p.proq_img proq_img,
+			p.proq_answerContent proq_answerContent,
+			p.proq_questionContent proq_questionContent,
+			p.m_uid m_uid,
+			p.pro_uid pro_uid,
+			m.m_name m_name
 		FROM 
-			ic_productquestion
-		WHERE
-			pro_uid = #{pro_uid}	
+			ic_productquestion p, ic_member m
+		<![CDATA[WHERE 
+			pro_uid = #{pro_uid } && p.m_uid = m.m_uid]]>
 	</select>
 	
 	<select id="selectProQuesInfo" resultType="com.lec.spring.domain.WonProQuestionDTO">
@@ -144,17 +145,18 @@
 	</select>
 	<select id="selectProReview" resultType="com.lec.spring.domain.WonProReviewDTO">
 	SELECT		
-			r_uid, 
-			r_date, 
-			r_img,
-			r_content,
-			r_title,
-			m_uid,
-			pro_uid
-		FROM 
-			ic_review
-		WHERE
-			pro_uid = #{pro_uid}	
+		r.r_uid r_uid, 
+		r.r_content r_content,
+		r.r_img r_img,
+		r.r_date r_date, 
+		r.r_title r_title,
+		m.m_name m_name,
+		m.m_uid m_uid,
+		r.pro_uid pro_uid
+	FROM 
+		ic_review r, ic_member m 
+	<![CDATA[WHERE
+		pro_uid =  #{pro_uid} && r.m_uid = m.m_uid]]>
 	</select>
 	
 	<select id="selectProReviewInfo" resultType="com.lec.spring.domain.WonProReviewDTO">
@@ -268,8 +270,31 @@
 	<foreach collection="list" item="item" separator="," open="(" close=")">
 		#{item}
 	</foreach>
-</update>
+	</update>
 	
+	<select id="selectMyReview" resultType="com.lec.spring.domain.WonProReviewDTO">
+	SELECT		
+			r_uid, 
+			r_date, 
+			r_img,
+			r_content,
+			r_title,
+			m_uid,
+			pro_uid
+		FROM 
+			ic_review
+		WHERE
+			m_uid = #{m_uid}	
+	</select>
+	
+	<update id="updateMyReview" flushCache="true">
+		UPDATE 
+		ic_review
+		SET 
+		r_title = #{r_title },
+		r_content = #{r_content }
+		WHERE r_uid = #{r_uid}
+	</update>
 	
 	
 </mapper>

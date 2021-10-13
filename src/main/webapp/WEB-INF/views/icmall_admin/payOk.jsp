@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+            	<%-- Core --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -35,7 +37,6 @@
     
 
   </head>
-
   <body id="page-top">
     <nav class="navbar navbar-expand navbar-dark navtopbg static-top">
 
@@ -71,8 +72,7 @@
             <span>주문관리</span>
           </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            <a class="dropdown-item navdropdown" href="beforePay">-입금대기</a>
-            <a class="dropdown-item navdropdown" href="finishPay">-결제완료</a>
+            <a class="dropdown-item navdropdown" href="payOk">-결제완료</a>
             <a class="dropdown-item navdropdown" href="readyStuck">-상품준비중</a>
             <a class="dropdown-item navdropdown" href="shopping">-배송중</a>
             <a class="dropdown-item navdropdown" href="shoppingFinish">-배송완료</a>
@@ -121,63 +121,6 @@
           </ol>
 		
 		<br>
-       <table class="table table-bordered">
-		  <tbody>
-		    <tr>
-		      <th style="vertical-align:middle;">
-		      주문번호</th>
-		      <td style="vertical-align:middle; ">
-		      <div class="input-group">
-  			  <input type="text" class="form-control" placeholder="주문번호를 정확하게 입력해주세요." aria-label="Recipient's username" aria-describedby="basic-addon2">
-  			  <div class="input-group-append">
-   				 <button class="btn btn-outline-secondary" type="button">검색</button>
-  			  </div>
-			  </div>
-		      </td>
-		      
-		    </tr>
-		    <tr>
-		      <th>기간검색</th>
-		      <td style="vertical-align:middle;"><input type="date" name="date"  id = "datebtn"  value="" placeholder="YYYY / MM / DD"> </td>
-		    </tr>
-		    <tr>
-		      <th>처리상태</th>
-		      <td style="vertical-align:middle"> 
-		      <input type="checkbox"/><span> 전체</span>
-		      <input type="checkbox"/><span> 입금대기</span>
-		      <input type="checkbox"/><span> 결재완료</span>
-		      <input type="checkbox"/><span> 상품준비중</span>
-		      <input type="checkbox"/><span> 배송중</span>
-		      <input type="checkbox"/><span> 배송완료</span>
-		      <input type="checkbox"/><span> 구매확정</span>
-		      <input type="checkbox"/><span> 환불접수</span>
-		      <input type="checkbox"/><span> 교환접수</span>
-		      </td>
-		    </tr>
-		    <tr>
-		      <th>결재수단</th>
-		      <td style="vertical-align:middle">
-		      <input type="checkbox"/><span> 계좌이체</span>
-		      <input type="checkbox"/><span> 신용카드</span>
-		      </td>
-		    </tr>
-		    <tr>
-		      <th>송장번호</th>
-		      <td style="vertical-align:middle">
-		      <input type="checkbox"/><span> 전체</span>
-		      <input type="checkbox"/><span> 송장번호 등록</span>
-		      <input type="checkbox"/><span> 송장번호 미등록</span>
-		      </td>
-		    </tr>
-		  </tbody>
-		</table>
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="form-group text-center">
-					<button class="btn btncolor text-white" type="submit">조회</button>
-				</div>
-			</div>
-		</div>
 		
 		<!-- DataTables Example -->
 		<div class="card mb-3">
@@ -186,46 +129,51 @@
                 <table  class="table-hover table text-center table-bordered" id="myTable"  width="100%" cellspacing="0">
                   <thead>
                     <tr class="text-muted">
-                      <th>선택</th>
-                      <th>주문번호</th>
+                      <th>번호</th>
                       <th>주문자</th>
                       <th>주문상품</th>
-                      <th>처리상태</th>
                       <th>수량</th>
                       <th>상품금액</th>
                       <th>결제방법</th>
-                      <th>송장번호</th>
                       <th>주문일시</th>
+                      <th>배송상태</th>
+                      <th>확인</th>
+                      <th>배송상태변경</th>
                     </tr>
                   </thead>
+                   <c:forEach var="dto" items="${payOk }" >
                     <tr>
-                      <td style="vertical-align:middle"><input type="checkbox"/></td>
-                      <td>123456789</td>
-                      <td>누굴까요?</td>
-                      <td>고기</td>
-                      <td><span class="badge badge-success w-75 py-2">결제완료</span></td>
-                      <td>400g</td>
-                      <td>46,000</td>
-                      <td>카드</td>
-                      <td>1234567890</td>
-                      <td>2021-00-00 <br>
-                          00:00:00
+                      <td>${dto.p_uid }</td>
+                      <td>${dto.m_name }</td>
+                      <td>${dto.p_name }</td>
+                      <td>${dto.p_qty }</td>
+                      <td>${dto.p_price }</td>
+                      <td>${dto.p_way }</td>
+                      <td>${dto.p_date }
+                      <td>
+                      <form action="shipStatusChange" method="POST">
+                      	<select name="s_status">
+                      		<option value="현재상태">-선택-</option>
+                      		<option value="상품준비중">상품준비중</option>
+                      		<option value="배송중">배송중</option>
+                      		<option value="배송완료">배송완료</option>
+                      		<option value="구매확정">구매확정</option>
+                      		<option value="교환접수">교환접수</option>
+                      		<option value="환불접수">환불접수</option>
+                      	</select>
+                      	<input type="hidden" name="p_uid" value="${dto.p_uid }"/>
                       </td>
-                    </tr>
-                    <tr>
-                      <td style="vertical-align:middle"><input type="checkbox"/></td>
-                      <td>122456789</td>
-                      <td>누구까요?</td>
-                      <td>고기</td>
-                      <td><span class="badge badge-success w-75 py-2">결제완료</span></td>
-                      <td>500g</td>
-                      <td>43,000</td>
-                      <td>카드</td>
-                      <td>1234567891</td>
-                      <td>2021-00-00 <br>
-                          00:00:00
                       </td>
+                      	<c:if test="${dto.p_shippingInto ne 'N'}">
+                      <td><button class="btn btncolor text-white" type="button" style="cursor:default; background-color:gray;">주문완료</button></td>
+                      	</c:if>
+                      	<c:if test="${dto.p_shippingInto eq 'N' }">
+                      <td><button class="btn btncolor text-white" type="button" onClick="location.href='insertShipping?uid=${dto.p_uid }'">주문확인</button></td>
+                      	</c:if>
+                      <td><button class="btn btncolor text-white" type="submit">배송상태 변경</button></td>
+                      </form>
                     </tr>
+                  </c:forEach>
                   </tbody>
                  
                 </table>

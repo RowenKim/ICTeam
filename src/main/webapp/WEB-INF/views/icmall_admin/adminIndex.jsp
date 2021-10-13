@@ -138,18 +138,14 @@ sevendayago.add(Calendar.DATE , -7);
 						    	<span id="orderTitel_admin"><b>주문관리</b></span>
 	                            <table class="ai_tab" id="ai_tab">
 							    	<tr>
-							    		<td class="ai_tab1"><a href="beforePay" class="ai_title">입금대기</a> <br>
-							    		<div class="ai_sec">${countNotpay }</div></td>
-							    		<td class="ai_tab1"><a href="finishPay" class="ai_title">결제완료</a> <br>
-							    		<div class="ai_sec">${countPayOk }</div></td>
+							    		<td class="ai_tab1"><a href="shoppingFinish" class="ai_title">배송완료</a><br>
+							    		<div class="ai_sec">${countShippingOkPro }</div></td>
 							    		<td class="ai_tab1"><a href="readyStuck" class="ai_title">상품준비중</a><br>
 							    		<div class="ai_sec">${countReadyPro }</div></td>
 							    		<td class="ai_tab1"><a href="shopping" class="ai_title">배송중</a><br>
 							    		<div class="ai_sec">${countShippingPro }</div></td>
 							    	</tr>
 							    	<tr>
-							    		<td class="ai_tab2"><a href="shoppingFinish" class="ai_title">배송완료</a><br>
-							    		<div class="ai_sec">${countShippingOkPro }</div></td>
 							    		<td class="ai_tab2"><a href="buyFinish" class="ai_title">구매확정</a><br>
 							    		<div class="ai_sec">${countBuyOkPro }</div></td>
 							    		<td class="ai_tab2"><a href="refund" class="ai_title">환불접수</a><br>

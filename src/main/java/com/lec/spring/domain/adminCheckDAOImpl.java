@@ -1,5 +1,7 @@
 package com.lec.spring.domain;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -178,6 +180,57 @@ public class adminCheckDAOImpl implements adminCheckDAO {
 	@Override
 	public int countDelMemSevenBetOneDay() {
 		return mapper.countDelMemSevenBetOneDay();
+	}
+
+
+	@Override
+	public List<AdminOrderStatusDTO> statusOfshipPreparedPro() {
+		return mapper.statusOfshipPreparedPro();
+	}
+
+	@Override
+	public List<AdminOrderStatusDTO> statusOfshipping() {
+		return mapper.statusOfshipping();
+	}
+
+	@Override
+	public List<AdminOrderStatusDTO> statusOfshipOk() {
+		return mapper.statusOfshipOk();
+	}
+
+	@Override
+	public List<AdminOrderStatusDTO> statusOfshipBuyOk() {
+		return mapper.statusOfshipBuyOk();
+	}
+
+	@Override
+	public List<AdminOrderStatusDTO> statusOfshipExchange() {
+		return mapper.statusOfshipExchange();
+	}
+
+	@Override
+	public List<AdminOrderStatusDTO> statusOfshipRefund() {
+		return mapper.statusOfshipRefund();
+	}
+
+	@Override
+	public List<AdminOrderStatusDTO> statusOfshipPayOk() {
+		return mapper.statusOfshipPayOk();
+	}
+
+	@Override
+	public int insertShip(int uid) {
+		return mapper.insertShip(uid);
+	}
+
+	@Override
+	public int updateShipInto(int uid) {
+		return mapper.updateShipInto(uid);
+	}
+
+	@Override
+	public int updateShipStatus(AdminOrderStatusDTO dto) {
+		return mapper.updateShipStatus(dto);
 	}
 
 	

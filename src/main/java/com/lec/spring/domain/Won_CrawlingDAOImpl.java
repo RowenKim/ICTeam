@@ -134,6 +134,16 @@ public class Won_CrawlingDAOImpl implements Won_CrawlingDAO {
 		return 0;
 	}
 
+	@Override
+	public List<WonProReviewDTO> selectMyReview(int uid) {
+		return mapper.selectMyReview(uid);
+	}
+
+	@Override
+	public int updateMyReview(WonProReviewDTO dto) {
+		return mapper.updateMyReview(dto);
+	}
+
 
 
 

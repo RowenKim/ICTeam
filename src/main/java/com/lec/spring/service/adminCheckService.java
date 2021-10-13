@@ -1,8 +1,11 @@
 package com.lec.spring.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.lec.spring.domain.AdminOrderStatusDTO;
 import com.lec.spring.domain.adminCheckDAO;
 
 @Service
@@ -184,5 +187,51 @@ public class adminCheckService {
 		return dao.countDelMemSevenBetOneDay();
 	}
 	
+	// 주문관리 결제완료 테이블 정보 SELECT
+	public List<AdminOrderStatusDTO> statusOfshipPayOk(){
+		return dao.statusOfshipPayOk();
+	}
+	
+	// 주문관리 상품준비중 테이블 정보 SELECT
+	public List<AdminOrderStatusDTO> statusOfshipPreparedPro(){
+		return dao.statusOfshipPreparedPro();
+	}
+	// 주문관리 배송중 테이블 정보 SELECT
+	public List<AdminOrderStatusDTO> statusOfshipping(){
+		return dao.statusOfshipping();
+	}
+	// 주문관리 배송완료 테이블 정보 SELECT
+	public List<AdminOrderStatusDTO> statusOfshipOk(){
+		return dao.statusOfshipOk();
+	}
+	// 주문관리 구매확정 테이블 정보 SELECT
+	public List<AdminOrderStatusDTO> statusOfshipBuyOk(){
+		return dao.statusOfshipBuyOk();
+	}
+	// 주문관리 교환접수 테이블 정보 SELECT
+	public List<AdminOrderStatusDTO> statusOfshipExchange(){
+		return dao.statusOfshipExchange();
+	}
+	// 주문관리 환불접수 테이블 정보 SELECT
+	public List<AdminOrderStatusDTO> statusOfshipRefund(){
+		return dao.statusOfshipRefund();
+	}
+	
+	
+	// 결제완료 주문 shipping DB에 INSERT
+	public int insertShip(int p_uid) {
+		return dao.insertShip(p_uid);
+	}
+	
+	// Shipping 생성된 p_uid 밑 컬럼 shipInto UPDATE
+	public int updateShipInto(int p_uid) {
+		return dao.updateShipInto(p_uid);
+	}
+	
+	// 배송상태 UPDATE
+	public int updateShipStatus(AdminOrderStatusDTO dto) {
+		return dao.updateShipStatus(dto);
+	}
+
 	
 }
