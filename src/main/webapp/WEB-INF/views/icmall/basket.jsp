@@ -23,11 +23,11 @@
 
 function chkDelete(uid){
 	// 삭제 여부, 다시 확인 하고 진행하기
-	var r = confirm("삭제하시겠습니까?");
+	//var r = confirm("삭제하시겠습니까?");
 	
-	if(r){
+	//if(r){
 		location.href = 'deleteOk?uid=' + uid;
-	}
+	//}
 } // chkDelete
 
  function chkOrder(){
@@ -35,7 +35,7 @@ function chkDelete(uid){
 	var r = confirm("주문하시겠습니까?");
 	
 	if(r){
-		location.href = 'insertOrderOk';
+		location.href = '/icmall/user/insertOrderOk';
 	}
 }  // chkDelete
 </script>
@@ -80,7 +80,7 @@ function chkDelete(uid){
 									<th style="width:5%; text-align:center; height:60px;">
 										<input onclick="" type="checkbox" name="agree" class="basketChk" /></th>
 									<td style="width:10%;">${list.b_img }</td>
-									<td style="width:30%; min-width:100px;" class="basketT"><a class="basketSubName" href="#">${list.b_proName }</a></td>
+									<td style="width:30%; min-width:100px;" class="basketT"><a class="basketSubName" href="/icmall/all/stockDetail?uid=${list.pro_uid }">${list.b_proName }</a></td>
 									<td style="width:30%; min-width:130px;">
 										<div class="cart-product-quantity">
 											<div class="quantity m-l-5 updown">
@@ -97,8 +97,9 @@ function chkDelete(uid){
 								
 									<td>
 									<input type="hidden" style="" name="o_price" value="${list.b_price }">
-									<input type="hidden" style="" name="o_img" value="${list.b_img }">
+								<%-- 	<input type="text" style="" name="o_img" value="'${list.b_img }'"> --%>
 									<input type="hidden" style="" name="name" value="${list.b_proName }">
+									<textarea style="display:none;" name="o_img">${list.b_img }</textarea>
 									<input type="hidden" style="" name="m_uid" value="${list.m_uid }">
 									<input type="hidden" name="o_name" class="sumname" value="">
 										<div id="deleteOk" onclick="chkDelete(${list.b_uid })"></div>

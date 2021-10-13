@@ -12,7 +12,7 @@
 	<c:otherwise>
 	<script>
 		alert("수정 성공");
-		location.href = "myStock?uid=19";
+		location.href = "/icmall/user/myStock?uid=${dto.m_uid}";
 	</script>
 	</c:otherwise>
 </c:choose>

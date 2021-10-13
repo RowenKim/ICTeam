@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -51,59 +51,61 @@
 					<hr>
 					<!-- table -->
 					<c:forEach var="list" items="${listPay }">
-					<%-- <c:forEach var="list1" items="${listShipping }"> --%>
-					<div class="shop-cart">
-						<h6>${list.p_date}</h6>
-						<div class="">
-							<table class="table table-bordered td-b-n">
-								<thead>
-									<tr>
-										<th class="cart-product-name" colspan="3">${list.p_name}<a style="color: #5f0080" href="orderDetail?p_uid=${list.p_uid }"><i
-												style="float: right;" class="m-t-5 fa fa-angle-right"></i></a>
-										</th>
-									</tr>
-								</thead>
-								<tbody>
-								<c:set var= "sum" value="${(list.p_price * list.p_qty)}"/>
-									<tr>
-										<!-- <td class="cart-product-remove"><a href="#"><i
+						<%-- <c:forEach var="list1" items="${listShipping }"> --%>
+						<div class="shop-cart">
+							<h6>${list.p_date}</h6>
+							<div class="">
+								<table class="table table-bordered td-b-n">
+									<thead>
+										<tr>
+											<th class="cart-product-name" colspan="3">${list.p_name}<a
+												style="color: #5f0080"
+												href="orderDetail?p_uid=${list.p_uid }"><i
+													style="float: right;" class="m-t-5 fa fa-angle-right"></i></a>
+											</th>
+										</tr>
+									</thead>
+									<tbody>
+										<c:set var="sum" value="${(list.p_price * list.p_qty)}" />
+										<tr>
+											<!-- <td class="cart-product-remove"><a href="#"><i
 												class="fa fa-times"></i></a></td> -->
-										<td class="cart-product-thumbnail" style="width: 10%;"
-											rowspan="4"><a href="#">${list.p_img}
-										</a></td>
-										<td class="cart-product-description" style="width: 10%;">
-											<p>주문번호</p>
-										</td>
-										<td class="cart-product-price">${list.p_uid}</td>
-									</tr>
-									<tr>
-										<td class="cart-product-description">
-											<p>결제금액</p>
-										</td>
-										<td class="cart-product-price"><fmt:formatNumber value="${sum}" pattern="#,###"/></td>
-									</tr>
-									<tr>
-										<td class="cart-product-description">
-											<p>주문상태</p>
-										</td>
-										<td class="cart-product-price">${list.p_status }</td>
-									</tr>
-									<!-- <tr>
+											<td class="cart-product-thumbnail" style="width:20%;" rowspan="3">
+											${list.p_img} "> </td>
+											<td class="cart-product-description" style="width:20%;">
+												<p>주문번호</p>
+											</td>
+											<td class="cart-product-price" style="width:60%;">${list.p_uid}</td>
+										</tr>
+										<tr>
+											<td class="cart-product-description">
+												<p>결제금액</p>
+											</td>
+											<td class="cart-product-price"><fmt:formatNumber
+													value="${sum}" pattern="#,###" /></td>
+										</tr>
+										<tr>
+											<td class="cart-product-description">
+												<p>주문상태</p>
+											</td>
+											<td class="cart-product-price">${list.p_status }</td>
+										</tr>
+										<!-- <tr>
 										<td class="cart-product-description">
 											<p>배송상태</p>
 										</td> -->
-									<%-- 	<td class="cart-product-price">${list1.s_status }</td> --%>
-									<!-- </tr> -->
+										<%-- 	<td class="cart-product-price">${list1.s_status }</td> --%>
+										<!-- </tr> -->
 
-								</tbody>
-							</table>
+									</tbody>
+								</table>
+							</div>
 						</div>
-					</div>
 
-					<!-- end: table -->
+						<!-- end: table -->
 					</c:forEach>
-				<%-- 	</c:forEach> --%>
-										<hr>
+					<%-- 	</c:forEach> --%>
+					<hr>
 					<!-- Pagination -->
 					<ul class="pagination">
 						<li class="page-item"><a class="page-link" href="#"><i

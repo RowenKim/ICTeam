@@ -151,7 +151,7 @@
                       <td>${dto.p_way }</td>
                       <td>${dto.p_date }
                       <td>
-                      <form action="shipStatusChange" method="POST">
+                      <form action="/icmall_admin/admin/shipStatusChange" method="POST">
                       	<select name="s_status">
                       		<option value="현재상태">-선택-</option>
                       		<option value="상품준비중">상품준비중</option>

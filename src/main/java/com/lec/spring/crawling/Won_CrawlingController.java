@@ -24,7 +24,7 @@ import com.lec.spring.service.WonService;
 import com.lec.spring.service.adminCheckService;
 
 
-
+@RequestMapping("/icmall")
 @Controller
 public class Won_CrawlingController {
 	@Autowired
@@ -46,7 +46,7 @@ public class Won_CrawlingController {
 	
 	Won_CrawlingDAO dao;
 	
-    @GetMapping("/icmall/snack")
+    @GetMapping("/all/snack")
     public String snack(Model model) throws IOException {
 //    	System.out.println("컨트롤러창 뜸");
     	
@@ -64,14 +64,14 @@ public class Won_CrawlingController {
 
     }
     
-    @GetMapping("/icmall/health")
+    @GetMapping("/all/health")
     public String health(Model model) throws IOException {
     	model.addAttribute("list", wonService.Healthlist());
     	
     	return "icmall/health";
     }
     
-    @GetMapping("/icmall/stockDetail")
+    @GetMapping("/all/stockDetail")
     public String stockDetail(int uid, Model model,Principal principal, UserDTO dto) throws Exception {
     	
     	if(principal == null) {
@@ -106,7 +106,7 @@ public class Won_CrawlingController {
     	return "icmall/stockDetail";
     }
     
-    @GetMapping("/icmall/questionInfo")
+    @GetMapping("/user/questionInfo")
     @Transactional
     public String questionInfo(int uid, Model model,Principal principal, UserDTO dto) throws Exception {
     	
@@ -136,7 +136,7 @@ public class Won_CrawlingController {
     	return "/icmall/questionInfo";
     }
 
-    @PostMapping(value="/icmall/stockReviewOk")
+    @PostMapping(value="/user/stockReviewOk")
 	public String stockReviewOk(WonProReviewDTO dto, Model model) {
 //    	System.out.println("TEST0");
     	
@@ -150,7 +150,7 @@ public class Won_CrawlingController {
 		return "icmall/stockReviewOk";
 	}
     
-	@RequestMapping("/icmall/stockReview")
+	@RequestMapping("/user/stockReview")
 	public String stockReview(int uid, Model model,Principal principal, UserDTO dto) throws Exception {
 		
 		if(principal == null) {
@@ -176,7 +176,7 @@ public class Won_CrawlingController {
 		return "icmall/stockReview";
 	}
 	
-	@RequestMapping("/icmall/question")
+	@RequestMapping("/user/question")
 	public String question(int uid, Model model, Principal principal, UserDTO dto) throws Exception {
 		
 		if(principal == null) {
@@ -201,7 +201,7 @@ public class Won_CrawlingController {
 		return "icmall/question";
 	}
 	
-    @RequestMapping("/icmall/questionOk")
+    @RequestMapping("/user/questionOk")
     public String questionOk(WonProQuestionDTO dto, MultipartFile[] files ,Model model) {
 //    	System.out.println("TEST1");
 //    	System.out.println("DTO : " + dto.toString());
@@ -220,7 +220,7 @@ public class Won_CrawlingController {
     	return "icmall/questionOk";
     }
     
-	@RequestMapping("/icmall/reviewUpdate")
+	@RequestMapping("/user/reviewUpdate")
 	public String reviewUpdateOk(int pro_uid, int r_uid, Model model) {
 //		System.out.println("값은?" + r_uid);
 //		System.out.println("wonService.selectProReviewInfo(r_uid) : " + wonService.selectProReviewInfo(r_uid).toString());
@@ -232,7 +232,7 @@ public class Won_CrawlingController {
 		return "icmall/reviewUpdate";
 	}
 	
-	@RequestMapping("/icmall/reviewUpdateOk")
+	@RequestMapping("/user/reviewUpdateOk")
 	public String reviewUpdateOk(WonProReviewDTO dto, Model model) {
 		
 		System.out.println(dto.toString());
@@ -243,7 +243,7 @@ public class Won_CrawlingController {
 		return "icmall/reviewUpdateOk";
 	}
 	
-	@RequestMapping("/icmall/reviewDeleteOk")
+	@RequestMapping("/user/reviewDeleteOk")
 	public String reviewDeleteOk(int uid, Model model) {
 		
 		List<WonProReviewDTO> dto = wonService.selectProReviewInfo(uid);
@@ -255,7 +255,7 @@ public class Won_CrawlingController {
 		return "icmall/reviewDeleteOk";
 	}
     
-	@RequestMapping("icmall/questionUpdate")
+	@RequestMapping("/user/questionUpdate")
 	public String questionUpdate(int uid, Model model) {
 		System.out.println(wonService.selectProQuesFiles(uid).toString());
 		model.addAttribute("proqList", wonService.selectProQuesInfo(uid));
@@ -264,7 +264,7 @@ public class Won_CrawlingController {
 		return "icmall/questionUpdate";
 	}
 	
-	@RequestMapping("icmall/questionUpdateOk")
+	@RequestMapping("/user/questionUpdateOk")
 	public String questionUpdate(WonProQuestionDTO dto, MultipartFile[] files, 
 			Model model) {
 		
@@ -277,7 +277,7 @@ public class Won_CrawlingController {
 		return "icmall/questionUpdateOk";
 	}
 	
-	@RequestMapping("icmall/questionDeleteOk")
+	@RequestMapping("/user/questionDeleteOk")
 	public String questionDeleteOk(int uid, Model model) {
 		
 		List<WonProQuestionDTO> dto = wonService.selectProQuesInfo(uid);
@@ -289,7 +289,7 @@ public class Won_CrawlingController {
 		return "icmall/questionDeleteOk";
 	}
 	
-	@RequestMapping("icmall/putBasket")
+	@RequestMapping("/user/putBasket")
 	public String insertBasket(WonBasketDTO dto, Model model) {
 		
 		model.addAttribute("result", wonService.insertBasket(dto));
@@ -297,158 +297,7 @@ public class Won_CrawlingController {
 		return "icmall/putBasket";
 	}
 	
-	// 관리자 컨트롤러 ----------------------------
-	
-	@RequestMapping("icmall_admin/adminIndex")
-	public String adminIndex(Model model) {
-		
-//		System.out.println("매핑성공");
-//		System.out.println("값 체크 : " + adminService.countReadyPro());
-//		System.out.println("값 체크 : " + adminService.countNotpay());
-//		System.out.println("값 체크 : " + adminService.countRefundPro());
-		
-		// 상품 주문 및 배송상태
-		model.addAttribute("countReadyPro", adminService.countReadyPro());
-		model.addAttribute("countShippingPro", adminService.countShippingPro());
-		model.addAttribute("countShippingOkPro", adminService.countShippingOkPro());
-		model.addAttribute("countBuyOkPro", adminService.countBuyOkPro());
-		model.addAttribute("countExchangePro", adminService.countExchangePro());
-		model.addAttribute("countRefundPro", adminService.countRefundPro());
-		model.addAttribute("countReview", adminService.countReview());
-		model.addAttribute("countProQA", adminService.countProQA());
-		
-		// 신규회원 7일간 정보
-		model.addAttribute("countNewMemOnedayAgo", adminService.countNewMemOnedayAgo());
-		model.addAttribute("countNewMemTwodayAgo", adminService.countNewMemTwodayAgo());
-		model.addAttribute("countNewMemThreedayAgo", adminService.countNewMemThreedayAgo());
-		model.addAttribute("countNewMemFourdayAgo", adminService.countNewMemFourdayAgo());
-		model.addAttribute("countNewMemfivedayAgo", adminService.countNewMemfivedayAgo());
-		model.addAttribute("countNewMemSixdayAgo", adminService.countNewMemSixdayAgo());
-		model.addAttribute("countNewMemSevendayAgo", adminService.countNewMemSevendayAgo());
-		
-		// 전체회원 7일간 정보
-		model.addAttribute("countAllMemOnedayAgo", adminService.countAllMemOnedayAgo());
-		model.addAttribute("countAllMemTwodayAgo", adminService.countAllMemTwodayAgo());
-		model.addAttribute("countAllMemThreedayAgo", adminService.countAllMemThreedayAgo());
-		model.addAttribute("countAllMemFourdayAgo", adminService.countAllMemFourdayAgo());
-		model.addAttribute("countAllMemFivedayAgo", adminService.countAllMemFivedayAgo());
-		model.addAttribute("countAllMemSixdayAgo", adminService.countAllMemSixdayAgo());
-		model.addAttribute("countAllMemSevendayAgo", adminService.countAllMemSevendayAgo());
-		
-		
-		// 탈퇴회원 7일간 정보
-		model.addAttribute("countDelMemOnedayAgo", adminService.countDelMemOnedayAgo());
-		model.addAttribute("countDelMemTwodayAgo", adminService.countDelMemTwodayAgo());
-		model.addAttribute("countDelMemThreedayAgo", adminService.countDelMemThreedayAgo());
-		model.addAttribute("countDelMemFourdayAgo", adminService.countDelMemFourdayAgo());
-		model.addAttribute("countDelMemFivedayAgo", adminService.countDelMemFivedayAgo());
-		model.addAttribute("countDelMemSixdayAgo", adminService.countDelMemSixdayAgo());
-		model.addAttribute("countDelMemSevendayAgo", adminService.countDelMemSevendayAgo());
-		
-		// 1~7일간 회원(신규/탈퇴) 합계
-		model.addAttribute("countAllMemSevenBetOneDay", adminService.countAllMemSevenBetOneDay());
-		model.addAttribute("countDelMemSevenBetOneDay", adminService.countDelMemSevenBetOneDay());
-
-		
-		return "icmall_admin/adminIndex";
-	}
-	
-	// 결제완료 mapping
-	@RequestMapping("icmall_admin/payOk")
-	public String statusOfshipPayOk(Model model) {
-		
-		
-		model.addAttribute("payOk", adminService.statusOfshipPayOk());
-		
-		return "icmall_admin/payOk";
-	}
-	
-	
-	// 상품준비중 mapping
-	@RequestMapping("icmall_admin/readyStuck")
-	public String statusOfshipPreparedPro(Model model) {
-		
-		
-		model.addAttribute("PreparedPro", adminService.statusOfshipPreparedPro());
-		
-		return "icmall_admin/readyStuck";
-	}
-	
-	// 배송중 mapping
-	@RequestMapping("icmall_admin/shopping")
-	public String statusOfshipping(Model model) {
-		
-		
-		model.addAttribute("shipping", adminService.statusOfshipping());
-		
-		return "icmall_admin/shopping";
-	}
-	
-	
-	// 배송완료 mapping
-	@RequestMapping("icmall_admin/shoppingFinish")
-	public String statusOfshipOk(Model model) {
-		
-		
-		model.addAttribute("shipOk", adminService.statusOfshipOk());
-		
-		return "icmall_admin/shoppingFinish";
-	}
-	
-	// 구매확정 mapping
-	@RequestMapping("icmall_admin/buyFinish")
-	public String statusOfshipBuyOk(Model model) {
-		
-		
-		model.addAttribute("BuyOk", adminService.statusOfshipBuyOk());
-		
-		return "icmall_admin/buyFinish";
-	}
-	
-	// 교환접수 mapping
-	@RequestMapping("icmall_admin/exchange")
-	public String statusOfshipExchange(Model model) {
-		
-		
-		model.addAttribute("Exchange", adminService.statusOfshipExchange());
-		
-		return "icmall_admin/exchange";
-	}
-	
-	// 환불접수 mapping
-	@RequestMapping("icmall_admin/refund")
-	public String statusOfshipRefund(Model model) {
-		
-		
-		model.addAttribute("Refund", adminService.statusOfshipRefund());
-		
-		return "icmall_admin/refund";
-	}
-	
-	@RequestMapping("icmall_admin/insertShipping")
-	public String insertShip(int uid, Model model) {
-		
-//		System.out.println("TEST1");
-		model.addAttribute("insertCnt", adminService.insertShip(uid));
-//		System.out.println("TEST2");
-		model.addAttribute("updateCnt", adminService.updateShipInto(uid));
-//		System.out.println("TEST3");
-		
-		return "icmall_admin/insertShipping";
-	}
-	
-	@PostMapping("icmall_admin/shipStatusChange")
-	public String updateShipStatus(AdminOrderStatusDTO dto, Model model) {
-		
-//		System.out.println("메핑성공");
-//		System.out.println("dto ------" + dto);
-		model.addAttribute("result", adminService.updateShipStatus(dto));
-		
-		return "icmall_admin/shipStatusChange";
-	}
-	
-	
-	@RequestMapping("icmall/myStock")
+	@RequestMapping("/user/myStock")
 	public String myStock(int uid, Model model,Principal principal, UserDTO dto) throws Exception {
 		if(principal == null) {
 			 model.addAttribute("message", "Hello Spring Security");
@@ -471,7 +320,7 @@ public class Won_CrawlingController {
 		return "icmall/myStock";
 	}
 	
-	@RequestMapping("icmall/myReviewUpdate")
+	@RequestMapping("/user/myReviewUpdate")
 	public String myReviewUpdate(int uid, Model model) {
 		int pro_uid = wonService.selectProReviewInfo(uid).get(0).getPro_uid();
 //		System.out.println("uid : " + uid);
@@ -481,21 +330,55 @@ public class Won_CrawlingController {
 		return "icmall/myReviewUpdate";
 	}
 	
-	@RequestMapping("/icmall/myReviewUpdateOk")
-	public String myReviewUpdateOk(WonProReviewDTO dto, Model model) {
+	@RequestMapping("/user/myReviewUpdateOk")
+	public String myReviewUpdateOk(WonProReviewDTO dtoReivew, Model model, Principal principal, UserDTO dto) throws Exception {
+		if(principal == null) {
+			 model.addAttribute("message", "Hello Spring Security");
+			 System.out.println("실패");
+		 }
+		 else {
+			 model.addAttribute("user", principal.getName());
+			 System.out.println("user : " + principal.getName());
+			 
+			 String id = principal.getName();
+			 dto.setM_id(id);
+			 userService.login(dto);
+			 System.out.println("userService: " + userService.login(dto));
+			 
+			 model.addAttribute("dto", userService.login(dto));
+		 }
 //		System.out.println("값은?" + r_uid);
 //		System.out.println("wonService.selectProReviewInfo(r_uid) : " + wonService.selectProReviewInfo(r_uid).toString());
 //		System.out.println("wonService.selectProInfo(pro_uid) : " + wonService.selectProInfo(pro_uid).toString());
 		
-		model.addAttribute("result", wonService.updateMyReview(dto));
+		model.addAttribute("result", wonService.updateMyReview(dtoReivew));
 		// 멤버 uid 전달
 		
 		
 		return "icmall/myReviewUpdateOk";
 	}
 	
-	@RequestMapping("/icmall/myReviewDeleteOk")
-	public String myReviewDeleteOk(int uid, Model model) {
+	@RequestMapping("/user/myReviewDeleteOk")
+	public String myReviewDeleteOk(int uid, Model model,Principal principal, UserDTO dto) throws Exception {
+		
+		if(principal == null) {
+			 model.addAttribute("message", "Hello Spring Security");
+			 System.out.println("실패");
+		 }
+		 else {
+			 model.addAttribute("user", principal.getName());
+			 System.out.println("user : " + principal.getName());
+			 
+			 String id = principal.getName();
+			 dto.setM_id(id);
+			 userService.login(dto);
+			 System.out.println("userService: " + userService.login(dto));
+			 
+			 model.addAttribute("dto", userService.login(dto));
+	//		System.out.println("uid : " + uid);
+			 model.addAttribute("reviewList", wonService.selectMyReview(uid));
+				 // model 값으로 m_uid 전달
+		 }
 		
 //		System.out.println(dto.get(0).getPro_uid());
 		model.addAttribute("result", wonService.deleteProReview(uid));

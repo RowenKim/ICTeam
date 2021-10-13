@@ -146,19 +146,19 @@ public class IndexController {
 //
 //	}
 	
- @GetMapping("/all/index")
- public String index (Model model, Principal principal) {
-	 if(principal == null) {
-		 model.addAttribute("message", "Hello Spring Security");
-		 System.out.println("실패");
-	 }
-	 else {
-		 model.addAttribute("user", principal.getName());
-		 System.out.println("user : " + principal.getName());
-	 }
-	 	 return "/icmall/index";
- }
- 
+// @GetMapping("/all/index")
+// public String index (Model model, Principal principal) {
+//	 if(principal == null) {
+//		 model.addAttribute("message", "Hello Spring Security");
+//		 System.out.println("실패");
+//	 }
+//	 else {
+//		 model.addAttribute("user", principal.getName());
+//		 System.out.println("user : " + principal.getName());
+//	 }
+//	 	 return "/icmall/index";
+// }
+// 
  
  	@RequestMapping("/user/myPage")
 	public String myPage(Model model, Principal principal, UserDTO dto) throws Exception {

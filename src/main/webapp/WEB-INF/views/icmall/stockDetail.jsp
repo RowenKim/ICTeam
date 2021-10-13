@@ -21,7 +21,7 @@
 
 		if (confirm("정말 삭제하시겠습니까?") == true){    //확인
 				
-			location.href='reviewDeleteOk?uid=' + r_uid
+			location.href='/icmall/user/reviewDeleteOk?uid=' + r_uid
 	
 		}else{   //취소
 
@@ -51,7 +51,7 @@
 
 	<section id="product-page" class="product-page p-b-0">
 		<div class="container">
-		<form action="putBasket" method="get" onsubmit="return chk(${dto.m_uid})">
+		<form action="/icmall/user/putBasket" method="get" onsubmit="return chk(${dto.m_uid})">
 			<div class="product">
 				<div class="row m-b-40">
 					<div class="col-lg-5">
@@ -176,7 +176,7 @@
 									${review.r_content }
 							<c:if test="${dto.m_uid eq review.m_uid }">
 									<div class="form-group text-center">
-					                  <button class="btn" type="submit" onClick="location.href='reviewUpdate?pro_uid=${list[0].pro_uid }&r_uid=${review.r_uid }'">수정하기</button>
+					                  <button class="btn" type="submit" onClick="location.href='/icmall/user/reviewUpdate?pro_uid=${list[0].pro_uid }&r_uid=${review.r_uid }'">수정하기</button>
 					                  <button class="btn" type="submit" onClick="chkSubmit(${review.r_uid})">삭제하기</button>
 					        		</div>	
 							</c:if>
@@ -198,7 +198,7 @@
 				</div>
 				<c:if test="${dto.m_uid != undefined }">
 					<div class="form-group text-center">
-	                  <button class="btn" type="submit" onClick="location.href='stockReview?uid=${list[0].pro_uid }'">후기작성</button>
+	                  <button class="btn" type="submit" onClick="location.href='/icmall/user/stockReview?uid=${list[0].pro_uid }'">후기작성</button>
 	        		</div>	
 				</c:if>
 				<br>
@@ -230,7 +230,7 @@
 							<table class="table">
 								<tbody>
 									<tr style="text-align:center;">
-										<th class="sep-55"><div class="text-left"><a href="questionInfo?uid=${dto.proq_uid }">${dto.proq_title }</a></div></th>
+										<th class="sep-55"><div class="text-left"><a href="/icmall/user/questionInfo?uid=${dto.proq_uid }">${dto.proq_title }</a></div></th>
 										<td class="sep-15">${dto.m_name } </td>
 										<td class="sep-15">${dto.proq_questionDate }</td>
 										<td class="sep-15">${dto.proq_status }</td>
@@ -243,7 +243,7 @@
 						<br>
 						<c:if test="${dto.m_uid != undefined }">
 							<div class="form-group text-center">
-			                  <button class="btn" type="submit" onClick="location.href='question?uid=${list[0].pro_uid }'">문의하기</button>
+			                  <button class="btn" type="submit" onClick="location.href='/icmall/user/question?uid=${list[0].pro_uid }'">문의하기</button>
     	           			</div>
 						</c:if>
 						
