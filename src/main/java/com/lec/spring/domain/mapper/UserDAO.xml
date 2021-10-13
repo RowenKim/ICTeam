@@ -102,13 +102,71 @@
 	</select>
 	
 	
- 	
+	<select id = "userList" resultType="com.lec.spring.domain.UserDTO">
+		select
+			*
+		from ic_member m, ic_authority a
+		where
+		m.m_id = a.m_id 
+	</select>
 	
 	
+ 	<insert id="UserDelete" parameterType="com.lec.spring.domain.UserDTO">
+		INSERT INTO 
+		ic_delete(m_id)
+		VALUES("삭제회원")
+	</insert>
+	
+	<delete id="UserListDelete" parameterType="com.lec.spring.domain.UserDTO">
+		DELETE FROM ic_member
+		WHERE m_uid = #{m_uid}
+	</delete>	
 	
 	
+	<select id="getUserList" resultType="com.lec.spring.domain.UserDTO">
+		select
+		 m.m_joindate, a.m_auth
+		 from ic_member m, ic_authority a
+		 where
+		 m.m_id = a.m_id
+	</select>
 	
+	<select id="Review" resultType="com.lec.spring.domain.ReviewDTO">
+		select
+		*
+		from ic_review r, ic_member m
+		where
+		r.m_uid = m.m_uid
+	</select>
+
+	<delete id="ReviewListDelete" parameterType="com.lec.spring.domain.ReviewDTO">
+		DELETE FROM ic_review
+		WHERE r_uid = #{r_uid}
+	</delete>	
 	
+	<select id="questionList" resultType="com.lec.spring.domain.QuestionDTO">
+		select
+		*
+		from ic_question q, ic_member m
+		where
+		q.m_uid = m.m_uid
+	</select>
+	
+	<update id="questionUpdate" parameterType="com.lec.spring.domain.QuestionDTO">
+		UPDATE ic_question SET 
+		q_status = "Y",
+		q_answer = #{q_answer},
+		q_answerDate = now()
+		WHERE q_uid = #{q_uid}
+	</update>
+	
+	<select id="questionDetailList" resultType="com.lec.spring.domain.QuestionDTO">
+		select
+		*
+		from ic_question q, ic_member m
+		where
+		q.m_uid = m.m_uid
+	</select>
 
 	
 	

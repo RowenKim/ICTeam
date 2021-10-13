@@ -100,5 +100,74 @@ public class UserDAOImpl implements UserDAO{
 	}
 
 
+	@Override
+	public List<UserDTO> userList() throws Exception {
+		// TODO Auto-generated method stub
+		return mapper.userList();
+	}
+
+
+	@Override
+	public int UserDelete(UserDTO dto) {
+		return mapper.UserDelete(dto);
+	}
+
+
+	@Override
+	public int UserListDelete(int uid) {
+		return mapper.UserListDelete(uid);
+	}
+
+
+	@Override
+	public int UserDeleteUid(int uid) {
+		return mapper.UserDeleteUid(uid);
+	}
+
+
+	@Override
+	public UserDTO getUserList(UserDTO dto) {
+		
+		return mapper.getUserList(dto);
+	}
+
+
+	@Override
+	public List<ReviewDTO> Review() throws Exception {
+		// TODO Auto-generated method stub
+		return mapper.Review();
+	}
+
+
+	@Override
+	public int ReviewListDelete(int uid) {
+		
+		return mapper.ReviewListDelete(uid);
+	}
+
+
+	@Override
+	public List<QuestionDTO> questionList() throws Exception {
+		
+		return mapper.questionList();
+	}
+
+
+	@Override
+	public void questionUpdate(QuestionDTO dto) {
+		
+		mapper.questionUpdate(dto);
+		
+	}
+
+
+	@Override
+	public QuestionDTO questionDetailList(int uid) throws Exception {
+		
+		return mapper.questionDetailList(uid);
+	}
+	
+
+
 
 }

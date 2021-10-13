@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -35,7 +37,7 @@
     
 
   </head>
-
+<form name="ReviewListDelete" action="/icmall_admin/admin/ReviewListDelete" method="Post">
   <body id="page-top">
     <nav class="navbar navbar-expand navbar-dark navtopbg static-top">
 
@@ -45,9 +47,9 @@
         <i class="fas fa-bars"></i>
       </button>
       <!-- Nav bar -->
-      <form class="ml-auto text-light navtopfont"> 
+ 
       <span>I.C Mall 관리자</span>
-      </form>
+     
        <ul class="navbar-nav ml-auto ml-md-0">
           <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -60,7 +62,7 @@
          </ul>
     </nav>
 
-    
+     
 	<div id="wrapper">
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav sidebarHB">
@@ -178,41 +180,20 @@
                     <tr class="text-muted textsize-table">
                       <th>선택</th>
                       <th>번호</th>
-                      <th>상품<br>
-                      이미지</th>
                       <th>제목</th>
                       <th>작성자</th>
                       <th>작성일</th>
-                      <th>조회</th>
-                      <th>수정/답변</th>
                     </tr>
                   </thead>
                     <tr>
-                      <td style="vertical-align:middle"><input type="checkbox"/></td>
-                      <td>123456789</td>
-                      <td>img</td>
-                      <td>고기</td>
-                      <td>누구게?</td>
-                      <td>2021-00-00</td>
-                      <td>조회수</td>                  
-                      <td>
-                      <a class="btn btn-primary btncolor-sm btn-sm" href="post" role="button">수정</a> 
-                      <a class="btn btn-primary btncolor-sm btn-sm" href="post" role="button">답변</a> 
-                      </td>  
+                    <c:forEach var="list" items="${review }">
+                      <td style="vertical-align:middle"><input type="checkbox" name="RowCheck" value="${list.r_uid }"/></td>
+                      <td>${list.r_uid }</td>
+                      <td>${list.r_title }</td>
+                      <td>${list.m_name }</td>
+                      <td>${list.r_date }</td>                 
                     </tr>
-                    <tr>
-                      <td style="vertical-align:middle"><input type="checkbox"/></td>
-                      <td>123456789</td>
-                      <td>img</td>
-                      <td>고기</td>
-                      <td>누구게?</td>
-                      <td>2021-00-00</td>
-                      <td>조회수</td>                  
-                      <td>
-                      <a class="btn btn-primary btncolor-sm btn-sm" href="post" role="button">수정</a> 
-                      <a class="btn btn-primary btncolor-sm btn-sm" href="post" role="button">답변</a> 
-                      </td>  
-                    </tr>
+                    </c:forEach>
                   </tbody>
                 </table>
                 <!-- Button trigger modal -->
@@ -234,7 +215,7 @@
 				        게시물을 정말 삭제하시겠습니까?
 				      </div>
 				      <div class="modal-footer">
-				      	<button type="button" class="btn btn-primary">삭제하기</button>
+				      	<button type="submit" class="btn btn-primary" onClick="location.href='/ReviewListDelete'">삭제하기</button>
 				       	<button type="button" class="btn btn-secondary" data-dismiss="modal">취소하기</button>
 				      </div>
 				    </div>
@@ -243,6 +224,7 @@
               </div>
              </div>
            </div>
+           </form>
           
         
        

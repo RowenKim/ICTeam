@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -32,7 +34,9 @@
     <!-- Custom styles for this template-->
     <link href="${pageContext.request.contextPath }/admin/css/sb-admin.css" rel="stylesheet">
     
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	
 
   </head>
 
@@ -60,7 +64,7 @@
          </ul>
     </nav>
 
-    
+    <form name="deleteUser" action="/icmall_admin/admin/UserListDelete" method="Post">
 	<div id="wrapper">
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav sidebarHB">
@@ -111,7 +115,7 @@
       <div id="content-wrapper">
 
         <div class="container-fluid">
-
+		
           <!-- Breadcrumbs-->
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
@@ -122,23 +126,10 @@
 		
 		<br>
        <table class="table table-bordered" >
+         
+     
 		  <tbody>
-		    <tr>
-		      <th style="vertical-align:middle;">검색어</th>
-		      <td style="vertical-align:middle;">
-		       <div class="input-group mb-3" >
-				  <div class="input-group-prepend" >
-				    <button class="btn btn-outline dropdown-toggle action-btn" type="button" id="table-action" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">전체</button>
-				    <div class="dropdown-menu" aria-labelledby="table-action" >
-				      <a class="dropdown-item" href="#">아이디</a>
-				      <a class="dropdown-item" href="#">이름</a>
-				    </div>
-				  </div>
-				  <input type="text" class="form-control" aria-label="Text input with dropdown button">
-				</div>
-           	  </td>
-		    </tr>
-		    <tr>
+		   <tr>
 		      <th style="vertical-align:middle;">회원구분</th>
 		      <td style="vertical-align:middle;">
 				  <div class="dropdown position-static actions d-inline-block">
@@ -147,8 +138,8 @@
 				          <i class="mdi mdi-dots-horizontal"></i>
 				          전체</button>
 				      <div class="dropdown-menu" aria-labelledby="table-action">
-				          <a class="dropdown-item" href="userListAdmin">관리자</a>
-				          <a class="dropdown-item" href="userListMember">회원</a>
+				          <a class="dropdown-item" href="">관리자</a>
+				          <a class="dropdown-item" href="">회원</a>
 				      </div>
 				</div>
            	  </td>
@@ -175,62 +166,31 @@
                     <tr class="text-muted textsize-table">
                       <th>선택</th>
                       <th>번호</th>
-                      <th>상품구분</th>
                       <th>아이디</th>
                       <th>이름</th>
                       <th>등급</th>
-                      <th>주문금액</th>
                       <th>회원가입일</th>
                     </tr>
                   </thead>
                     <tr>
-                      <td style="vertical-align:middle"><input type="checkbox"/></td>
-                      <td>${dto.m_uid }</td>
-                      <td style="vertical-align:middle;">
-						  <div class="dropdown position-static actions d-inline-block">
-						     <button class="btn btn btn-outline px-1 py-0 mt-1 dropdown-toggle actions-btn" type="button"
-						          id="table-action" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						          <i class="mdi mdi-dots-horizontal"></i>
-						          전체</button>
-						      <div class="dropdown-menu" aria-labelledby="table-action">
-						          <a class="dropdown-item" href="#">간식</a>
-						          <a class="dropdown-item" href="#">과일</a>
-						          <a class="dropdown-item" href="#">정육</a>
-						          <a class="dropdown-item" href="#">채소</a>
-						          <a class="dropdown-item" href="#">건강식품</a>
-						      </div>
-						</div>
-		           	  </td>
-                      <td>${dto.m_id }</td>
-                      <td>${dto.m_name }</td>
-                      <td><span class="badge badge-success w-75 py-2">관리자</span></td>
-                      <td>19,000</td>                  
-                      <td>123</td>
+                  <c:forEach var="list" items="${dto }">
+                  <c:choose>
+					<c:when test="${list.enabled == 0 }">
+					</c:when>
+				   <c:otherwise>
+					
+                      <td style="vertical-align:middle"><input type="checkbox" name="RowCheck" value="${list.m_uid }" /></td>
+                      <td>${list.m_uid }</td>
+                      <td>${list.m_id }</td>
+                      <td>${list.m_name }</td>
+                      <td><span class="badge badge-success w-75 py-2">${list.m_auth }</span></td>                 
+                      <td>${list.m_joindate }</td>
+                      <input type="hidden" name="enabled" value="" />
                     </tr>
-                    <tr>
-                      <td style="vertical-align:middle"><input type="checkbox"/></td>
-                      <td>123456789</td>
-                      <td style="vertical-align:middle;">
-						  <div class="dropdown position-static actions d-inline-block">
-						     <button class="btn btn btn-outline px-1 py-0 mt-1 dropdown-toggle actions-btn" type="button"
-						          id="table-action" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						          <i class="mdi mdi-dots-horizontal"></i>
-						          전체</button>
-						      <div class="dropdown-menu" aria-labelledby="table-action">
-						          <a class="dropdown-item" href="#">간식</a>
-						          <a class="dropdown-item" href="#">과일</a>
-						          <a class="dropdown-item" href="#">정육</a>
-						          <a class="dropdown-item" href="#">채소</a>
-						          <a class="dropdown-item" href="#">건강식품</a>
-						      </div>
-						</div>
-		           	  </td>
-                      <td>ID</td>
-                      <td>누구게?</td>
-                      <td><span class="badge badge-danger w-75 py-2">회원</span></td>
-                      <td>19,000</td>                  
-                      <td>2021-00-00</td>
-                    </tr>
+                    
+                   </c:otherwise>
+                  </c:choose>
+                  </c:forEach>
                   </tbody>
                 </table>
                 <!-- Button trigger modal -->
@@ -252,15 +212,17 @@
 				        이 회원을 정말 삭제하시겠습니까?
 				      </div>
 				      <div class="modal-footer">
-				      	<button type="button" class="btn btn-primary">삭제하기</button>
+				      	<button type="submit" class="btn btn-primary" onClick="location.href='/UserListDelete'">삭제하기</button>
 				       	<button type="button" class="btn btn-secondary" data-dismiss="modal">취소하기</button>
 				      </div>
+				  	
 				    </div>
 				  </div>
 				</div>
               </div>
              </div>
            </div>
+           </form>
           
         
        
@@ -309,6 +271,7 @@
         </div>
       </div>
     </div>
+ 
 
     <!-- Bootstrap core JavaScript-->
     <script src="${pageContext.request.contextPath }/admin/vendor/jquery/jquery.min.js"></script>

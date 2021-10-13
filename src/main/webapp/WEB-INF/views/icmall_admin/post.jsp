@@ -35,7 +35,7 @@
     
 
   </head>
-
+<form name="ReviewListDelete" action="/icmall_admin/admin/questionUpdate" method="Post">
   <body id="page-top">
     <nav class="navbar navbar-expand navbar-dark navtopbg static-top">
 
@@ -45,9 +45,7 @@
         <i class="fas fa-bars"></i>
       </button>
       <!-- Nav bar -->
-      <form class="ml-auto text-light navtopfont"> 
       <span>I.C Mall 관리자</span>
-      </form>
        <ul class="navbar-nav ml-auto ml-md-0">
           <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -126,36 +124,20 @@
        <table class="table table-bordered" >
 		  <tbody style="vertical-align:middle;">
 		    <tr>
-		      <th>게시판</th>
-		      <td>
-				  <div class="dropdown position-static actions d-inline-block">
-				     <button class="btn btn btn-outline px-1 py-0 mt-1 dropdown-toggle actions-btn" type="button"
-				          id="table-action" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				          <i class="mdi mdi-dots-horizontal"></i>
-				          전체</button>
-				      <div class="dropdown-menu" aria-labelledby="table-action">
-				          <a class="dropdown-item" href="postStuck">상품문의</a>
-				          <a class="dropdown-item" href="postShopping">쇼핑몰관련문의</a>
-				          <a class="dropdown-item" href="postAnyquestion">기타문의</a>
-				      </div>
-				</div>
-           	  </td>
-		    </tr>
-		    <tr>
 		    	<th>제목</th>
-		    	<td>상품/쇼핑몰/기타 문의합니다</td>
+		    	<td>${list.q_title }</td>
 		    </tr>
 		    <tr>
 		    	<th>작성자</th>
-		    	<td>누구게?</td>
+		    	<td>${list.m_name }</td>
 		    </tr>
 		    <tr>
 		    	<th>작성날짜</th>
-		    	<td>2021-00-00</td>
+		    	<td>${list.q_answerDate }</td>
 		    </tr>
 		    <tr>
 		    	<th>내용</th>
-		    	<td>홍홍홍</td>
+		    	<td>${list.q_content }</td>
 		    </tr>
 		  </tbody>
 		</table>
@@ -166,32 +148,17 @@
        <table class="table table-bordered" >
 		  <tbody style="vertical-align:middle;">
 		    <tr>
-		      <th>답변상태</th>
-		      <td>
-				  <div class="dropdown position-static actions d-inline-block">
-				     <button class="btn btn btn-outline px-1 py-0 mt-1 dropdown-toggle actions-btn" type="button"
-				          id="table-action" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				          <i class="mdi mdi-dots-horizontal"></i>
-				          답변대기</button>
-				      <div class="dropdown-menu" aria-labelledby="table-action">
-				          <a class="dropdown-item" href="#">답변완료</a>
-				      </div>
-				</div>
-           	  </td>
-		    </tr>
-		    <tr>
-		    	<th>답변제목</th>
-		    	<td>문의답변</td>
-		    </tr>
-		    <tr>
 		    	<th>답변내용</th>
-		    	<td>네!</td>
+		    	<th><input type="text" name="q_answer" value="${list.q_answer }"/></th>
 		    </tr>
 		  </tbody>
 		</table>
 		</div>
-		
-          
+		<input type="hidden" name="q_uid" value="${list.q_uid }"/>
+		<button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onClick="location.href='/questionUpdate'">
+		 답변
+		</button>
+        </form> 
         
        
         

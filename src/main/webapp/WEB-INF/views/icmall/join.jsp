@@ -18,7 +18,7 @@
 function fn_idChk(){
 	/* 아이디 중복 검사 */
 	$.ajax({
-		url : "/idChk",
+		url : "all/idChk",
 		type : "post",
 		dataType : "json",
 		//data : {"m_id" : $("m_id").val()},
@@ -38,7 +38,7 @@ function fn_idChk(){
 function fn_mailChk(){
 	/* 이메일 중복 검사 */
 	$.ajax({
-		url : "/mailChk",
+		url : "all/mailChk",
 		type : "post",
 		dataType : "json",
 		//data : {"m_id" : $("m_id").val()},
@@ -180,7 +180,7 @@ function joinform_check() {
 			<br>
 
 			<div>
-				<form name="login" action="/joinOk" method="POST">
+				<form name="login" action="/icmall/all/joinOk" method="POST">
 					<table style="width:100%;">
 						<tr>
 							<!-- 첫번째 줄 시작 -->

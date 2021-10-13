@@ -13,7 +13,7 @@
 function fn_mailChk(){
 	/* 이메일 중복 검사 */
 	$.ajax({
-		url : "/mailChk",
+		url : "all/mailChk",
 		type : "post",
 		dataType : "json",
 		//data : {"m_id" : $("m_id").val()},
@@ -91,7 +91,7 @@ function userUpdate_check(){
 </script>
 <script>
 function info_chk(frm){
-	frm.action ="/userDelete";
+	frm.action ="/icmall/user/userDelete";
 	frm.submit();
 	return true;
 }
@@ -112,7 +112,7 @@ function info_chk(frm){
   <br>
  
   <div>
-  <form name="login" action="/userUpdateOk" method="post">
+  <form name="login" action="/icmall/user/userUpdateOk" method="post">
   <table>
 	<tr><!-- 첫번째 줄 시작 -->
 	  <td class="t2">
@@ -211,14 +211,14 @@ function info_chk(frm){
 		  <span>생년월일</span>
 	  	</td>
 	    <td class="t3">
-	     <input type="date" name="m_birth"  id = "datebtn"  value="" placeholder="YYYY / MM / DD"> 
+	     <input type="date" name="m_birth"  id = "datebtn"  value="${dto.m_birth }" placeholder="YYYY / MM / DD"> 
 		</td>
 		<td class="t4">
 		</td>
 	</tr><!-- 아홉번째 줄 끝 -->
 	</table>
 	<input type="hidden" name="m_addr" value="${dto.m_addr}" />
-	<input type="hidden" name="enabled" value="1" />
+	<input type="hidden" name="enabled" value="${dto.enabled }" />
 	<br><br>
   <div class="div4">
   <input type="submit" name="" value="탈퇴하기"  onClick='return info_chk(this.form);' class ="idbtn">

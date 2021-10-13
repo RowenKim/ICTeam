@@ -46,4 +46,35 @@ public interface UserDAO {
 		// 관리자 유저리스트
 		public UserDTO UserList(UserDTO dto) throws Exception;
 		
+		// 모든 유저리스트
+		public List<UserDTO> userList() throws Exception;
+		
+		// 딜리트 유정생성
+		int UserDelete(UserDTO dto);
+		
+		// 관리자 유저리스트 삭제
+		public abstract int UserListDelete(int uid);
+		
+		// 관리자 유저 삭제 테이블 담기
+		int UserDeleteUid(int uid);
+		
+		// 관리자 유저 선택 검사
+		public UserDTO getUserList(UserDTO dto);
+		
+		// 관리자 리뷰 리스트
+		public List<ReviewDTO> Review() throws Exception;
+		
+		// 관자 리뷰 삭제
+		int ReviewListDelete(int uid);
+		
+		// 관리자 문의 리스트
+		public List<QuestionDTO> questionList() throws Exception;
+		
+		// 관리 문의 디테일
+		public QuestionDTO questionDetailList(int uid) throws Exception;
+		
+		// 관리자 문의 답변
+		public void questionUpdate(QuestionDTO dto);
+		
+		
 }

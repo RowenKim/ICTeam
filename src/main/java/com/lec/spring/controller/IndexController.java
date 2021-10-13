@@ -5,6 +5,7 @@ package com.lec.spring.controller;
 import java.security.Principal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -25,6 +26,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -38,10 +40,14 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.lec.spring.JoinValidator;
 import com.lec.spring.config.PrincipalDetails;
 import com.lec.spring.config.PrincipalDetailsService;
+import com.lec.spring.domain.AuthDTO;
+import com.lec.spring.domain.QuestionDTO;
+import com.lec.spring.domain.ReviewDTO;
 import com.lec.spring.domain.UserDTO;
 import com.lec.spring.service.UserService;
 
 @Controller
+@RequestMapping("/icmall/**")
 public class IndexController {
 	
 	@Autowired
@@ -50,25 +56,25 @@ public class IndexController {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
-	@RequestMapping({"", "/"})
-	@ResponseBody
-	public String sayHello() {
-		return "<h1>/ : Hello</h1>";
-	}
+//	@RequestMapping({"", "/"})
+//	@ResponseBody
+//	public String sayHello() {
+//		return "<h1>/ : Hello</h1>";
+//	}
 	
-	@RequestMapping({"/icmall/loginForm"})
+	@RequestMapping({"/all/loginForm"})
 	public String login() {
 //		return "<h2>/login : login 페이지</h2>";
 		
 		return "/icmall/loginForm";
 	}
 	
-	@GetMapping("/icmall/join")
+	@GetMapping("/all/join")
 	public String join() {
 		return "/icmall/join";
 	}
 	
-	@PostMapping("/joinOk")
+	@PostMapping("/all/joinOk")
 	public String joinOk(@Valid UserDTO user, BindingResult result) {
 		System.out.println(user);
 		
@@ -82,13 +88,13 @@ public class IndexController {
 		if(result.hasErrors()) {
 //		  page = "icmall/join";
 //		  System.out.println(page);
-		  return "redirect:/icmall/join";
+		  return "redirect:/icmall/all/join";
 		}
 		
 		else {
 //			page = "icmall/loginForm";
 			int cnt = userService.addMember(user);
-			return "redirect:/icmall/loginForm";
+			return "redirect:/icmall/all/loginForm";
 		}
 		
 		
@@ -97,7 +103,7 @@ public class IndexController {
 	
 	// 아이디 중복 체크
 	@ResponseBody
-	@RequestMapping(value="/idChk", method = RequestMethod.POST)
+	@RequestMapping(value="all/idChk", method = RequestMethod.POST)
 	public int idChk(String user) throws Exception {
 		System.out.println("중복확인체크");
 		int result = userService.idChk(user);
@@ -106,7 +112,7 @@ public class IndexController {
 
 	// 메일 중복 체크
 	@ResponseBody
-	@RequestMapping(value="/mailChk", method = RequestMethod.POST)
+	@RequestMapping(value="all/mailChk", method = RequestMethod.POST)
 	public int mailChk(String mail) throws Exception {
 		System.out.println("중복확인체크");
 		int result = userService.mailChk(mail);
@@ -140,7 +146,7 @@ public class IndexController {
 //
 //	}
 	
- @GetMapping("/icmall/index")
+ @GetMapping("/all/index")
  public String index (Model model, Principal principal) {
 	 if(principal == null) {
 		 model.addAttribute("message", "Hello Spring Security");
@@ -150,12 +156,11 @@ public class IndexController {
 		 model.addAttribute("user", principal.getName());
 		 System.out.println("user : " + principal.getName());
 	 }
-	 
-	 return "/icmall/index";
+	 	 return "/icmall/index";
  }
  
  
- 	@RequestMapping("/icmall/myPage")
+ 	@RequestMapping("/user/myPage")
 	public String myPage(Model model, Principal principal, UserDTO dto) throws Exception {
  		if(principal == null) {
 			 model.addAttribute("message", "Hello Spring Security");
@@ -173,11 +178,11 @@ public class IndexController {
 			 model.addAttribute("dto", userService.login(dto));
 		 }
  		
-		return "icmall/myPage";
+		return "/icmall/myPage";
 	}
  	
  	
-	@GetMapping("/icmall/userUpdate")
+	@GetMapping("/user/userUpdate")
 	public String userUpdate(Model model, Principal principal, UserDTO dto) throws Exception {
 		if(principal == null) {
 			 model.addAttribute("message", "Hello Spring Security");
@@ -202,7 +207,7 @@ public class IndexController {
 		return "icmall/userUpdate";
 	}
 	
-	@PostMapping("/userUpdateOk")
+	@PostMapping("/user/userUpdateOk")
 	public String userUpdateOk( Principal principal, @Valid UserDTO dto,BindingResult result ,Model model) throws Exception {
 		String page = "/userUpdateOk";
 		 if(result.hasErrors()) {
@@ -219,7 +224,7 @@ public class IndexController {
 			 model.addAttribute("dto", userService.login(dto));
 			 
 //			 page = "/icmall/userUpdate";
-			 return "redirect:/icmall/userUpdate";
+			 return "redirect:/icmall/user/userUpdate";
 			}
 		 // 오류 안나고 성공시
 		 else {
@@ -253,7 +258,7 @@ public class IndexController {
 //		return "redirect:/icmall/index";
 		System.out.println("-----------------------");
 		System.out.println("return : " + page);
-		return "redirect:/icmall/index";
+		return "redirect:/icmall/all/index";
 	}
 	
 	// 로그아웃
@@ -266,8 +271,8 @@ public class IndexController {
 	
 	
 	// 회원비활성화
-	 @PostMapping("/userDelete")
-	 public String userEnable (Model model, Principal principal, UserDTO dto) throws Exception {
+	 @PostMapping("/user/userDelete")
+	 public String userEnable (Model model, Principal principal, UserDTO dto, HttpSession session) throws Exception {
 		 System.out.println("회원비활성화 : 맵핑!!!" );
 		 
 		 
@@ -282,30 +287,57 @@ public class IndexController {
 			 System.out.println("user : " + principal.getName());
 			 String id = principal.getName();
 			 dto.setM_id(id);
-			 System.out.println("회원비활성화 : " + dto);
+			 
+//			 System.out.println("회원비활성화 : " + dto);
 			 model.addAttribute("dto", userService.login(dto));
-			 userService.userEnable(dto);
+			 
+			 //userService.userEnable(dto);
+			 
+			 System.out.println("회원탈퇴!!! : " + dto);
+			 
+			 userService.deleteMember(dto);
+			 
+			 userService.UserDelete(dto);
+			 
+			 session.invalidate();
 		 }
-		 return "redirect:icmall/index";
+		 return "redirect:/icmall/all/index";
 		 
 	 }
 	 
-		@GetMapping("/icmall_admin/userList")
-		public String userList( Principal principal, @Valid UserDTO dto,BindingResult result ,Model model) throws Exception {
+		
+		
+		
+		
+		//관리자 유저검색 
+//		@GetMapping("getUserList")
+//		public String getUserList(Model model, Principal principal, UserDTO dto) throws Exception {
+//			
+//			
+//			return null;
+//			
+//		}
+		
+		
+		
+		
+	
+		
+		
+		// 고객센터
+		@RequestMapping("all/serviceCenter")
+		public String serviceCenter(Model model, Principal principal, UserDTO dto) {
 			 if(principal == null) {
 				 model.addAttribute("message", "Hello Spring Security");
 				 System.out.println("실패");
-				 System.out.println("회원비활성화 : 실패!!!" );
 			 }
 			 else {
 				 model.addAttribute("user", principal.getName());
 				 System.out.println("user : " + principal.getName());
-				 String id = principal.getName();
-				 dto.setM_id(id);
-				 System.out.println("회원비활성화 : " + dto);
-				 model.addAttribute("dto", userService.UserList(dto));
-				 userService.UserList(dto);
 			 }
-			return "/icmall_admin/userList";
+			return "icmall/serviceCenter";
 		}
+		
+			
+		
 }

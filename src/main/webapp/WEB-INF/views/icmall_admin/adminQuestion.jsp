@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -185,48 +187,31 @@
                     <tr class="text-muted textsize-table">
                       <th>선택</th>
                       <th>번호</th>
-                      <th>상품<br>
-                      이미지</th>
                       <th>제목</th>
                       <th>작성자</th>
                       <th>작성일</th>
                       <th>조회</th>
                       <th>답변상태</th>
                       <th>답변일</th>
-                      <th>수정/답변</th>
-          			 
+                      <th>답변</th>
                     </tr>
                   </thead>
                     <tr>
+                    <c:forEach var="list" items="${question }">
                       <td style="vertical-align:middle"><input type="checkbox"/></td>
-                      <td>123456789</td>
-                      <td>img</td>
-                      <td>고기</td>
-                      <td>누구게?</td>
-                      <td>2021-00-00</td>
-                      <td>조회수</td>
-                      <td><span class="badge badge-danger w-75 py-2">답변대기</span></td>     
-                      <td>2021-00-00</td>
+                      <td>${list.q_uid }</td>
+                      <td>${list.q_title }</td>
+                      <td>${list.m_name }</td>
+                      <td>${list.q_questionDate}</td>
+                      <td>${list.q_viewCnt }</td>
+                      <td><span class="badge badge-danger w-75 py-2">${list.q_status }</span></td>     
+                      <td>${list.q_answerDate}</td>
                       <td>
-                      <a class="btn btn-primary btncolor-sm btn-sm" href="post" role="button">수정</a> 
-                      <a class="btn btn-primary btncolor-sm btn-sm" href="post" role="button">답변</a> 
+                      <a class="btn btn-primary btncolor-sm btn-sm" href="/icmall_admin/admin/questionDetailList" role="button">답변</a>
+                      <input type="hidden" style="" name="q_uid" value="${list.q_uid }">
                       </td>  
-                    </tr>
-                    <tr>
-                      <td style="vertical-align:middle"><input type="checkbox"/></td>
-                      <td>123456789</td>
-                      <td>img</td>
-                      <td>고기</td>
-                      <td>누구게?</td>
-                      <td>2021-00-00</td>
-                      <td>조회수</td>
-                      <td><span class="badge badge-success w-75 py-2">답변완료</span></td>   
-                      <td>2021-00-00</td>
-                      <td>
-                      <a class="btn btn-primary btncolor-sm btn-sm" href="post" role="button">수정</a> 
-                      <a class="btn btn-primary btncolor-sm btn-sm" href="post" role="button">답변</a> 
-                      </td>  
-                    </tr>
+                    </tr>  
+                    </c:forEach>   
                   </tbody>
                 </table>
                 <!-- Button trigger modal -->

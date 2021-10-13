@@ -25,13 +25,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		http.authorizeRequests()
 		
 		// ↓ /sample/user/** 주소로 들어오는 요청은 인증이 필요.
-		.antMatchers("/sample/user/**").authenticated()
+		.antMatchers("/icmall/user/**").authenticated()
 				
 		// ↓ /sample/member/** 주소로 들어오는 요청은 '인증' 뿐 아니라 ROLE_MEMBER 나 ROLE_ADMIN 권한을 갖고 있어야 한다 ('인가')
-		.antMatchers("/sample/member/**").access("hasRole('ROLE_MEMBER') or hasRole('ROLE_ADMIN')")
+		.antMatchers("/icmall/member/**").access("hasRole('ROLE_MEMBER') or hasRole('ROLE_ADMIN')")
 					
 		// ↓ /sample/admin/**  주소로 들어오는 요청은 '인증' 뿐 아니라 ROLE_ADMIN 권한을 갖고 있어야 한다 ('인가')
-		.antMatchers("/sample/admin/**").access("hasRole('ROLE_ADMIN')")
+		.antMatchers("/icmall_admin/admin/**").access("hasRole('ROLE_ADMIN')")
 					
 		// ↓ 그 밖의 다른 요청은 모두 permit!
 		
@@ -50,7 +50,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		.loginProcessingUrl("/loginOk")  // "/loginOk" url 로 request 가 들어오면 시큐리티가 낚아채서 처리, 대신 로그인을 진행해준다.
 								// 이와 같이 하면 Controller 에서 /longinOk 를 만들지 않아도 된다!
 		
-		.defaultSuccessUrl("/icmall/index")   
+		.defaultSuccessUrl("/icmall/all/index")   
 			// 만약 다른 특정페이지에 진입하려다 로그인 하여 성공하면 해당 페이지로 이동 (너무 편리!)
 		
 		//.passwordParameter(null)
@@ -59,7 +59,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		.and()
 		.logout()
 		.logoutUrl("/logout")
-		.logoutSuccessUrl("/icmall/index")
+		.logoutSuccessUrl("/icmall/all/index")
 		;
 		
 		

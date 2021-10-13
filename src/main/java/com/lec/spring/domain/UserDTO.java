@@ -1,8 +1,10 @@
 package com.lec.spring.domain;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -11,7 +13,6 @@ import lombok.ToString;
 
 @ToString
 public class UserDTO {
-
 	private int m_uid;  // m_uid
 	private String m_id;  // m_id username
 	private String m_password; // m_pw password
@@ -21,10 +22,12 @@ public class UserDTO {
 	private String m_addr;
 	private String m_gender;
 	private String m_class;
-	private Date m_birth;
+	private Date m_birth;	
 	private String enabled; // 활성화 여부
-	private Date m_joindate;
+	private LocalDate m_joindate;  
+	private String m_auth;
 	 // m_joindate
+	
 	
 	
 	
@@ -86,7 +89,7 @@ public class UserDTO {
 //		this.m_joindate = m_joindate;
 //	}
 	public UserDTO(int m_uid, String m_id, String m_password, String m_name, String m_mail, String m_phone, String m_addr,
-			String m_gender, Date m_birth, String enabled, Date m_joindate) {
+			String m_gender, Date m_birth, String enabled, LocalDate m_joindate, String m_auth) {
 		super();
 		this.m_uid = m_uid;
 		this.m_id = m_id;
@@ -99,6 +102,7 @@ public class UserDTO {
 		this.m_birth = m_birth;
 		this.enabled = enabled;
 		this.m_joindate = m_joindate;
+		this.m_auth = m_auth;
 	}
 	public UserDTO() {
 		System.out.println("UserDTO() 생성");
@@ -115,12 +119,25 @@ public class UserDTO {
 	public void setEnabled(String enabled) {
 		this.enabled = enabled;
 	}
-	public Date getM_joinDate() {
+	public LocalDate getM_joindate() {
 		return m_joindate;
 	}
-	public void setM_joinDate(Date m_joiDate) {
-		this.m_joindate = m_joiDate;
+	
+	public String getM_joindateTime() {
+		if(this.m_joindate == null) return "";
+		return this.m_joindate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 	}
+	public void setM_joindate(LocalDate m_joindate) {
+		this.m_joindate = m_joindate;
+	}
+	
+	public String getM_auth() {
+		return m_auth;
+	}
+	public void setM_auth(String m_auth) {
+		this.m_auth = m_auth;
+	}
+	
 	
 	
 	

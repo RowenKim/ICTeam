@@ -6,6 +6,7 @@ import java.util.regex.Pattern;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
+import com.lec.spring.domain.QuestionDTO;
 import com.lec.spring.domain.UserDTO;
 
 public class JoinValidator implements Validator{

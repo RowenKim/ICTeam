@@ -10,6 +10,23 @@
 
 
 <title>약관동의페이지</title>
+
+
+<script>
+function frm() {
+	var frm = $("lable[name=agree]:checkbox:checked").lenght;
+	
+	console.log(cnt);
+	
+	if(cnt < 1) {
+		alert("한 개 이상을 선택");
+	}
+	else {
+		alert(cnt + "개가 선택되었습니다.");
+	}
+	
+}
+</script>
 </head>
 
 <body>
@@ -83,18 +100,7 @@
 					</label></td>
 					<td><a href="#"><span class="f1">약관보기></span></a></td>
 				</tr>
-				<!-- 세번째 줄 끝 -->
-				<tr>
-					<!-- 네번째 줄 시작 -->
-					
-					<td><label class="lab" for="agree"> <input
-							type="checkbox" name="agree" value="3"> <span>개인정보
-								수집ㆍ이용 동의<strong>(선택)</strong>
-						</span>
-					</label></td>
-					<td><a href="#"><span class="f1">약관보기></span></a></td>
-				</tr>
-				<!-- 네번째 줄 끝 -->
+		
 			</table>
 
 

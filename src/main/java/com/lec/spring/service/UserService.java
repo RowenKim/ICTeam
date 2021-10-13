@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.lec.spring.domain.QuestionDTO;
+import com.lec.spring.domain.ReviewDTO;
 import com.lec.spring.domain.UserDAO;
 import com.lec.spring.domain.UserDTO;
 
@@ -38,8 +40,16 @@ public class UserService {
 			return cnt;
 		}
 		
+		public int deleteUser(UserDTO user) {
+			int cnt = dao.deleteUser(user);
+			return cnt;
+		}
+		
+
+		
 		// 특정 id(username) 의 정보 가져오기
 		public UserDTO findById(String id) {
+			dao.selectAuthoritiesById(id);
 			return dao.findById(id);
 		}
 		
@@ -80,8 +90,64 @@ public class UserService {
 		public UserDTO UserList(UserDTO dto) throws Exception{
 			return dao.UserList(dto);
 		}
+		
+		// 관리자페이지 유저리스트
+		public List<UserDTO> userList() throws Exception {
+			// TODO Auto-generated method stub
+			return dao.userList();
+		}
 	
 	
+		// 딜리트 유저 생성
+		public int UserDelete(UserDTO dto) {
+			int cnt = dao.UserDelete(dto);
+			return cnt;
+		}
 	
+		// 관리자페이지 유저리스트 삭제
+		public int UserListDelete(int uid ) {
+			int cnt = dao.UserListDelete(uid);
+			return cnt;
+		}
+		// 관리자페이지 유저리스트 삭제테이블 담기
+		public int UserDeleteUid(int uid) {
+			int cnt = dao.UserDeleteUid(uid);
+			return cnt;
+		}
+		
+		// 관리자페이지 유저 선택 검사
+		public UserDTO getUserList(UserDTO dto) {
+	
+			return dao.getUserList(dto);
+		}
+		
+		// 관리자 리뷰 리스트
+		public List<ReviewDTO> Review() throws Exception {
+			return dao.Review();
+		}
+		
+		// 관리자 리뷰 삭제
+		public int ReviewListDelete(int uid) {
+			
+			return dao.ReviewListDelete(uid);
+		}
+		
+		// 관리자 후기 리스트
+		public List<QuestionDTO> questionList() throws Exception {		
+			return dao.questionList();
+		}
+		
+		// 관리자 문의 답변
+		public void questionUpdate(QuestionDTO dto) { 
+			dao.questionUpdate(dto);
+		}
+		
+		// 관리자 문의 디테일
+		public QuestionDTO questionDetailList(int uid) throws Exception {
+			return dao.questionDetailList(uid);
+		}
+
+
+
 
 }
