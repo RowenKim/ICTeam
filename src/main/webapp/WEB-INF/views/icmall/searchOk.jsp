@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page import="java.sql.*"%>
 	<%-- Core --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
+<!-- jQuery 선언부 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="author" content="INSPIRO" />
@@ -18,10 +21,22 @@
 	type="text/css" rel="stylesheet">
 <link href="${pageContext.request.contextPath }/CSS/jaeuk.css"
 	type="text/css" rel="stylesheet">
+
+	
 </head>
+
+
+<%
+     request.setCharacterEncoding("UTF-8");//utf-8
+     String keyword=request.getParameter("keyword");
+
+  
+     System.out.println("keyword:"+ keyword);
+%>
 
 <body>
 	<jsp:include page="header.jsp"/>
+	
     <!-- Body Inner -->
                 <!-- Content -->
         <section id="page-content">

@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -26,14 +27,17 @@
 
 <script type="text/javascript">
  function keyword_check(){
-  if(document.search.search.value==''){ //검색어가 없을 경우  
+  if(document.search.keyword.value==''){ //검색어가 없을 경우  
   alert('검색어를 입력하세요'); //경고창 띄움 
-  document.search.search.focus(); //다시 검색창으로 돌아감 
+  document.search.keyword.focus(); //다시 검색창으로 돌아감 
   return false;
   }
   else return true;
  }
 </script>  
+
+
+
 </head>
 <body>
  <!-- Body Inner -->
@@ -79,41 +83,7 @@
             </div>
             <div class="header-inner">
             <div class="container">
-                    <!--Logo-->
-                  <!--   <div id="logo">
-                        <a href="index.html">
-                            <span class="logo-default">IC MALL</span>
-                            <span class="logo-dark">IC MALL</span>
-                        </a>
-                    </div> -->
-                    <!--End: Logo-->
-                    <!-- Search -->
-                   <!--  <div id="search"><a id="btn-search-close" class="btn-search-close" aria-label="Close search form"><i class="icon-x"></i></a>
-                        <form class="search-form" action="search-results-page.html" method="get">
-                            <input class="form-control" name="q" type="search" placeholder="Type & Search..." />
-                            <span class="text-muted">Start typing & press "Enter" or "ESC" to close</span>
-                        </form>
-                    </div >-->
-                    <!-- end: search -->
-                    <!--Header Extras-->
-                   <!--  <div class="header-extras">
-                        <ul>
-                            <li>
-                                <a id="btn-search" href="#"> <i class="icon-search"></i></a>
-                            </li>
-                            <li>
-                                <div class="p-dropdown">
-                                    <a href="#"><i class="icon-globe"></i><span>EN</span></a>
-                                    <ul class="p-dropdown-content">
-                                        <li><a href="#">French</a></li>
-                                        <li><a href="#">Spanish</a></li>
-                                        <li><a href="#">English</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
-                    </div> -->
-                    <!--end: Header Extras-->
+ 
                     <!--Navigation Resposnive Trigger-->
                     <div id="mainMenu-trigger">
                         <a class="lines-button x"><span class="lines"></span></a>
@@ -134,12 +104,10 @@
                                 <!--Right Menu-->
                                 <ul>
                                
-                                   <form action="searchOk" name="search" method="post" onsubmit="return keyword_check()" class="form-inline my-2 my-lg-0 m-t-20 m-r-60 m-d-none" id="mall_serch_form">
-                                    <input name="search" class="form-control mr-sm-2" id="mall_search" placeholder="검색어를 입력해주세요" aria-label="검색어를 입력해주세요" type="search">
-                                    
-                                   <i class="fab fa-sistrix" id="mall_serch_icon"></i>
-                                 
-                                   <i class="fas fa-shopping-cart m-l-15" id="mall_cart"></i> 
+                                   <form action="searchOk" name="search" method="get" onsubmit="return keyword_check()" class="form-inline my-2 my-lg-0 m-t-20 m-r-60 m-d-none" id="mall_serch_form">
+                                   <input name="keyword" value="${keyword }" class="form-control mr-sm-2" id="mall_search" placeholder="검색어를 입력해주세요" aria-label="검색어를 입력해주세요" type="search"> 
+                               	   <i class="fab fa-sistrix" id="mall_serch_icon" ></i>
+                                   <i class="fas fa-shopping-cart m-l-15" id="mall_cart"> </i>
                            		 </form>
                            		
                           

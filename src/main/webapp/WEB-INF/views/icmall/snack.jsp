@@ -18,10 +18,116 @@
 	type="text/css" rel="stylesheet">
 <link href="${pageContext.request.contextPath }/CSS/jaeuk.css"
 	type="text/css" rel="stylesheet">
+		<link href="${pageContext.request.contextPath }/CSS/seoha.css" type="text/css" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+	
 </head>
 
 <body>
-	<jsp:include page="header.jsp" />
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+
+<meta charset="UTF-8">
+    <!-- Document title -->
+    <title>nav</title>
+    <!-- Stylesheets & Fonts -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Pension Reservation</title>
+
+<script type="text/javascript">
+ function keyword_check(){
+  if(document.search.keyword.value==''){ //검색어가 없을 경우  
+  alert('검색어를 입력하세요'); //경고창 띄움 
+  document.search.keyword.focus(); //다시 검색창으로 돌아감 
+  return false;
+  }
+  else return true;
+ }
+</script>  
+
+ <!-- Body Inner -->
+    <div class="body-inner">
+        <!-- Topbar -->
+        <div id="topbar" class="d-xl-block d-lg-block">
+            <div class="container">
+                <div class="row" >
+                    <div class="col-md-12" style="">
+                     <c:choose>
+                       <c:when test="${user == null }">
+                           <ul class="top-menu" style="float:right">
+                               <li><a href="join">회원가입</a></li>
+                               <li><a href="loginForm">로그인</a></li>
+                               <li><a href="serviceCenter">고객센터</a></li>
+                           </ul>
+                       </c:when>
+                       <c:otherwise>
+                           <ul class="top-menu" style="float:right">
+                               <li><a href="/icmall/myPage">마이페이지</a></li>
+                               <li><a href="serviceCenter">고객센터</a></li>
+                           </ul>
+                       </c:otherwise>
+                      </c:choose>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end: Topbar -->
+
+        <!-- Header -->
+        <header id="header" data-transparent="true" class="header-logo-center" style="">
+             <div class="header-inner">
+                <div class="container">
+                    <!--Logo-->
+                    <div id="logo">
+                        <a href="index">
+                            <span class="logo-default">IC MALL</span>
+                          
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="header-inner">
+            <div class="container">
+                   
+                    <!--Navigation Resposnive Trigger-->
+                    <div id="mainMenu-trigger">
+                        <a class="lines-button x"><span class="lines"></span></a>
+                    </div>
+                    <!--end: Navigation Resposnive Trigger-->
+                    <!--Navigation-->
+                    <div id="mainMenu" class="menu-creative">
+                        <div class="container">
+                            <nav>
+                                <!--Left Menu-->
+                                <ul>
+                                    <li><a href="vegetable">채소</a></li>
+                                    <li><a href="fruit">과일</a></li>
+                                    <li><a href="meat">정육</a></li>
+                                    <li class="current"><a href="snack">간식</a></li>
+                                    <li><a href="health">건강식품</a></li>
+                                </ul>
+                                <!--Right Menu-->
+                                <ul>
+                               
+                                   <form action="searchOk" name="search" method="get" onsubmit="return keyword_check()" class="form-inline my-2 my-lg-0 m-t-20 m-r-60 m-d-none" id="mall_serch_form">
+                                   <input name="keyword" value="${keyword }" class="form-control mr-sm-2" id="mall_search" placeholder="검색어를 입력해주세요" aria-label="검색어를 입력해주세요" type="search"> 
+                               	   <i class="fab fa-sistrix" id="mall_serch_icon" ></i>
+                                   <i class="fas fa-shopping-cart m-l-15" id="mall_cart"> </i>
+                           		 </form>
+                           		
+                          
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <!--end: Navigation-->
+                </div>
+            </div>
+        </header>
+        <!-- end: Header -->
 	<!-- Body Inner -->
 	<!-- Content -->
 	<section id="page-content">
