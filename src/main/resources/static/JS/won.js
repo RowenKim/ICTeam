@@ -250,6 +250,8 @@ $(document).ready(function() {
 			//tr.remove();
 			//alert("주문하기 클릭 스크립트");
 			$(this).parent().parent().find("#insertOrder").trigger("click");
+			
+			$(this).parent().parent().find("#deleteOk").trigger("click");
 		});
 	})
 	

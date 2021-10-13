@@ -39,15 +39,7 @@
 
 
 </script>
-<script>
-    function btn_click(str){                             
-        if(str=="insertCheckOutOK"){                                 
-            frm1.action="/insertCheckOutOK";      
-        } else if(str=="deleteOrderOk"){      
-            frm1.action="/deleteOrderOk";      
-        } 
-    }
-</script>
+
 
 
 <body>
@@ -246,8 +238,8 @@
 											</tbody>
 										</table>
 										<div class="text-center">
-										<input type="submit" class="btn" value="결제" onclick="javascript: form.action='/icmall/insertCheckOutOK';"/>   
-                                  <input class="btn" type="submit" value="결제취소" onclick="javascript: form.action='/icmall/deleteOrderOk';"/> 
+										<input type="submit" class="btn" value="결제" onclick="javascript: form.action='/icmall/user/insertCheckOutOK';"/>   
+                                  <input class="btn" type="submit" value="결제취소" onclick="javascript: form.action='/icmall/user/deleteOrderOk';"/> 
 											<!-- <input type="submit" id="insertPay" onsubmit="btn_click(insertCheckOutOK)"  class="btn"
 												value="결제"> -->
 												

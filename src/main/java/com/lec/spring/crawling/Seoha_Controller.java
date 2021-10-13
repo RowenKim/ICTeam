@@ -21,6 +21,7 @@ import com.lec.spring.service.UserService;
 
 
 @Controller
+@RequestMapping("/icmall/**")
 public class Seoha_Controller {
 	
 	private final Vegetable_CrawlingService vegetable_CrawlingService = new Vegetable_CrawlingService();
@@ -45,7 +46,7 @@ public class Seoha_Controller {
 		System.out.println("Seoha_Controller() 생성");
 	}
 	
-	@RequestMapping("/icmall/vegetable")
+	@RequestMapping("/all/vegetable")
 	public String list(Model model) {
 		
 		model.addAttribute("list", vegetableService.list());
@@ -71,7 +72,7 @@ public class Seoha_Controller {
 //    }
 	
 	// 장바구니 리스트
-	@RequestMapping("/icmall/basket")
+	@RequestMapping("/user/basket")
 	public String basket(Model model) {
 	//	System.out.println("찍혀라");
 		
@@ -82,7 +83,7 @@ public class Seoha_Controller {
 	}
 	
 	// 장바구니 삭제 
-	@GetMapping("/icmall/deleteOk")
+	@GetMapping("/user/deleteOk")
 	public String deleteOk(int uid, Model model) {
 		System.out.println("삭제실행");
 		model.addAttribute("result", seoha_BoardService.deleteByUid(uid));
@@ -93,7 +94,7 @@ public class Seoha_Controller {
 	
 	
 	// 주문내역 추가
-	@GetMapping("/icmall/insertOrderOk")
+	@GetMapping("/user/insertOrderOk")
 		public String order(int o_qty[], String o_name[], int o_price[], String o_img[], int m_uid[], Model model) {
 		
 		int result = 0;
@@ -156,7 +157,7 @@ public class Seoha_Controller {
 	@Autowired
 	   UserService userService;
 	
-	@RequestMapping("/icmall/checkOut")
+	@RequestMapping("/user/checkOut")
 	   public String myPage(Model model, Principal principal, UserDTO dto) throws Exception {
 	       if(principal == null) {
 	          model.addAttribute("message", "Hello Spring Security");
@@ -183,7 +184,7 @@ public class Seoha_Controller {
 	   }
 	    
 	// 주문내역 추가
-		@GetMapping("/icmall/insertCheckOutOK")
+		@GetMapping("/user/insertCheckOutOK")
 	//	@ResponseBody
 			public String pay(@Valid PayDTO user, int o_uid[], String p_name[], int p_qty[], String p_img[], int m_uid[], int p_price[],
 					String p_addr1, String p_addr2, String p_phone, String p_message, String p_way, BindingResult result2, Model model) {
@@ -231,7 +232,7 @@ public class Seoha_Controller {
 		
 		}
 		
-		@GetMapping("/icmall/deleteOrderOk")
+		@GetMapping("/user/deleteOrderOk")
 		//	@ResponseBody
 				public String pay(int o_uid[], Model model) {
 				
@@ -269,7 +270,7 @@ public class Seoha_Controller {
 		//	}
 		
 		// 주문내역 리스트
-		@RequestMapping("/icmall/orderList")
+		@RequestMapping("/user/orderList")
 		public String listPay(Model model) {
 		//	System.out.println("찍혀라");
 			
@@ -281,7 +282,7 @@ public class Seoha_Controller {
 		}
 		
 		// 주문내역 상세 페이지
-		@RequestMapping("/icmall/orderDetail")
+		@RequestMapping("/user/orderDetail")
 		public String listDetail(int p_uid, Model model) {
 		//	System.out.println("찍혀라");
 			
@@ -292,7 +293,7 @@ public class Seoha_Controller {
 		}
 		
 		// 상세내역 결제취소로 업데이트 
-		@GetMapping("/icmall/updatePay")
+		@GetMapping("/user/updatePay")
 		public String updatePay(int p_uid, Model model) {
 			System.out.println("업데이트 실행");
 			model.addAttribute("updatePay", seoha_BoardService.updatePay(p_uid));
@@ -302,20 +303,32 @@ public class Seoha_Controller {
 		}
 		
 		//메인 불러오기
-		@RequestMapping("/icmall/index")
-		public String listIndex(Model model) {
-			
-			model.addAttribute("listfruit", seoha_BoardService.selectfruit());
-			model.addAttribute("listvegetable", seoha_BoardService.selectvegetable());
-			
-			System.out.println( "과일 페이지" + seoha_BoardService.selectfruit());
-			model.addAttribute("listmeat", seoha_BoardService.selectmeat());
-			model.addAttribute("listsnack", seoha_BoardService.selectsnack());
-			model.addAttribute("listhealth", seoha_BoardService.selecthealth());
-			
-			System.out.println("list");
-			return "icmall/index";
-		}
+		@RequestMapping("/all/index")
+	      public String listIndex(Model model, Principal principal) {
+	         if(principal == null) {
+	         model.addAttribute("listfruit", seoha_BoardService.selectfruit());
+	         model.addAttribute("listvegetable", seoha_BoardService.selectvegetable());
+	         
+	         System.out.println( "과일 페이지" + seoha_BoardService.selectfruit());
+	         model.addAttribute("listmeat", seoha_BoardService.selectmeat());
+	         model.addAttribute("listsnack", seoha_BoardService.selectsnack());
+	         model.addAttribute("listhealth", seoha_BoardService.selecthealth());
+	          }
+	         else {
+	            model.addAttribute("user", principal.getName());
+	            System.out.println("user : " + principal.getName());
+	            model.addAttribute("listfruit", seoha_BoardService.selectfruit());
+	            model.addAttribute("listvegetable", seoha_BoardService.selectvegetable());
+	            
+	            System.out.println( "과일 페이지" + seoha_BoardService.selectfruit());
+	            model.addAttribute("listmeat", seoha_BoardService.selectmeat());
+	            model.addAttribute("listsnack", seoha_BoardService.selectsnack());
+	            model.addAttribute("listhealth", seoha_BoardService.selecthealth());
+	         }
+	          
+	         System.out.println("list");
+	         return "icmall/index";
+	      }
 
 
 	
