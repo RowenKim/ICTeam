@@ -195,7 +195,7 @@ public class Seoha_Controller {
 			if(result2.hasErrors()) {
 //				 
 				System.out.println("떠라");
-				  return "redirect:/icmall/checkOut";
+				  return "redirect:/icmall/user/checkOut";
 				}
 			else {
 			
