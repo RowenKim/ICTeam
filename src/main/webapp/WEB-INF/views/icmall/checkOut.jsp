@@ -2,16 +2,19 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>장바구니</title>
+<title>주문하기</title>
 <link href="${pageContext.request.contextPath }/CSS/won.css"
 	type="text/css" rel="stylesheet">
 <link href="${pageContext.request.contextPath }/CSS/plugins.css"
 	type="text/css" rel="stylesheet">
 <link href="${pageContext.request.contextPath }/CSS/style.css"
+	type="text/css" rel="stylesheet">
+<link href="${pageContext.request.contextPath }/CSS/seoha.css"
 	type="text/css" rel="stylesheet">
 </head>
 <script src="https://kit.fontawesome.com/ccbdf9af0c.js"
@@ -33,13 +36,25 @@
 		return false;
 	}
 }  // chkDelete
+
+
 </script>
+<script>
+    function btn_click(str){                             
+        if(str=="insertCheckOutOK"){                                 
+            frm1.action="/insertCheckOutOK";      
+        } else if(str=="deleteOrderOk"){      
+            frm1.action="/deleteOrderOk";      
+        } 
+    }
+</script>
+
 
 <body>
 	<jsp:include page="header.jsp" />
 	<!-- Body Inner -->
 	<div class="body-inner">
-	<form action="insertCheckOutOk" method="get">
+	<form name="frm1" action="insertCheckOutOk" method="get">
 
 		<!-- Page title -->
 		<section id="page-title">
@@ -106,14 +121,14 @@
 								<div class="col-lg-3 form-group">
 									<h5>상품 이미지</h5>
 								</div>
-								<div class="col-lg-9 form-group">
+								<div class="col-lg-9 form-group img_height">
 									${list.o_img }
 								</div>
 								<div class="col-lg-3 form-group">
 									<h5>상품 가격</h5>
 								</div>
 								<div class="col-lg-9 form-group">
-									<h5>${list.o_price }</h5>
+									<h5><fmt:formatNumber value="${list.o_price }" pattern="#,###"/></h5>
 								</div>
 								<div class="col-lg-3 form-group">
 									<h5>상품 수량</h5>
@@ -128,6 +143,7 @@
 								<input type="hidden" style="display:none;" name="p_img" value="${list.o_img }">
 								<input type="hidden" style="display:none;" name="p_price" value="${list.o_price }">
 									<input type="hidden" style="display:none;" name="m_uid" value="${list.m_uid }">
+									<input type="hidden" style="display:none;" name="o_uid" value="${list.o_uid }">
 								
 								<c:set var= "sum" value="${sum + (list.o_price * list.o_qty)}"/>
 								
@@ -147,8 +163,8 @@
 								<div class="col-lg-9 form-group">
 									 <a class="btn" data-target="#modal-3" data-toggle="modal" href="#">주소 검색</a>
 									
-									<input type="text" name="p_addr1" class="form-control" placeholder="" value="">
-									<input type="text" name="p_addr2" class="form-control"
+									<input type="text" name="p_addr1" class="form-control addr1" >
+									<input type="text" name="p_addr2" class="form-control addr2"
 										placeholder="상세 주소를 입력해주세요" value="">
 								</div>
 								<div class="col-lg-3 form-group">
@@ -157,14 +173,14 @@
 								<div class="col-lg-9 form-group">
 									
 									
-									<input type="text" name="p_phone" class="form-control" placeholder="" value="">
+									<input type="text" name="p_phone" class="form-control phone" placeholder="" value="">
 									
 								</div>
 								<div class="col-lg-3 form-group">
 									<h5>배송 요청사항</h5>
 								</div>
 								<div class="col-lg-9 form-group">
-									<input type="text" class="form-control" name="p_message"
+									<input type="text" class="form-control shippingtext" name="p_message"
 										placeholder="배송 요청사항을 적어주세요" value="">
 								</div>
 							</div>
@@ -213,8 +229,8 @@
 											<tbody>
 												<tr>
 													<td class="cart-product-name"><strong>주문금액</strong></td>
-													<td class="cart-product-name text-right"><input
-														class="amount text-right" style="border:none;" value="${sum}"></td>
+													<td class="cart-product-name text-right">
+													<fmt:formatNumber value="${sum }" pattern="#,###"/></td>
 												</tr>
 												<tr>
 													<td class="cart-product-name"><strong>배송비</strong></td>
@@ -224,16 +240,20 @@
 												<tr>
 													<td class="cart-product-name"><strong>최종결제금액</strong></td>
 													<td class="cart-product-name text-right"><span
-														class="amount color lead"><input
-														class="amount text-right" style="border:none;" value="${sum}"></span>
+														class="amount color lead"><fmt:formatNumber value="${sum }" pattern="#,###"/></span>
 													</td>
 												</tr>
 											</tbody>
 										</table>
 										<div class="text-center">
-											<input type="submit" id="insertPay" onsubmit="return chkOrder()"  class="btn"
-												value="결제"><a class="btn"
-												>결제 취소</a>
+										<input type="submit" class="btn" value="결제" onclick="javascript: form.action='/icmall/insertCheckOutOK';"/>   
+                                  <input class="btn" type="submit" value="결제취소" onclick="javascript: form.action='/icmall/deleteOrderOk';"/> 
+											<!-- <input type="submit" id="insertPay" onsubmit="btn_click(insertCheckOutOK)"  class="btn"
+												value="결제"> -->
+												
+												<!-- onsubmit="btn_click(insertCheckOutOK)"  -->
+											<!-- <input type="submit" id="deletePay" onsubmit="btn_click(deleteOrderOk)"  class="btn"
+												value="결제취소"> -->
 										</div>
 									</div>
 								</div>

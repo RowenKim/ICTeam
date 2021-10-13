@@ -12,8 +12,8 @@
 	</c:when>
 	<c:otherwise>
 		<script>
-			alert("주문하기 페이지로 이동합니다");
-			location.href = "checkOut";
+			alert("결제가 완료되었습니다.");
+			location.href = "orderList";
 		</script>	
 	</c:otherwise>
 </c:choose>

@@ -49,20 +49,166 @@
 		parameterType="com.lec.spring.domain.OrderDTO"
 		keyProperty="o_uid" useGeneratedKeys="true" keyColumn="o_uid">	
 		INSERT INTO ic_order
-			(o_qty, o_name, o_img, o_price, m_uid, b_uid)
+			(o_qty, o_name, o_img, o_price, m_uid)
 		VALUES
-			(#{o_qty}, #{o_name}, #{o_img}, #{o_price}, #{m_uid}, #{b_uid})
+			(
+			#{o_qty}, #{o_name}, #{o_img}, #{o_price}, #{m_uid}
+			)
 	</insert>
 	
-	<!-- 주문하기 개인정보 불러오기 -->
-	<select id="selectMember" resultType="com.lec.spring.domain.MemberSDTO">
-	SELECT m_uid,
-		m_name,
-		m_phone,
-		m_mail
-	 FROM ic_member
-	 WHERE m_uid=#{m_uid}
+	<!-- 주문하기 불러오기 -->
+	<select id="selectOrder" resultType="com.lec.spring.domain.OrderDTO">
+	SELECT o_uid,
+		o_name,
+		o_qty,
+		o_img,
+		o_price,
+		m_uid
+	 FROM ic_order
 	</select>
+	
+	<!-- 결제하기 추가 -->
+	<insert id="insertPay" flushCache="true"
+		parameterType="com.lec.spring.domain.PayDTO"
+		keyProperty="p_uid" useGeneratedKeys="true" keyColumn="p_uid">	
+		INSERT INTO ic_payment
+			(p_qty, p_way, p_name, p_price, p_img, p_addr1, p_addr2, p_phone, p_message, m_uid)
+		VALUES
+			(
+			#{p_qty}, #{p_way}, #{p_name}, #{p_price}, #{p_img}, #{p_addr1}, #{p_addr2}, #{p_phone}, #{p_message}, #{m_uid}
+			)
+	</insert>
+	
+	<!-- 결제, 결제취소 하면서 order 테이블 삭제 -->
+	<delete id="deleteByUidOrder" flushCache="true">
+		DELETE FROM ic_order WHERE o_uid = #{o_uid}
+	</delete>
+
+	
+	<!-- 주문내역 불러오기 -->
+	<select id="selectPay" resultType="com.lec.spring.domain.PayDTO">
+	SELECT p_uid,
+		p_qty,
+		p_status,
+		p_way,
+		p_name,
+		p_price,
+		p_img,
+		p_addr1,
+		p_addr2,
+		p_phone,
+		p_date,
+		p_message,
+		m_uid
+	 FROM ic_payment
+	</select>
+	
+	<!-- 주문내역 배송상태 불러오기 -->
+	<select id="selectShipping" resultType="com.lec.spring.domain.ShippingDTO">
+	SELECT s_uid,
+		s_status,
+		s_shippingNum,
+		p_uid
+	 FROM ic_shipping
+	</select>
+	
+	<!-- 주문내역 상세 페이지 불러오기 -->
+	<select id="selectByUidPay" resultType="com.lec.spring.domain.PayDTO">
+		SELECT p.p_uid p_uid,
+		p.p_qty p_qty,
+		p.p_status p_status,
+		p.p_way p_way,
+		p.p_name p_name,
+		p.p_price p_price,
+		p.p_img p_img,
+		p.p_addr1 p_addr1,
+		p.p_addr2 p_addr2,
+		p.p_phone p_phone,
+		p.p_date p_date,
+		p.p_message p_message,
+		p.m_uid m_uid
+	    FROM ic_payment p
+		WHERE p.p_uid = #{p_uid}
+	</select>
+	
+	<!-- 상품 상세내역에서 주문취소로 업데이트 -->
+	<update id="updatePay" flushCache="true"
+	parameterType="com.lec.spring.domain.PayDTO">
+		UPDATE ic_payment
+		SET p_status = "주문취소"
+		WHERE p_uid = #{p_uid}
+	</update>
+	
+	<!-- 메인 인덱스 불러오기 -->
+  <select id="selectvegetable" resultType="com.lec.spring.crawling.VegetablesDTO">
+		SELECT 
+			pro_uid, 
+			pro_name, 
+			pro_price, 
+			pro_img, 
+			pro_content
+		FROM 
+			ic_product
+		WHERE
+			pro_kind = "채소" 		
+	</select> 
+	
+	<select id="selectfruit" resultType="com.lec.spring.crawling.VegetablesDTO">
+		SELECT 
+			pro_uid, 
+			pro_name, 
+			pro_price, 
+			pro_img, 
+			pro_content
+		FROM 
+			ic_product
+		WHERE
+			pro_kind = "과일" 		
+	</select>
+	
+	<select id="selectmeat" resultType="com.lec.spring.crawling.VegetablesDTO">
+		SELECT 
+			pro_uid, 
+			pro_name, 
+			pro_price, 
+			pro_img, 
+			pro_content
+		FROM 
+			ic_product
+		WHERE
+			pro_kind = "정육" 		
+	</select>
+	
+	<select id="selectsnack" resultType="com.lec.spring.crawling.VegetablesDTO">
+		SELECT 
+			pro_uid, 
+			pro_name, 
+			pro_price, 
+			pro_img, 
+			pro_content
+		FROM 
+			ic_product
+		WHERE
+			pro_kind = "간식" 		
+	</select>
+	
+	<select id="selecthealth" resultType="com.lec.spring.crawling.VegetablesDTO">
+		SELECT 
+			pro_uid, 
+			pro_name, 
+			pro_price, 
+			pro_img, 
+			pro_content
+		FROM 
+			ic_product
+		WHERE
+			pro_kind = "건강식품" 		
+	</select>
+	
+	
+	
+	
+	
 
 </mapper>
 

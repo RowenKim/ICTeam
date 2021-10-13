@@ -138,6 +138,7 @@ $(document).ready(function() {
 		//alert($(this).is(":checked") );
 
 		total = 0;
+		
 
 		$("input[name='agree']:checked").each(function() {
 			//var count = $(this).siblings().parent().parent().find("input[name='qty']").val();	
@@ -198,19 +199,35 @@ $(document).ready(function() {
 	});      
 	
 	$('#orderBtn2').click(function(){
+		$('.sum').trigger("click");
 		$("input[name='agree']:checked").each(function() {
 			//let tr = $(this).parent().parent();
 			//tr.remove();
-			alert("주문하기 클릭 스크립트");
+			//alert("주문하기 클릭 스크립트");
 			$(this).parent().parent().find("#insertOrder").trigger("click");
 		});
 	})
 	
-
-
-
-
-
-
+	
+	$('.sum').click(function(){
+		
+		
+		//let sumname;
+		$("input[name='agree']:checked").each(function() {
+			//let tr = $(this).parent().parent();
+			//tr.remove();
+			//alert("주문하기 클릭 스크립트");
+			let name = $(this).parent().parent().find("input[name='name']").val();
+		
+			//sumname += name;
+			//alert(name);
+			//alert(sumname);
+		
+			$(this).parent().parent().find("input[name='o_name']").val(name);
+		//	$(this).parent().parent().find("#insertOrder").trigger("click");
+		});
+		//alert(sumname);
+		
+	});
 
 });

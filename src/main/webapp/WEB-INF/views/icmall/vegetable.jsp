@@ -3,6 +3,8 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,7 +50,7 @@
 								<h2>
 									<a href="">${list.pro_name }</a>
 								</h2>
-								<p>${list.pro_price }원</p>
+								<p><fmt:formatNumber value="${list.pro_price }" pattern="#,###"/> 원</p>
 							</div>
 						</div>
 					</div>
