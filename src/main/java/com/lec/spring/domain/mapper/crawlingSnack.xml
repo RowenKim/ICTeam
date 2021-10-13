@@ -296,6 +296,10 @@
 		WHERE r_uid = #{r_uid}
 	</update>
 	
+	<select id="selectAuth" resultType="com.lec.spring.domain.AuthDTO">
+		SELECT m_auth FROM ic_authority WHERE m_id = #{m_id};
+	</select>
+	
 	
 </mapper>
 

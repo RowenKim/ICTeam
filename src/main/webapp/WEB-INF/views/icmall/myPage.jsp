@@ -113,7 +113,7 @@
           </div>
           <div class="col-md-3 col-6 text-center">
             <div class="icon-box effect medium center m-t-50">
-              <div class="icon"> <a href="/icamll/user/webWrite?uid=${dto.m_uid }"><i class="fa fa-location-arrow"></i></a> </div>
+              <div class="icon"> <a href="/icmall/user/webWrite?uid=${dto.m_uid }"><i class="fa fa-location-arrow"></i></a> </div>
               <h3>문의하기</h3>
               <p></p>
             </div>

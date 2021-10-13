@@ -147,6 +147,11 @@ public class UserService {
 			return dao.questionDetailList(uid);
 		}
 
+		// 관리자 답변 삭제
+		public int qustionDelete(int uid) {
+	         
+	         return dao.qustionDelete(uid);
+	      }
 
 
 

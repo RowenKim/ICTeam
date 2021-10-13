@@ -165,10 +165,13 @@
 		*
 		from ic_question q, ic_member m
 		where
-		q.m_uid = m.m_uid
+		<![CDATA[q.m_uid = m.m_uid && q.q_uid = #{param1}]]>
 	</select>
 
-	
+	<delete id="qustionDelete" parameterType="com.lec.spring.domain.QuestionDTO">
+      DELETE FROM ic_question
+      WHERE q_uid = #{q_uid}
+   </delete>
 	
 
 </mapper>

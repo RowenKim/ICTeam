@@ -79,4 +79,7 @@ public interface Won_CrawlingDAO {
 	// 마이페이지 myReview
 	public abstract int updateMyReview(WonProReviewDTO dto);
 	
+	// 관리자 권한 SELECT 
+	public abstract AuthDTO selectAuth(AuthDTO dto);
+	
 }

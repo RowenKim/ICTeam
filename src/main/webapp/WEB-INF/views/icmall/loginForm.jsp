@@ -61,7 +61,7 @@
 							아직 회원이 아니신가요?
 						</span>
 
-						<a class="txt2" href="/icmall/join">
+						<a class="txt2" href="/icmall/all/join">
 							회원가입
 						</a>
 					</div>

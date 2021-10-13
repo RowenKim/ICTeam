@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.lec.spring.domain.AuthDTO;
 import com.lec.spring.domain.WonBasketDTO;
 import com.lec.spring.domain.WonMemberDTO;
 import com.lec.spring.domain.WonProQuestionDTO;
@@ -164,6 +165,10 @@ public class WonService {
 		return dao.updateMyReview(dto);
 	}
 	
+	// 로그인 한 사람 권한 SELECT
+	public AuthDTO selectAuth(AuthDTO dto) {
+		return dao.selectAuth(dto);
+	}
 	
 	
 }

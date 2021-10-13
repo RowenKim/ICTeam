@@ -167,6 +167,12 @@ public class UserDAOImpl implements UserDAO{
 		return mapper.questionDetailList(uid);
 	}
 	
+	@Override
+	public int qustionDelete(int uid) {
+	      
+	      return mapper.qustionDelete(uid);
+	   }
+	
 
 
 

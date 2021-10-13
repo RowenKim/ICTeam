@@ -12,7 +12,7 @@
 	<c:otherwise>
 	<script>
 		alert("장바구니 담기 성공");
-		location.href = "/icmall/all/stockDetail?uid=${dto.pro_uid}";
+		location.href = "/icmall/all/stockDetail?uid=${dtob.pro_uid}";
 	</script>
 	</c:otherwise>
 </c:choose>

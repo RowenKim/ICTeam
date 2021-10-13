@@ -38,6 +38,7 @@
 
   </head>
 
+  <form name="qustionDelete" action="/icmall_admin/admin/qustionDelete" method="Post">
   <body id="page-top">
     <nav class="navbar navbar-expand navbar-dark navtopbg static-top">
 
@@ -47,9 +48,8 @@
         <i class="fas fa-bars"></i>
       </button>
       <!-- Nav bar -->
-      <form class="ml-auto text-light navtopfont"> 
+ 
       <span>I.C Mall 관리자</span>
-      </form>
        <ul class="navbar-nav ml-auto ml-md-0">
           <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -196,9 +196,9 @@
                       <th>답변</th>
                     </tr>
                   </thead>
-                    <tr>
                     <c:forEach var="list" items="${question }">
-                      <td style="vertical-align:middle"><input type="checkbox"/></td>
+                    <tr>
+                      <td style="vertical-align:middle"><input type="checkbox" name="RowCheck" value="${list.q_uid }"/></td>
                       <td>${list.q_uid }</td>
                       <td>${list.q_title }</td>
                       <td>${list.m_name }</td>
@@ -207,7 +207,7 @@
                       <td><span class="badge badge-danger w-75 py-2">${list.q_status }</span></td>     
                       <td>${list.q_answerDate}</td>
                       <td>
-                      <a class="btn btn-primary btncolor-sm btn-sm" href="/icmall_admin/admin/questionDetailList" role="button">답변</a>
+                      <a class="btn btn-primary btncolor-sm btn-sm" href="/icmall_admin/admin/questionDetailList?uid=${list.q_uid }" role="button">답변</a>
                       <input type="hidden" style="" name="q_uid" value="${list.q_uid }">
                       </td>  
                     </tr>  
@@ -233,7 +233,7 @@
 				        게시물을 정말 삭제하시겠습니까?
 				      </div>
 				      <div class="modal-footer">
-				      	<button type="button" class="btn btn-primary">삭제하기</button>
+				      	<button type="button" class="btn btn-primary" onClick="location.href='qustionDelete'">삭제하기</button>
 				       	<button type="button" class="btn btn-secondary" data-dismiss="modal">취소하기</button>
 				      </div>
 				    </div>
@@ -242,7 +242,7 @@
               </div>
              </div>
            </div>
-          
+   
         
        
         
@@ -290,6 +290,7 @@
         </div>
       </div>
     </div>
+   
 
     <!-- Bootstrap core JavaScript-->
     <script src="${pageContext.request.contextPath }/admin/vendor/jquery/jquery.min.js"></script>
@@ -313,5 +314,5 @@
 	<script src="${pageContext.request.contextPath }/JS/admin.js"></script>
 	
   </body>
-
+ </form>
 </html>
