@@ -99,7 +99,7 @@ function chkDelete(uid){
 									<input type="hidden" style="" name="o_price" value="${list.b_price }">
 								<%-- 	<input type="text" style="" name="o_img" value="'${list.b_img }'"> --%>
 									<input type="hidden" style="" name="name" value="${list.b_proName }">
-									<textarea name="o_img">${list.b_img }</textarea>
+									<textarea style="display:none;" name="o_img">${list.b_img }</textarea>
 									<input type="hidden" style="" name="m_uid" value="${list.m_uid }">
 									<input type="hidden" name="o_name" class="sumname" value="">
 										<div id="deleteOk" onclick="chkDelete(${list.b_uid })"></div>

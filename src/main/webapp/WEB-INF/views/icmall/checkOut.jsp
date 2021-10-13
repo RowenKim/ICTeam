@@ -131,7 +131,7 @@
 									value="${list.o_name }">
 								<input type="hidden" style="display: none;" name="p_qty"
 									value="${list.o_qty }">
-								<textarea name="p_img">${list.o_img }</textarea>
+								<textarea style="display:none;" name="p_img">${list.o_img }</textarea>
 								<input type="hidden" style="display: none;" name="p_price"
 									value="${list.o_price }">
 								<input type="hidden" style="display: none;" name="m_uid"
@@ -143,8 +143,7 @@
 
 							</c:forEach>
 							<div class="space"></div>
-							<div class="col-lg-12"
-								style="margin-bottom: 10px; border-bottom: 1px solid rgba(0, 0, 0, .1) !important;">
+							<div class="col-lg-12">
 								<h4 class="upper">배송 정보</h4>
 								<h6>배송 휴무일: 택배배송(일요일)</h6>
 							</div>

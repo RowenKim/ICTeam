@@ -1,6 +1,7 @@
 package com.lec.spring.crawling;
 
 import java.io.IOException;
+import java.security.Principal;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -20,6 +21,7 @@ import lombok.RequiredArgsConstructor;
 
 
 @Controller
+@RequestMapping("/icmall/**")
 public class Fruit_Controller {
 	
 	
@@ -36,12 +38,17 @@ public class Fruit_Controller {
 		System.out.println("Fruit_Controller() 생성");
 	}
 
-	@RequestMapping("/icmall/fruit")
-	public String fruit(Model model){
-		
-		System.out.println("컨트롤러창 뜸");
-		model.addAttribute("list", jaeukBoardService.list());
-		
+	@RequestMapping("/all/fruit")
+	public String fruit(Model model, Principal principal){
+		 if(principal == null) {
+			 model.addAttribute("message", "Hello Spring Security");
+			 System.out.println("실패");
+		 }
+		 else {
+			 model.addAttribute("user", principal.getName());
+			 System.out.println("user : " + principal.getName());
+		 }
+		 	
 		
 		return "icmall/fruit";
 	}
