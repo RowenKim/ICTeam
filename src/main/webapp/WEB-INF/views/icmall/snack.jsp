@@ -155,7 +155,7 @@
 				<c:forEach var="dto" items="${list }" begin="3" end="18">
 						<div class="post-item border" style="height:440px;">
 							<div class="post-image">
-                                <a href="stockDetail?uid=${dto.pro_uid }">
+                                <a href="/icmall/all/stockDetail?uid=${dto.pro_uid }">
                                     ${dto.pro_img}
                                 </a>
                             </div>

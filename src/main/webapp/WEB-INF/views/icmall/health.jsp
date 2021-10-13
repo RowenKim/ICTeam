@@ -148,7 +148,7 @@
 		                            </div>
 		                           	<div class="post-item-description">
 										<h2>
-											<a href="stockDetail?uid=${dto.pro_uid }">${dto.pro_name}</a>
+											<a href="/icmall/all/stockDetail?uid=${dto.pro_uid }">${dto.pro_name}</a>
 										</h2>
 										<h3>${dto.pro_price} 원</h3>
 									</div>
