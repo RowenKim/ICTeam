@@ -86,7 +86,7 @@ function chkSubmit(){
 										<!-- <td class="cart-product-remove"><a href="#"><i
 												class="fa fa-times"></i></a></td> -->
 										<!-- <td><input type="checkbox" name="agree" class="basketChk" /></td> -->
-										<td rowspan="3" class="cart-product-thumbnail" style="width: 10%;"> ${listPay[0].p_img }
+										<td rowspan="3" class="cart-product-thumbnail" style="width: 10%;"> ${listPay[0].p_img }">
 										</td>
 										<td class="cart-product-description" style="width: 70%; padding-bottom:0 !important;">
 											${listPay[0].p_name }
