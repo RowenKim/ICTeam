@@ -6,6 +6,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+
+
 @Repository
 public class Jin_CrawlingDAOImpl implements Jin_CrawlingDAO {
 	
@@ -27,6 +29,24 @@ public class Jin_CrawlingDAOImpl implements Jin_CrawlingDAO {
 	public List<Jin_CrawlingDTO> selectMeat() {
 		return mapper.selectMeat();
 	}
+
+	@Override
+	public List<Jin_CrawlingDTO> searchOk(String search) {
+		return mapper.searchOk(search);
+	}
+
+//	@Override
+//	public List<Jin_CrawlingDTO> getsearchOkList(Search search) throws Exception {
+//		// TODO Auto-generated method stub
+//		return sqlSession.selectList("com.freehoon.web.board.boardMapper.getBoardList", search);
+//
+//	}
+
+//	@Override
+//	public int getsearchOkListCnt(Search search) throws Exception {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
 
 
 //
