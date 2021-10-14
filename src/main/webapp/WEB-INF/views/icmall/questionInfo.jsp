@@ -32,8 +32,8 @@
 <body>
 <jsp:include page="header.jsp" />
 	
-	<section id="page-content" class="centerSetting">
-		<div class="content col-lg-10">
+	<section id="page-content" class="">
+		<div class="content">
 		<table class="table">
 					<tbody id="q_table">
 						<tr>

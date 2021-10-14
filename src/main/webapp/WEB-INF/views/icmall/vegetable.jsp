@@ -116,8 +116,8 @@
                                 <ul>
                                
                                    <form action="searchOk" name="search" method="get" onsubmit="return keyword_check()" class="form-inline my-2 my-lg-0 m-t-20 m-r-60 m-d-none" id="mall_serch_form">
-                                   <input name="keyword" class="form-control mr-sm-2" id="mall_search" placeholder="검색어를 입력해주세요" aria-label="검색어를 입력해주세요" type="search"> 
-                               	   <i class="fab fa-sistrix" id="mall_serch_icon" ></i>
+                                   <input font-size:16px; name="keyword" class="form-control mr-sm-2" id="mall_search" placeholder="검색어를 입력해주세요" aria-label="검색어를 입력해주세요" type="search"> 
+                               	   <i style="top:12px !important" class="fab fa-sistrix" id="mall_serch_icon" ></i>
                                    <i class="fas fa-shopping-cart m-l-15" id="mall_cart"> </i>
                            		 </form>
                            		
@@ -156,7 +156,7 @@
 				<c:forEach var="list" items="${list }" begin="4" end="15">
 					<div class="post-item border" style="height:440px !important;">
 						<div class="post-item-wrap">
-							<div class="post-image">
+							<div class="post-image index_img">
 								<a href="stockDetail?uid=${list.pro_uid }">${list.pro_img } </a>
 							</div>
 							<div class="post-item-description" style="height:170px;">

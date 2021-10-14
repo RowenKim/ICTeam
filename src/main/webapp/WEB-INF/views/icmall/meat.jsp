@@ -103,9 +103,9 @@
                             <nav>
                                 <!--Left Menu-->
                                 <ul>
-                                    <li><a href="/icmall/all/vegetable">채소</a></li>
+                                    <li ><a href="/icmall/all/vegetable">채소</a></li>
                                     <li><a href="/icmall/all/fruit">과일</a></li>
-                                    <li class="/icmall/all/current"><a href="meat">정육</a></li>
+                                    <li class="current"><a href="/icmall/all/meat">정육</a></li>
                                     <li><a href="/icmall/all/snack">간식</a></li>
                                     <li><a href="/icmall/all/health">건강식품</a></li>
                                 </ul>
@@ -114,7 +114,7 @@
                                
                                    <form action="searchOk" name="search" method="get" onsubmit="return keyword_check()" class="form-inline my-2 my-lg-0 m-t-20 m-r-60 m-d-none" id="mall_serch_form">
                                    <input name="keyword"  class="form-control mr-sm-2" id="mall_search" placeholder="검색어를 입력해주세요" aria-label="검색어를 입력해주세요" type="search"> 
-                               	   <i class="fab fa-sistrix" id="mall_serch_icon" ></i>
+                               	   <i style="top:12px !important" class="fab fa-sistrix" id="mall_serch_icon" ></i>
                                    <i class="fas fa-shopping-cart m-l-15" id="mall_cart"> </i>
                            		 </form>
                            		
