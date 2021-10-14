@@ -126,7 +126,7 @@
 						<!--Shop products Carousel -->
 						<h2 class="mb-4">채소</h2>
 						<div class="carousel" data-items="4">
-							<c:forEach var="list" items="${listvegetable }" begin="1" end="6">
+							<c:forEach var="list" items="${listvegetable }" begin="4" end="10">
 								<!-- porduct start -->
 								<div class="product">
 									<div class="product-image index_img">

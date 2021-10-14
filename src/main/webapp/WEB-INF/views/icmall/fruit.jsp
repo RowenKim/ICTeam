@@ -152,7 +152,7 @@
                 <!-- Blog -->
                 <div id="blog" class="grid-layout post-4-columns m-b-30" data-item="post-item">
                     <!-- Post item-->
-                   <c:forEach var="dto" items="${list }">
+                   <c:forEach var="dto" items="${list }" begin="3" end="14">
                     <div class="post-item border" style="height: 440px !important;">
                         <div class="post-item-wrap">
                             <div class="post-image">

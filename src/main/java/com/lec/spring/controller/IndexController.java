@@ -325,18 +325,18 @@ public class IndexController {
 		
 		
 		// 고객센터
-		@RequestMapping("all/serviceCenter")
-		public String serviceCenter(Model model, Principal principal, UserDTO dto) {
-			 if(principal == null) {
-				 model.addAttribute("message", "Hello Spring Security");
-				 System.out.println("실패");
-			 }
-			 else {
-				 model.addAttribute("user", principal.getName());
-				 System.out.println("user : " + principal.getName());
-			 }
-			return "icmall/serviceCenter";
-		}
+//		@RequestMapping("all/serviceCenter")
+//		public String serviceCenter(Model model, Principal principal, UserDTO dto) {
+//			 if(principal == null) {
+//				 model.addAttribute("message", "Hello Spring Security");
+//				 System.out.println("실패");
+//			 }
+//			 else {
+//				 model.addAttribute("user", principal.getName());
+//				 System.out.println("user : " + principal.getName());
+//			 }
+//			return "icmall/serviceCenter";
+//		}
 		
 			
 		

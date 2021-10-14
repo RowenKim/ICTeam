@@ -56,7 +56,7 @@
          <h4>
             답변내용
          </h4>
-         <h6 style="padding-bottom:150px;">→ ${list[0].q_content }</h6>
+         <h6 style="padding-bottom:150px;">→ ${list[0].q_answer }</h6>
          </div>
          <div class="row">
             <div class="col-lg-12">
