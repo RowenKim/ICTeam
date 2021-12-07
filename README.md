@@ -26,7 +26,7 @@
 </br>
 
 ## 3. ERD 설계
-![ERD](https://user-images.githubusercontent.com/65885458/144964958-a7af2267-ffef-4019-b87b-af70776ca96d.png)
+![Uploading ERD.png…]()
 
 
 ## 4. 전체 흐름
