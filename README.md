@@ -43,7 +43,8 @@
 <details>
 <summary><b>크롤링, DB 저장 부분</b></summary>
 <div markdown="1">
-![image](https://user-images.githubusercontent.com/65885458/144969883-1015103f-6f6d-46ef-9413-20c68cea20e7.png)
+<img width="755" alt="crawlling" src="https://user-images.githubusercontent.com/65885458/144970413-d4086ede-4ef0-4fe1-92bc-7cec1a4e6220.png">
+
 
 </div>
 </details>
@@ -53,7 +54,7 @@
 <summary>체크한 상품들만 주문하기 DB에 넣기</summary>
 <div markdown="1">
 
-![image](https://user-images.githubusercontent.com/65885458/144969628-61df1795-229c-4d39-ace4-db109039e475.png)
+<img width="755" alt="basketDB" src="https://user-images.githubusercontent.com/65885458/144970632-121dd1f8-3268-4261-bd7a-c02b62d2d942.png">
 
 </div>
 </details>
@@ -61,7 +62,8 @@
 <details>
 <summary> 로그인한 구매자의 정보 불러오기</summary>
 <div markdown="1">
-![image](https://user-images.githubusercontent.com/65885458/144969578-874f599c-4f77-4f4f-9563-323b3f3fa3d1.png)
+<img width="755" alt="login" src="https://user-images.githubusercontent.com/65885458/144970680-02bc52eb-78e1-40ec-a2ca-96768cbe4429.png">
+
   
 </div>
 </details>
