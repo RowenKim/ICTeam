@@ -25,15 +25,19 @@
 
 </br>
 
-## 3. ERD 설계
+## 3. 설계 구조
+<img width="686" alt="스크린샷 2021-12-10 오후 3 22 31" src="https://user-images.githubusercontent.com/65885458/145676079-71945684-5a36-4101-bd0f-04a576f8ccf0.png">
+
+
+## 4. ERD 설계
 <img width="750" alt="ERD" src="https://user-images.githubusercontent.com/65885458/144968797-60854f86-6516-4b11-af2f-964f372186db.png">
 
 
-## 4. 전체 흐름
+## 5. 전체 흐름
 <img width="755" alt="전체흐름" src="https://user-images.githubusercontent.com/65885458/144968257-f1465c7c-bb16-4e26-bdd1-c1323ef91a91.png">
 
 
-## 5. 핵심 트러블 슈팅
+## 6. 핵심 트러블 슈팅
 ### 자바 크롤링 문제
 - 쇼핑몰에서 보여줄 상품들의 DB를 구축해야 했습니다.
 
@@ -49,7 +53,7 @@
 </div>
 </details>
 
-## 6. 그 외 트러블 슈팅
+## 7. 그 외 트러블 슈팅
 <details>
 <summary>체크한 상품들만 주문하기 DB에 넣기</summary>
 <div markdown="1">
@@ -70,6 +74,6 @@
 
 </br>
 
-## 6. 회고 / 느낀점
+## 8. 회고 / 느낀점
 >프로젝트 개발 회고 글
   - 서하 : https://blog.naver.com/bha6050/222588520851
